@@ -1,0 +1,135 @@
+#bannerSection image {
+  width: 750rpx;
+  height: 375rpx;
+}
+
+.section {
+  position: relative;
+}
+
+.section .title {
+  font-size: 40rpx;
+  margin-bottom: 20rpx;
+  font-weight: bolder;
+}
+
+.section .showMore {
+  position: absolute;
+  color: silver;
+  top: 40rpx;
+  right: 40rpx;
+  font-size: 25rpx;
+}
+
+.projects {
+  white-space: nowrap;
+  display: flex;
+  width: 100%;
+}
+
+.project {
+  height: 375rpx;
+  margin-right: 15rpx;
+  background-color: purple;
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 300px;
+  height: 200px;
+}
+
+.projects .project image {
+  width: 100%;
+  height: 100%;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tags .tag {
+  height: 220rpx;
+  width: 220rpx;
+  text-align: center;
+  margin-right: 15rpx;
+  position: relative;
+}
+
+.tags .tag:last-child {
+  margin-right: 0;
+}
+
+.tags .tag image {
+  width: 100%;
+  height: 100%;
+}
+
+.tags .tag .title {
+  color: white;
+  position: absolute;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  top: 95rpx;
+  left: 0;
+  width: 220rpx;
+}
+
+.hotPanoramas {
+  margin-top: 50rpx;
+}
+
+.hotPanoramas .hotPanorama {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 150rpx;
+  margin-bottom: 15rpx;
+  padding-bottom: 15rpx;
+  border-bottom: solid 0.5px #f0f0f0;
+}
+
+.hotPanoramas .hotPanorama:last-child
+{
+  border-bottom: none;
+}
+
+.hotPanoramas .hotPanorama .left {
+  width: 340rpx;
+  margin-right: 10rpx;
+}
+
+.hotPanoramas .hotPanorama .left .title {
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+
+.hotPanoramas .hotPanorama .left .status {
+  position: absolute;
+  left: 0;
+  bottom: 15rpx;
+  color: silver;
+  font-size: 20rpx;
+}
+
+.hotPanoramas .hotPanorama .left .status .item {
+  display: inline-block;
+}
+
+.hotPanoramas .hotPanorama .left .status .item:first-child {
+  margin-right: 60rpx;
+}
+
+.hotPanoramas .hotPanorama .left .status .item .iconfont {
+  margin-right: 5rpx;
+}
+
+.hotPanoramas .hotPanorama .right {
+  width: 340rpx;
+}
+
+.hotPanoramas .hotPanorama .right image {
+  width: 100%;
+  height: 100%;
+}

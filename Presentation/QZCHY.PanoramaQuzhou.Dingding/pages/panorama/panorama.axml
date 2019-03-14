@@ -1,0 +1,1 @@
+<web-view id="web-view-1" src="http://qzch.qz.gov.cn:8080/ycxq/" onMessage="test"></web-view>

@@ -1,0 +1,37 @@
+{
+  "pages": [    
+    "pages/home/home",
+    "pages/index/index",
+    "pages/discovery/discovery",
+    "pages/map/map",
+    "pages/panorama/panorama"
+  ],
+  "window": {
+    "defaultTitle": "全景衢州"
+  },
+  "tabBar": {
+    "textColor": "#dddddd",
+    "selectedColor": "#49a9ee",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/discovery/discovery",
+        "name": "发现",
+        "icon": "resources/images/icons/discovery.png",
+        "activeIcon": "resources/images/icons/discovery_selected.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "name": "全景",
+        "icon": "resources/images/icons/pano.png",
+        "activeIcon": "resources/images/icons/pano_selected.png"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "name": "周边",
+        "icon": "resources/images/icons/nav.png",
+        "activeIcon": "resources/images/icons/nav_selected.png"
+      }
+    ]
+  }
+}

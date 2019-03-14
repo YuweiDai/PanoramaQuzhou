@@ -1,0 +1,6 @@
+<view class="page">
+  <view class="panorama"></view>
+  <view class="pano_title">全景图测试123123123123122323233</view>
+  <view class="playBtn"></view>
+  <view class="tags"></view>
+</view>

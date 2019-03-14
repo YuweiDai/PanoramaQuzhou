@@ -1,0 +1,16 @@
+<view id="pano_viewer" class="icon-eye-open">
+  <view id="cube_box">  
+    <view id="cube">
+      <image class="front" src="./../../resources/images/pano_f.jpg" width="3000" height="3000"/> 
+      <image class="left" src="./../resources/images/pano_l.jpg" width="3000" height="3000"/>
+      <image class="right" src="./../resources/images/pano_r.jpg" width="3000" height="3000"/>
+      <image class="back" src="./../resources/images/pano_b.jpg" width="3000" height="3000"/>
+      <image class="top" src="./../resources/images/pano_t.jpg" width="3000" height="3000"/>
+      <image class="bottom" src="./../resources/images/pano_b.jpg" width="3000" height="3000"/>
+    </view>
+  </view>
+</view>
+   
+
+
+

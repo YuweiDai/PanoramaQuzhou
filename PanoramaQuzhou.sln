@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{4B183258-B901-4CCE-B947-43F41B2AD9D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QZCHY.PanoramaQuzhou.Core", "Libraries\QZCHY.PanoramaQuzhou.Core\QZCHY.PanoramaQuzhou.Core.csproj", "{60DF043A-BDFB-4E24-8451-194451712B89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QZCHY.PanoramaQuzhou.Data", "Libraries\QZCHY.PanoramaQuzhou.Data\QZCHY.PanoramaQuzhou.Data.csproj", "{BC0ECBA4-1443-4220-A83D-60219F7D87E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QZCHY.PanoramaQuzhou.Services", "Libraries\QZCHY.PanoramaQuzhou.Services\QZCHY.PanoramaQuzhou.Services.csproj", "{C9922909-1C56-4309-8E92-FE74CEEBF209}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{14AD81F2-752C-47C7-AC06-DAB77DCE9E35}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QZCHY.PanoramaQuzhou.Dingding", "Presentation\QZCHY.PanoramaQuzhou.Dingding\", "{15A05002-6642-4EC2-9CB3-9D90FEE647BD}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_13316"
+		Debug.AspNetCompiler.PhysicalPath = "Presentation\QZCHY.PanoramaQuzhou.Dingding\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_13316\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_13316"
+		Release.AspNetCompiler.PhysicalPath = "Presentation\QZCHY.PanoramaQuzhou.Dingding\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_13316\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "13316"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60DF043A-BDFB-4E24-8451-194451712B89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60DF043A-BDFB-4E24-8451-194451712B89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60DF043A-BDFB-4E24-8451-194451712B89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60DF043A-BDFB-4E24-8451-194451712B89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC0ECBA4-1443-4220-A83D-60219F7D87E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC0ECBA4-1443-4220-A83D-60219F7D87E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC0ECBA4-1443-4220-A83D-60219F7D87E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC0ECBA4-1443-4220-A83D-60219F7D87E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9922909-1C56-4309-8E92-FE74CEEBF209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9922909-1C56-4309-8E92-FE74CEEBF209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9922909-1C56-4309-8E92-FE74CEEBF209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9922909-1C56-4309-8E92-FE74CEEBF209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A05002-6642-4EC2-9CB3-9D90FEE647BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A05002-6642-4EC2-9CB3-9D90FEE647BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A05002-6642-4EC2-9CB3-9D90FEE647BD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A05002-6642-4EC2-9CB3-9D90FEE647BD}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{60DF043A-BDFB-4E24-8451-194451712B89} = {4B183258-B901-4CCE-B947-43F41B2AD9D8}
+		{BC0ECBA4-1443-4220-A83D-60219F7D87E9} = {4B183258-B901-4CCE-B947-43F41B2AD9D8}
+		{C9922909-1C56-4309-8E92-FE74CEEBF209} = {4B183258-B901-4CCE-B947-43F41B2AD9D8}
+		{15A05002-6642-4EC2-9CB3-9D90FEE647BD} = {14AD81F2-752C-47C7-AC06-DAB77DCE9E35}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F3AD3A3-95B8-40F2-B49F-B6C97FA303D0}
+	EndGlobalSection
+EndGlobal
