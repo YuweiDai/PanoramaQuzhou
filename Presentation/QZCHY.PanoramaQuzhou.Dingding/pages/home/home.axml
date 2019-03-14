@@ -1,12 +1,19 @@
-<view id="pano_viewer" class="icon-eye-open">
-  <view id="cube_box">  
-    <view id="cube">
-      <view class="front" style="background-image:url(../../resources/images/pano_f.JPG)" width="3000" height="3000"> </view>
-      <view class="left" style="background-image:url(../../resources/images/pano_l.JPG)" width="3000" height="3000"> </view>
-      <view class="right" style="background-image:url(../../resources/images/pano_r.JPG)" width="3000" height="3000">  </view>
-      <view class="back" style="background-image:url(../../resources/images/pano_b.JPG)" width="3000" height="3000"> </view>
-      <view class="top" style="background-image:url(../../resources/images/pano_u.JPG)" width="3000" height="3000">  </view>
-      <view class="bottom" style="background-image:url(../../resources/images/pano_d.JPG)" width="3000" height="3000"> </view>
+<view class="page">
+  <view id="pano_viewer" class="icon-eye-open" onTouchStart="touchStart">
+    <view id="cube_box" >
+      <view id="cube">
+        <image class="front" src="../../resources/images/pano_f.JPG" />
+        <image class="left" src="../../resources/images/pano_l.JPG" />
+        <image class="right" src="../../resources/images/pano_r.JPG" />
+        <image class="back" src="../../resources/images/pano_b.JPG" />
+        <image class="top" src="../../resources/images/pano_u.JPG" />
+        <image class="bottom" src="../../resources/images/pano_d.JPG" />
+      </view>
     </view>
   </view>
+
+
+  <view class="pano_title">盈川小区全景图</view>
+  <view class="playBtn">    <text class="iconfont icon-PlayFilled"></text></view>
+  <view class="tags"></view>  
 </view>

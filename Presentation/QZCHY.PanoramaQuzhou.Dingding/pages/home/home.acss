@@ -1,63 +1,4 @@
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, view, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-html {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a view {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
-button {
-  cursor: pointer;
-}
+ 
 
 @-webkit-keyframes roll {
   0% {
@@ -67,7 +8,7 @@ button {
     -webkit-transform: rotateX(0) rotateY(360deg) rotateZ(0);
   }
   100% {
-    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(0);
+    -webkit-transform: rotateX(0) rotateY(360deg) rotateZ(0);
   }
 }
 @-moz-keyframes roll {
@@ -78,7 +19,7 @@ button {
     -moz-transform: rotateX(0) rotateY(360deg) rotateZ(0);
   }
   100% {
-    -moz-transform: rotateX(360deg) rotateY(360deg) rotateZ(0);
+    -moz-transform: rotateX(0) rotateY(360deg) rotateZ(0);
   }
 }
 @keyframes roll {
@@ -89,57 +30,25 @@ button {
     transform: rotateX(0) rotateY(360deg) rotateZ(0);
   }
   100% {
-    transform: rotateX(360deg) rotateY(360deg) rotateZ(0);
+    transform: rotateX(0) rotateY(360deg) rotateZ(0);
   }
 }
-button {
-  display: block;
-  float: left;
-  padding: 5px 10px;
-  margin: 5px 0 0 5px;
-  font-size: 14px;
-  -moz-transform: translateZ(9999px);
-  -ms-transform: translateZ(9999px);
-  -webkit-transform: translateZ(9999px);
-  transform: translateZ(9999px);
-}
 
-body {
-  min-width: 740px;
-  font-family: 'Roboto Slab', Sans-serif;
-  -webkit-font-smoothing: antialiased;
-  margin: 0;
-  padding: 0;
-  background: #ccc url("https://s.cdpn.io/19243/textured_paper.jpg") repeat;
-}
 
-#pano_viewer {
-  outline: 3px solid #0095d9;
-  cursor: move;
+#pano_viewer {  
   background-size: cover;
-  position: absolute;
-  text-align: center;
-  font-size: 400px;
-  line-height: 400px;
-  left: 50%;
-  top: 50%;
-  margin-left: -350px;
-  margin-top: -200px;
-  width: 700px;
-  height: 400px;
+  position: relative;   
+  height: 100vh;
   overflow: hidden;
-}
-#pano_viewer:focus {
-  cursor: move;
-}
+} 
 
 #cube_box {
   position: absolute;
   left: 0;
   top: 0;
-  -moz-perspective: 600px;
-  -webkit-perspective: 600px;
-  perspective: 600px;
+  -moz-perspective: 400px;
+  -webkit-perspective: 400px;
+  perspective: 400px;
   -moz-transform-origin: 1200px 1200px 0 50%;
   -ms-transform-origin: 1200px 1200px 0 50%;
   -webkit-transform-origin: 1200px 1200px 0 50%;
@@ -175,7 +84,7 @@ body {
   -moz-animation: roll 20s linear infinite;
   animation: roll 20s linear infinite;
 }
-#cube view {
+#cube image {
   position: absolute;
   opacity: 0.8;
   background-color: rgba(238, 238, 238, 0.7);
@@ -188,39 +97,72 @@ body {
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
-#cube view.front {
+#cube .front {
   -moz-transform: translate3d(0, 0, -600px);
   -ms-transform: translate3d(0, 0, -600px);
   -webkit-transform: translate3d(0, 0, -600px);
   transform: translate3d(0, 0, -600px);
 }
-#cube view.left {
+#cube image.left {
   -moz-transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, -600px);
   -ms-transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, -600px);
   -webkit-transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, -600px);
   transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, -600px);
 }
-#cube view.right {
+#cube image.right {
   -moz-transform: rotate3d(0, 1, 0, -90deg) translate3d(0, 0, -600px);
   -ms-transform: rotate3d(0, 1, 0, -90deg) translate3d(0, 0, -600px);
   -webkit-transform: rotate3d(0, 1, 0, -90deg) translate3d(0, 0, -600px);
   transform: rotate3d(0, 1, 0, -90deg) translate3d(0, 0, -600px);
 }
-#cube view.back {
+#cube image.back {
   -moz-transform: rotate3d(0, 1, 0, 180deg) translate3d(0, 0, -600px);
   -ms-transform: rotate3d(0, 1, 0, 180deg) translate3d(0, 0, -600px);
   -webkit-transform: rotate3d(0, 1, 0, 180deg) translate3d(0, 0, -600px);
   transform: rotate3d(0, 1, 0, 180deg) translate3d(0, 0, -600px);
 }
-#cube view.top {
+#cube image.top {
   -moz-transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, -600px);
   -ms-transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, -600px);
   -webkit-transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, -600px);
   transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, -600px);
 }
-#cube view.bottom {
+#cube image.bottom {
   -moz-transform: rotate3d(1, 0, 0, 90deg) translate3d(0, 0, -600px);
   -ms-transform: rotate3d(1, 0, 0, 90deg) translate3d(0, 0, -600px);
   -webkit-transform: rotate3d(1, 0, 0, 90deg) translate3d(0, 0, -600px);
   transform: rotate3d(1, 0, 0, 90deg) translate3d(0, 0, -600px);
+}
+
+.pano_title {
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 500;
+  position: absolute;
+  top: 30rpx;
+  left: 175rpx;
+  width: 400rpx;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.playBtn
+{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -100rpx;
+  margin-top: -100rpx;
+  height: 200rpx;
+  width:200rpx;
+  color: black;
+  opacity :0.8;
+}
+
+.playBtn .iconfont
+{
+  font-size: 200rpx;
 }
