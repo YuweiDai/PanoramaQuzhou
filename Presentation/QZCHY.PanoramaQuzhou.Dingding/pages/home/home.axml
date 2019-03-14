@@ -1,16 +1,12 @@
 <view id="pano_viewer" class="icon-eye-open">
   <view id="cube_box">  
     <view id="cube">
-      <image class="front" src="./../../resources/images/pano_f.jpg" width="3000" height="3000"/> 
-      <image class="left" src="./../resources/images/pano_l.jpg" width="3000" height="3000"/>
-      <image class="right" src="./../resources/images/pano_r.jpg" width="3000" height="3000"/>
-      <image class="back" src="./../resources/images/pano_b.jpg" width="3000" height="3000"/>
-      <image class="top" src="./../resources/images/pano_t.jpg" width="3000" height="3000"/>
-      <image class="bottom" src="./../resources/images/pano_b.jpg" width="3000" height="3000"/>
+      <view class="front" style="background-image:url(../../resources/images/pano_f.JPG)" width="3000" height="3000"> </view>
+      <view class="left" style="background-image:url(../../resources/images/pano_l.JPG)" width="3000" height="3000"> </view>
+      <view class="right" style="background-image:url(../../resources/images/pano_r.JPG)" width="3000" height="3000">  </view>
+      <view class="back" style="background-image:url(../../resources/images/pano_b.JPG)" width="3000" height="3000"> </view>
+      <view class="top" style="background-image:url(../../resources/images/pano_u.JPG)" width="3000" height="3000">  </view>
+      <view class="bottom" style="background-image:url(../../resources/images/pano_d.JPG)" width="3000" height="3000"> </view>
     </view>
   </view>
 </view>
-   
-
-
-
