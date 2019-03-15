@@ -1,3 +1,11 @@
-<view class="btn-area">
-  <navigator url="../index/index" hover-class="navigator-hover">跳转到新页面</navigator>
-</view>
+  
+<scroll-view scroll-y="{{false}}" style="height: 200px;" onScrollToUpper="upper" onScrollToLower="lower" onScroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view id="blue" class="scroll-view-item bc_blue">
+  </view>
+  <view id="red" class="scroll-view-item bc_red">
+  </view>
+  <view id="yellow" class="scroll-view-item bc_yellow">
+  </view>
+  <view id="green" class="scroll-view-item bc_green">
+  </view>
+</scroll-view>
