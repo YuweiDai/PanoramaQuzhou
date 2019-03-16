@@ -1,22 +1,22 @@
 <view class="page">
   <view id="pano_viewer" class="icon-eye-open" catchTouchStart="touchStart" catchTouchMove="touchMove">
     <view id="cube_box">
-      <view id="cube" class="animate1" style="{{transform}}">
-        <image class="front" src="https://s.cdpn.io/19243/front.JPG" />
-        <image class="left" src="https://s.cdpn.io/19243/left.JPG" />
-        <image class="right" src="https://s.cdpn.io/19243/right.JPG" />
-        <image class="back" src="https://s.cdpn.io/19243/back.JPG" />
-        <image class="top" src="https://s.cdpn.io/19243/up.JPG" />
-        <image class="bottom" src="https://s.cdpn.io/19243/down.JPG" />
+      <view id="cube" class="animate" style="{{transform}}">
+        <image class="front" src="{{currentPano.imgs.front}}" />
+        <image class="left" src="{{currentPano.imgs.left}}" />
+        <image class="right" src="{{currentPano.imgs.right}}" />
+        <image class="back" src="{{currentPano.imgs.back}}" />
+        <image class="top" src="{{currentPano.imgs.up}}" />
+        <image class="bottom" src="{{currentPano.imgs.down}}" />
       </view>
     </view>
   </view>
 
 
 <view class="pano_header">
-  <view class="pano_title">盈川小区全景图</view>  
+  <view class="pano_title">{{currentPano.title}}</view>  
   <view class="tags">
-    <block a:for="{{tags}}" a:key="*this">
+    <block a:for="{{currentPano.tags}}" a:key="*this">
       <view class="tag">
         <view class="tagTxt">{{item}}</view>
         <view class="tagBg"></view>
@@ -28,4 +28,31 @@
 </view>
 
   <view class="playBtn" onTap="navToPano"></view>
+
+  <view class="logo">
+    <image src="../../resources/images/logo.png" mode="aspectFit" />
+    <view class="produce">{{currentPano.produce}}</view>
+    <view class="date">{{currentPano.date}}</view>
+  </view>
+
+ 
+  <view class="tools">
+    <view class="btn">
+      <view class="icon star"></view>
+      <text>73</text>
+    </view>
+    <view class="btn">
+      <view class="icon location"></view>
+      <text>位置</text>
+    </view>
+    <view class="btn">
+      <view class="icon comments"></view>
+      <text>评论</text>
+    </view>
+    <view class="btn">
+      <view class="icon share"></view>
+      <text>分享</text>
+    </view>            
+  </view>
+  
 </view>

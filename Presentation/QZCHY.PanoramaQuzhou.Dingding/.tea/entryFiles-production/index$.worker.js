@@ -138,7 +138,6 @@ require('./config$');
 require('./importScripts$');
 function success() {
 require('../..//app');
-require('../../pages/logs/logs');
 require('../../pages/home/home');
 require('../../pages/index/index');
 require('../../pages/discovery/discovery');
