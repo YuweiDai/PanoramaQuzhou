@@ -45,10 +45,10 @@
     <Compile Include="Domain\AccountUser.cs" />
     <Compile Include="Domain\ActivityLog.cs" />
     <Compile Include="Domain\ActivityLogType.cs" />
-    <Compile Include="Domain\Location.cs" />
+    <Compile Include="Domain\PanoramaLocation.cs" />
     <Compile Include="Domain\Log.cs" />
     <Compile Include="Domain\LogLevel.cs" />
-    <Compile Include="Domain\Panorama.cs" />
+    <Compile Include="Domain\PanoramaScene.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

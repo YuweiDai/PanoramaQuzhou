@@ -9,7 +9,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain
     /// <summary>
     /// 拍摄点
     /// </summary>
-    public class Location:BaseEntity
+    public class PanoramaLocation:BaseEntity
     {
         public string Name { get; set; }
 

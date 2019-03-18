@@ -1,4 +1,6 @@
-﻿namespace CSCZJ.Core.Domain.Logging
+﻿using QZCHY.PanoramaQuzhou.Core.Domain;
+
+namespace CSCZJ.Core.Domain.Logging
 {
     /// <summary>
     /// Represents an activity log type record

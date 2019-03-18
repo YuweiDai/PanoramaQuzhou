@@ -2,7 +2,7 @@
 
 namespace QZCHY.PanoramaQuzhou.Core.Domain
 {
-    public class Panorama : BaseEntity
+    public class PanoramaScene: BaseEntity
     {        
 
         /// <summary>
@@ -27,6 +27,6 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain
         public DateTime ProductionDate { get; set; }
 
 
-        public virtual Location Location { get; set; }
+        public virtual PanoramaLocation Location { get; set; }
     }
 }
