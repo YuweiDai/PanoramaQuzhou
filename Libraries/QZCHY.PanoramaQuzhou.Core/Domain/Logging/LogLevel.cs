@@ -1,4 +1,4 @@
-namespace CSCZJ.Core.Domain.Logging
+namespace QZCHY.PanoramaQuzhou.Core.Domain.Logging
 {
     /// <summary>
     /// Represents a log level

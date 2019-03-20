@@ -1,6 +1,6 @@
 using System;
 
-namespace QZCHY.PanoramaQuzhou.Core.Domain
+namespace QZCHY.PanoramaQuzhou.Core
 {
     /// <summary>
     /// Base class for entities

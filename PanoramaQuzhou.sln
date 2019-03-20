@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{4B183258-B901-4CCE-B947-43F41B2AD9D8}"
 EndProject
@@ -34,27 +34,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QZCHY.PanoramaQuzhou.Dingdi
 		SlnRelativePath = "Presentation\QZCHY.PanoramaQuzhou.Dingding\"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QZCHY.PanoramaQuzhou.Web", "Presentation\QZCHY.PanoramaQuzhou.Web\", "{B2EE5AB4-9482-4256-A1AD-834D7821BE68}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_41947"
-		Debug.AspNetCompiler.PhysicalPath = "Presentation\QZCHY.PanoramaQuzhou.Web\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_41947\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_41947"
-		Release.AspNetCompiler.PhysicalPath = "Presentation\QZCHY.PanoramaQuzhou.Web\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_41947\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "41947"
-		SlnRelativePath = "Presentation\QZCHY.PanoramaQuzhou.Web\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QZCHY.PanoramaQuzhou.API", "Presentation\QZCHY.PanoramaQuzhou.API\QZCHY.PanoramaQuzhou.API.csproj", "{D142583F-913E-4468-ACBF-797536D0FC2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,10 +58,10 @@ Global
 		{15A05002-6642-4EC2-9CB3-9D90FEE647BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15A05002-6642-4EC2-9CB3-9D90FEE647BD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{15A05002-6642-4EC2-9CB3-9D90FEE647BD}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{B2EE5AB4-9482-4256-A1AD-834D7821BE68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2EE5AB4-9482-4256-A1AD-834D7821BE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2EE5AB4-9482-4256-A1AD-834D7821BE68}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2EE5AB4-9482-4256-A1AD-834D7821BE68}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D142583F-913E-4468-ACBF-797536D0FC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D142583F-913E-4468-ACBF-797536D0FC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D142583F-913E-4468-ACBF-797536D0FC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D142583F-913E-4468-ACBF-797536D0FC2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,7 +71,7 @@ Global
 		{BC0ECBA4-1443-4220-A83D-60219F7D87E9} = {4B183258-B901-4CCE-B947-43F41B2AD9D8}
 		{C9922909-1C56-4309-8E92-FE74CEEBF209} = {4B183258-B901-4CCE-B947-43F41B2AD9D8}
 		{15A05002-6642-4EC2-9CB3-9D90FEE647BD} = {14AD81F2-752C-47C7-AC06-DAB77DCE9E35}
-		{B2EE5AB4-9482-4256-A1AD-834D7821BE68} = {14AD81F2-752C-47C7-AC06-DAB77DCE9E35}
+		{D142583F-913E-4468-ACBF-797536D0FC2A} = {14AD81F2-752C-47C7-AC06-DAB77DCE9E35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2F3AD3A3-95B8-40F2-B49F-B6C97FA303D0}
