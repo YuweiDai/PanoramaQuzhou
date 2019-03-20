@@ -34,6 +34,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QZCHY.PanoramaQuzhou.Dingdi
 		SlnRelativePath = "Presentation\QZCHY.PanoramaQuzhou.Dingding\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QZCHY.PanoramaQuzhou.API", "Presentation\QZCHY.PanoramaQuzhou.API\QZCHY.PanoramaQuzhou.API.csproj", "{D142583F-913E-4468-ACBF-797536D0FC2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{15A05002-6642-4EC2-9CB3-9D90FEE647BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15A05002-6642-4EC2-9CB3-9D90FEE647BD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{15A05002-6642-4EC2-9CB3-9D90FEE647BD}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D142583F-913E-4468-ACBF-797536D0FC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D142583F-913E-4468-ACBF-797536D0FC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D142583F-913E-4468-ACBF-797536D0FC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D142583F-913E-4468-ACBF-797536D0FC2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{BC0ECBA4-1443-4220-A83D-60219F7D87E9} = {4B183258-B901-4CCE-B947-43F41B2AD9D8}
 		{C9922909-1C56-4309-8E92-FE74CEEBF209} = {4B183258-B901-4CCE-B947-43F41B2AD9D8}
 		{15A05002-6642-4EC2-9CB3-9D90FEE647BD} = {14AD81F2-752C-47C7-AC06-DAB77DCE9E35}
+		{D142583F-913E-4468-ACBF-797536D0FC2A} = {14AD81F2-752C-47C7-AC06-DAB77DCE9E35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2F3AD3A3-95B8-40F2-B49F-B6C97FA303D0}

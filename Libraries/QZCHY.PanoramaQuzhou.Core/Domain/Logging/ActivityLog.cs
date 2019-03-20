@@ -1,7 +1,7 @@
-﻿using System;
-using CSCZJ.Core.Domain.AccountUsers;
+﻿using QZCHY.PanoramaQuzhou.Core.Domain;
+using QZCHY.PanoramaQuzhou.Core.Domain.Accounts;
 
-namespace CSCZJ.Core.Domain.Logging
+namespace QZCHY.PanoramaQuzhou.Core.Domain.Logging
 {
     /// <summary>
     /// Represents an activity log record

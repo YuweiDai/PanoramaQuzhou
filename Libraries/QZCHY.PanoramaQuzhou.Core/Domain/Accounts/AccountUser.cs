@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace QZCHY.PanoramaQuzhou.Core.Domain
+namespace QZCHY.PanoramaQuzhou.Core.Domain.Accounts
 {
 
     public class AccountUser : BaseEntity
@@ -11,11 +11,13 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain
         {
             this.AccountUserGuid = Guid.NewGuid();          
         }
-        
+
+        /// <summary>
+        /// 钉钉用户的唯一Id
+        /// </summary>
+        public string DDUserId { get; set; }
 
         public string NickName { get; set; }
-
-        public bool Active { get; set; }
 
         public Guid AccountUserGuid { get; set; }
            
@@ -25,9 +27,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain
 
         public DateTime? LastLoginDate { get; set; }        
 
-        public bool IsSystemAccount { get; set; }
-
-        public string SystemName { get; set; }
+        public string DingdingToken { get; set; }
 
     }
 }
