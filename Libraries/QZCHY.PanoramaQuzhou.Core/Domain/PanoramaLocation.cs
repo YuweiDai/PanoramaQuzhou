@@ -33,6 +33,6 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain
         /// </summary>
         public double Height { get; set; }
       
-        public virtual ICollection<Panorama> Panorams { get; set; }
+        public virtual ICollection<PanoramaScene> Panorams { get; set; }
     }
 }

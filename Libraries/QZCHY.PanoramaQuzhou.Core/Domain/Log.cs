@@ -1,5 +1,5 @@
 using System;
-using CSCZJ.Core.Domain.AccountUsers;
+using QZCHY.PanoramaQuzhou.Core.Domain;
 
 namespace CSCZJ.Core.Domain.Logging
 {
