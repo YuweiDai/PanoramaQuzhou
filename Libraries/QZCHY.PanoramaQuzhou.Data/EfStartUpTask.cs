@@ -10,7 +10,7 @@ namespace QZCHY.PanoramaQuzhou.Data
         {
             var provider = EngineContext.Current.Resolve<IDataProvider>();
             if (provider == null)
-                throw new QZCHYPanoramaQuzhouException("No IDataProvider found");
+                throw new PanoramaQuzhouException("No IDataProvider found");
             provider.SetDatabaseInitializer();
         }
 

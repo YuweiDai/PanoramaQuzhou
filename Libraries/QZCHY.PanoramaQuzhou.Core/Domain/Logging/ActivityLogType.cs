@@ -1,4 +1,5 @@
-﻿using QZCHY.PanoramaQuzhou.Core.Domain;
+﻿using QZCHY.PanoramaQuzhou.Core;
+using QZCHY.PanoramaQuzhou.Core.Domain;
 
 namespace QZCHY.PanoramaQuzhou.Core.Domain.Logging
 {

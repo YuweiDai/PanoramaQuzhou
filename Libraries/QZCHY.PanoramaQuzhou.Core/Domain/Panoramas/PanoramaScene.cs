@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QZCHY.PanoramaQuzhou.Core;
+using System;
 using System.Collections.Generic;
 
 namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas

@@ -11,14 +11,14 @@ namespace QZCHY.PanoramaQuzhou.API
         {
             // Web API 配置和服务
 
+
             // Web API 路由
             config.MapHttpAttributeRoutes();
-
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+               name: "DefaultApi",
+               routeTemplate: "{controller}/{id}",
+               defaults: new { id = RouteParameter.Optional }
+           );
         }
     }
 }

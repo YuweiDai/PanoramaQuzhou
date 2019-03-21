@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QZCHY.PanoramaQuzhou.Core;
+using System;
 using System.Collections.Generic;
 
 namespace QZCHY.PanoramaQuzhou.Core.Domain.Accounts
@@ -27,7 +28,9 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Accounts
 
         public DateTime? LastLoginDate { get; set; }        
 
-        public string DingdingToken { get; set; }
+        public string SystemName { get; set; }
+        
 
+        public bool Active { get; set; }
     }
 }

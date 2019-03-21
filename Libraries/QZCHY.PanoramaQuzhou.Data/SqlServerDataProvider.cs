@@ -94,7 +94,7 @@ namespace QZCHY.PanoramaQuzhou.Data
         /// </summary>
         public virtual void SetDatabaseInitializer()
         {
-            var initializer = new MigrateDatabaseToLatestVersion<PanoramaQuzhouObjectContext, Migrations.Configuration>();
+            var initializer = new MigrateDatabaseToLatestVersion<PanoramaQuzhuoObjectContext, Migrations.Configuration>();
             Database.SetInitializer(initializer);
         }
 

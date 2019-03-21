@@ -89,17 +89,17 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure.DependencyManagement
                     foreach (var parameter in parameters)
                     {
                         var service = Resolve(parameter.ParameterType, scope);
-                        if (service == null) throw new QZCHYPanoramaQuzhouException("Unkown dependency");
+                        if (service == null) throw new PanoramaQuzhouException("Unkown dependency");
                         parameterInstances.Add(service);
                     }
                     return Activator.CreateInstance(type, parameterInstances.ToArray());
                 }
-                catch (QZCHYPanoramaQuzhouException)
+                catch (PanoramaQuzhouException)
                 {
 
                 }
             }
-            throw new QZCHYPanoramaQuzhouException("No contructor was found that had all the dependencies satisfied.");
+            throw new PanoramaQuzhouException("No contructor was found that had all the dependencies satisfied.");
         }
         
         public virtual bool TryResolve(Type serviceType, ILifetimeScope scope, out object instance)
