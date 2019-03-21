@@ -1,8 +1,12 @@
 ﻿using Autofac;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using QZCHY.PanoramaQuzhou.Core.Infrastructure;
 using QZCHY.PanoramaQuzhou.Core.Infrastructure.DependencyManagement;
 
-namespace QZCHY.PanoramaQuzhou.ApiInfrastructure
+namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
 {
     public class DependencyRegistrar : IDependencyRegistrar
     {
