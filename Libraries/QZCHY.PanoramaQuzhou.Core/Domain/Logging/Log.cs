@@ -1,3 +1,4 @@
+using QZCHY.PanoramaQuzhou.Core;
 using QZCHY.PanoramaQuzhou.Core.Domain;
 using QZCHY.PanoramaQuzhou.Core.Domain.Accounts;
 

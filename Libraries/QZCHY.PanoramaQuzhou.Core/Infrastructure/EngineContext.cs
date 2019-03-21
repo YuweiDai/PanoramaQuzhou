@@ -1,7 +1,7 @@
-﻿using QZCHY.PanoramaQuzhou.Core.Configuration;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Runtime.CompilerServices;
+using QZCHY.PanoramaQuzhou.Core.Configuration;
 using System.Web.Http;
 
 namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
@@ -18,7 +18,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
         /// </summary>
         /// <param name="config">Config</param>
         /// <returns>New engine instance</returns>
-        protected static IEngine CreateEngineInstance(QZCHYPanoramaQuzhouConfig config)
+        protected static IEngine CreateEngineInstance(PanoramaQuzhouConfig config)
         {
             if (config != null && !string.IsNullOrEmpty(config.EngineType))
             {
@@ -30,7 +30,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
                 return Activator.CreateInstance(engineType) as IEngine;
             }
 
-            return new QZCHYPanoramaQuzhouEngine();
+            return new CSCZJEngine();
         }
 
         #endregion
@@ -46,7 +46,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
         {
             if (Singleton<IEngine>.Instance == null || forceRecreate)
             {
-                var config = ConfigurationManager.GetSection("QZCHYPanoramaQuzhouConfig") as QZCHYPanoramaQuzhouConfig;
+                var config = ConfigurationManager.GetSection("CSCZJConfig") as PanoramaQuzhouConfig;
                 Singleton<IEngine>.Instance = CreateEngineInstance(config);
                 Singleton<IEngine>.Instance.Initialize(config, httpConfig);
             }

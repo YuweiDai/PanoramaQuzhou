@@ -1,4 +1,6 @@
-﻿namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
+﻿using QZCHY.PanoramaQuzhou.Core;
+
+namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
 {
     public class Tag:BaseEntity
     {

@@ -4,7 +4,6 @@ using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using QZCHY.PanoramaQuzhou.Core;
-using QZCHY.PanoramaQuzhou.Core.Domain;
 
 namespace QZCHY.PanoramaQuzhou.Data 
 {

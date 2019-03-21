@@ -22,7 +22,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
         /// Initialize components and plugins in the QMTech environment.
         /// </summary>
         /// <param name="config">Config</param>
-        void Initialize(QZCHYPanoramaQuzhouConfig config, HttpConfiguration httpConfig);
+        void Initialize(PanoramaQuzhouConfig config, HttpConfiguration httpConfig);
 
         /// <summary>
         /// Resolve dependency

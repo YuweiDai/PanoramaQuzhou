@@ -194,7 +194,7 @@ namespace QZCHY.PanoramaQuzhou.Data
 
                 //如果字段类型是导航属性
                 //判断是否有 DisplayOrder 字段，没有则按Name排序
-                if (property.PropertyType.BaseType.Equals(typeof(BaseEntity)))
+                if (property.PropertyType.BaseType.Equals(typeof(Core.BaseEntity)))
                 {
                     body = Expression.Property(param, property);
 

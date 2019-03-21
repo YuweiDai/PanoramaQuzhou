@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.Entity.Core.Objects;
 using QZCHY.PanoramaQuzhou.Core;
-using QZCHY.PanoramaQuzhou.Core.Domain;
 
 namespace QZCHY.PanoramaQuzhou.Data
 {

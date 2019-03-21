@@ -5,7 +5,6 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using QZCHY.PanoramaQuzhou.Core;
 using QZCHY.PanoramaQuzhou.Core.Data;
-using QZCHY.PanoramaQuzhou.Core.Domain;
 
 namespace QZCHY.PanoramaQuzhou.Data
 {

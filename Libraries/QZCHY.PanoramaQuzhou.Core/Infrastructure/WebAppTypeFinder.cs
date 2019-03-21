@@ -22,7 +22,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
 
         #region Ctor
 
-        public WebAppTypeFinder(QZCHYPanoramaQuzhouConfig config)
+        public WebAppTypeFinder(PanoramaQuzhouConfig config)
         {
             this._ensureBinFolderAssembliesLoaded = config.DynamicDiscovery;
         }

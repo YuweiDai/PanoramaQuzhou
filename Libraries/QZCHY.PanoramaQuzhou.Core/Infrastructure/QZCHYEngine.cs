@@ -12,7 +12,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
     /// <summary>
     /// Engine
     /// </summary>
-    public class QZCHYPanoramaQuzhouEngine : IEngine
+    public class CSCZJEngine : IEngine
     {
         #region Fields
 
@@ -44,7 +44,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
         /// Register dependencies
         /// </summary>
         /// <param name="config">Config</param>
-        protected virtual void RegisterDependencies(QZCHYPanoramaQuzhouConfig config, HttpConfiguration httpConfig)
+        protected virtual void RegisterDependencies(PanoramaQuzhouConfig config, HttpConfiguration httpConfig)
         {
             var builder = new ContainerBuilder();
             var container = builder.Build();
@@ -56,7 +56,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
             //dependencies
             var typeFinder = new WebAppTypeFinder(config);
             builder = new ContainerBuilder();
-            builder.RegisterInstance(config).As<QZCHYPanoramaQuzhouConfig>().SingleInstance();
+            builder.RegisterInstance(config).As<PanoramaQuzhouConfig>().SingleInstance();
             builder.RegisterInstance(this).As<IEngine>().SingleInstance();
             builder.RegisterInstance(typeFinder).As<ITypeFinder>().SingleInstance();
             builder.Update(container);
@@ -89,7 +89,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
         /// 基于 web api 修改，配置app
         /// </summary>
         /// <param name="config">Config</param>
-        public void Initialize(QZCHYPanoramaQuzhouConfig config,HttpConfiguration httpConfig)
+        public void Initialize(PanoramaQuzhouConfig config,HttpConfiguration httpConfig)
         {
             _httpConfig = httpConfig;
 
