@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using QZCHY.PanoramaQuzhou.ApiExtensions;
 
-namespace QZCHY.PanoramaQuzhou.ApiExtensions
+namespace QZCHY.PanoramaQuzhou.Web.Api.Extensions
 {
     /// <summary>
     /// 实体到模型映射
@@ -16,6 +15,7 @@ namespace QZCHY.PanoramaQuzhou.ApiExtensions
         public static TDestination MapTo<TSource, TDestination>(this TSource source, TDestination destination)
         {
             return Mapper.Map(source, destination);
-        }         
+        }
+ 
     }
 }

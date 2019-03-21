@@ -248,7 +248,7 @@ namespace QZCHY.PanoramaQuzhou.Core
             pi.SetValue(instance, value, new object[0]);
         }
 
-        public static TypeConverter GetCSCZJCustomTypeConverter(Type type)
+        public static TypeConverter GetPanoramaQuzhuoConfigCustomTypeConverter(Type type)
         {
             //we can't use the following code in order to register our custom type descriptors
             //TypeDescriptor.AddAttributes(typeof(List<int>), new TypeConverterAttribute(typeof(GenericListTypeConverter<int>)));
@@ -292,8 +292,8 @@ namespace QZCHY.PanoramaQuzhou.Core
             {
                 var sourceType = value.GetType();
 
-                TypeConverter destinationConverter = GetCSCZJCustomTypeConverter(destinationType);
-                TypeConverter sourceConverter = GetCSCZJCustomTypeConverter(sourceType);
+                TypeConverter destinationConverter = GetPanoramaQuzhuoConfigCustomTypeConverter(destinationType);
+                TypeConverter sourceConverter = GetPanoramaQuzhuoConfigCustomTypeConverter(sourceType);
                 if (destinationConverter != null && destinationConverter.CanConvertFrom(value.GetType()))
                     return destinationConverter.ConvertFrom(null, culture, value);
                 if (sourceConverter != null && sourceConverter.CanConvertTo(destinationType))

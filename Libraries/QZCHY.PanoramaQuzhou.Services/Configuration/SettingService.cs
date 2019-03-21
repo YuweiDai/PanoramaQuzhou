@@ -267,7 +267,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Configuration
             if (key == null)
                 throw new ArgumentNullException("key");
             key = key.Trim().ToLowerInvariant();
-            string valueStr = CommonHelper.GetCSCZJCustomTypeConverter(typeof(T)).ConvertToInvariantString(value);
+            string valueStr = CommonHelper.GetPanoramaQuzhuoConfigCustomTypeConverter(typeof(T)).ConvertToInvariantString(value);
 
             var allSettings = GetAllSettingsCached();
             var settingForCaching = allSettings.ContainsKey(key) ? 
@@ -344,13 +344,13 @@ namespace QZCHY.PanoramaQuzhou.Services.Configuration
                 if (setting == null)
                     continue;
 
-                if (!CommonHelper.GetCSCZJCustomTypeConverter(prop.PropertyType).CanConvertFrom(typeof(string)))
+                if (!CommonHelper.GetPanoramaQuzhuoConfigCustomTypeConverter(prop.PropertyType).CanConvertFrom(typeof(string)))
                     continue;
 
-                if (!CommonHelper.GetCSCZJCustomTypeConverter(prop.PropertyType).IsValid(setting))
+                if (!CommonHelper.GetPanoramaQuzhuoConfigCustomTypeConverter(prop.PropertyType).IsValid(setting))
                     continue;
 
-                object value = CommonHelper.GetCSCZJCustomTypeConverter(prop.PropertyType).ConvertFromInvariantString(setting);
+                object value = CommonHelper.GetPanoramaQuzhuoConfigCustomTypeConverter(prop.PropertyType).ConvertFromInvariantString(setting);
 
                 //set property
                 prop.SetValue(settings, value, null);
@@ -376,7 +376,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Configuration
                 if (!prop.CanRead || !prop.CanWrite)
                     continue;
 
-                if (!CommonHelper.GetCSCZJCustomTypeConverter(prop.PropertyType).CanConvertFrom(typeof(string)))
+                if (!CommonHelper.GetPanoramaQuzhuoConfigCustomTypeConverter(prop.PropertyType).CanConvertFrom(typeof(string)))
                     continue;
 
                 string key = typeof(T).Name + "." + prop.Name;

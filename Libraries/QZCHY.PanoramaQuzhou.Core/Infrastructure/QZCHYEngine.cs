@@ -12,7 +12,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
     /// <summary>
     /// Engine
     /// </summary>
-    public class CSCZJEngine : IEngine
+    public class PanoramaQuzhouEngine : IEngine
     {
         #region Fields
 

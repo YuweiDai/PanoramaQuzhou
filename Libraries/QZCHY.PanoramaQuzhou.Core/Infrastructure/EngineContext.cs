@@ -30,7 +30,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
                 return Activator.CreateInstance(engineType) as IEngine;
             }
 
-            return new CSCZJEngine();
+            return new PanoramaQuzhouEngine();
         }
 
         #endregion
@@ -46,7 +46,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Infrastructure
         {
             if (Singleton<IEngine>.Instance == null || forceRecreate)
             {
-                var config = ConfigurationManager.GetSection("CSCZJConfig") as PanoramaQuzhouConfig;
+                var config = ConfigurationManager.GetSection("PanoramaQuzhouConfig") as PanoramaQuzhouConfig;
                 Singleton<IEngine>.Instance = CreateEngineInstance(config);
                 Singleton<IEngine>.Instance.Initialize(config, httpConfig);
             }

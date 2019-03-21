@@ -1,7 +1,6 @@
 ﻿using QZCHY.PanoramaQuzhou.Core.Infrastructure;
-using System;
 
-namespace QZCHY.PanoramaQuzhou.ApiInfrastructure
+namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
 {
     public class AutoMapperStartupTask : IStartupTask
     {
@@ -10,8 +9,6 @@ namespace QZCHY.PanoramaQuzhou.ApiInfrastructure
             get { return 0; }
         }
 
-        public void Execute()
-        {
-        }
+        public void Execute() { }
     }
 }
