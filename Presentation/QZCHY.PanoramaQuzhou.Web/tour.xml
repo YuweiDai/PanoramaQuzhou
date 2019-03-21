@@ -1,9 +1,4 @@
-﻿<krpano version="1.19" title="Virtual Tour">
-
-	<!--<include url="skin/vtourskin.xml" />-->
-
- 
-
+﻿<krpano version="1.19" title="衢州全景地图" tileserver="http://220.191.238.125/resources/">
   <!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
   <skin_settings maps="true"
 	               maps_type="google"
@@ -56,31 +51,11 @@
 	               design_text_shadow="1"
 	               />
 
-  <!--
-	    For an alternative skin design either change the <skin_settings> values 
-	    from above or optionally include one of the predefined designs from below.
-	-->
-  <!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->
-  <!-- <include url="skin/vtourskin_design_glass.xml"       /> -->
-  <!-- <include url="skin/vtourskin_design_ultra_light.xml" /> -->
-  <!-- <include url="skin/vtourskin_design_117.xml"         /> -->
-  <!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
-  <!-- <include url="skin/vtourskin_design_black.xml"       /> -->
-
 
   <!-- startup action - load the first scene -->
   <include  url ="plugins/auto_thumbs.xml"/>
   <include  url ="plugins/tooltip.xml"/>
 
-
-
-
-  <!--<events name="lp_events_" keep="true"
-          onxmlcomplete="set(events[lp_events_].onxmlcomplete,null);
-        if(device.webgl OR device.flash,
-		skin_setup_littleplanetintro();
-	  ); "
-         />-->
 
   <action name="skin_setup_littleplanetintro">
     copy(lp_scene, xml.scene);
@@ -137,20 +112,7 @@
 
     );
   </action>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
-
+   
 
   <!-- include VR support -->
   <include url="plugins/webvr.xml" />
@@ -270,7 +232,6 @@
   <!-- skin_base - the base skin image -->
   <style name="skin_base" url="skin/vtourskin.png" />
 
-
   <!-- skin_glow - button glowing (if additional ondown,onup,onout,over events are needed, this style provides ondown2,onup2,onover2,onout2 events) -->
   <style name="skin_glow"
 	       ondown="copy(skin_lockglow,name); skin_buttonglow(get(name)); if(ondown2, ondown2() );"
@@ -278,7 +239,6 @@
 	       onout="if(skin_lockglow === name AND !pressed, skin_buttonglow(null);delete(skin_lockglow); ); if(onout2, onout2() );"
 	       onup="if(onup2, onup2()); delayedcall(0, if(hovering AND enabled, skin_buttonglow(get(name),0.3); , skin_buttonglow(null);delete(skin_lockglow); ); );"
 	       />
-
 
   <!-- skin_hotspotstyle - style for the hotspots -->
   <style name="skin_hotspotstyle" url="vtourskin_hotspot.png" scale="0.5" edge="top" distorted="true"
@@ -288,10 +248,6 @@
 	       onout="tween(scale,0.5);"
 	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
 	       />
-
-
-  <layer name="skin_buttonglow" keep="true" style="skin_base" crop="64|384|64|64" align="center" x="0" y="1" scale="1.0" alpha="0.0" visible="false" enabled="false" />
-
 
 
   <!-- gyro plugin -->
@@ -312,7 +268,6 @@
     loadscene(get(scene[get(newsceneindex)].name),null,get(skin_settings.loadscene_flags),calc(%1 LT 0 ? skin_settings.loadscene_blend_prev : skin_settings.loadscene_blend_next));
     );
   </action>
-
 
   <action name="skin_nextscene_loop">
     add(newsceneindex, scene[get(xml.scene)].index, %1);
@@ -339,10 +294,7 @@
   </action>
   
   
-  
-  
-  
-  
+
 
   <action name="startup" autorun="onstart">
     if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
@@ -359,310 +311,152 @@
 
 
 
-  <scene name="scene_____________1" title="盈川小区1" onstart="" thumburl="panos/____________1.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="盈川小区1">
+  <scene name="scene_____________1" title="盈川小区1" onstart="" thumburl="%$tileserver%panos/____________1.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="盈川小区1">
 
     <view hlookat="-110" vlookat="20" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="panos/____________1.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/____________1.tiles/preview.jpg" />
 
     <image prealign="0|0.0|0">
-      <cube url="panos/____________1.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/____________1.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-  <scene name="scene_______1" title="地面1" onstart="" thumburl="panos/______1.tiles/thumb.jpg" lat="" lng="" heading="" >
+  <scene name="scene_______1" title="地面1" onstart="" thumburl="%$tileserver%panos/______1.tiles/thumb.jpg" lat="" lng="" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="panos/______1.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/______1.tiles/preview.jpg" />
 
     <image>
-      <cube url="panos/______1.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/______1.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-  <scene name="scene_______2" title="地面2" onstart="" thumburl="panos/______2.tiles/thumb.jpg" lat="" lng="" heading="">
+  <scene name="scene_______2" title="地面2" onstart="" thumburl="%$tileserver%panos/______2.tiles/thumb.jpg" lat="" lng="" heading="">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="panos/______2.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/______2.tiles/preview.jpg" />
 
     <image>
-      <cube url="panos/______2.tiles/pano_%s.jpg" />
-    </image>
-
-  </scene>
-
-  <scene name="scene_______3" title="地面3" onstart="" thumburl="panos/______3.tiles/thumb.jpg" lat="" lng="" heading="">
-
-    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-    <preview url="panos/______3.tiles/preview.jpg" />
-
-    <image>
-      <cube url="panos/______3.tiles/pano_%s.jpg" />
-    </image>
-
-  </scene>
-
-  <scene name="scene_______4" title="地面4" onstart="" thumburl="panos/______4.tiles/thumb.jpg" lat="" lng="" heading="">
-
-    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-    <preview url="panos/______4.tiles/preview.jpg" />
-
-    <image>
-      <cube url="panos/______4.tiles/pano_%s.jpg" />
-    </image>
-
-  </scene>
-
-  <scene name="scene_______5" title="地面5" onstart="" thumburl="panos/______5.tiles/thumb.jpg" lat="" lng="" heading="" >
-
-    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-    <preview url="panos/______5.tiles/preview.jpg" />
-
-    <image>
-      <cube url="panos/______5.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/______2.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
 
-
-  <scene name="scene_____________2" title="盈川小区2" onstart="" thumburl="panos/____________2.tiles/thumb.jpg" lat="28.98875944" lng="118.84959444" heading="0.0" album="盈川小区2">
+  <scene name="scene_____________2" title="盈川小区2" onstart="" thumburl="%$tileserver%panos/____________2.tiles/thumb.jpg" lat="28.98875944" lng="118.84959444" heading="0.0" album="盈川小区2">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="panos/____________2.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/____________2.tiles/preview.jpg" />
 
     <image prealign="0|0.0|0">
-      <cube url="panos/____________2.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/____________2.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 	
-	<scene name="scene_______8" title="地面8" onstart="" thumburl="panos/______8.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_______8" title="地面8" onstart="" thumburl="%$tileserver%panos/______8.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="panos/______8.tiles/preview.jpg" />
+		<preview url="%$tileserver%panos/______8.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/______8.tiles/pano_%s.jpg" />
+			<cube url="%$tileserver%panos/______8.tiles/pano_%s.jpg" />
 		</image>
 
 	</scene>
   
-  <scene name="scene_______6" title="地面6" onstart="" thumburl="panos/______6.tiles/thumb.jpg" lat="" lng="" heading="" >
+  <scene name="scene_______6" title="地面6" onstart="" thumburl="%$tileserver%panos/______6.tiles/thumb.jpg" lat="" lng="" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="panos/______6.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/______6.tiles/preview.jpg" />
 
     <image>
-      <cube url="panos/______6.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/______6.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-  <scene name="scene_______7" title="地面7" onstart="" thumburl="panos/______7.tiles/thumb.jpg" lat="" lng="" heading="">
+
+  <scene name="scene_____________3" title="盈川小区3" onstart="" thumburl="%$tileserver%panos/____________3.tiles/thumb.jpg" lat="28.99006389" lng="118.85279639" heading="0.0" album="盈川小区3">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="panos/______7.tiles/preview.jpg" />
-
-    <image>
-      <cube url="panos/______7.tiles/pano_%s.jpg" />
-    </image>
-
-  </scene>
-
-	<scene name="scene_______9" title="地面9" onstart="" thumburl="panos/______9.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/______9.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/______9.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_______10" title="地面10" onstart="" thumburl="panos/______10.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/______10.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/______10.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-
-  <scene name="scene_____________3" title="盈川小区3" onstart="" thumburl="panos/____________3.tiles/thumb.jpg" lat="28.99006389" lng="118.85279639" heading="0.0" album="盈川小区3">
-
-    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-    <preview url="panos/____________3.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/____________3.tiles/preview.jpg" />
 
     <image prealign="0|0.0|0">
-      <cube url="panos/____________3.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/____________3.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-	<scene name="scene_______11" title="地面11" onstart="" thumburl="panos/______11.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_______11" title="地面11" onstart="" thumburl="%$tileserver%panos/______11.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="panos/______11.tiles/preview.jpg" />
+		<preview url="%$tileserver%panos/______11.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/______11.tiles/pano_%s.jpg" />
+			<cube url="%$tileserver%panos/______11.tiles/pano_%s.jpg" />
 		</image>
 
 	</scene>
 
-	<scene name="scene_______12" title="地面12" onstart="" thumburl="panos/______12.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_______12" title="地面12" onstart="" thumburl="%$tileserver%panos/______12.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="panos/______12.tiles/preview.jpg" />
+		<preview url="%$tileserver%panos/______12.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/______12.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_______13" title="地面13" onstart="" thumburl="panos/______13.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/______13.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/______13.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_______14" title="地面14" onstart="" thumburl="panos/______14.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/______14.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/______14.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_______15" title="地面15" onstart="" thumburl="panos/______15.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/______15.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/______15.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_______16" title="地面16" onstart="" thumburl="panos/______16.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/______16.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/______16.tiles/pano_%s.jpg" />
+			<cube url="%$tileserver%panos/______12.tiles/pano_%s.jpg" />
 		</image>
 
 	</scene>
 
 
-  <scene name="scene_____________4" title="盈川小区4" onstart="" thumburl="panos/____________4.tiles/thumb.jpg" lat="28.99050306" lng="118.85616556" heading="0.0" album="盈川小区4">
+  <scene name="scene_____________4" title="盈川小区4" onstart="" thumburl="%$tileserver%panos/____________4.tiles/thumb.jpg" lat="28.99050306" lng="118.85616556" heading="0.0" album="盈川小区4">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="panos/____________4.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/____________4.tiles/preview.jpg" />
 
     <image prealign="0|0.0|0">
-      <cube url="panos/____________4.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/____________4.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-  <scene name="scene_______17" title="地面17" onstart="" thumburl="panos/______17.tiles/thumb.jpg" lat="" lng="" heading="" >
+  <scene name="scene_______17" title="地面17" onstart="" thumburl="%$tileserver%panos/______17.tiles/thumb.jpg" lat="" lng="" heading="" >
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="panos/______17.tiles/preview.jpg" />
+		<preview url="%$tileserver%panos/______17.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/______17.tiles/pano_%s.jpg" />
+			<cube url="%$tileserver%panos/______17.tiles/pano_%s.jpg" />
 		</image>
 
 	</scene>
 
-	<scene name="scene_______18" title="地面18" onstart="" thumburl="panos/______18.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_______18" title="地面18" onstart="" thumburl="%$tileserver%panos/______18.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="panos/______18.tiles/preview.jpg" />
+		<preview url="%$tileserver%panos/______18.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/______18.tiles/pano_%s.jpg" />
+			<cube url="%$tileserver%panos/______18.tiles/pano_%s.jpg" />
 		</image>
 
 	</scene>
-
-	<scene name="scene_______19" title="地面19" onstart="" thumburl="panos/______19.tiles/thumb.jpg" lat="" lng="" heading="" >
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/______19.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/______19.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_______20" title="地面20" onstart="" thumburl="panos/______20.tiles/thumb.jpg" lat="" lng="" heading="" >
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/______20.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/______20.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-  
-
-	
-  
-  
-
-	
-
-	
-
-
-
-
 
 
 

@@ -6,7 +6,9 @@ embedpano({ swf: "tour.swf", xml: "tour.xml", target: "pano", html5: "auto", mob
 
 var mybody = document.getElementsByTagName('body')[0];
 var h = document.documentElement.clientHeight;
-mybody.style.height = h + 'px';
+var w = document.documentElement.clientWidth/2;
+var w1 = $('#item_title').width() / 2;
+$("#item_title").css("left",(w-w1)+"px");
 
 //k.call("set('view.fov',150);");
 //k.call("set('view.hlookat',-10);");
