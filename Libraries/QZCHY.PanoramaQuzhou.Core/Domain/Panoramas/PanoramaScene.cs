@@ -18,6 +18,9 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
         /// </summary>
         public string Name { get; set; }
 
+
+        public string Name { get; set; }
+
         /// <summary>
         /// 封面图片
         /// </summary>
@@ -26,7 +29,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
         /// <summary>
         /// 缩略图路径，用于CSS模式的展示
         /// </summary>
-        public string ThumPath { get; set; }
+        public string ThumPath{ get; set; }
 
         /// <summary>
         /// 浏览次数
