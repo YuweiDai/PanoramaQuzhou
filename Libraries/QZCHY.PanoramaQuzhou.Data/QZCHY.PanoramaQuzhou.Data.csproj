@@ -61,11 +61,6 @@
     <Compile Include="Mapping\Common\GenericAttributeMap.cs" />
     <Compile Include="Mapping\Configuration\SettingMap.cs" />
     <Compile Include="Mapping\Messages\MessageTemplateMap.cs" />
-    <Compile Include="Migrations\201903200933223_initalCreate.cs" />
-    <Compile Include="Migrations\201903200933223_initalCreate.Designer.cs">
-      <DependentUpon>201903200933223_initalCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PanoramaQuzhuoObjectContext.cs" />
     <Compile Include="DataReaderExtensions.cs" />
     <Compile Include="DbContextExtensions.cs" />
@@ -95,11 +90,6 @@
       <Project>{2ff95af7-9ef1-4fe2-9f93-9a16c60de366}</Project>
       <Name>QZCHY.PanoramaQuzhou.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903200933223_initalCreate.resx">
-      <DependentUpon>201903200933223_initalCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

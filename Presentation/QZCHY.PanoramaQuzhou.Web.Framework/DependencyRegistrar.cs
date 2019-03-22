@@ -24,6 +24,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using Autofac.Integration.WebApi;
+using QZCHY.PanoramaQuzhou.Services.Panoramas;
 
 namespace QZCHY.PanoramaQuzhou.Web.Framework
 {
@@ -97,6 +98,10 @@ namespace QZCHY.PanoramaQuzhou.Web.Framework
             //services
 
 
+            #region 资产服务类注册
+            builder.RegisterType<SceneService>().As<ISceneService>().InstancePerLifetimeScope();
+            #endregion
+
             //builder.RegisterType<BackInStockSubscriptionService>().As<IBackInStockSubscriptionService>().InstancePerLifetimeScope();
             //builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
             //builder.RegisterType<CompareProductsService>().As<ICompareProductsService>().InstancePerLifetimeScope();
@@ -126,7 +131,7 @@ namespace QZCHY.PanoramaQuzhou.Web.Framework
             //builder.RegisterType<GenericAttributeService>().As<IGenericAttributeService>().InstancePerLifetimeScope();
             //builder.RegisterType<FulltextService>().As<IFulltextService>().InstancePerLifetimeScope();
             //builder.RegisterType<MaintenanceService>().As<IMaintenanceService>().InstancePerLifetimeScope();           
-             
+
             //builder.RegisterType<CustomerAttributeParser>().As<ICustomerAttributeParser>().InstancePerLifetimeScope();
             //builder.RegisterType<CustomerAttributeService>().As<ICustomerAttributeService>().InstancePerLifetimeScope();
             builder.RegisterType<AccountUserService>().As<IAccountUserService>().InstancePerLifetimeScope();

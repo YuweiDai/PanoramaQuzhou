@@ -98,6 +98,10 @@
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\LoggingExtensions.cs" />
     <Compile Include="Logging\NullLogger.cs" />
+    <Compile Include="Panoramas\ILocationService.cs" />
+    <Compile Include="Panoramas\ISceneService.cs" />
+    <Compile Include="Panoramas\LocationService.cs" />
+    <Compile Include="Panoramas\SceneService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\EncryptionService.cs" />
     <Compile Include="Security\IEncryptionService.cs" />
