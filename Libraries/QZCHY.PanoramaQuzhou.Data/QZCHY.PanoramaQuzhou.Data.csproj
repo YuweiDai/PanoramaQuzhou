@@ -61,9 +61,9 @@
     <Compile Include="Mapping\Common\GenericAttributeMap.cs" />
     <Compile Include="Mapping\Configuration\SettingMap.cs" />
     <Compile Include="Mapping\Messages\MessageTemplateMap.cs" />
-    <Compile Include="Migrations\201903200933223_initalCreate.cs" />
-    <Compile Include="Migrations\201903200933223_initalCreate.Designer.cs">
-      <DependentUpon>201903200933223_initalCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201903220305472_initialCreate.cs" />
+    <Compile Include="Migrations\201903220305472_initialCreate.Designer.cs">
+      <DependentUpon>201903220305472_initialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PanoramaQuzhuoObjectContext.cs" />
@@ -97,8 +97,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903200933223_initalCreate.resx">
-      <DependentUpon>201903200933223_initalCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903220305472_initialCreate.resx">
+      <DependentUpon>201903220305472_initialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

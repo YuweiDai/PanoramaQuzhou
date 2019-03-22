@@ -3,10 +3,96 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initalCreate : DbMigration
+    public partial class initialCreate : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.PanoramaLocations",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        LogoUrl = c.String(),
+                        Region = c.String(),
+                        Lng = c.Double(nullable: false),
+                        Lat = c.Double(nullable: false),
+                        Height = c.Double(nullable: false),
+                        IsProject = c.Boolean(nullable: false),
+                        DefaultPanoramaSceneId = c.Int(nullable: false),
+                        Deleted = c.Boolean(nullable: false),
+                        CreatedOn = c.DateTime(nullable: false),
+                        UpdatedOn = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.PanoramaPanoramaScenes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        LogoUrl = c.String(),
+                        ThumPath1 = c.String(),
+                        Views = c.Int(nullable: false),
+                        Stars = c.Int(nullable: false),
+                        ProductionDate = c.DateTime(nullable: false),
+                        LastViewDate = c.DateTime(nullable: false),
+                        Deleted = c.Boolean(nullable: false),
+                        CreatedOn = c.DateTime(nullable: false),
+                        UpdatedOn = c.DateTime(nullable: false),
+                        Location_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.PanoramaLocations", t => t.Location_Id)
+                .Index(t => t.Location_Id);
+            
+            CreateTable(
+                "dbo.Tags",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Deleted = c.Boolean(nullable: false),
+                        CreatedOn = c.DateTime(nullable: false),
+                        UpdatedOn = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Projects",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Remark = c.String(),
+                        LogoUrl = c.String(),
+                        Order = c.Int(nullable: false),
+                        Deleted = c.Boolean(nullable: false),
+                        CreatedOn = c.DateTime(nullable: false),
+                        UpdatedOn = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.AccountUsers",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        DDUserId = c.String(),
+                        NickName = c.String(),
+                        AccountUserGuid = c.Guid(nullable: false),
+                        LastIpAddress = c.String(),
+                        LastActivityDate = c.DateTime(),
+                        LastLoginDate = c.DateTime(),
+                        SystemName = c.String(),
+                        Active = c.Boolean(nullable: false),
+                        Deleted = c.Boolean(nullable: false),
+                        CreatedOn = c.DateTime(nullable: false),
+                        UpdatedOn = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.ActivityLogs",
                 c => new
@@ -24,24 +110,6 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
                 .ForeignKey("dbo.ActivityLogTypes", t => t.ActivityLogTypeId, cascadeDelete: true)
                 .Index(t => t.ActivityLogTypeId)
                 .Index(t => t.AccountUserId);
-            
-            CreateTable(
-                "dbo.AccountUsers",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        DDUserId = c.String(),
-                        NickName = c.String(),
-                        AccountUserGuid = c.Guid(nullable: false),
-                        LastIpAddress = c.String(),
-                        LastActivityDate = c.DateTime(),
-                        LastLoginDate = c.DateTime(),
-                        DingdingToken = c.String(),
-                        Deleted = c.Boolean(nullable: false),
-                        CreatedOn = c.DateTime(nullable: false),
-                        UpdatedOn = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.ActivityLogTypes",
@@ -78,18 +146,17 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
                 .Index(t => t.CustomerId);
             
             CreateTable(
-                "dbo.PanoramaLocations",
+                "dbo.MessageTemplates",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        LogoUrl = c.String(),
-                        Region = c.String(),
-                        Lng = c.Double(nullable: false),
-                        Lat = c.Double(nullable: false),
-                        Height = c.Double(nullable: false),
-                        IsProject = c.Boolean(nullable: false),
-                        DefaultPanoramaSceneId = c.Int(nullable: false),
+                        Name = c.String(nullable: false, maxLength: 200),
+                        BccEmailAddresses = c.String(maxLength: 200),
+                        Subject = c.String(maxLength: 1000),
+                        Body = c.String(),
+                        IsActive = c.Boolean(nullable: false),
+                        AttachedDownloadId = c.Int(nullable: false),
+                        EmailAccountId = c.Int(nullable: false),
                         Deleted = c.Boolean(nullable: false),
                         CreatedOn = c.DateTime(nullable: false),
                         UpdatedOn = c.DateTime(nullable: false),
@@ -97,31 +164,12 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.PanoramaPanoramaScenes",
+                "dbo.Settings",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        LogoUrl = c.String(),
-                        ThumPath = c.String(),
-                        Views = c.Int(nullable: false),
-                        Stars = c.Int(nullable: false),
-                        ProductionDate = c.DateTime(nullable: false),
-                        LastViewDate = c.DateTime(nullable: false),
-                        Deleted = c.Boolean(nullable: false),
-                        CreatedOn = c.DateTime(nullable: false),
-                        UpdatedOn = c.DateTime(nullable: false),
-                        Location_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.PanoramaLocations", t => t.Location_Id)
-                .Index(t => t.Location_Id);
-            
-            CreateTable(
-                "dbo.Tags",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false, maxLength: 200),
+                        Value = c.String(nullable: false, maxLength: 2000),
                         Deleted = c.Boolean(nullable: false),
                         CreatedOn = c.DateTime(nullable: false),
                         UpdatedOn = c.DateTime(nullable: false),
@@ -129,14 +177,31 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Projects",
+                "dbo.GenericAttributes",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Remark = c.String(),
-                        LogoUrl = c.String(),
-                        Order = c.Int(nullable: false),
+                        EntityId = c.Int(nullable: false),
+                        KeyGroup = c.String(nullable: false, maxLength: 400),
+                        Key = c.String(nullable: false, maxLength: 400),
+                        Value = c.String(nullable: false),
+                        StoreId = c.Int(nullable: false),
+                        Deleted = c.Boolean(nullable: false),
+                        CreatedOn = c.DateTime(nullable: false),
+                        UpdatedOn = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.RefreshTokens",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        HashId = c.String(),
+                        Subject = c.String(),
+                        IssuedUtc = c.DateTime(nullable: false),
+                        ExpiresUtc = c.DateTime(nullable: false),
+                        ProtectedTicket = c.String(),
                         Deleted = c.Boolean(nullable: false),
                         CreatedOn = c.DateTime(nullable: false),
                         UpdatedOn = c.DateTime(nullable: false),
@@ -199,6 +264,9 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.Logs", "CustomerId", "dbo.AccountUsers");
+            DropForeignKey("dbo.ActivityLogs", "ActivityLogTypeId", "dbo.ActivityLogTypes");
+            DropForeignKey("dbo.ActivityLogs", "AccountUserId", "dbo.AccountUsers");
             DropForeignKey("dbo.Project_PonoramaLocation_Mapping", "PanoramaLocation_Id", "dbo.PanoramaLocations");
             DropForeignKey("dbo.Project_PonoramaLocation_Mapping", "Project_Id", "dbo.Projects");
             DropForeignKey("dbo.PonoramaLocation_Tag_Mapping", "Tag_Id", "dbo.Tags");
@@ -208,9 +276,6 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
             DropForeignKey("dbo.PanoramaScene_Tags_Mapping", "Tag_Id", "dbo.Tags");
             DropForeignKey("dbo.PanoramaScene_Tags_Mapping", "PanoramaScene_Id", "dbo.PanoramaPanoramaScenes");
             DropForeignKey("dbo.PanoramaPanoramaScenes", "Location_Id", "dbo.PanoramaLocations");
-            DropForeignKey("dbo.Logs", "CustomerId", "dbo.AccountUsers");
-            DropForeignKey("dbo.ActivityLogs", "ActivityLogTypeId", "dbo.ActivityLogTypes");
-            DropForeignKey("dbo.ActivityLogs", "AccountUserId", "dbo.AccountUsers");
             DropIndex("dbo.Project_PonoramaLocation_Mapping", new[] { "PanoramaLocation_Id" });
             DropIndex("dbo.Project_PonoramaLocation_Mapping", new[] { "Project_Id" });
             DropIndex("dbo.PonoramaLocation_Tag_Mapping", new[] { "Tag_Id" });
@@ -219,22 +284,26 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
             DropIndex("dbo.PonoramaLocation_PanoramaScene_Mapping", new[] { "PanoramaLocation_Id" });
             DropIndex("dbo.PanoramaScene_Tags_Mapping", new[] { "Tag_Id" });
             DropIndex("dbo.PanoramaScene_Tags_Mapping", new[] { "PanoramaScene_Id" });
-            DropIndex("dbo.PanoramaPanoramaScenes", new[] { "Location_Id" });
             DropIndex("dbo.Logs", new[] { "CustomerId" });
             DropIndex("dbo.ActivityLogs", new[] { "AccountUserId" });
             DropIndex("dbo.ActivityLogs", new[] { "ActivityLogTypeId" });
+            DropIndex("dbo.PanoramaPanoramaScenes", new[] { "Location_Id" });
             DropTable("dbo.Project_PonoramaLocation_Mapping");
             DropTable("dbo.PonoramaLocation_Tag_Mapping");
             DropTable("dbo.PonoramaLocation_PanoramaScene_Mapping");
             DropTable("dbo.PanoramaScene_Tags_Mapping");
+            DropTable("dbo.RefreshTokens");
+            DropTable("dbo.GenericAttributes");
+            DropTable("dbo.Settings");
+            DropTable("dbo.MessageTemplates");
+            DropTable("dbo.Logs");
+            DropTable("dbo.ActivityLogTypes");
+            DropTable("dbo.ActivityLogs");
+            DropTable("dbo.AccountUsers");
             DropTable("dbo.Projects");
             DropTable("dbo.Tags");
             DropTable("dbo.PanoramaPanoramaScenes");
             DropTable("dbo.PanoramaLocations");
-            DropTable("dbo.Logs");
-            DropTable("dbo.ActivityLogTypes");
-            DropTable("dbo.AccountUsers");
-            DropTable("dbo.ActivityLogs");
         }
     }
 }
