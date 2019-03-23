@@ -25,5 +25,10 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Extensions
         {
             return entity.MapTo<Banner, BannerModel>();
         }
+
+        public static SimpleProjectModel ToModel(this Project entity)
+        {
+            return entity.MapTo<Project, SimpleProjectModel>();
+        }
     }
 }

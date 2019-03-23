@@ -1,11 +1,7 @@
 ﻿using QZCHY.PanoramaQuzhou.Core.Domain.Panoramas;
 using QZCHY.PanoramaQuzhou.Services.Panoramas;
 using QZCHY.PanoramaQuzhou.Web.Api.Extensions;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace QZCHY.PanoramaQuzhou.API.Controllers

@@ -15,9 +15,14 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
         public void Execute()
         {
 
-            Mapper.Initialize(x => x.CreateMap<Banner, BannerModel>());
+            Mapper.Initialize(config => {
 
+                config.CreateMap<Banner, BannerModel>();
+                config.CreateMap<Project, SimpleProjectModel>();
+                //config.CreateMap<Banner, BannerModel>();
+                //config.CreateMap<Banner, BannerModel>();
 
+            });
         }
     }
 }
