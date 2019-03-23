@@ -24,59 +24,78 @@
 <script src="tour.js"></script>
 
 
-<div id="pano" style="width:100%;height:100%;">
+    <div id="pano" style="width:100%;height:100%;">
 
-    <!--标题部分-->
-    <div class="" style="position:absolute;z-index:10;top:1%;">       
-        <img src="img/LOGO.png" style="width: 50px;margin-top: 1%;margin-left: 10px;">     
-  </div>
-
-    <div style="position:absolute;z-index:10;top:5%;" id="item_title">
-        <a href="#" class="button orange small">重大工程</a>
-    </div>
-
-    <div style="position:absolute;right:1%;bottom:1%;z-index:10;width:120px">
-        <p   class="" style="color:white;font-size:12px;position:absolute;margin-top:-20px">衢州市地理信息中心</p>
-        <a href="#" class="button blue medium">2019-3-17</a>
-    </div>
-
-    <!--右侧菜单栏-->
-    <div class="RightBtnContainer_container_2TnlAa" style="top:5%">
-
-        <div><em class="Button_btn_3I1HLL" style="display: block;"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -1px -660px; width: 62px; height: 62px;"></i></em></div>
-        <div><em class="Button_btn_3I1HLL" style="display: block;"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -130px -660px; width: 62px; height: 62px;"></i></em></div>
-        <div onclick="play_xz()"><em class="Button_btn_3I1HLL" style="display: block;" id="xz_btn"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -260px -590px; width: 62px; height: 62px;" ></i></em></div>
-        <div onclick="play_vr()"><em class="Button_btn_3I1HLL" id="vr_btn" style="display: block;"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -1px -590px; width: 62px; height: 62px;"></i></em></div>
-        <div onclick="play_qp()"><em class="Button_btn_3I1HLL" style="display: block;" id="qp_btn"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -325px -588px; width: 62px; height: 62px;"></i></em></div>
-
-    </div>
-
-
-    <!--下侧菜单栏-->
-    <div class="Theme1_right_22mVy8 block-horizontal-layout block-justify-end" style="position:absolute;bottom:2%;z-index:10">
-
-    <div class="Button_button_box_IEKNKj" style="position: absolute;margin-top: -35px;">
-        <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
-        <em style="display: block;"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -80px -815px; width: 80px; height: 80px;"></i></em><p>76</p></div></div>
-
-    <div class="Button_button_box_IEKNKj" style="position: absolute;margin-left: 40px;margin-top: -35px;">
-        <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
-        <em style="display: block;"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: 0px -731px; width: 80px; height: 80px;"></i></em><p>说一说</p></div></div>
-
-        <div class="Button_button_box_IEKNKj" style="position: absolute;margin-left: 80px;margin-top: -35px;">
-            <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
-                <em style="display: block;"><img src="img/marker.png" style="width: 38px;" /></em><p>地图模块</p>
-            </div>
+        <!--标题部分-->
+        <div class="" style="position:absolute;z-index:10;top:1%;">
+            <img src="img/LOGO.png" style="width: 50px;margin-top: 1%;margin-left: 10px;">
         </div>
 
-        <div class="Button_button_box_IEKNKj" style="position: absolute;margin-left: 120px;margin-top: -35px;" onclick="addList()">
-            <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
-                <em style="display: block;"><img src="img/piclist.png" style="width: 38px;" /></em><p>场景选择</p>
-            </div>
+        <div style="position:absolute;z-index:10;top:5%;" id="item_title">
+            <a href="#" class="button orange small">重大工程</a>
+        </div>
+
+        <div style="position:absolute;right:1%;bottom:1%;z-index:10;width:120px">
+            <p class="" style="color:white;font-size:12px;position:absolute;margin-top:-20px">衢州市地理信息中心</p>
+            <a href="#" class="button blue medium">2019-3-17</a>
+        </div>
+
+        <!--右侧菜单栏-->
+        <div class="RightBtnContainer_container_2TnlAa" style="top:5%">
+
+            <div><em class="Button_btn_3I1HLL" style="display: block;"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -1px -660px; width: 62px; height: 62px;"></i></em></div>
+            <div><em class="Button_btn_3I1HLL" style="display: block;"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -130px -660px; width: 62px; height: 62px;"></i></em></div>
+            <div onclick="play_xz()"><em class="Button_btn_3I1HLL" style="display: block;" id="xz_btn"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -260px -590px; width: 62px; height: 62px;"></i></em></div>
+            <div onclick="play_vr()"><em class="Button_btn_3I1HLL" id="vr_btn" style="display: block;"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -1px -590px; width: 62px; height: 62px;"></i></em></div>
+            <div onclick="play_qp()"><em class="Button_btn_3I1HLL" style="display: block;" id="qp_btn"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -325px -588px; width: 62px; height: 62px;"></i></em></div>
+
         </div>
 
 
+        <!--下侧菜单栏-->
+        <div class="Theme1_right_22mVy8 block-horizontal-layout block-justify-end" style="position:absolute;bottom:2%;z-index:10">
+
+            <div class="Button_button_box_IEKNKj" style="position: absolute;margin-top: -35px;">
+                <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
+                    <em style="display: block;"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: -80px -815px; width: 80px; height: 80px;"></i></em><p>76</p>
+                </div>
+            </div>
+
+            <div class="Button_button_box_IEKNKj" style="position: absolute;margin-left: 40px;margin-top: -35px;">
+                <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
+                    <em style="display: block;"><i class="icon_icon_2qVimu" style="background-size: 900px 1009px; background-position: 0px -731px; width: 80px; height: 80px;"></i></em><p>说一说</p>
+                </div>
+            </div>
+
+            <div class="Button_button_box_IEKNKj" style="position: absolute;margin-left: 80px;margin-top: -35px;">
+                <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
+                    <em style="display: block;"><img src="img/marker.png" style="width: 38px;" /></em><p>地图模块</p>
+                </div>
+            </div>
+
+            <div class="Button_button_box_IEKNKj" style="position: absolute;margin-left: 120px;margin-top: -35px;" onclick="addList()">
+                <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
+                    <em style="display: block;"><img src="img/piclist.png" style="width: 38px;" /></em><p>场景选择</p>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <!--发表说说模块-->
+        <div class="SpeakModal_modal_3hilMN" style="width: 330px;position :absolute;z-index :20;bottom :10%;background-color :black;opacity: 0.8;left: 20px;height :30%;">
+            <div class="SpeakModal_header_1AZW7t" style="margin-left: 20px;margin-top: 15px;">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAgCAQAAADdhmJCAAABxElEQVR4AZ3UA5AYWRQAwHe2bdu2bdu2C2fbthnbtpOLbdtrdLjmTBe+jajIOg5zrx/1NMos2TLNMFwXX7jFvlEzO3nBJEXyLTDBZIsVKjLYI7aIqtjER3KRp5UXnG+7KGZdu7jCG7qDZZ62blTkJGMxxwt2iWo40Acy0NN+UZbTLcdvto1asI+2mF6mG8dbqtD9kYCPMMXuRcn1jcBDkZDP0LQo8RwaRWLWNwyXronOl2HPSMEZ6BMRzkedSMkQhXYP3+CGSMmreDx0x/aRkjPwYxgvJ1KzH5qHDFMiNZtiQMg0NVKzMfqEmTIjNbuhSeiBXSIlF+P78DlujpS8hQfCBagfqVjHRAV2CuuZLt9+kYLL0T1W8TDaWyfF8U7COUWvsRveiESs60/UiyK2MRJvWzfBN/AvxtgpStjLTHRyTNSCE/XERLtHWXbXEIXqOyqq4Vj/KEQLu0ZlXGYSWkQxG1rXBra2lzPd50fjwHS3R9XcgA+KUg61WFk5WrjSelEdX+G2WM3hpmKsgTpq6EdPOMlGtTm2sfLtFGFjT8jAh5GU29HX1T42CxmejKRsYZIimf61byTnFSP1Us9n7rRFJLACwPLhx90RQfYAAAAASUVORK5CYII=" class="SpeakModal_iconSpeak_2JsKCz" style="width: 20px;">
+            <span class="SpeakModal_title_3F8SPT" style="font-size :15px;position: absolute;margin-left:10px;">标注说明</span>
+        </div>
+        <textarea class="SpeakModal_textarea_1j66Du" type="text" placeholder="添加标注说明" style="width: 90%;position: absolute;left: 4%;margin-top: 2%;height: 40%;"></textarea>
+        <a href="javascript: void 0;" class="Button_button_1a3a6c Button_disabled_1RmQ7C SpeakModal_submitBtn_1c1I2h" style="width: 100px;height: 35px;padding-left: 0px;padding-right: 0px;line-height: 33px;color: rgb(255, 255, 255);background-color: red;position: absolute;bottom: 5%;right: 5%;">发 表</a>
+        <a href="javascript: void 0;" class="Button_button_1a3a6c SpeakModal_cancelBtn_28KdnE" style="width: 70px;height: 35px;padding-left: 0px;padding-right: 0px;line-height: 33px;color: rgb(221, 221, 221);border-color: rgb(221, 221, 221);background-color: transparent;bottom: 5%;position: absolute;right: 40%;">取消</a>
+
     </div>
+
+
 
 
 	<noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>

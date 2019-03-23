@@ -17,7 +17,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
         void DeletePanoramaScene(PanoramaScene location);
 
 
-        PanoramaLocation GetLocationBySceneId(int id);
+        PanoramaScene GetSceneById(int id);
 
 
     }

@@ -22,18 +22,14 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
             this._eventPublisher = eventPublisher;
         }
 
-        public PanoramaLocation GetLocationBySceneId(int id)
+        public PanoramaScene GetSceneById(int id)
         {
             var query = from v in _sceneRepository.Table
                         where v.Id == id
                         select v;
-         var   scene = query.FirstOrDefault();
+      
 
-            var lquery = from l in _locationRepository.Table
-                         where l.Id == scene.Location.Id
-                         select l;
-
-            return lquery.FirstOrDefault();
+            return query.FirstOrDefault();
         }
 
         public void InsertPanoramaScene(PanoramaScene location)

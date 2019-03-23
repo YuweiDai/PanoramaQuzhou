@@ -19,8 +19,6 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
         public string Name { get; set; }
 
 
-        public string Name { get; set; }
-
         /// <summary>
         /// 封面图片
         /// </summary>

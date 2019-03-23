@@ -10,21 +10,9 @@ var w = document.documentElement.clientWidth/2;
 var w1 = $('#item_title').width() / 2;
 $("#item_title").css("left",(w-w1)+"px");
 
-//k.call("set('view.fov',150);");
-//k.call("set('view.hlookat',-10);");
 k.call("set('view.vlookat',10);");
 
 var h = k.get("view.vlookat");
-
-//k.call("addhotspot(kk);");
-//k.call("set(hotspot[kk].url,../skin/vtourskin_mapspot.png);");
-//k.call("set(hotspot[kk].ath,-170);");
-//k.call("set(hotspot[kk].atv,8);");
-//k.call("set(hotspot[kk].zoom,true);");
-
-
-
-
 
 var addList = function () {
 
@@ -39,6 +27,62 @@ var addList = function () {
     k.call("switch(layer[auto_thumbs].visible);");
     //   k.call("WebVR.enterVR();");
 };
+
+var addPanor = function () {
+    $.ajax({
+        url: "http://localhost:8070/api/Panorama/5",   
+        type: "get",
+        success: function (response) {
+            var sceneName = "scene_____________1";
+
+          //  k.call("loadscene('" + sceneName + "')");
+
+        }
+
+    })
+}
+
+
+var allowDemoRun = false;
+var div = document.getElementById("pano");
+
+
+
+$("#pano").on('touchstart', function (event) {
+    if (allowDemoRun == false) return;
+  
+    var addHotsport = function () {
+      
+        var sphereXY = k.screentosphere(event.screenX, event.screenY - 66);
+        var sp = k.spheretoscreen(event.screenX, event.screenY - 66);
+        var sphereX = sphereXY.x;
+        var sphereY = sphereXY.y;
+        k.call("addhotspot(kk);");
+        k.call("set(hotspot[kk].url,../skin/vtourskin_mapspot.png);");
+        k.call("set(hotspot[kk].ath," + sphereX + ");");
+        k.call("set(hotspot[kk].atv," + sphereY + ");");
+
+    }
+    addHotsport();
+  
+})
+
+
+$(".Button_button_box_IEKNKj").click(function (event) {
+    event.stopPropagation();
+    if (temp2 != 1) {
+        allowDemoRun = true;
+        // addHotsport();
+        temp2 = 1;
+    }
+    else {
+        allowDemoRun = false;
+        temp2 = 2;
+    }
+})
+
+
+addPanor();
 
 var play_vr = function () {
     k.call("WebVR.enterVR();");

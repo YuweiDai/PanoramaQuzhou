@@ -112,6 +112,14 @@
 
     );
   </action>
+
+  <events name="littleplanetintro_control" keep="true"
+		onnewpano="
+		stoptween(view.hlookat|view.vlookat|view.fov|view.distortion);
+                skin_setup_littleplanetintro()
+		)"
+ 
+		/>
    
 
   <!-- include VR support -->
@@ -304,7 +312,7 @@
     set(layer[auto_thumbs].visible,false);
 
     if(skin_settings.littleplanetintro AND (device.webgl OR device.flash),
-    skin_setup_littleplanetintro();
+    <!--skin_setup_littleplanetintro();-->
     );
 
   </action>
