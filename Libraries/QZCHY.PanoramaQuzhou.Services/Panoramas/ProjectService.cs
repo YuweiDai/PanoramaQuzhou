@@ -21,7 +21,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
         }
 
 
-        public IQueryable<Project> GetTop5Projects()
+        public IQueryable<Project> GetTopProjects(int count=5)
         {
             var query = from p in _projectRepository.TableNoTracking
                         where !p.Deleted                    

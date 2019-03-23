@@ -74,24 +74,22 @@ Page({
   },
 
   //初始化函数  
-  onLoad() { 
-    console.log("123");
+  onLoad() {
+    var that = this;
 
+    //获取banners
     dd.httpRequest({
-      url: app.globalData.apiBaseUrl+"banners/top",
+      url: app.globalData.apiBaseUrl + "banners/top",
       method: 'GET',
       dataType: 'json',
       success: function (res) {
-
-        res.forEach(function(item){
-
-          item.imageUrl=app.globalData.resourceUrl+"/Minapp/banners/"+item.imageUrl;
-          console.log(item);
+        var b = res.data;
+        b.forEach(function (item) {
+          item.imageUrl = app.globalData.resourceUrl + "Minapp/banners/" + item.imageUrl;
         });
-
-        this.setData({
-          banners:res
-        })
+        that.setData({
+          banners: b
+        });
       },
       fail: function (res) {
         console.log(res);
@@ -100,5 +98,36 @@ Page({
       complete: function (res) {
       }
     });
+
+    //获取projects
+    dd.httpRequest({
+      url: app.globalData.apiBaseUrl + "banners/top",
+      method: 'GET',
+      dataType: 'json',
+      success: function (res) {
+        var b = res.data;
+        b.forEach(function (item) {
+          item.imageUrl = app.globalData.resourceUrl + "Minapp/banners/" + item.imageUrl;
+        });
+        that.setData({
+          banners: b
+        });
+      },
+      fail: function (res) {
+        console.log(res);
+        dd.alert({ content: '加载banner发生错误' });
+      },
+      complete: function (res) {
+      }
+    });    
+  },
+
+  //导航
+  navTo: function (event) {
+    //console.log(event);
+    dd.navigateTo({
+      url: event.currentTarget.dataset.url
+    })
   }
+
 })

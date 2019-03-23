@@ -13,7 +13,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
         void InsertProject(Project project);
 
-        IQueryable<Project> GetTop5Projects();
+        IQueryable<Project> GetTopProjects(int count = 5);
 
         IQueryable<Project> GetAllProjects();
     }
