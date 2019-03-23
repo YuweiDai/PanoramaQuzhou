@@ -17,6 +17,9 @@ namespace QZCHY.PanoramaQuzhou.Data.Mapping.Panoramas
 
             this.HasMany(ps => ps.Tags).WithMany()
                 .Map(t => t.ToTable("PanoramaScene_Tags_Mapping"));
+
+            this.HasMany(ps => ps.Hotspots).WithMany()
+              .Map(t => t.ToTable("PanoramaScene_Hotspots_Mapping"));
         }
     }
 }

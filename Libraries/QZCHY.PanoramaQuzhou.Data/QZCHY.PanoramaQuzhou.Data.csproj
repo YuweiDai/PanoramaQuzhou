@@ -62,6 +62,7 @@
     <Compile Include="Mapping\Configuration\SettingMap.cs" />
     <Compile Include="Mapping\Messages\MessageTemplateMap.cs" />
     <Compile Include="Mapping\Panoramas\BannerMap.cs" />
+    <Compile Include="Mapping\Panoramas\HotspotMap.cs" />
     <Compile Include="Migrations\201903220305472_initialCreate.cs" />
     <Compile Include="Migrations\201903220305472_initialCreate.Designer.cs">
       <DependentUpon>201903220305472_initialCreate.cs</DependentUpon>
