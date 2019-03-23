@@ -10,14 +10,17 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
    public interface ISceneService
     {      
 
-        void InsertPanoramaScene(PanoramaScene location);
+        void InsertPanoramaScene(PanoramaScene scene);
 
         void UpdatePanoramaScene(PanoramaScene location);
 
         void DeletePanoramaScene(PanoramaScene location);
 
+        PanoramaScene GetPnoramaSceneById(int id);
 
-        PanoramaLocation GetLocationBySceneId(int id);
+        IQueryable<PanoramaScene> GetHotPanoramaScenes();
+
+        IQueryable<PanoramaScene> GetNewPanoramaScenes();
 
 
     }

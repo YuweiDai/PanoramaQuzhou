@@ -128,6 +128,7 @@
     <Compile Include="Domain\Messages\Event.cs" />
     <Compile Include="Domain\Messages\MessageTemplate.cs" />
     <Compile Include="Domain\Messages\MessageTemplatesSettings.cs" />
+    <Compile Include="Domain\Panoramas\Banner.cs" />
     <Compile Include="Domain\Panoramas\PanoramaLocation.cs" />
     <Compile Include="Domain\Panoramas\PanoramaScene.cs" />
     <Compile Include="Domain\Panoramas\Project.cs" />

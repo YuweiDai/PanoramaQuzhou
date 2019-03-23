@@ -36,13 +36,13 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
             return lquery.FirstOrDefault();
         }
 
-        public void InsertPanoramaScene(PanoramaScene location)
+        public void InsertPanoramaScene(PanoramaScene sencen)
         {
-            if (location == null) throw new ArgumentNullException("location");
+            if (sencen == null) throw new ArgumentNullException("location");
             else
             {
-                _sceneRepository.Insert(location);
-                _eventPublisher.EntityInserted(location);
+                _sceneRepository.Insert(sencen);
+                _eventPublisher.EntityInserted(sencen);
             }
         }
 
@@ -66,9 +66,19 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
             }
         }
 
+        public PanoramaScene GetPnoramaSceneById(int id)
+        {
+            throw new NotImplementedException();
+        }
 
+        public IQueryable<PanoramaScene> GetHotPanoramaScenes()
+        {
+            throw new NotImplementedException();
+        }
 
-
-
+        public IQueryable<PanoramaScene> GetNewPanoramaScenes()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

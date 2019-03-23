@@ -14,8 +14,8 @@ using QZCHY.PanoramaQuzhou.Web.Framework.Filters;
 using QZCHY.PanoramaQuzhou.Web.Framework;
 using QZCHY.PanoramaQuzhou.Web.Framework.Security.Authorization;
 
-[assembly: OwinStartup(typeof(QZCHY.PanoramaQuzhou.Api.Startup))]
-namespace QZCHY.PanoramaQuzhou.Api
+[assembly: OwinStartup(typeof(QZCHY.PanoramaQuzhou.API.Startup))]
+namespace QZCHY.PanoramaQuzhou.API
 {
     public class Startup
     {

@@ -1,4 +1,7 @@
-﻿using QZCHY.PanoramaQuzhou.Core.Infrastructure;
+﻿using AutoMapper;
+using QZCHY.PanoramaQuzhou.API.Models.Panoramas;
+using QZCHY.PanoramaQuzhou.Core.Domain.Panoramas;
+using QZCHY.PanoramaQuzhou.Core.Infrastructure;
 
 namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
 {
@@ -9,6 +12,12 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
             get { return 0; }
         }
 
-        public void Execute() { }
+        public void Execute()
+        {
+
+            Mapper.Initialize(x => x.CreateMap<Banner, BannerModel>());
+
+
+        }
     }
 }
