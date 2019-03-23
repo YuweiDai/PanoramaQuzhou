@@ -1,8 +1,8 @@
 {
-  "pages": [       
+  "pages": [      
+    "pages/discovery/discovery", 
     "pages/home/home",
     "pages/index/index",
-    "pages/discovery/discovery",
     "pages/map/map",
     "pages/panorama/panorama"
   ],

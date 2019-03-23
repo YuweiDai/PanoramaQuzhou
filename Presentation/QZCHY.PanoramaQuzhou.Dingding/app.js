@@ -18,6 +18,9 @@ App({
   },
   globalData: {
     systemInfo: {},
-    rpx:0.5
+    rpx:0.5,
+
+    apiBaseUrl:"http://abcde.vaiwan.com/",
+    resourceUrl:"http://220.191.238.125/resources/"
   }
 });

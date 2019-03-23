@@ -17,7 +17,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
         /// 场景名称
         /// </summary>
         public string Name { get; set; }
-
+        
 
         /// <summary>
         /// 封面图片

@@ -98,8 +98,11 @@ namespace QZCHY.PanoramaQuzhou.Web.Framework
             //services
 
 
-            #region 资产服务类注册
+            #region 全景服务类注册
+            builder.RegisterType<ProjectService>().As<IProjectService>().InstancePerLifetimeScope();
             builder.RegisterType<SceneService>().As<ISceneService>().InstancePerLifetimeScope();
+            builder.RegisterType<LocationService>().As<ILocationService>().InstancePerLifetimeScope();
+            builder.RegisterType<BannerService>().As<IBannerService>().InstancePerLifetimeScope();
             #endregion
 
             //builder.RegisterType<BackInStockSubscriptionService>().As<IBackInStockSubscriptionService>().InstancePerLifetimeScope();

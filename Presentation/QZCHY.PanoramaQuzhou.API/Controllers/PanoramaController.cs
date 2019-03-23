@@ -13,43 +13,43 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
     {
 
         private readonly ISceneService _sceneService;
+        private readonly ILocationService _locationService;
    
 
-        public PanoramaController(ISceneService sceneService)
+        public PanoramaController(ISceneService sceneService, ILocationService locationService)
         {
-
             _sceneService = sceneService;
+            _locationService = locationService;
         }
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("{id}")]
         public IHttpActionResult  GetSceneById(int id=0)
         {
 
-            var scene = _sceneService.GetSceneById(id);
+            var location = _locationService.GetLocationBySceneId(id);
 
-            return Ok(scene.Name);
+            return Ok(location.Name);
         }
 
-        [HttpGet]
-        [Route("addViews")]
-        public IHttpActionResult AddSceneViews(int id) {
 
-            var scene = _sceneService.GetSceneById(id);
-            scene.Views++;
-            _sceneService.UpdatePanoramaScene(scene);
 
-            return Ok("添加成功");
-        }
+
+
 
         [HttpGet]
-        [Route("addStars")]
-        public IHttpActionResult AddSceneStars(int id)
-        {
+        [Route("add")]
+        public IHttpActionResult AddScene() {
 
-            var scene = _sceneService.GetSceneById(id);
-            scene.Stars++;
-            _sceneService.UpdatePanoramaScene(scene);
+            var scene = new PanoramaScene()
+            {
+                Name = "盈川小区",
+                LastViewDate = DateTime.Now,
+                ProductionDate = DateTime.Now,
+                Views = 12
+            };
+            
+            _sceneService.InsertPanoramaScene(scene);
 
             return Ok("添加成功");
         }

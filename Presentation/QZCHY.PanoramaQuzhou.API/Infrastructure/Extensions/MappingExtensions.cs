@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using QZCHY.PanoramaQuzhou.API.Models.Panoramas;
+using QZCHY.PanoramaQuzhou.Core.Domain.Panoramas;
 
 namespace QZCHY.PanoramaQuzhou.Web.Api.Extensions
 {
@@ -17,5 +19,11 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Extensions
             return Mapper.Map(source, destination);
         }
  
+
+        //banner
+        public static BannerModel ToModel(this Banner entity)
+        {
+            return entity.MapTo<Banner, BannerModel>();
+        }
     }
 }

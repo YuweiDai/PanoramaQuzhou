@@ -2,14 +2,11 @@
 using QZCHY.PanoramaQuzhou.Core.Domain.Panoramas;
 using QZCHY.PanoramaQuzhou.Services.Events;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 {
-   public  class LocationService:ILocationService
+    public  class LocationService:ILocationService
     {
         private readonly IRepository<PanoramaLocation> _locationRepository;
         private readonly IEventPublisher _eventPublisher;
@@ -20,12 +17,41 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
             this._eventPublisher = eventPublisher;
         }
 
+        public IQueryable<PanoramaLocation> GetAllLocations()
+        {
+            var query = from pl in _locationRepository.TableNoTracking
+                        where !pl.Deleted
+                        select pl;
+
+            return query;
+        }
+
         public PanoramaLocation GetLocationById(int id)
         {
-            var query = from v in _locationRepository.Table
-                        where v.Id == id
-                        select v;
-            return query.FirstOrDefault();
+            var location = _locationRepository.GetById(id);
+            if (location.Deleted) return null;
+
+            return location;            
+        }
+
+        public PanoramaLocation GetLocationBySceneId(int sceneId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<PanoramaLocation> GetLocationsByProjectId(int projectId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertPanoramaLocation(PanoramaLocation panoramaLocation)
+        {
+            if (panoramaLocation == null) throw new ArgumentNullException("panoramaLocation");
+            else
+            {
+                _locationRepository.Insert(panoramaLocation);
+                _eventPublisher.EntityInserted(panoramaLocation);
+            }
         }
     }
 }
