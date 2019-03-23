@@ -319,154 +319,80 @@
 
 
 
-  <scene name="scene_____________1" title="盈川小区1" onstart="" thumburl="%$tileserver%panos/____________1.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="盈川小区1">
+  <scene name="盈川小区" title="盈川小区" onstart="" thumburl="%$tileserver%panos/盈川小区.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="西区">
 
     <view hlookat="-110" vlookat="20" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/____________1.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/盈川小区.tiles/preview.jpg" />
 
     <image prealign="0|0.0|0">
-      <cube url="%$tileserver%panos/____________1.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/盈川小区.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-  <scene name="scene_______1" title="地面1" onstart="" thumburl="%$tileserver%panos/______1.tiles/thumb.jpg" lat="" lng="" heading="" >
+  <scene name="衢时代创新大厦" title="衢时代创新大厦" onstart="" thumburl="%$tileserver%panos/衢时代创新大厦.tiles/thumb.jpg" lat="" lng="" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/______1.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢时代创新大厦.tiles/preview.jpg" />
 
     <image>
-      <cube url="%$tileserver%panos/______1.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/衢时代创新大厦.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-  <scene name="scene_______2" title="地面2" onstart="" thumburl="%$tileserver%panos/______2.tiles/thumb.jpg" lat="" lng="" heading="">
+  <scene name="衢州西高速出口" title="衢州西高速出口" onstart="" thumburl="%$tileserver%panos/衢州西高速出口.tiles/thumb.jpg" lat="" lng="" heading="">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/______2.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢州西高速出口.tiles/preview.jpg" />
 
     <image>
-      <cube url="%$tileserver%panos/______2.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/衢州西高速出口.tiles/pano_%s.jpg" />
+    </image>
+
+  </scene>
+
+  <scene name="西区新农都" title="西区新农都" onstart="" thumburl="%$tileserver%panos/西区新农都.tiles/thumb.jpg" lat="" lng="" heading="" >
+
+    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+    <preview url="%$tileserver%panos/西区新农都.tiles/preview.jpg" />
+
+    <image>
+      <cube url="%$tileserver%panos/西区新农都.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
 
-  <scene name="scene_____________2" title="盈川小区2" onstart="" thumburl="%$tileserver%panos/____________2.tiles/thumb.jpg" lat="28.98875944" lng="118.84959444" heading="0.0" album="盈川小区2">
+  <scene name="文昌阁" title="文昌阁" onstart="" thumburl="%$tileserver%panos/文昌阁.tiles/thumb.jpg" lat="28.98875944" lng="118.84959444" heading="0.0" album="老城区">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/____________2.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/文昌阁.tiles/preview.jpg" />
 
     <image prealign="0|0.0|0">
-      <cube url="%$tileserver%panos/____________2.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/文昌阁.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 	
-	<scene name="scene_______8" title="地面8" onstart="" thumburl="%$tileserver%panos/______8.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="衢州东高速出口" title="衢州东高速出口" onstart="" thumburl="%$tileserver%panos/衢州东高速出口.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="%$tileserver%panos/______8.tiles/preview.jpg" />
+		<preview url="%$tileserver%panos/衢州东高速出口.tiles/preview.jpg" />
 
 		<image>
-			<cube url="%$tileserver%panos/______8.tiles/pano_%s.jpg" />
+			<cube url="%$tileserver%panos/衢州东高速出口.tiles/pano_%s.jpg" />
 		</image>
 
 	</scene>
   
-  <scene name="scene_______6" title="地面6" onstart="" thumburl="%$tileserver%panos/______6.tiles/thumb.jpg" lat="" lng="" heading="" >
-
-    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-    <preview url="%$tileserver%panos/______6.tiles/preview.jpg" />
-
-    <image>
-      <cube url="%$tileserver%panos/______6.tiles/pano_%s.jpg" />
-    </image>
-
-  </scene>
-
-
-  <scene name="scene_____________3" title="盈川小区3" onstart="" thumburl="%$tileserver%panos/____________3.tiles/thumb.jpg" lat="28.99006389" lng="118.85279639" heading="0.0" album="盈川小区3">
-
-    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-    <preview url="%$tileserver%panos/____________3.tiles/preview.jpg" />
-
-    <image prealign="0|0.0|0">
-      <cube url="%$tileserver%panos/____________3.tiles/pano_%s.jpg" />
-    </image>
-
-  </scene>
-
-	<scene name="scene_______11" title="地面11" onstart="" thumburl="%$tileserver%panos/______11.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="%$tileserver%panos/______11.tiles/preview.jpg" />
-
-		<image>
-			<cube url="%$tileserver%panos/______11.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_______12" title="地面12" onstart="" thumburl="%$tileserver%panos/______12.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="%$tileserver%panos/______12.tiles/preview.jpg" />
-
-		<image>
-			<cube url="%$tileserver%panos/______12.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-
-  <scene name="scene_____________4" title="盈川小区4" onstart="" thumburl="%$tileserver%panos/____________4.tiles/thumb.jpg" lat="28.99050306" lng="118.85616556" heading="0.0" album="盈川小区4">
-
-    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-    <preview url="%$tileserver%panos/____________4.tiles/preview.jpg" />
-
-    <image prealign="0|0.0|0">
-      <cube url="%$tileserver%panos/____________4.tiles/pano_%s.jpg" />
-    </image>
-
-  </scene>
-
-  <scene name="scene_______17" title="地面17" onstart="" thumburl="%$tileserver%panos/______17.tiles/thumb.jpg" lat="" lng="" heading="" >
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="%$tileserver%panos/______17.tiles/preview.jpg" />
-
-		<image>
-			<cube url="%$tileserver%panos/______17.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_______18" title="地面18" onstart="" thumburl="%$tileserver%panos/______18.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="%$tileserver%panos/______18.tiles/preview.jpg" />
-
-		<image>
-			<cube url="%$tileserver%panos/______18.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-
+  
 
 
 </krpano>

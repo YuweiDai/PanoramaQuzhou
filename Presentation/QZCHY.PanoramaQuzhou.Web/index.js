@@ -33,9 +33,9 @@ var addPanor = function () {
         url: "http://localhost:8070/api/Panorama/5",   
         type: "get",
         success: function (response) {
-            var sceneName = "scene_____________1";
+            var sceneName = response.name;
 
-          //  k.call("loadscene('" + sceneName + "')");
+            k.call("loadscene('" + sceneName + "')");
 
         }
 

@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace QZCHY.PanoramaQuzhou.API.Controllers
 {
-    [RoutePrefix("Panorama")]
+    [RoutePrefix("Panoramas")]
     public class PanoramaController: ApiController
     {
 
