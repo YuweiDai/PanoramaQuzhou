@@ -125,3 +125,4 @@ $("#pano").on('touchstart', function (event) {
     addHotsport();
 
 })
+
