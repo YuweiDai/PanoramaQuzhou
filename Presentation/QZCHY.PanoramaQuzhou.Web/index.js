@@ -1,7 +1,20 @@
 ﻿var k; var temp1, temp2, temp;
+
+(function ($) {
+    $.getUrlParam = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");//构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);//匹配目标参数
+        if (r != null) return unescape(r[2]); return null;//返回参数值
+    }
+})(jQuery);
+ 
+var allowDemoRun = false;
+var div = document.getElementById("pano");
+
 var krpanoReady = function (krpano) {
     k = krpano;
 }
+
 embedpano({ swf: "tour.swf", xml: "tour.xml", target: "pano", html5: "auto", mobilescale: 1.0, passQueryParameters: true, onready: krpanoReady });
 
 var mybody = document.getElementsByTagName('body')[0];
@@ -10,27 +23,12 @@ var w = document.documentElement.clientWidth/2;
 var w1 = $('#item_title').width() / 2;
 $("#item_title").css("left",(w-w1)+"px");
 
-k.call("set('view.vlookat',10);");
-
-var h = k.get("view.vlookat");
-
-var addList = function () {
-
-    //var scene = k.get("scene[get(xml.scene)].name");
-
-    //var xml = ' <settings name="auto_thumbs" thumb_size="200" thumb_background_size="250" thumb_spacing="0" left="10" right="10" bottom="10" albums_right="10" onstart=""/>';
-    //k.call("loadxml(" + xml + " )");
-
-
-
-
-    k.call("switch(layer[auto_thumbs].visible);");
-    //   k.call("WebVR.enterVR();");
-};
-
+//加载全景
 var addPanor = function () {
+  var id=  $.getUrlParam('id');
+    if (id == undefined) id=5;
     $.ajax({
-        url: "http://localhost:8070/api/Panorama/5",   
+        url: "http://localhost:8070/api/Panoramas/"+id,
         type: "get",
         success: function (response) {
             var sceneName = response.name;
@@ -42,33 +40,10 @@ var addPanor = function () {
     })
 }
 
+addPanor();
 
-var allowDemoRun = false;
-var div = document.getElementById("pano");
-
-
-
-$("#pano").on('touchstart', function (event) {
-    if (allowDemoRun == false) return;
-  
-    var addHotsport = function () {
-      
-        var sphereXY = k.screentosphere(event.screenX, event.screenY - 66);
-        var sp = k.spheretoscreen(event.screenX, event.screenY - 66);
-        var sphereX = sphereXY.x;
-        var sphereY = sphereXY.y;
-        k.call("addhotspot(kk);");
-        k.call("set(hotspot[kk].url,../skin/vtourskin_mapspot.png);");
-        k.call("set(hotspot[kk].ath," + sphereX + ");");
-        k.call("set(hotspot[kk].atv," + sphereY + ");");
-
-    }
-    addHotsport();
-  
-})
-
-
-$(".Button_button_box_IEKNKj").click(function (event) {
+//添加标注按钮
+$(".Button_button_box_IEKNKj").on('touchstart', function (event) {
     event.stopPropagation();
     if (temp2 != 1) {
         allowDemoRun = true;
@@ -79,15 +54,26 @@ $(".Button_button_box_IEKNKj").click(function (event) {
         allowDemoRun = false;
         temp2 = 2;
     }
-})
+});
 
+//场景选择
+var addList = function () {
 
-addPanor();
+    //var scene = k.get("scene[get(xml.scene)].name");
 
+    //var xml = ' <settings name="auto_thumbs" thumb_size="200" thumb_background_size="250" thumb_spacing="0" left="10" right="10" bottom="10" albums_right="10" onstart=""/>';
+    //k.call("loadxml(" + xml + " )");
+
+    k.call("switch(layer[auto_thumbs].visible);");
+    //   k.call("WebVR.enterVR();");
+};
+
+//VR切换按钮
 var play_vr = function () {
     k.call("WebVR.enterVR();");
 }
 
+//控制自动旋转
 var play_xz = function () {
     if (temp != 1) {
         $("#xz_btn i").css("background-position", "-260px -660px");
@@ -102,6 +88,7 @@ var play_xz = function () {
 
 }
 
+//全屏切换
 var play_qp = function () {
 
     if (temp1 != 1) {
@@ -114,6 +101,27 @@ var play_qp = function () {
         k.set("fullscreen", false);
         temp1 = 2;
     }
-
-   
 }
+
+//动态添加标注
+$("#pano").on('touchstart', function (event) {
+    if (allowDemoRun == false) return;
+
+    var addHotsport = function () {
+
+        var sphereXY = k.screentosphere(event.originalEvent.targetTouches[0].pageX, event.originalEvent.targetTouches[0].pageY);
+        var sp = k.spheretoscreen(event.originalEvent.targetTouches[0].pageX, event.originalEvent.targetTouches[0].pageY);
+        var sphereX = sphereXY.x;
+        var sphereY = sphereXY.y;
+        k.call("addhotspot(kk);");
+        k.call("set(hotspot[kk].url,skin/animatedhotspot_black.png);");
+        
+        k.call("set(hotspot[kk].onloaded,do_crop_animation(64,64, 60));");
+        k.call("set(hotspot[kk].tooltip,'添加标注');");
+        k.call("set(hotspot[kk].ath," + sphereX + ");");
+        k.call("set(hotspot[kk].atv," + sphereY + ");");
+
+    }
+    addHotsport();
+
+})

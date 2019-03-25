@@ -10,6 +10,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
     public class PanoramaScene: BaseEntity
     {
         private ICollection<Tag> _tags;
+        private ICollection<Hotspot> _hotspots;
         public PanoramaScene()
         { 
         }
@@ -59,5 +60,12 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
             get { return _tags ?? (_tags = new List<Tag>()); }
             protected set { _tags = value; }
         }
+
+        public virtual ICollection<Hotspot> Hotspots
+        {
+            get { return _hotspots ?? (_hotspots = new List<Hotspot>()); }
+            protected set { _hotspots = value; }
+        }
+
     }
 }

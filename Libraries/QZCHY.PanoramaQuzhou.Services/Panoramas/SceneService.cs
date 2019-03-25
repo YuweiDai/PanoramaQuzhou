@@ -64,7 +64,12 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
         public PanoramaScene GetPnoramaSceneById(int id)
         {
-            throw new NotImplementedException();
+            var query = from v in _sceneRepository.Table
+                        where v.Id == id
+                        select v;
+
+
+            return query.FirstOrDefault();
         }
 
         public IQueryable<PanoramaScene> GetHotPanoramaScenes()

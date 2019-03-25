@@ -27,12 +27,25 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
         public IHttpActionResult  GetSceneById(int id=0)
         {
 
-            var location = _locationService.GetLocationBySceneId(id);
+            var scene = _sceneService.GetPnoramaSceneById(id);
 
-            return Ok(location.Name);
+            scene.Views++;
+            _sceneService.UpdatePanoramaScene(scene);
+
+            return Ok(scene);
         }
 
+        [HttpGet]
+        [Route("addStars/{id}")]
+        public IHttpActionResult AddSceneStars(int id) {
 
+            var scene = _sceneService.GetPnoramaSceneById(id);
+
+            scene.Stars++;
+            _sceneService.UpdatePanoramaScene(scene);
+
+            return Ok();
+        }
 
 
 
