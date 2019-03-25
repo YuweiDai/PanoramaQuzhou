@@ -30,7 +30,8 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
                 config.CreateMap<Hotspot, HotspotModel>();
 
                 config.CreateMap<PanoramaSceneModel, PanoramaScene>();
-                config.CreateMap<PanoramaScene, PanoramaSceneModel>();
+                config.CreateMap<PanoramaScene, PanoramaSceneModel>()
+                  .ForMember(dest => dest.ProductionDate, mo => mo.MapFrom(src => src.ProductionDate.ToString("yyyy-MM-dd")));
 
             });
 

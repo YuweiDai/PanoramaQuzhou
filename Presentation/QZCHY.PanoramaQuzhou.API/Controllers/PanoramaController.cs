@@ -37,7 +37,12 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
             var response = scene.ToModel();
             response.Name = scene.Location.Name+ scene.ProductionDate;
+            response.hotspots = scene.Hotspots.Select(h =>
+            {
+                var hmodel = h.ToModel();
+                return hmodel;
 
+            }).ToList();
 
             return Ok(response);
         }
@@ -63,7 +68,6 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
             var scene = new PanoramaScene()
             {
-                Name = "盈川小区",
                 LastViewDate = DateTime.Now,
                 ProductionDate = DateTime.Now,
                 Views = 12

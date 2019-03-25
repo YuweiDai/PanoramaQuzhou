@@ -17,6 +17,6 @@ namespace QZCHY.PanoramaQuzhou.API.Models.Panoramas
 
         public int Scence_Id { get; set; }
 
-        public string 
+      
     }
 }
