@@ -8,11 +8,10 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
     public class PanoramaLocation:BaseEntity
     {
         private ICollection<Tag> _tags;
+        private ICollection<Project> _projects;
         private ICollection<PanoramaScene> _panoramaScenes;
 
         public string Name { get; set; }
-
-        public string LogoUrl { get; set; }
 
         /// <summary>
         /// 区域
@@ -43,6 +42,12 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
         /// 默认的全景SceneId
         /// </summary>
         public int DefaultPanoramaSceneId { get; set; }
+
+        public virtual ICollection<Project> Projects
+        {
+            get { return _projects ?? (_projects = new List<Project>()); }
+            protected set { _projects = value; }
+        }
 
         /// <summary>
         /// Location标签，不包括Location的标签，标签直接;号隔开

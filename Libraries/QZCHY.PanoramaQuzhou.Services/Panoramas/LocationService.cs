@@ -29,7 +29,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
         public PanoramaLocation GetLocationById(int id)
         {
             var location = _locationRepository.GetById(id);
-            if (location.Deleted) return null;
+            if (location==null || location.Deleted) return null;
 
             return location;            
         }
