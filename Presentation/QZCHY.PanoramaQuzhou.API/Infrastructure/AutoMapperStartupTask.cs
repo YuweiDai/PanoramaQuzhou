@@ -18,8 +18,10 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
             Mapper.Initialize(config => {
 
                 config.CreateMap<Banner, BannerModel>();
+                config.CreateMap<Project, ProjectModel>();
                 config.CreateMap<Project, SimpleProjectModel>();
-                //config.CreateMap<Banner, BannerModel>();
+                config.CreateMap<PanoramaLocation, PanoramaLocationModel>();
+                config.CreateMap<PanoramaLocation, SimplePanoramaLocationModel>();
                 //config.CreateMap<Banner, BannerModel>();
 
             });

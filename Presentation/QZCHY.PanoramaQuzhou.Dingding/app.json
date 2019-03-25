@@ -1,10 +1,12 @@
 {
-  "pages": [      
-    "pages/discovery/discovery", 
+  "pages": [
+    "pages/projects/projects",
+    "pages/discovery/discovery",
     "pages/home/home",
     "pages/index/index",
     "pages/map/map",
-    "pages/panorama/panorama"
+    "pages/panorama/panorama",
+    "pages/projects/project_pano_locations/project_pano_locations"
   ],
   "window": {
     "defaultTitle": "全景衢州"
@@ -35,4 +37,3 @@
     ]
   }
 }
- 

@@ -21,48 +21,23 @@
   font-size: 25rpx;
 }
 
-.projects {
+.tags {
   white-space: nowrap;
   display: flex;
   width: 100%;
 }
 
-.project {
-  height: 375rpx;
-  margin-right: 15rpx;
-  background-color: purple;
-  flex-shrink: 0;
-  flex-grow: 0;
-  width: 300px;
-  height: 200px;
-}
-
-.projects .project image {
-  width: 100%;
-  height: 100%;
-}
-
-.tags {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .tags .tag {
   height: 220rpx;
-  width: 220rpx;
-  text-align: center;
   margin-right: 15rpx;
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 220rpx;
   position: relative;
 }
 
 .tags .tag:last-child {
   margin-right: 0;
-}
-
-.tags .tag image {
-  width: 100%;
-  height: 100%;
 }
 
 .tags .tag .title {
@@ -73,6 +48,43 @@
   top: 95rpx;
   left: 0;
   width: 220rpx;
+  text-align: center;
+}
+
+.tags .tag image {
+  width: 100%;
+  height: 100%;
+}
+
+.projects {
+  white-space: nowrap;
+  display: flex;
+  width: 100%;
+}
+
+.project {
+  height: 375rpx;
+  margin-right: 15rpx;
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 300px;
+  position: relative;
+}
+
+.projects .project image {
+  width: 100%;
+  height: 100%;
+}
+
+.projects .project .projectTitle
+{
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  position: absolute;
+  top: 88px;
+  left: 0;
 }
 
 .hotPanoramas {

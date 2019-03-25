@@ -1,0 +1,93 @@
+.project .logo
+{
+  width: 750rpx;
+  height: 463rpx;
+}
+
+.project .logo image
+{
+  width: 100%;
+  height: 100%;
+}
+
+.project .title
+{
+  font-size: 20px;
+  margin-bottom: 20rpx;
+
+  color: #329fFA;  
+}
+
+.project .remark
+{
+  font-size: 12px;
+  font-family: 等线;
+  color: silver;
+  height: 40px;
+  overflow-y:scroll;
+}
+
+.emphasize
+{
+  color: black;  
+}
+
+.location_section
+{
+  margin-top: 20rpx;  
+}
+
+.location_section .title
+{
+  font-size: 18px;
+  text-align: center;
+}
+.location_section .pano_locations
+{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+}
+
+.location_section .pano_locations .pano_location
+{
+  width: 335rpx;
+  height: 335rpx;
+  position: relative;
+}
+
+.location_section .pano_locations .pano_location:nth-child(odd)
+{
+
+  margin-right: 20rpx;
+}
+
+.location_section .pano_locations .pano_location image
+{
+  width: 100%;
+  height: 100%;
+}
+
+.location_section .pano_locations .pano_location .title
+{
+  margin: 0;
+  color: #329fFA;
+  font-size: 14px;
+  position: absolute;
+  bottom: 2px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+
+.location_section .pano_locations .pano_location .bg
+{
+  height: 20px;
+  background-color: #f0f0f0;
+  opacity: 0.5;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+
+}

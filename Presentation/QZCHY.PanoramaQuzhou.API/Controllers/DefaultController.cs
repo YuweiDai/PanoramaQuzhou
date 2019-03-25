@@ -70,7 +70,8 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
                 _projectService.InsertProject(project);
             }
 
-        }    
+        }
+ 
 
     }
 }

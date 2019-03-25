@@ -39,11 +39,6 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
             throw new NotImplementedException();
         }
 
-        public IQueryable<PanoramaLocation> GetLocationsByProjectId(int projectId)
-        {
-            throw new NotImplementedException();
-        }
-
         public void InsertPanoramaLocation(PanoramaLocation panoramaLocation)
         {
             if (panoramaLocation == null) throw new ArgumentNullException("panoramaLocation");

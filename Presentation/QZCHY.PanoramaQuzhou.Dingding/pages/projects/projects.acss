@@ -1,0 +1,22 @@
+.projects {
+  width: 100%;
+}
+
+.project {
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+
+.project .logo {
+  width: 100%;
+}
+
+.project .logo image {
+  width: 100%;
+  height: 300rpx;
+}
+
+.project .title
+{
+  font-size: 18px;
+}

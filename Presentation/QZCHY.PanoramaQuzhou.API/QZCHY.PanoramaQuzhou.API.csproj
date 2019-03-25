@@ -217,6 +217,7 @@
     <Compile Include="Infrastructure\AutoMapperStartupTask.cs" />
     <Compile Include="Infrastructure\DependencyRegistrar.cs" />
     <Compile Include="Models\Panoramas\BannerModel.cs" />
+    <Compile Include="Models\Panoramas\PanoramaLocationModel.cs" />
     <Compile Include="Models\Panoramas\ProjectModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
