@@ -11,7 +11,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Mapping.Panoramas
             this.ToTable("Projects");
             this.HasKey(p => p.Id);
 
-            this.HasMany(p => p.PanoramaLocations).WithMany()
+            this.HasMany(pr => pr.PanoramaLocations).WithMany(p=>p.Projects)
                 .Map(t => t.ToTable("Project_PonoramaLocation_Mapping"));
         }
     }

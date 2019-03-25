@@ -33,6 +33,9 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
                 config.CreateMap<PanoramaScene, PanoramaSceneModel>()
                   .ForMember(dest => dest.ProductionDate, mo => mo.MapFrom(src => src.ProductionDate.ToString("yyyy-MM-dd")));
 
+                config.CreateMap<PanoramaScene, PanoramaSceneListItemModel>()
+                  .ForMember(dest => dest.ProductionDate, mo => mo.MapFrom(src => src.ProductionDate.ToString("yyyy-MM-dd")));
+
             });
 
 

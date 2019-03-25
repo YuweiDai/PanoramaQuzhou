@@ -23,37 +23,37 @@ Page({
 
     // ],
     hotPanoramas: [
-      {
-        src: "../../resources/images/h1.jpg",
-        title: "西区二期未来科技城",
-        count: 1213,
-        date: "2019-03-12",
-        url: ""
-      },
-      {
-        src: "../../resources/images/h2.jpg",
-        title: "古城双修",
-        count: 1213,
-        date: "2019-03-12"
-      },
-      {
-        src: "../../resources/images/h3.jpg",
-        title: "绿色产业集聚区",
-        count: 1213,
-        date: "2019-03-12"
-      },
-      {
-        src: "../../resources/images/h4.jpg",
-        title: "衢江新城",
-        count: 1213,
-        date: "2019-03-12"
-      },
-      {
-        src: "../../resources/images/h5.jpg",
-        title: "酒醉池淮",
-        count: 1213,
-        date: "2019-03-12"
-      }
+      // {
+      //   src: "../../resources/images/h1.jpg",
+      //   title: "西区二期未来科技城",
+      //   count: 1213,
+      //   date: "2019-03-12",
+      //   url: ""
+      // },
+      // {
+      //   src: "../../resources/images/h2.jpg",
+      //   title: "古城双修",
+      //   count: 1213,
+      //   date: "2019-03-12"
+      // },
+      // {
+      //   src: "../../resources/images/h3.jpg",
+      //   title: "绿色产业集聚区",
+      //   count: 1213,
+      //   date: "2019-03-12"
+      // },
+      // {
+      //   src: "../../resources/images/h4.jpg",
+      //   title: "衢江新城",
+      //   count: 1213,
+      //   date: "2019-03-12"
+      // },
+      // {
+      //   src: "../../resources/images/h5.jpg",
+      //   title: "酒醉池淮",
+      //   count: 1213,
+      //   date: "2019-03-12"
+      // }
 
     ],
     currentTab: 0
@@ -103,6 +103,29 @@ Page({
       fail: function (res) {
         console.log(res);
         dd.alert({ content: '加载projects发生错误' });
+      },
+      complete: function (res) {
+      }
+    });
+
+        //获取hotpanoramas
+    dd.httpRequest({
+      url: app.globalData.apiBaseUrl + "panoramas/hot",
+      method: 'GET',
+      dataType: 'json',
+      success: function (res) {
+        var panoramas = res.data;
+        panoramas.forEach(function (item) {
+          item.logoUrl = app.globalData.resourceUrl + "Minapp/projects/" + item.logoUrl;
+          item.navToUrl = "../projects/project_pano_locations/project_pano_locations?pid=" + item.id + "&name=" + item.name;
+        });
+        that.setData({
+          hotPanoramas: panoramas
+        });
+      },
+      fail: function (res) {
+        console.log(res);
+        dd.alert({ content: '加载panoramas发生错误' });
       },
       complete: function (res) {
       }

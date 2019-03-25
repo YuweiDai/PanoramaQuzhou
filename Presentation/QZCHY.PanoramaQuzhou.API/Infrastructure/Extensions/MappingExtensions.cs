@@ -39,6 +39,10 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Extensions
         {
             return entity.MapTo<PanoramaScene, PanoramaSceneModel>();
         }
+        public static PanoramaSceneListItemModel ToListItemModel(this PanoramaScene entity)
+        {
+            return entity.MapTo<PanoramaScene, PanoramaSceneListItemModel>();
+        }
         public static PanoramaScene ToEntity(this PanoramaSceneModel createmodel)
         {
             return createmodel.MapTo<PanoramaSceneModel, PanoramaScene>();

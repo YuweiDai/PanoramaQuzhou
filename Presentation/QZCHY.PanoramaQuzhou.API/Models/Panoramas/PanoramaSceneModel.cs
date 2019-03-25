@@ -16,4 +16,13 @@ namespace QZCHY.PanoramaQuzhou.API.Models.Panoramas
         public IList<HotspotModel> hotspots { get; set; }
         public string ProductionDate { get; set; }
     }
+
+    public class PanoramaSceneListItemModel : BaseQMEntityModel
+    {
+        public string Name { get; set; }
+        public int Views { get; set; }
+
+        public string LogoUrl { get; set; }
+        public string ProductionDate { get; set; }
+    }
 }

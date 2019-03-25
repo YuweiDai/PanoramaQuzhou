@@ -59,6 +59,15 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        [Route("Test")]
+        public IHttpActionResult Test()
+        {
+            var scene = _sceneService.GetPnoramaSceneById(9);
+            var location = _locationService.GetLocationById(136);
+
+            return Ok("");
+        }
 
         [HttpGet]
         [Route("hot")]
@@ -67,7 +76,9 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             //默认最多15个
             var hotPanoramas = _sceneService.GetHotPanoramaScenes(15).ToList().Select(ps =>
             {
-                return ps.
+                var psm = ps.ToListItemModel();
+                psm.Name = ps.Location.Name;
+                return psm;
             });
 
             return Ok(hotPanoramas);
@@ -81,7 +92,10 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             //默认最多15个
             var newPanoramas = _sceneService.GetNewPanoramaScenes(15).ToList().Select(ps =>
             {
-                return ps.
+
+                var psm = ps.ToListItemModel();
+                psm.Name = ps.Location.Name;
+                return psm;
             });
 
             return Ok(newPanoramas);

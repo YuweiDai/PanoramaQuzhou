@@ -65,7 +65,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
         public PanoramaScene GetPnoramaSceneById(int id)
         {
             var scene = _sceneRepository.GetById(id);
-            if (scene.Deleted) return null;
+            if (scene==null || scene.Deleted) return null;
             else return scene;
         }
 
