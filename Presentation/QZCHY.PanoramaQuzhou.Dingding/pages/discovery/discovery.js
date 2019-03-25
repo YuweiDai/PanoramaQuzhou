@@ -3,37 +3,25 @@ var app = getApp();
 Page({
   data: {
     banners: [],
-    projects: [
-      {
-        src: "../../resources/images/p1.jpg",
-        url: ""
-      },
-      {
-        src: "../../resources/images/p2.jpg",
-        url: ""
-      },
-      {
-        src: "../../resources/images/p3.jpg",
-        url: ""
-      }
-    ],
-    tags: [
-      {
-        src: "../../resources/images/t2.jpg",
-        title: "城市时光机",
-        url: ""
-      },
-      {
-        src: "../../resources/images/t1.jpg",
-        title: "美丽乡村",
-        url: ""
-      },
-      {
-        src: "../../resources/images/t3.jpg",
-        title: "室内全景",
-        url: ""
-      }
-    ],
+    projects: [],
+    // tags: [
+    //   {
+    //     src: "../../resources/images/t2.jpg",
+    //     title: "城市时光机",
+    //     url: ""
+    //   },
+    //   {
+    //     src: "../../resources/images/t1.jpg",
+    //     title: "美丽乡村",
+    //     url: ""
+    //   },
+    //   {
+    //     src: "../../resources/images/t3.jpg",
+    //     title: "室内全景",
+    //     url: ""
+    //   },
+   
+    // ],
     hotPanoramas: [
       {
         src: "../../resources/images/h1.jpg",
@@ -67,10 +55,7 @@ Page({
         date: "2019-03-12"
       }
 
-    ],
-    indicatorDots: true,
-    autoplay: false,
-    interval: 3000,
+    ]
   },
 
   //初始化函数  
@@ -101,21 +86,21 @@ Page({
 
     //获取projects
     dd.httpRequest({
-      url: app.globalData.apiBaseUrl + "banners/top",
+      url: app.globalData.apiBaseUrl + "projects/top",
       method: 'GET',
       dataType: 'json',
       success: function (res) {
-        var b = res.data;
-        b.forEach(function (item) {
-          item.imageUrl = app.globalData.resourceUrl + "Minapp/banners/" + item.imageUrl;
+        var p = res.data;
+        p.forEach(function (item) {
+          item.logoUrl = app.globalData.resourceUrl + "Minapp/projects/" + item.logoUrl;
         });
         that.setData({
-          banners: b
+          projects: p
         });
       },
       fail: function (res) {
         console.log(res);
-        dd.alert({ content: '加载banner发生错误' });
+        dd.alert({ content: '加载projects发生错误' });
       },
       complete: function (res) {
       }
@@ -124,7 +109,6 @@ Page({
 
   //导航
   navTo: function (event) {
-    //console.log(event);
     dd.navigateTo({
       url: event.currentTarget.dataset.url
     })

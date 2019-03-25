@@ -6,11 +6,12 @@
           <image data-url="{{item.navToUrl}}" onTap="navTo" src="{{item.imageUrl}}" mode="aspectFill" />
         </swiper-item>
       </block>
-    </swiper>
-    
+    </swiper>    
   </view>
-  <view class="section p-md">
-    <view class="tags">
+
+  <!-- 暂时不用 -->
+  <!-- <view class="section p-md">
+    <scroll-view class="tags" scroll-x="true">      
       <block a:for="{{tags}}">
         <view class="tag">
           <image src="{{item.src}}" mode="aspectFill" />
@@ -18,19 +19,18 @@
           </text>
         </view>
       </block>
-    </view>
-  </view>
+    </scroll-view>
+  </view> -->
+
   <view class="section p-md">
     <view class="title">重大项目全景        
     </view>
-    <view class="showMore">查看全部 
-      <text class="iconfont icon-more">
-      </text>
-    </view>
+    <view data-url="../../pages/projects/projects" class="showMore" onTap="navTo">查看全部 <!-- <text class="iconfont icon-more"></text> --></view>
     <scroll-view class="projects" scroll-x="true">
       <block a:for="{{projects}}">
-        <view class="project">
-          <image src="{{item.src}}" mode="aspectFill" />
+        <view class="project" data-url="{{item.navToUrl}}" onTap="navTo" >
+          <view class="projectTitle">{{item.name}}</view>
+          <image src="{{item.logoUrl}}" mode="aspectFill" />
         </view>
       </block>
     </scroll-view>

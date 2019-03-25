@@ -15,8 +15,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
         PanoramaLocation GetLocationBySceneId(int sceneId);
 
         IQueryable<PanoramaLocation> GetAllLocations();
-
-        IQueryable<PanoramaLocation> GetLocationsByProjectId(int projectId);
+        
 
 
 

@@ -1,0 +1,27 @@
+<view class="page project">
+  <view class="logo">
+    <image src="{{project.logoUrl}}" mode="scaleToFill" />
+  </view>
+  <view class="p-md">
+    <view class="title">{{project.name}}
+    </view>
+    <view class="remark">
+      <text class="emphasize">项目简介:
+      </text>{{project.remark}}
+    </view>
+    <view class="location_section">
+      <view class="title">拍摄点集合
+      </view>
+      <view class="pano_locations">
+        <block a:for="{{project.panoramaLocations}}">
+
+        <view class="pano_location" data-sid="{{item.defaultPanoramaSceneId}}" onTap="navToPanorama">
+          <image src="{{item.logoUrl}}" mode="scaleToFill" />
+          <view class="bg"></view>
+          <view class="title">{{item.name}}</view>
+        </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
