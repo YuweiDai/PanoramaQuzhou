@@ -103,6 +103,7 @@ namespace QZCHY.PanoramaQuzhou.Web.Framework
             builder.RegisterType<SceneService>().As<ISceneService>().InstancePerLifetimeScope();
             builder.RegisterType<LocationService>().As<ILocationService>().InstancePerLifetimeScope();
             builder.RegisterType<BannerService>().As<IBannerService>().InstancePerLifetimeScope();
+            builder.RegisterType<HotspotService>().As<IHotspotService>().InstancePerLifetimeScope();
             #endregion
 
             //builder.RegisterType<BackInStockSubscriptionService>().As<IBackInStockSubscriptionService>().InstancePerLifetimeScope();

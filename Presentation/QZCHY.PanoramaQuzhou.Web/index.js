@@ -1,4 +1,5 @@
 ﻿var k; var temp1, temp2, temp;
+var hotspotdata = {};
 
 (function ($) {
     $.getUrlParam = function (name) {
@@ -7,6 +8,7 @@
         if (r != null) return unescape(r[2]); return null;//返回参数值
     }
 })(jQuery);
+var id = $.getUrlParam('id');
  
 var allowDemoRun = false;
 var div = document.getElementById("pano");
@@ -25,15 +27,26 @@ $("#item_title").css("left",(w-w1)+"px");
 
 //加载全景
 var addPanor = function () {
-  var id=  $.getUrlParam('id');
+  
     if (id == undefined) id=5;
     $.ajax({
-        url: "http://localhost:8070/api/Panoramas/"+id,
+        url: "http://localhost:8070/api/Panoramas/" + id,
         type: "get",
         success: function (response) {
             var sceneName = response.name;
 
             k.call("loadscene('" + sceneName + "')");
+
+            $.each(response.hotspots, function (data) {
+
+              
+                k.call("set(hotspot[kk].url,skin/arrow.png);");
+
+                k.call("set(hotspot[kk].onloaded,do_crop_animation(64,64, 60));");
+                k.call("set(hotspot[kk].tooltip," + data.title + ");");
+                k.call("set(hotspot[kk].ath," + data.ath + ");");
+                k.call("set(hotspot[kk].atv," + data.atv + ");");
+            })       
 
         }
 
@@ -42,19 +55,7 @@ var addPanor = function () {
 
 addPanor();
 
-//添加标注按钮
-$(".Button_button_box_IEKNKj").on('touchstart', function (event) {
-    event.stopPropagation();
-    if (temp2 != 1) {
-        allowDemoRun = true;
-        // addHotsport();
-        temp2 = 1;
-    }
-    else {
-        allowDemoRun = false;
-        temp2 = 2;
-    }
-});
+
 
 //场景选择
 var addList = function () {
@@ -103,26 +104,67 @@ var play_qp = function () {
     }
 }
 
+
+
+
+
+//添加标注按钮
+$("#hotspot").on('touchstart', function (event) {
+    event.stopPropagation();
+    if (temp2 != 1) {
+        allowDemoRun = true;
+        // addHotsport();
+        temp2 = 1;
+    }
+    else {
+        allowDemoRun = false;
+        temp2 = 2;
+    }
+});
 //动态添加标注
 $("#pano").on('touchstart', function (event) {
     if (allowDemoRun == false) return;
 
-    var addHotsport = function () {
+    var sphereXY = k.screentosphere(event.originalEvent.targetTouches[0].pageX, event.originalEvent.targetTouches[0].pageY);
+    var sp = k.spheretoscreen(event.originalEvent.targetTouches[0].pageX, event.originalEvent.targetTouches[0].pageY);
+    var sphereX = sphereXY.x;
+    var sphereY = sphereXY.y;
+    k.call("addhotspot(kk);");
+    k.call("set(hotspot[kk].url,skin/arrow.png);");
 
-        var sphereXY = k.screentosphere(event.originalEvent.targetTouches[0].pageX, event.originalEvent.targetTouches[0].pageY);
-        var sp = k.spheretoscreen(event.originalEvent.targetTouches[0].pageX, event.originalEvent.targetTouches[0].pageY);
-        var sphereX = sphereXY.x;
-        var sphereY = sphereXY.y;
-        k.call("addhotspot(kk);");
-        k.call("set(hotspot[kk].url,skin/animatedhotspot_black.png);");
-        
-        k.call("set(hotspot[kk].onloaded,do_crop_animation(64,64, 60));");
-        k.call("set(hotspot[kk].tooltip,'添加标注');");
-        k.call("set(hotspot[kk].ath," + sphereX + ");");
-        k.call("set(hotspot[kk].atv," + sphereY + ");");
+    k.call("set(hotspot[kk].onloaded,do_crop_animation(64,64, 60));");
+    k.call("set(hotspot[kk].tooltip,'添加标注');");
+    k.call("set(hotspot[kk].ath," + sphereX + ");");
+    k.call("set(hotspot[kk].atv," + sphereY + ");");
 
-    }
-    addHotsport();
+    hotspotdata = {
+        Title: "测试",
+        Ath: sphereX,
+        Atv: sphereY,
+        Scence_Id: id
+    };
+    $(".SpeakModal_modal_3hilMN").css("display", "block");
+
+});
+
+$(".SpeakModal_modal_3hilMN").on('touchstart', function () {
+    event.stopPropagation();
+})
+
+//提交说一说
+$("#submitBtn").on('click', function () {
+    hotspotdata.Title = $(".SpeakModal_textarea_1j66Du").val();
+    $.ajax({
+        url: "http://localhost:8070/api/Panoramas/addhotspot",
+        data: hotspotdata,
+        type: "post",
+        success: function (response) {
+           
+            k.call("set(hotspot[kk].tooltip,"+ response+");");
+        }
+
+    });
 
 })
+
 

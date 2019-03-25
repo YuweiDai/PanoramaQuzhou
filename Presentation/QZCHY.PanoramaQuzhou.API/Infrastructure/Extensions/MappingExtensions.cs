@@ -18,7 +18,37 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Extensions
         {
             return Mapper.Map(source, destination);
         }
- 
+
+
+        public static HotspotModel ToModel(this Hotspot entity)
+        {
+            return entity.MapTo<Hotspot, HotspotModel>();
+        }
+        public static Hotspot ToEntity(this HotspotModel createmodel)
+        {
+            return createmodel.MapTo<HotspotModel, Hotspot>();
+        }
+
+        public static Hotspot ToEntity(this HotspotModel createmodel, Hotspot destination)
+        {
+            return createmodel.MapTo(destination);
+        }
+
+
+        public static PanoramaSceneModel ToModel(this PanoramaScene entity)
+        {
+            return entity.MapTo<PanoramaScene, PanoramaSceneModel>();
+        }
+        public static PanoramaScene ToEntity(this PanoramaSceneModel createmodel)
+        {
+            return createmodel.MapTo<PanoramaSceneModel, PanoramaScene>();
+        }
+
+        public static PanoramaScene ToEntity(this PanoramaSceneModel createmodel, PanoramaScene destination)
+        {
+            return createmodel.MapTo(destination);
+        }
+
 
         //banner
         public static BannerModel ToModel(this Banner entity)

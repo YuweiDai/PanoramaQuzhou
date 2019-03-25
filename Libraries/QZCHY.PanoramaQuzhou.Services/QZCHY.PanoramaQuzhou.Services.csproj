@@ -99,7 +99,9 @@
     <Compile Include="Logging\LoggingExtensions.cs" />
     <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="Panoramas\BannerService.cs" />
+    <Compile Include="Panoramas\HotspotService.cs" />
     <Compile Include="Panoramas\IBannerService.cs" />
+    <Compile Include="Panoramas\IHotspotService.cs" />
     <Compile Include="Panoramas\ILocationService.cs" />
     <Compile Include="Panoramas\IProjectService.cs" />
     <Compile Include="Panoramas\ISceneService.cs" />

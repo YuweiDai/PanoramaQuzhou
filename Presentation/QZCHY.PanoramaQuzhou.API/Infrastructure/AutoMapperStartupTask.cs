@@ -15,6 +15,8 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
         public void Execute()
         {
 
+          
+
             Mapper.Initialize(config => {
 
                 config.CreateMap<Banner, BannerModel>();
@@ -24,7 +26,16 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
                 config.CreateMap<PanoramaLocation, SimplePanoramaLocationModel>();
                 //config.CreateMap<Banner, BannerModel>();
 
+                config.CreateMap<HotspotModel, Hotspot>();
+                config.CreateMap<Hotspot, HotspotModel>();
+
+                config.CreateMap<PanoramaSceneModel, PanoramaScene>();
+                config.CreateMap<PanoramaScene, PanoramaSceneModel>();
+
             });
+
+
+
         }
     }
 }
