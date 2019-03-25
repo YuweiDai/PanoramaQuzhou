@@ -360,7 +360,7 @@
 
 
 
-  <scene name="盈川小区" title="盈川小区" onstart="" thumburl="%$tileserver%panos/盈川小区.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="西区">
+  <scene name="盈川小区2018-5-15" title="盈川小区2018-5-15" onstart="" thumburl="%$tileserver%panos/盈川小区.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="西区">
 
     <view hlookat="-110" vlookat="20" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
@@ -372,7 +372,7 @@
 
   </scene>
 
-  <scene name="衢时代创新大厦" title="衢时代创新大厦" onstart="" thumburl="%$tileserver%panos/衢时代创新大厦.tiles/thumb.jpg" lat="" lng="" heading="" >
+  <scene name="衢时代创新大厦2018-8-8" title="衢时代创新大厦2018-8-8" onstart="" thumburl="%$tileserver%panos/衢时代创新大厦.tiles/thumb.jpg" lat="" lng="" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
@@ -384,7 +384,7 @@
 
   </scene>
 
-  <scene name="衢州西高速出口" title="衢州西高速出口" onstart="" thumburl="%$tileserver%panos/衢州西高速出口.tiles/thumb.jpg" lat="" lng="" heading="">
+  <scene name="衢州西高速出口2018-8-20" title="衢州西高速出口2018-8-20" onstart="" thumburl="%$tileserver%panos/衢州西高速出口.tiles/thumb.jpg" lat="" lng="" heading="">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
@@ -396,7 +396,7 @@
 
   </scene>
 
-  <scene name="西区新农都" title="西区新农都" onstart="" thumburl="%$tileserver%panos/西区新农都.tiles/thumb.jpg" lat="" lng="" heading="" >
+  <scene name="西区新农都2019-3-23" title="西区新农都2019-3-23" onstart="" thumburl="%$tileserver%panos/西区新农都.tiles/thumb.jpg" lat="" lng="" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
@@ -409,7 +409,7 @@
   </scene>
 
 
-  <scene name="文昌阁" title="文昌阁" onstart="" thumburl="%$tileserver%panos/文昌阁.tiles/thumb.jpg" lat="28.98875944" lng="118.84959444" heading="0.0" album="老城区">
+  <scene name="文昌阁2018-12-20" title="文昌阁2018-12-20" onstart="" thumburl="%$tileserver%panos/文昌阁.tiles/thumb.jpg" lat="28.98875944" lng="118.84959444" heading="0.0" album="老城区">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
@@ -421,7 +421,7 @@
 
   </scene>
 	
-	<scene name="衢州东高速出口" title="衢州东高速出口" onstart="" thumburl="%$tileserver%panos/衢州东高速出口.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="衢州东高速出口2018-8-20" title="衢州东高速出口2018-8-20" onstart="" thumburl="%$tileserver%panos/衢州东高速出口.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 

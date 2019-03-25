@@ -13,13 +13,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
         private ICollection<Hotspot> _hotspots;
         public PanoramaScene()
         { 
-        }
-        /// <summary>
-        /// 场景名称
-        /// </summary>
-        public string Name { get; set; }
-        
-
+        }     
         /// <summary>
         /// 封面图片
         /// </summary>

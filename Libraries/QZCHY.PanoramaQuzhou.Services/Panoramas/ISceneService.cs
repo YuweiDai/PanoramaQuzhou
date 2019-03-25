@@ -12,9 +12,9 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
         void InsertPanoramaScene(PanoramaScene scene);
 
-        void UpdatePanoramaScene(PanoramaScene location);
+        void UpdatePanoramaScene(PanoramaScene scene);
 
-        void DeletePanoramaScene(PanoramaScene location);
+        void DeletePanoramaScene(PanoramaScene scene);
 
         PanoramaScene GetPnoramaSceneById(int id);
 
