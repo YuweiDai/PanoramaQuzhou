@@ -10,12 +10,12 @@
   height: 100%;
 }
 
-.project .title
+.project > .title
 {
   font-size: 20px;
   margin-bottom: 20rpx;
 
-  color: #329fFA;  
+  /* color: #329fFA;   */
 }
 
 .project .remark
@@ -37,10 +37,14 @@
   margin-top: 20rpx;  
 }
 
-.location_section .title
+.location_section >.title
 {
+  color: black;
   font-size: 18px;
   text-align: center;
+  border-top: #191F25 1px solid;
+  padding-top: 5px;
+  margin-bottom: 20rpx;
 }
 .location_section .pano_locations
 {
@@ -54,6 +58,7 @@
   width: 335rpx;
   height: 335rpx;
   position: relative;
+  margin-bottom: 20rpx;
 }
 
 .location_section .pano_locations .pano_location:nth-child(odd)
@@ -71,7 +76,7 @@
 .location_section .pano_locations .pano_location .title
 {
   margin: 0;
-  color: #329fFA;
+  /* color: #329fFA; */
   font-size: 14px;
   position: absolute;
   bottom: 2px;
@@ -83,11 +88,10 @@
 .location_section .pano_locations .pano_location .bg
 {
   height: 20px;
-  background-color: #f0f0f0;
+  background-color: white;
   opacity: 0.5;
   width: 100%;
   position: absolute;
   bottom: 0;
   z-index: 10;
-
 }

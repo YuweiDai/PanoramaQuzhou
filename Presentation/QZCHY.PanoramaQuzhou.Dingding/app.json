@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/projects/projects",
     "pages/discovery/discovery",
     "pages/home/home",
-    "pages/index/index",
+    "pages/projects/projects",
     "pages/map/map",
     "pages/panorama/panorama",
     "pages/projects/project_pano_locations/project_pano_locations"

@@ -1,6 +1,4 @@
-﻿using QZCHY.PanoramaQuzhou.Core.Domain;
-using QZCHY.PanoramaQuzhou.Core.Domain.Panoramas;
-using QZCHY.PanoramaQuzhou.Data.Mapping;
+﻿using QZCHY.PanoramaQuzhou.Core.Domain.Panoramas;
 
 namespace QZCHY.PanoramaQuzhou.Data.Mapping.Panoramas
 {

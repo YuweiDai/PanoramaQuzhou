@@ -20,7 +20,7 @@ Page({
     //     title: "室内全景",
     //     url: ""
     //   },
-   
+
     // ],
     hotPanoramas: [
       {
@@ -55,7 +55,8 @@ Page({
         date: "2019-03-12"
       }
 
-    ]
+    ],
+    currentTab: 0
   },
 
   //初始化函数  
@@ -93,6 +94,7 @@ Page({
         var p = res.data;
         p.forEach(function (item) {
           item.logoUrl = app.globalData.resourceUrl + "Minapp/projects/" + item.logoUrl;
+          item.navToUrl = "../projects/project_pano_locations/project_pano_locations?pid=" + item.id + "&name=" + item.name;
         });
         that.setData({
           projects: p
@@ -104,7 +106,7 @@ Page({
       },
       complete: function (res) {
       }
-    });    
+    });
   },
 
   //导航
@@ -112,6 +114,19 @@ Page({
     dd.navigateTo({
       url: event.currentTarget.dataset.url
     })
+  },
+
+  //切换
+  swichNav: function (event) {
+    this.setData({
+      currentTab: event.currentTarget.dataset.current
+    });
+  },
+
+  swiperChange: function (event) {
+    this.setData({
+      currentTab: event.detail.current
+    });
   }
 
 })

@@ -48,25 +48,32 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
         }
 
 
-
-
         [HttpGet]
-        [Route("add")]
-        public IHttpActionResult AddScene() {
-
-            var scene = new PanoramaScene()
+        [Route("hot")]
+        public IHttpActionResult GetHotPanoramas()
+        {
+            //默认最多15个
+            var hotPanoramas = _sceneService.GetHotPanoramaScenes(15).ToList().Select(ps =>
             {
-                Name = "盈川小区",
-                LastViewDate = DateTime.Now,
-                ProductionDate = DateTime.Now,
-                Views = 12
-            };
-            
-            _sceneService.InsertPanoramaScene(scene);
+                return ps.
+            });
 
-            return Ok("添加成功");
+            return Ok(hotPanoramas);
+
         }
 
+        [HttpGet]
+        [Route("new")]
+        public IHttpActionResult GetNewPanoramas()
+        {
+            //默认最多15个
+            var newPanoramas = _sceneService.GetNewPanoramaScenes(15).ToList().Select(ps =>
+            {
+                return ps.
+            });
 
+            return Ok(newPanoramas);
+
+        }
     }
 }

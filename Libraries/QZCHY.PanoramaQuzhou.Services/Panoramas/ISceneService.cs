@@ -18,9 +18,9 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
         PanoramaScene GetPnoramaSceneById(int id);
 
-        IQueryable<PanoramaScene> GetHotPanoramaScenes();
+        IQueryable<PanoramaScene> GetHotPanoramaScenes(int count);
 
-        IQueryable<PanoramaScene> GetNewPanoramaScenes();
+        IQueryable<PanoramaScene> GetNewPanoramaScenes(int count);
 
 
     }

@@ -55,20 +55,29 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             }
         }
 
-        [Route("AddProjects")]
+        [Route("projects")]
         [HttpGet]
         public IHttpActionResult InsertProjects()
         {
-            return Ok("");
-            var projectJson = "[{'Id':'9','Name':'未来大厦'},{'Id':'10','Name':'衢州市人才社区'},{'Id':'11','Name':'鹿鸣半岛项目'},{'Id':'12','Name':'鹿鸣山文化院街'},{'Id':'13','Name':'鹿鸣半岛酒店综合体'},{'Id':'14','Name':'市儿童公园'},{'Id':'15','Name':'高铁西站枢纽'},{'Id':'16','Name':'水亭门历史文化街区'},{'Id':'17','Name':'历史街区风貌衔接工程'},{'Id':'18','Name':'东门遗址公园建设工程'},{'Id':'19','Name':'信安湖光影秀'},{'Id':'20','Name':'十里江滨景观改造提升'},{'Id':'21','Name':'全民健身中心'},{'Id':'22','Name':'综合客运枢纽'},{'Id':'23','Name':'信安湖活力岛'},{'Id':'24','Name':'南湖广场改造提升工程'},{'Id':'25','Name':'衢州市区生活垃圾焚烧发电项目'},{'Id':'26','Name':'金瑞泓8 - 12英寸集成电路用硅片项目'},{'Id':'27','Name':'柯城斗潭片区建设'},{'Id':'28','Name':'大荫山丛林穿越项目'},{'Id':'29','Name':'中国运动汽车城'},{'Id':'30','Name':'衢江抽水蓄能电站'},{'Id':'31','Name':'衢江新田铺康养综合体'},{'Id':'32','Name':'铜山源全域旅游休闲度假区'},]";
 
-            var projects = Newtonsoft.Json.JsonConvert.DeserializeObject<IList<Project>>(projectJson);
+            var projects = _projectService.GetAllProjects();
 
             foreach(var project in projects)
             {
-                project.LogoUrl = "Minapp/Projects/" + project.Id+".jpg";
-                _projectService.InsertProject(project);
+                project.LogoUrl = project.LogoUrl.Replace("Minapp/Projects/", "");
+                _projectService.UpdateProject(project);
             }
+
+            return Ok("");
+            //var projectJson = "[{'Id':'9','Name':'未来大厦'},{'Id':'10','Name':'衢州市人才社区'},{'Id':'11','Name':'鹿鸣半岛项目'},{'Id':'12','Name':'鹿鸣山文化院街'},{'Id':'13','Name':'鹿鸣半岛酒店综合体'},{'Id':'14','Name':'市儿童公园'},{'Id':'15','Name':'高铁西站枢纽'},{'Id':'16','Name':'水亭门历史文化街区'},{'Id':'17','Name':'历史街区风貌衔接工程'},{'Id':'18','Name':'东门遗址公园建设工程'},{'Id':'19','Name':'信安湖光影秀'},{'Id':'20','Name':'十里江滨景观改造提升'},{'Id':'21','Name':'全民健身中心'},{'Id':'22','Name':'综合客运枢纽'},{'Id':'23','Name':'信安湖活力岛'},{'Id':'24','Name':'南湖广场改造提升工程'},{'Id':'25','Name':'衢州市区生活垃圾焚烧发电项目'},{'Id':'26','Name':'金瑞泓8 - 12英寸集成电路用硅片项目'},{'Id':'27','Name':'柯城斗潭片区建设'},{'Id':'28','Name':'大荫山丛林穿越项目'},{'Id':'29','Name':'中国运动汽车城'},{'Id':'30','Name':'衢江抽水蓄能电站'},{'Id':'31','Name':'衢江新田铺康养综合体'},{'Id':'32','Name':'铜山源全域旅游休闲度假区'},]";
+
+            //var projects = Newtonsoft.Json.JsonConvert.DeserializeObject<IList<Project>>(projectJson);
+
+            //foreach(var project in projects)
+            //{
+            //    project.LogoUrl = "Minapp/Projects/" + project.Id+".jpg";
+            //    _projectService.InsertProject(project);
+            //}
 
         }
  

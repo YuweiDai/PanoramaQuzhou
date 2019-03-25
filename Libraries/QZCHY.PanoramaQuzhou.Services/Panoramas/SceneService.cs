@@ -64,22 +64,32 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
         public PanoramaScene GetPnoramaSceneById(int id)
         {
-            var query = from v in _sceneRepository.Table
-                        where v.Id == id
-                        select v;
-
-
-            return query.FirstOrDefault();
+            var scene = _sceneRepository.GetById(id);
+            if (scene.Deleted) return null;
+            else return scene;
         }
 
-        public IQueryable<PanoramaScene> GetHotPanoramaScenes()
+        public IQueryable<PanoramaScene> GetHotPanoramaScenes(int count)
         {
-            throw new NotImplementedException();
+            var query = from ps in _sceneRepository.TableNoTracking
+                        where !ps.Deleted
+                        select ps;
+
+            query = query.OrderByDescending(ps => ps.Views).Take(count);
+
+            return query;
+
         }
 
-        public IQueryable<PanoramaScene> GetNewPanoramaScenes()
+        public IQueryable<PanoramaScene> GetNewPanoramaScenes(int count)
         {
-            throw new NotImplementedException();
+            var query = from ps in _sceneRepository.TableNoTracking
+                        where !ps.Deleted
+                        select ps;
+
+            query = query.OrderByDescending(ps => ps.ProductionDate).Take(count);
+
+            return query;
         }
     }
 }

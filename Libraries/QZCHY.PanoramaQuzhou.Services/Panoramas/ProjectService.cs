@@ -63,5 +63,19 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
                 _eventPublisher.EntityInserted(project);
             }
         }
+
+        public void UpdateProject(Project project)
+        {
+            if (project == null)
+                throw new ArgumentNullException("property is null");
+
+            _projectRepository.Update(project);
+
+            //cache
+           // _cacheManager.RemoveByPattern(PROPERTIES_PATTERN_KEY);
+
+            //event notification
+            _eventPublisher.EntityUpdated(project);
+        }
     }
 }

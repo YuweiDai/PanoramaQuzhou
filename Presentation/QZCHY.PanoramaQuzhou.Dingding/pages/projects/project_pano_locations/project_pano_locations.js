@@ -13,6 +13,10 @@ Page({
     console.log(query);
     var that = this;
 
+this.setData({
+  'project.name':query.name
+});
+
     //获取项目具体信息
     dd.httpRequest({
       url: app.globalData.apiBaseUrl + "projects/" + query.pid,
@@ -51,8 +55,6 @@ Page({
       complete: function (res) {
       }
     });
-
-
 
 
   },

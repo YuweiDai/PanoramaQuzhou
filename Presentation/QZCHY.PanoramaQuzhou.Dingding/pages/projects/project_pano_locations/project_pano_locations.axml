@@ -10,9 +10,8 @@
       </text>{{project.remark}}
     </view>
     <view class="location_section">
-      <view class="title">拍摄点集合
-      </view>
-      <view class="pano_locations">
+      <view class="title">{{project.panoramaLocations.length>0?'拍摄点集合':'数据更新中ing...'}}</view>
+      <view class="pano_locations"  a:if="{{project.panoramaLocations.length>0}}">
         <block a:for="{{project.panoramaLocations}}">
 
         <view class="pano_location" data-sid="{{item.defaultPanoramaSceneId}}" onTap="navToPanorama">

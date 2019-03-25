@@ -37,22 +37,22 @@
 
  
   <view class="tools">
-    <view class="btn">
+    <!-- <view class="btn">
       <view class="icon star"></view>
       <text>73</text>
-    </view>
+    </view> -->
     <view class="btn">
       <view class="icon location"></view>
       <text>位置</text>
     </view>
-    <view class="btn">
+    <!-- <view class="btn">
       <view class="icon comments"></view>
       <text>评论</text>
     </view>
     <view class="btn">
       <view class="icon share"></view>
       <text>分享</text>
-    </view>            
+    </view>             -->
   </view>
   
 </view>
