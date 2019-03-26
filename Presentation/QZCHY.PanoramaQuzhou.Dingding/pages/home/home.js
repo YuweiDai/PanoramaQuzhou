@@ -33,7 +33,6 @@ Page({
         produce: "衢州市地理信息中心",
         date: "2019-03-15"
       },
-
       {
         title: "测试全景2",
         imgs: {
@@ -74,16 +73,16 @@ Page({
 
   refreshPano: function () {
     var index = this.data.currentPanoIndex + 1;
-console.log(index);
-    if (index >= this.data.panoramas.length) index = 0; 
+    console.log(index);
+    if (index >= this.data.panoramas.length) index = 0;
     this.setData({
       currentPanoIndex: index,
       currentPano: this.data.panoramas[index]
     });
 
-    
-      console.log("refresh");
-      console.log(this.data.currentPano);
+
+    console.log("refresh");
+    console.log(this.data.currentPano);
   },
 
   //触摸控制  暂时取消

@@ -38,29 +38,52 @@
       <swiper-item>
         <view class="hotPanoramas">
           <block a:for="{{hotPanoramas}}">
-            <view class="hotPanorama">
+            <view class="hotPanorama"  onTap="navTo" data-url="{{item.navToUrl}}">
               <view class="left">
-                <view class="title">{{item.title}}                                          
+                <view class="title">{{item.name}}                                          
                 </view>
                 <view class="status">
                   <view class="item">
                     <text class="iconfont icon-liulan">
-                    </text> {{item.count}}                                                
+                    </text> {{item.views}}                                                
                   </view>
                   <view class="item">
                     <text class="iconfont icon-riqi">
-                    </text> {{item.date}}                                                
+                    </text> {{item.productionDate}}                                                
                   </view>
                 </view>
               </view>
               <view class="right">
-                <image src="{{item.src}}" mode="aspectFill" />
+                <image src="{{item.logoUrl}}" mode="aspectFill" />
               </view>
             </view>
           </block>
         </view>
       </swiper-item>
       <swiper-item>
+        <view class="hotPanoramas">
+          <block a:for="{{newPanoramas}}">
+            <view class="hotPanorama" onTap="navTo" data-url="{{item.navToUrl}}">
+              <view class="left">
+                <view class="title">{{item.name}}                                          
+                </view>
+                <view class="status">
+                  <view class="item">
+                    <text class="iconfont icon-liulan">
+                    </text> {{item.views}}                                                
+                  </view>
+                  <view class="item">
+                    <text class="iconfont icon-riqi">
+                    </text> {{item.productionDate}}                                                
+                  </view>
+                </view>
+              </view>
+              <view class="right">
+                <image src="{{item.logoUrl}}" mode="aspectFill" />
+              </view>
+            </view>
+          </block>
+        </view>        
       </swiper-item>
     </swiper>
   </view>

@@ -15,16 +15,14 @@
 
 <view class="pano_header">
   <view class="pano_title">{{currentPano.title}}</view>  
-  <view class="tags">
+  <!-- <view class="tags">
     <block a:for="{{currentPano.tags}}" a:key="*this">
       <view class="tag">
         <view class="tagTxt">{{item}}</view>
         <view class="tagBg"></view>
       </view>
-    </block>
-  
-  </view>  
-
+    </block>  
+  </view>   -->
 </view>
 
   <view class="playBtn" onTap="navToPano"></view>
