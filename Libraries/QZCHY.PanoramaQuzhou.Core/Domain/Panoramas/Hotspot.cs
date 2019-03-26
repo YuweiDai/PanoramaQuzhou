@@ -21,7 +21,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
         /// </summary>
         public double Atv { get; set; }
 
-        public virtual PanoramaScene Scene { get; set; }
+        public virtual PanoramaScene PanoramaScene { get; set; }
 
     }
 }

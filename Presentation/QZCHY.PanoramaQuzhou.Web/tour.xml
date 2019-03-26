@@ -360,75 +360,75 @@
 
 
 
-  <scene name="盈川小区2018-5-15" title="盈川小区2018-5-15" onstart="" thumburl="%$tileserver%panos/盈川小区.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="西区">
+  <scene name="盈川小区20180515" title="盈川小区20180515" onstart="" thumburl="%$tileserver%panos/盈川小区20180515.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="西区">
 
     <view hlookat="-110" vlookat="20" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/盈川小区.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/盈川小区20180515.tiles/preview.jpg" />
 
     <image prealign="0|0.0|0">
-      <cube url="%$tileserver%panos/盈川小区.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/盈川小区20180515.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-  <scene name="衢时代创新大厦2018-8-8" title="衢时代创新大厦2018-8-8" onstart="" thumburl="%$tileserver%panos/衢时代创新大厦.tiles/thumb.jpg" lat="" lng="" heading="" >
+  <scene name="阳光水岸20180808" title="阳光水岸20180808" onstart="" thumburl="%$tileserver%panos/阳光水岸20180808.tiles/thumb.jpg" lat="" lng="" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/衢时代创新大厦.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/阳光水岸20180808.tiles/preview.jpg" />
 
     <image>
-      <cube url="%$tileserver%panos/衢时代创新大厦.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/阳光水岸20180808.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-  <scene name="衢州西高速出口2018-8-20" title="衢州西高速出口2018-8-20" onstart="" thumburl="%$tileserver%panos/衢州西高速出口.tiles/thumb.jpg" lat="" lng="" heading="">
+  <scene name="衢州西高速出口20180820" title="衢州西高速出口20180820" onstart="" thumburl="%$tileserver%panos/衢州西高速出口20180820.tiles/thumb.jpg" lat="" lng="" heading="">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/衢州西高速出口.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢州西高速出口20180820.tiles/preview.jpg" />
 
     <image>
-      <cube url="%$tileserver%panos/衢州西高速出口.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/衢州西高速出口20180820.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-  <scene name="西区新农都2019-3-23" title="西区新农都2019-3-23" onstart="" thumburl="%$tileserver%panos/西区新农都.tiles/thumb.jpg" lat="" lng="" heading="" >
+  <scene name="衢州新农都20180323" title="衢州新农都20180323" onstart="" thumburl="%$tileserver%panos/衢州新农都20180323.tiles/thumb.jpg" lat="" lng="" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/西区新农都.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢州新农都20180323.tiles/preview.jpg" />
 
     <image>
-      <cube url="%$tileserver%panos/西区新农都.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/衢州新农都20180323.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
 
-  <scene name="文昌阁2018-12-20" title="文昌阁2018-12-20" onstart="" thumburl="%$tileserver%panos/文昌阁.tiles/thumb.jpg" lat="28.98875944" lng="118.84959444" heading="0.0" album="老城区">
+  <scene name="文昌阁20181220" title="文昌阁20181220" onstart="" thumburl="%$tileserver%panos/文昌阁20181220.tiles/thumb.jpg" lat="28.98875944" lng="118.84959444" heading="0.0" album="老城区">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/文昌阁.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/文昌阁20181220.tiles/preview.jpg" />
 
     <image prealign="0|0.0|0">
-      <cube url="%$tileserver%panos/文昌阁.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/文昌阁20181220.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 	
-	<scene name="衢州东高速出口2018-8-20" title="衢州东高速出口2018-8-20" onstart="" thumburl="%$tileserver%panos/衢州东高速出口.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="衢州东高速出口20180820" title="衢州东高速出口20180820" onstart="" thumburl="%$tileserver%panos/衢州东高速出口20180820.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="%$tileserver%panos/衢州东高速出口.tiles/preview.jpg" />
+		<preview url="%$tileserver%panos/衢州东高速出口20180820.tiles/preview.jpg" />
 
 		<image>
-			<cube url="%$tileserver%panos/衢州东高速出口.tiles/pano_%s.jpg" />
+			<cube url="%$tileserver%panos/衢州东高速出口20180820.tiles/pano_%s.jpg" />
 		</image>
 
 	</scene>

@@ -10,6 +10,7 @@ namespace QZCHY.PanoramaQuzhou.API.Models.Panoramas
     {
 
         public string Name { get; set; }
+        public string Title { get; set; }
         public int Views { get; set; }
         public int Stars { get; set; }
 
