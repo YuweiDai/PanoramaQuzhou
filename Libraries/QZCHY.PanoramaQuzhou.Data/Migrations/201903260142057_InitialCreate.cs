@@ -3,7 +3,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialCreate : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -53,13 +53,10 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
                         CreatedOn = c.DateTime(nullable: false),
                         UpdatedOn = c.DateTime(nullable: false),
                         PanoramaScene_Id = c.Int(nullable: false),
-                        Scene_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.PanoramaScenes", t => t.PanoramaScene_Id, cascadeDelete: true)
-                .ForeignKey("dbo.PanoramaScenes", t => t.Scene_Id)
-                .Index(t => t.PanoramaScene_Id)
-                .Index(t => t.Scene_Id);
+                .Index(t => t.PanoramaScene_Id);
             
             CreateTable(
                 "dbo.PanoramaScenes",
@@ -288,7 +285,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
             DropForeignKey("dbo.Logs", "CustomerId", "dbo.AccountUsers");
             DropForeignKey("dbo.ActivityLogs", "ActivityLogTypeId", "dbo.ActivityLogTypes");
             DropForeignKey("dbo.ActivityLogs", "AccountUserId", "dbo.AccountUsers");
-            DropForeignKey("dbo.Hotspots", "Scene_Id", "dbo.PanoramaScenes");
+            DropForeignKey("dbo.Hotspots", "PanoramaScene_Id", "dbo.PanoramaScenes");
             DropForeignKey("dbo.PanoramaScene_Tags_Mapping", "Tag_Id", "dbo.Tags");
             DropForeignKey("dbo.PanoramaScene_Tags_Mapping", "PanoramaScene_Id", "dbo.PanoramaScenes");
             DropForeignKey("dbo.PanoramaScenes", "Location_Id", "dbo.PanoramaLocations");
@@ -296,7 +293,6 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
             DropForeignKey("dbo.PonoramaLocation_Tag_Mapping", "PanoramaLocation_Id", "dbo.PanoramaLocations");
             DropForeignKey("dbo.Project_PonoramaLocation_Mapping", "PanoramaLocation_Id", "dbo.PanoramaLocations");
             DropForeignKey("dbo.Project_PonoramaLocation_Mapping", "Project_Id", "dbo.Projects");
-            DropForeignKey("dbo.Hotspots", "PanoramaScene_Id", "dbo.PanoramaScenes");
             DropIndex("dbo.PanoramaScene_Tags_Mapping", new[] { "Tag_Id" });
             DropIndex("dbo.PanoramaScene_Tags_Mapping", new[] { "PanoramaScene_Id" });
             DropIndex("dbo.PonoramaLocation_Tag_Mapping", new[] { "Tag_Id" });
@@ -307,7 +303,6 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
             DropIndex("dbo.ActivityLogs", new[] { "AccountUserId" });
             DropIndex("dbo.ActivityLogs", new[] { "ActivityLogTypeId" });
             DropIndex("dbo.PanoramaScenes", new[] { "Location_Id" });
-            DropIndex("dbo.Hotspots", new[] { "Scene_Id" });
             DropIndex("dbo.Hotspots", new[] { "PanoramaScene_Id" });
             DropTable("dbo.PanoramaScene_Tags_Mapping");
             DropTable("dbo.PonoramaLocation_Tag_Mapping");

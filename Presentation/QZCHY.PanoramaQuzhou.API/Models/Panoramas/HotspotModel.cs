@@ -6,7 +6,7 @@ using System.Web;
 
 namespace QZCHY.PanoramaQuzhou.API.Models.Panoramas
 {
-    public class HotspotModel: BaseQMEntityModel
+    public class HotspotModel
     {
 
         public string Title { get; set; }

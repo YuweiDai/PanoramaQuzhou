@@ -13,6 +13,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Mapping.Panoramas
         {
             this.ToTable("Hotspots");
             this.HasKey(t => t.Id);
+            this.HasRequired(ps => ps.PanoramaScene).WithMany(pl => pl.Hotspots);
 
         }
 
