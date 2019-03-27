@@ -115,6 +115,7 @@
   flex-direction: row;
   height: 150rpx;
   margin-bottom: 15rpx;
+  margin-right: 15rpx;
   padding-bottom: 15rpx;
   border-bottom: solid 0.5px #f0f0f0;
 }
