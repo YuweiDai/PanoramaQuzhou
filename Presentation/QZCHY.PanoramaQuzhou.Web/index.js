@@ -1,4 +1,5 @@
 ﻿var k; var temp1, temp2, temp;
+var temp3 = 1;
 var hotspotData = {};
 var hotspotstring = "";
 (function ($) {
@@ -30,10 +31,13 @@ var addPanor = function () {
   
     if (id == undefined) id=7;
     $.ajax({
-        url: "http://localhost:8070/api/Panoramas/" + id,
+        url: "http://220.191.238.125/qzqj/api/Panoramas/" + id,
         type: "get",
         success: function (response) {
             var sceneName = response.name;
+            $("#starnum").html(response.stars);
+            $("#title").html(sceneName.substring(0, sceneName.length - 8));
+            $("#psrq").html(sceneName.substring(sceneName.length - 8,sceneName.length-4)+"-"+sceneName.substring(sceneName.length-4,sceneName.length-2)+"-"+sceneName.substring(sceneName.length-2));
 
             k.call("loadscene('" + sceneName + "')");
 
@@ -54,10 +58,8 @@ var addPanor = function () {
 
     })
 }
-
+//加载全景调用
 addPanor();
-
-
 
 //场景选择
 var addList = function () {
@@ -113,6 +115,8 @@ var play_qp = function () {
 //添加标注按钮
 $("#hotspot").on('touchstart', function (event) {
     event.stopPropagation();
+    $("#menu").css("display", "none");
+    $(this).css("cursor", "pointer");
     if (temp2 != 1) {
         allowDemoRun = true;
         // addHotsport();
@@ -139,11 +143,6 @@ $("#pano").on('touchstart', function (event) {
     k.call("set(hotspot[kk].ath," + sphereX + ");");
     k.call("set(hotspot[kk].atv," + sphereY + ");");
 
-    //hotspotData.ath = sphereX;
-    //hotspotData.atv = sphereY;
-    //hotspotData.scence_Id = id;
-
-    hotspotstring = "ath=" + sphereX + "&atv=" + sphereY + "&scence_Id=" + id;
     hotspotData = {
         title: "测试",
         ath: sphereX,
@@ -160,14 +159,25 @@ $(".SpeakModal_modal_3hilMN").on('touchstart', function () {
 
 //提交说一说
 $("#submitBtn").on('click', function () {
+    
     hotspotData.title = $(".SpeakModal_textarea_1j66Du").val();
+    k.call("set(hotspot[kk].visible,false);");
+    k.call("addhotspot(kkk);");
+    k.call("set(hotspot[kkk].url,skin/arrow.png);");
+    k.call("set(hotspot[kkk].visible,true);");
+    k.call("set(hotspot[kkk].onloaded,do_crop_animation(32,32, 30));");
+    k.call("set(hotspot[kkk].tooltip," + hotspotData.title + ");");
+    k.call("set(hotspot[kkk].ath," + hotspotData.ath + ");");
+    k.call("set(hotspot[kkk].atv," + hotspotData.atv + ");");
+   
     $.ajax({
-        url: "http://localhost:8070/api/Panoramas/addhotspot",
+        url: "http://220.191.238.125/qzqj/api/Panoramas/addhotspot",
         data: hotspotData,
         type: "post",
         success: function (response) {
-
-            k.call("set(hotspot[kk].tooltip," + hotspotData.title + ");");
+     
+        
+            $("#menu").css("display", "block");
         }
 
     });
@@ -179,6 +189,26 @@ $("#submitBtn").on('click', function () {
 $("#unsubmitBtn").on('click', function () {
     $(".SpeakModal_modal_3hilMN").css("display", "none");
     k.call("set(hotspot[kk].visible,false);");
+    $("#menu").css("display", "block");
 })
+
+//点赞
+$("#addstar").on('click', function () {
+    event.stopPropagation();
+    if (temp3 == 2) return;
+  
+    $.ajax({
+        url: "http://220.191.238.125/qzqj/api/Panoramas/addStars/" + id,
+        type: "put",
+        success: function (response) {
+
+            $("#starnum").html(parseInt($("#starnum").html()) + 1);
+            $("#dz1").css("display", "none");
+            $("#dz2").css("display", "block");
+            temp3 = 2;
+        }
+    })
+
+});
 
 

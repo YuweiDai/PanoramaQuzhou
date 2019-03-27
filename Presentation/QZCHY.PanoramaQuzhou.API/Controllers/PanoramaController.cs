@@ -48,7 +48,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
+        [HttpPut]
         [Route("addStars/{id}")]
         public IHttpActionResult AddSceneStars(int id) {
 

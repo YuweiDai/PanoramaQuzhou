@@ -396,27 +396,27 @@
 
   </scene>
 
-  <scene name="衢州新农都20180323" title="衢州新农都20180323" onstart="" thumburl="%$tileserver%panos/衢州新农都20180323.tiles/thumb.jpg" lat="" lng="" heading="" >
+  <scene name="衢州农商城20180323" title="衢州农商城20180323" onstart="" thumburl="%$tileserver%panos/衢州农商城20180323.tiles/thumb.jpg" lat="" lng="" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/衢州新农都20180323.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢州农商城20180323.tiles/preview.jpg" />
 
     <image>
-      <cube url="%$tileserver%panos/衢州新农都20180323.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/衢州农商城20180323.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
 
-  <scene name="文昌阁20181220" title="文昌阁20181220" onstart="" thumburl="%$tileserver%panos/文昌阁20181220.tiles/thumb.jpg" lat="28.98875944" lng="118.84959444" heading="0.0" album="老城区">
+  <scene name="信安湖20181220" title="信安湖20181220" onstart="" thumburl="%$tileserver%panos/信安湖20181220.tiles/thumb.jpg" lat="28.98875944" lng="118.84959444" heading="0.0" album="老城区">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/文昌阁20181220.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/信安湖20181220.tiles/preview.jpg" />
 
     <image prealign="0|0.0|0">
-      <cube url="%$tileserver%panos/文昌阁20181220.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/信安湖20181220.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
