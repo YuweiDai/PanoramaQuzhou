@@ -14,7 +14,7 @@
 
 
 <view class="pano_header">
-  <view class="pano_title">{{currentPano.title}}</view>  
+  <view class="pano_title">{{currentPano.name}}</view>  
   <!-- <view class="tags">
     <block a:for="{{currentPano.tags}}" a:key="*this">
       <view class="tag">
@@ -30,7 +30,7 @@
   <view class="logo">
     <image src="../../resources/images/logo.png" mode="aspectFit" />
     <view class="produce">{{currentPano.produce}}</view>
-    <view class="date">{{currentPano.date}}</view>
+    <view class="date">{{currentPano.productionDate}} 拍摄</view>
   </view>
 
  

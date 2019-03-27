@@ -91,5 +91,14 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
             return query;
         }
+
+        public IQueryable<PanoramaScene> GetAllPanoramaScenes()
+        {
+            var query = from ps in _sceneRepository.TableNoTracking
+                        where !ps.Deleted
+                        select ps;
+
+            return query;
+        }
     }
 }

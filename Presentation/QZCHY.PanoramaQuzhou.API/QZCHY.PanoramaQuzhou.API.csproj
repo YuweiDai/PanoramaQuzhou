@@ -211,6 +211,7 @@
     <Compile Include="Controllers\BannerController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\DemoController.cs" />
+    <Compile Include="Controllers\PanoramaLocationController.cs" />
     <Compile Include="Controllers\PanoramaController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Infrastructure\Extensions\MappingExtensions.cs" />

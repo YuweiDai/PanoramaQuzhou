@@ -1,3 +1,3 @@
-<web-view id="web-view-2" src="http://www.qz-map.com/qzjg/" onMessage="test"></web-view>
+<web-view id="web-view-2" src="http://220.191.238.125/qzqj/map/" onMessage="test"></web-view>
 
 

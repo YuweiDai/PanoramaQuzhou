@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/discovery/discovery",
     "pages/home/home",
+    "pages/discovery/discovery",
     "pages/projects/projects",
     "pages/map/map",
     "pages/panorama/panorama",

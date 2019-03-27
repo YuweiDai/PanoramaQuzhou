@@ -1,4 +1,4 @@
-#bannerSection image {
+#bannerSection  image.banner {
   width: 750rpx;
   height: 375rpx;
 }

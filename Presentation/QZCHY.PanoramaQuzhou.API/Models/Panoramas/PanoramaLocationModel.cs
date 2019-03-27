@@ -32,4 +32,20 @@ namespace QZCHY.PanoramaQuzhou.API.Models.Panoramas
 
         public string LogoUrl { get; set; }
     }
+
+    public class GeoPanoramaLocationModel : BaseQMEntityModel
+    {
+        public string Name { get; set; }
+        /// <summary>
+        /// 经度
+        /// </summary>
+        public double Lng { get; set; }
+
+        /// <summary>
+        /// 纬度
+        /// </summary>
+        public double Lat { get; set; }
+
+        public int DefaultPanoramaSceneId { get; set; }
+    }
 }

@@ -117,6 +117,21 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        [Route("previewlist")]
+        public IHttpActionResult GetPreviewList()
+        {
+            var scenes = _sceneService.GetAllPanoramaScenes().ToList().Select(ps =>
+            {
+                var previewModel = ps.ToPreviewModel();
+                previewModel.Produce = "衢州市地理信息中心";
+                previewModel.ImgPath += ps.ProductionDate.ToString("yyyyMMdd") + ".tiles";
+                return previewModel;
+            });
+
+            return Ok(scenes);
+        }
+
 
     }
 }
