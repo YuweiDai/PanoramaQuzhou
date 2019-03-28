@@ -22,6 +22,8 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
         IQueryable<PanoramaScene> GetNewPanoramaScenes(int count);
 
+        IQueryable<PanoramaScene> GetAllPanoramaScenes();
+
 
     }
 }

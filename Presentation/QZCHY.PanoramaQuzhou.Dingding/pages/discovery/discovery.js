@@ -4,8 +4,8 @@ Page({
   data: {
     banners: [],
     projects: [],
-    hotPanoramas: [ ],
-    newPanoramas: [ ],
+    hotPanoramas: [],
+    newPanoramas: [],
     currentTab: 0
   },
 
@@ -58,7 +58,7 @@ Page({
       }
     });
 
-        //获取hot panoramas
+    //获取hot panoramas
     dd.httpRequest({
       url: app.globalData.apiBaseUrl + "panoramas/hot",
       method: 'GET',
@@ -66,15 +66,14 @@ Page({
       success: function (res) {
         var panoramas = res.data;
         panoramas.forEach(function (item) {
-          if(item.logoUrl==undefined||item.logoUrl==null||item.logoUrl=="")
-          {
+          if (item.logoUrl == undefined || item.logoUrl == null || item.logoUrl == "") {
 
             var size = app.globalData.rpx * 335;
             item.logoUrl = "http://iph.href.lu/" + size + "x" + size + "?text=暂无图片";
           }
           else item.logoUrl = app.globalData.resourceUrl + "Minapp/pano/" + item.logoUrl;
 
-          item.navToUrl = '../panorama/panorama?sid='+item.id;
+          item.navToUrl = '../panorama/panorama?sid=' + item.id;
         });
 
         console.log(panoramas);
@@ -90,7 +89,7 @@ Page({
       }
     });
 
-        //获取new panoramas
+    //获取new panoramas
     dd.httpRequest({
       url: app.globalData.apiBaseUrl + "panoramas/new",
       method: 'GET',
@@ -98,15 +97,14 @@ Page({
       success: function (res) {
         var panoramas = res.data;
         panoramas.forEach(function (item) {
-          if(item.logoUrl==undefined||item.logoUrl==null||item.logoUrl=="")
-          {
+          if (item.logoUrl == undefined || item.logoUrl == null || item.logoUrl == "") {
 
             var size = app.globalData.rpx * 335;
             item.logoUrl = "http://iph.href.lu/" + size + "x" + size + "?text=暂无图片";
           }
           else item.logoUrl = app.globalData.resourceUrl + "Minapp/pano/" + item.logoUrl;
 
-          item.navToUrl = '../panorama/panorama?sid='+item.id;
+          item.navToUrl = '../panorama/panorama?sid=' + item.id;
         });
 
         console.log(panoramas);
@@ -120,7 +118,7 @@ Page({
       },
       complete: function (res) {
       }
-    });    
+    });
   },
 
   //导航

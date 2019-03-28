@@ -17,63 +17,121 @@ Page({
     cubeBoxSize: 3000,
     transform: "",
     panoramas: [
-      {
-        title: "测试全景1",
-        imgs: {
-          front: "http://220.191.238.125/resources/images/s1/front.jpg",
-          back: "http://220.191.238.125/resources/images/s1/back.jpg",
-          up: "http://220.191.238.125/resources/images/s1/up.jpg",
-          down: "http://220.191.238.125/resources/images/s1/down.jpg",
-          left: "http://220.191.238.125/resources/images/s1/left.jpg",
-          right: "http://220.191.238.125/resources/images/s1/right.jpg"
-        },
-        location: [118.232345, 28.98761],
-        tags: ["城市时光机", "重大项目", "123"],
-        stars: 123,
-        produce: "衢州市地理信息中心",
-        date: "2019-03-15"
-      },
-      {
-        title: "测试全景2",
-        imgs: {
-          front: "http://220.191.238.125/resources/images/s2/front.jpg",
-          back: "http://220.191.238.125/resources/images/s2/back.jpg",
-          up: "http://220.191.238.125/resources/images/s2/up.jpg",
-          down: "http://220.191.238.125/resources/images/s2/down.jpg",
-          left: "http://220.191.238.125/resources/images/s2/left.jpg",
-          right: "http://220.191.238.125/resources/images/s2/right.jpg"
-        },
-        location: [118.232345, 28.98761],
-        tags: ["城市时光机", "重大项目", "123"],
-        stars: 31,
-        produce: "衢州市地理信息中心",
-        date: "2019-04-15"
-      }
+      // {
+      //   title: "测试全景1",
+      //   imgs: {
+      //     front: "http://220.191.238.125/resources/images/s1/front.jpg",
+      //     back: "http://220.191.238.125/resources/images/s1/back.jpg",
+      //     up: "http://220.191.238.125/resources/images/s1/up.jpg",
+      //     down: "http://220.191.238.125/resources/images/s1/down.jpg",
+      //     left: "http://220.191.238.125/resources/images/s1/left.jpg",
+      //     right: "http://220.191.238.125/resources/images/s1/right.jpg"
+      //   },
+      //   location: [118.232345, 28.98761],
+      //   tags: ["城市时光机", "重大项目", "123"],
+      //   stars: 123,
+      //   produce: "衢州市地理信息中心",
+      //   date: "2019-03-15"
+      // },
+      // {
+      //   title: "测试全景2",
+      //   imgs: {
+      //     front: "http://220.191.238.125/resources/images/s2/front.jpg",
+      //     back: "http://220.191.238.125/resources/images/s2/back.jpg",
+      //     up: "http://220.191.238.125/resources/images/s2/up.jpg",
+      //     down: "http://220.191.238.125/resources/images/s2/down.jpg",
+      //     left: "http://220.191.238.125/resources/images/s2/left.jpg",
+      //     right: "http://220.191.238.125/resources/images/s2/right.jpg"
+      //   },
+      //   location: [118.232345, 28.98761],
+      //   tags: ["城市时光机", "重大项目", "123"],
+      //   stars: 31,
+      //   produce: "衢州市地理信息中心",
+      //   date: "2019-04-15"
+      // }
     ],
     currentPanoIndex: 0,
     currentPano: null
   },
   onLoad() {
+    var that = this;
 
 
-    this.setData({
-      screenHeight: app.globalData.systemInfo.windowHeight,
-      cubeBoxSize: app.globalData.systemInfo.windowHeight * 4,
-      currentPanoIndex: 0,
-      currentPano: this.data.panoramas[0]
+dd.getLocation({
+      success(res) {
+       console.log(res);
+      },
+      fail() {
+        dd.alert({ title: '定位失败' });
+      },
+    })
+
+    //获取hot panoramas
+    dd.httpRequest({
+      url: app.globalData.apiBaseUrl + "panoramas/previewlist",
+      method: 'GET',
+      dataType: 'json',
+      success: function (res) {
+        var panoramas = res.data;
+        panoramas.forEach(function (item) {
+          var basePath = app.globalData.resourceUrl + "panos/" + item.imgPath + "/pic_thumb/pano_";
+          item.imgs = { front: "", back: "", up: "", down: "", left: "", right: "" };
+          item.imgs.front = basePath + "f.jpg";
+          item.imgs.back = basePath + "b.jpg";
+          item.imgs.up = basePath + "u.jpg";
+          item.imgs.down = basePath + "d.jpg";
+          item.imgs.left = basePath + "l.jpg";
+          item.imgs.right = basePath + "r.jpg";
+
+          item.navToUrl = '../panorama/panorama?sid=' + item.id;
+
+        });
+
+        that.setData({
+          panoramas: panoramas,
+          screenHeight: app.globalData.systemInfo.windowHeight,
+          cubeBoxSize: app.globalData.systemInfo.windowHeight * 4,
+          currentPanoIndex: 0,
+
+        });
+
+        //http://localhost/resources/panos/%E8%A1%A2%E5%B7%9E%E4%B8%9C%E9%AB%98%E9%80%9F%E5%87%BA%E5%8F%A320180820.tiles/pic_thumb/pano_d.jpg
+        //http://220.191.238.125/resources/panos/%E7%9B%88%E5%B7%9D%E5%B0%8F%E5%8C%BA20180515.tiles/pic_thumb/pano_f.jpg
+        console.log(that.data.panoramas);
+
+        that.setData({
+          currentPano: that.data.panoramas[0]
+        });
+      },
+      fail: function (res) {
+        console.log(res);
+        dd.alert({ content: '加载panoramas发生错误' });
+      },
+      complete: function (res) {
+      }
     });
-    console.log(this.data.currentPano);
+
+
+
+    // this
+    // console.log(this.data.currentPano);
   },
 
   navToPano: function () {
+    var that = this;
     dd.navigateTo({
-      url: '../panorama/panorama'
+      url: that.data.currentPano.navToUrl
     })
   },
 
-  refreshPano: function () {
-    var index = this.data.currentPanoIndex + 1;
-    console.log(index);
+  toMap:function(){
+    dd.navigateTo({
+      url:"../map/map"
+    })
+  },
+
+  refreshPano: function (forwad) {
+    var index = this.data.currentPanoIndex + 1; 
     if (index >= this.data.panoramas.length) index = 0;
     this.setData({
       currentPanoIndex: index,

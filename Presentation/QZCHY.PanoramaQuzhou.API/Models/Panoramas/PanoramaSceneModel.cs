@@ -18,6 +18,27 @@ namespace QZCHY.PanoramaQuzhou.API.Models.Panoramas
         public string ProductionDate { get; set; }
     }
 
+    /// <summary>
+    /// 用于CSS预览展示
+    /// </summary>
+    public class PanoramaScenePreviewModel:BaseQMEntityModel
+    {
+        public string Name { get; set; }
+
+        public int Views { get; set; }
+        
+        public string ProductionDate { get; set; }
+        public string Produce { get; set; }
+
+        public string ImgPath { get; set; }
+
+        public double Lng { get; set; }
+
+        public double Lat { get; set; }
+
+        public int Stars { get; set; }
+    }
+
     public class PanoramaSceneListItemModel : BaseQMEntityModel
     {
         public string Name { get; set; }
