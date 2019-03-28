@@ -39,7 +39,7 @@
       <view class="icon star"></view>
       <text>73</text>
     </view> -->
-    <view class="btn">
+    <view class="btn" onTap="toMap">
       <view class="icon location"></view>
       <text>位置</text>
     </view>

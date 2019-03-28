@@ -1,1 +1,1 @@
-<web-view id="web-view-1" src="{{targetUrl}}" onMessage="test"></web-view>
+<web-view id="web-view-1" src="{{targetUrl}}"></web-view>

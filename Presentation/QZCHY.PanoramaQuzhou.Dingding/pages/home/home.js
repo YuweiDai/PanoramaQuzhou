@@ -56,6 +56,16 @@ Page({
   onLoad() {
     var that = this;
 
+
+dd.getLocation({
+      success(res) {
+       console.log(res);
+      },
+      fail() {
+        dd.alert({ title: '定位失败' });
+      },
+    })
+
     //获取hot panoramas
     dd.httpRequest({
       url: app.globalData.apiBaseUrl + "panoramas/previewlist",
@@ -111,6 +121,12 @@ Page({
     var that = this;
     dd.navigateTo({
       url: that.data.currentPano.navToUrl
+    })
+  },
+
+  toMap:function(){
+    dd.navigateTo({
+      url:"../map/map"
     })
   },
 

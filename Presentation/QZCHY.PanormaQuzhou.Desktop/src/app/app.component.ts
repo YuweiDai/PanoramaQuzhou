@@ -32,7 +32,7 @@ export class AppComponent {
 
   ngOnInit() {
     var app = this;
-
+    var ding=dd;
 
 
     setTimeout(function () {
@@ -49,33 +49,29 @@ export class AppComponent {
       });
       var nav = new mapboxgl.NavigationControl();
       app.map.addControl(nav, 'top-left');
-
-
-
-
       app.map.addControl(new MyLocateControl(), 'bottom-left');
 
       app.map.on('zoomend', function (data) {
         console.log(data);
       });
 
-      // dd.getLocation({
-      //   success(res) {
+      dd.getLocation({
+        success(res) { 
+          var lng = res.longitude;
+          var lat = res.latitude; 
+          //添加定位点
+          var el = document.createElement('div');
+          el.className = 'mapboxgl-user-location-dot mapboxgl-marker mapboxgl-marker-anchor-center';
+          el.style.transform = "translate(-50%, -50%) translate(960px, 469px);";
 
-      //   },
-      //   fail() {
-      //     dd.alert({ title: '定位失败' });
-      //   },
-      // })
-
-      //添加定位点
-      var el = document.createElement('div');
-      el.className = 'mapboxgl-user-location-dot mapboxgl-marker mapboxgl-marker-anchor-center';
-      el.style.transform = "translate(-50%, -50%) translate(960px, 469px);";
-
-      // add location to map
-      var m = new mapboxgl.Marker({ element: el, anchor: "bottom" })
-        .setLngLat([118.8420724, 28.95304882]).addTo(app.map);
+          // add location to map
+          var m = new mapboxgl.Marker({ element: el, anchor: "bottom" })
+            .setLngLat([lng,lat]).addTo(app.map);
+        },
+        fail() {
+          alert('定位失败');
+        }
+      })
 
 
 
@@ -92,34 +88,33 @@ export class AppComponent {
             el.style.width = '20px';
             el.style.height = '20px';
             el.style.cursor = "pointer";
-    
+
+            // create the popup
+            var navBtn = document.createElement('strong');
+            navBtn.innerText = item.name + (item.defaultPanoramaSceneId > 0 ? "(点击查看)" : "(全局拍摄中...)");
+            navBtn.addEventListener('click', function () {
+              if (dd = undefined) {
+                alert("no dd obejct")
+                return;
+              }
+              else {
+                alert("123");
+
+                dd.navigateTo({
+                  url: '../Panorama/Panorama?sid=' + item.defaultPanoramaSceneId
+                })
+              }
+            });
+
+            var popup = new mapboxgl.Popup({ offset: 25 }).setDOMContent(navBtn);
+
             // add marker to map
             var marker = new mapboxgl.Marker({ element: el, anchor: "bottom" })
-              .setLngLat([item.lng,item.lat]).addTo(app.map);
-    
-            el.addEventListener('click', function () {
-              // app.governments = [];
-              // app.modelVisible = true; ``
-              // app.detailVisible = false;
-              // app.listTitle = marker.properties.name + "机构列表";
-              // marker.children.forEach(function (child) {
-              //   var g = new Government();
-              //   g.name = child.name;
-              //   g.group = child.group;
-              //   g.type = child.type;
-              //   g.introduction = child.introduction;
-              //   g.icon = 'http://www.qz-map.com/qzjg/assets/' + (g.group == '市委机构' ? 'd' : 'z') + '.png';
-              //   g.buildStr = marker.properties.name;
-              //   app.governments.push(g);
-              // });        
+              .setLngLat([item.lng, item.lat]).setPopup(popup).addTo(app.map);
+
+            app.markers.push(marker);
           });
-
-          app.markers.push(marker);
         });
-      });
-
-
-
     }, 500);
 
     //      //
