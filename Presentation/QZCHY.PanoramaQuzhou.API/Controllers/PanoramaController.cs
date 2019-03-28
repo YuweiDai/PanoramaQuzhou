@@ -112,7 +112,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             hotspot = hotspotModel.ToEntity();
             hotspot.PanoramaScene = scence;
 
-            _hotspotService.InsertHotspot(hotspot);
+            //_hotspotService.InsertHotspot(hotspot);
 
             return Ok();
         }

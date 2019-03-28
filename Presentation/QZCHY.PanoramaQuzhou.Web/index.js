@@ -115,16 +115,10 @@ var play_qp = function () {
 //添加标注按钮
 $("#hotspot").on('touchstart', function (event) {
     event.stopPropagation();
-    $("#menu").css("display", "none");
-    $(this).css("cursor", "pointer");
-    if (temp2 != 1) {
-        allowDemoRun = true;
-        // addHotsport();
-        temp2 = 1;
-    }
-    else {
-        allowDemoRun = false;
-        temp2 = 2;
+    allowDemoRun = !allowDemoRun;
+    if (allowDemoRun == true) {
+        $("#menu").css("display", "none");
+        $(this).css("cursor", "pointer");
     }
 });
 //动态添加标注
@@ -176,7 +170,7 @@ $("#submitBtn").on('click', function () {
         type: "post",
         success: function (response) {
      
-        
+            allowDemoRun = false;
             $("#menu").css("display", "block");
         }
 
@@ -190,6 +184,7 @@ $("#unsubmitBtn").on('click', function () {
     $(".SpeakModal_modal_3hilMN").css("display", "none");
     k.call("set(hotspot[kk].visible,false);");
     $("#menu").css("display", "block");
+    allowDemoRun = false;
 })
 
 //点赞
