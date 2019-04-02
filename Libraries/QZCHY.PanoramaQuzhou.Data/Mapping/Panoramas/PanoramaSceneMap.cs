@@ -9,7 +9,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Mapping.Panoramas
             this.ToTable("PanoramaScenes");
             this.HasKey(pl => pl.Id);
 
-            this.HasRequired(ps => ps.Location).WithMany(pl => pl.PanoramaScenes);
+            //this.HasRequired(ps => ps.Location).WithMany(pl => pl.PanoramaScenes);
 
             this.HasMany(ps => ps.Tags).WithMany()
                 .Map(t => t.ToTable("PanoramaScene_Tags_Mapping"));

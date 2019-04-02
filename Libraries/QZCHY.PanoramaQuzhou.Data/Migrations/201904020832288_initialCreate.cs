@@ -3,7 +3,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initialCreate : DbMigration
     {
         public override void Up()
         {
@@ -72,10 +72,13 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
                         Deleted = c.Boolean(nullable: false),
                         CreatedOn = c.DateTime(nullable: false),
                         UpdatedOn = c.DateTime(nullable: false),
-                        Location_Id = c.Int(nullable: false),
+                        PanoramaLocation_Id = c.Int(nullable: false),
+                        Location_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.PanoramaLocations", t => t.Location_Id, cascadeDelete: true)
+                .ForeignKey("dbo.PanoramaLocations", t => t.PanoramaLocation_Id, cascadeDelete: true)
+                .ForeignKey("dbo.PanoramaLocations", t => t.Location_Id)
+                .Index(t => t.PanoramaLocation_Id)
                 .Index(t => t.Location_Id);
             
             CreateTable(
@@ -293,6 +296,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
             DropForeignKey("dbo.PonoramaLocation_Tag_Mapping", "PanoramaLocation_Id", "dbo.PanoramaLocations");
             DropForeignKey("dbo.Project_PonoramaLocation_Mapping", "PanoramaLocation_Id", "dbo.PanoramaLocations");
             DropForeignKey("dbo.Project_PonoramaLocation_Mapping", "Project_Id", "dbo.Projects");
+            DropForeignKey("dbo.PanoramaScenes", "PanoramaLocation_Id", "dbo.PanoramaLocations");
             DropIndex("dbo.PanoramaScene_Tags_Mapping", new[] { "Tag_Id" });
             DropIndex("dbo.PanoramaScene_Tags_Mapping", new[] { "PanoramaScene_Id" });
             DropIndex("dbo.PonoramaLocation_Tag_Mapping", new[] { "Tag_Id" });
@@ -303,6 +307,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
             DropIndex("dbo.ActivityLogs", new[] { "AccountUserId" });
             DropIndex("dbo.ActivityLogs", new[] { "ActivityLogTypeId" });
             DropIndex("dbo.PanoramaScenes", new[] { "Location_Id" });
+            DropIndex("dbo.PanoramaScenes", new[] { "PanoramaLocation_Id" });
             DropIndex("dbo.Hotspots", new[] { "PanoramaScene_Id" });
             DropTable("dbo.PanoramaScene_Tags_Mapping");
             DropTable("dbo.PonoramaLocation_Tag_Mapping");

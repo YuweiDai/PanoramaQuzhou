@@ -12,7 +12,12 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
         PanoramaLocation GetLocationById(int id);
 
+        PanoramaLocation GetLocationByName(string name);
+
         PanoramaLocation GetLocationBySceneId(int sceneId);
+
+
+
 
         IQueryable<PanoramaLocation> GetAllLocations();
         
@@ -21,5 +26,6 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
 
         void InsertPanoramaLocation(PanoramaLocation panoramaLocation);
+        void UpdatePanoramaLocation(PanoramaLocation panoramaLocation);
     }
 }

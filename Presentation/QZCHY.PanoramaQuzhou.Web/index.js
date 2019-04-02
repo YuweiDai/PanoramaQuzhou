@@ -1,7 +1,13 @@
-﻿var k; var temp1, temp2, temp;
+﻿//引入钉钉接口
+//if (navigator.userAgent.toLowerCase().indexOf('dingtalk') > -1) {
+//    document.writeln('<script src="https://appx/web-view.min.js"' + '>' + '<' + '/' + 'script>');
+//}
+
+var k; var temp1, temp2, temp;
 var temp3 = 1;
 var hotspotData = {};
 var hotspotstring = "";
+var sceneName = "";
 (function ($) {
     $.getUrlParam = function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");//构造一个含有目标参数的正则表达式对象
@@ -21,11 +27,13 @@ var krpanoReady = function (krpano) {
 embedpano({ swf: "tour.swf", xml: "tour.xml", target: "pano", html5: "auto", mobilescale: 1.0, passQueryParameters: true, onready: krpanoReady });
 
 var mybody = document.getElementsByTagName('body')[0];
-var h = document.documentElement.clientHeight;
+var h = document.documentElement.clientHeight / 2;
+//var rh = $(".RightBtnContainer_container_2TnlAa").outerHeight();
 var w = document.documentElement.clientWidth/2;
-var w1 = $('#item_title').width() / 2;
-$("#item_title").css("left",(w-w1)+"px");
 
+$(".gq_bq").css("left", (w - 100) + "px");
+$(".gq_bq").css("top", (h - 50) + "px");
+//$(".RightBtnContainer_container_2TnlAa").css("top", (h - rh) + "px");
 //加载全景
 var addPanor = function () {
   
@@ -34,20 +42,23 @@ var addPanor = function () {
         url: "http://220.191.238.125/qzqj/api/Panoramas/" + id,
         type: "get",
         success: function (response) {
-            var sceneName = response.name;
+            sceneName = response.name;
             $("#starnum").html(response.stars);
             $("#title").html(sceneName.substring(0, sceneName.length - 8));
             $("#psrq").html(sceneName.substring(sceneName.length - 8,sceneName.length-4)+"-"+sceneName.substring(sceneName.length-4,sceneName.length-2)+"-"+sceneName.substring(sceneName.length-2));
 
             k.call("loadscene('" + sceneName + "')");
 
+            var w1 = $('#item_title').width() / 2;
+            $("#item_title").css("left", (w - w1) + "px");
+
             $.each(response.hotspots, function (i,data) {
 
                 var spotname = "spot" + i;
                 k.call("addhotspot("+spotname+");");
-                k.call("set(hotspot[" + spotname + "].url,skin/arrow.png);");
+                k.call("set(hotspot[" + spotname + "].url,assets/06.png);");
 
-                k.call("set(hotspot[" + spotname + "].onloaded,do_crop_animation(32,32, 30));");
+                k.call("set(hotspot[" + spotname + "].onloaded,do_crop_animation(64,64, 50));");
                 k.call("set(hotspot[" + spotname + "].tooltip," + data.title + ");");
                 k.call("set(hotspot[" + spotname + "].zoom,false);");
                 k.call("set(hotspot[" + spotname + "].ath," + data.ath + ");");
@@ -60,6 +71,27 @@ var addPanor = function () {
 }
 //加载全景调用
 addPanor();
+
+
+//高清标清切换
+$("#div_gq").on('touchstart', function (event) {
+    event.stopPropagation();
+    if (sceneName.indexOf("_gq") == -1) {
+        sceneName = sceneName + "_gq";
+        k.call("loadscene('" + sceneName + "')");
+    }
+    else {
+        return;
+    }
+});
+$("#div_bq").on('touchstart', function (event) {
+    event.stopPropagation();
+    if (sceneName.indexOf("_gq") != -1) {
+        sceneName = sceneName.substring(0, sceneName.length - 3);
+        k.call("loadscene('" + sceneName + "')");
+    }
+    else { return; }
+});
 
 //场景选择
 var addList = function () {
@@ -81,12 +113,14 @@ var play_vr = function () {
 //控制自动旋转
 var play_xz = function () {
     if (temp != 1) {
-        $("#xz_btn i").css("background-position", "-260px -660px");
+        $("#xz2").css("display", "block");
+        $("xz").css("display", "none");
         k.set("autorotate.enabled", true);
         temp = 1;
     }
     else {
-        $("#xz_btn i").css("background-position", "-260px -590px");
+        $("xz").css("display", "block");
+        $("#xz2").css("display", "none");
         k.set("autorotate.enabled", false);
         temp = 2;
     }
@@ -108,8 +142,29 @@ var play_qp = function () {
     }
 }
 
+//高清标清切换
+var play_gq_bq = function () {
 
+    if (temp2 != 1) {
+        $(".gq_bq").css("display", "block");
+        temp2 = 1;
+    }
+    else {
+        $(".gq_bq").css("display", "none");
+        temp2 = 2;
+    }
+}
 
+//var toMap = function () {
+
+//    var lng = k.get("scene[" + sceneName + "].lng");
+//    var lat = k.get("scene[" + sceneName + "].lat");
+
+//    dd.navigateTo({
+//        url: "../map/map?level=16&centerLng=" + lng + "&centerLat=" + lat
+//    })
+
+//}
 
 
 //添加标注按钮
@@ -121,8 +176,11 @@ $("#hotspot").on('touchstart', function (event) {
         $(this).css("cursor", "pointer");
     }
 });
+
 //动态添加标注
 $("#pano").on('touchstart', function (event) {
+    $(".gq_bq").css("display", "none");
+    temp2 = 2;
     if (allowDemoRun == false) return;
 
     var sphereXY = k.screentosphere(event.originalEvent.targetTouches[0].pageX, event.originalEvent.targetTouches[0].pageY);
@@ -130,9 +188,9 @@ $("#pano").on('touchstart', function (event) {
     var sphereX = sphereXY.x;
     var sphereY = sphereXY.y;
     k.call("addhotspot(kk);");
-    k.call("set(hotspot[kk].url,skin/arrow.png);");
+    k.call("set(hotspot[kk].url,assets/06.png);");
     k.call("set(hotspot[kk].visible,true);");
-    k.call("set(hotspot[kk].onloaded,do_crop_animation(32,32, 30));");
+    k.call("set(hotspot[kk].onloaded,do_crop_animation(64,64, 50));");
     k.call("set(hotspot[kk].tooltip,'添加标注');");
     k.call("set(hotspot[kk].ath," + sphereX + ");");
     k.call("set(hotspot[kk].atv," + sphereY + ");");
@@ -147,7 +205,7 @@ $("#pano").on('touchstart', function (event) {
 
 });
 
-$(".SpeakModal_modal_3hilMN").on('touchstart', function () {
+$(".SpeakModal_modal_3hilMN").on('touchstart', function (event) {
     event.stopPropagation();
 })
 
@@ -157,9 +215,9 @@ $("#submitBtn").on('click', function () {
     hotspotData.title = $(".SpeakModal_textarea_1j66Du").val();
     k.call("set(hotspot[kk].visible,false);");
     k.call("addhotspot(kkk);");
-    k.call("set(hotspot[kkk].url,skin/arrow.png);");
+    k.call("set(hotspot[kkk].url,assets/06.png);");
     k.call("set(hotspot[kkk].visible,true);");
-    k.call("set(hotspot[kkk].onloaded,do_crop_animation(32,32, 30));");
+    k.call("set(hotspot[kkk].onloaded,do_crop_animation(64,64, 50));");
     k.call("set(hotspot[kkk].tooltip," + hotspotData.title + ");");
     k.call("set(hotspot[kkk].ath," + hotspotData.ath + ");");
     k.call("set(hotspot[kkk].atv," + hotspotData.atv + ");");
@@ -188,7 +246,7 @@ $("#unsubmitBtn").on('click', function () {
 })
 
 //点赞
-$("#addstar").on('click', function () {
+$("#addstar").on('click', function (event) {
     event.stopPropagation();
     if (temp3 == 2) return;
   
@@ -205,5 +263,7 @@ $("#addstar").on('click', function () {
     })
 
 });
+
+
 
 
