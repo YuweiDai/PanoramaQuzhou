@@ -13,7 +13,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201904020832288_initialCreate"; }
+            get { return "201904020901050_initialCreate"; }
         }
         
         string IMigrationMetadata.Source
