@@ -1,10 +1,12 @@
 ﻿using QZCHY.PanoramaQuzhou.Core;
 using QZCHY.PanoramaQuzhou.Core.Domain.Accounts;
 using QZCHY.PanoramaQuzhou.Core.Domain.Common;
+using QZCHY.PanoramaQuzhou.Core.Domain.Panoramas;
 using QZCHY.PanoramaQuzhou.Core.Domain.Security;
 using QZCHY.PanoramaQuzhou.Services.Accounts;
 using QZCHY.PanoramaQuzhou.Services.Authentication;
 using QZCHY.PanoramaQuzhou.Services.Configuration;
+using QZCHY.PanoramaQuzhou.Services.Panoramas;
 using QZCHY.PanoramaQuzhou.Services.Security;
 using System;
 using System.Collections.Generic;
@@ -32,13 +34,15 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
         private readonly CommonSettings _commonSettings;
         private readonly SecuritySettings _securitySettings;
         private readonly ISettingService _settingService;
+        private readonly ISceneService _sceneService;
+        private readonly ILocationService _locationService;
 
         public DemoController()
         {
 
         }
 
-        public DemoController(IAuthenticationService authenticationService, IAccountUserService customerService,
+        public DemoController(IAuthenticationService authenticationService, IAccountUserService customerService, ISceneService sceneService, ILocationService locationService,
             IAccountUserRegistrationService customerRegistrationService,
         IEncryptionService encryptionService,  
         IWebHelper webHelper,
@@ -58,6 +62,15 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             _commonSettings = commonSettings;
             _securitySettings = securitySettings;
             _settingService = settingService;
+            _sceneService = sceneService;
+            _locationService = locationService;
+        }
+
+        [HttpGet]
+        [Route("hw")]
+        public IHttpActionResult HW()
+        {
+            return Ok("hello world");
         }
 
         [HttpGet]
@@ -80,6 +93,53 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
             return Ok("配置保存成功！");
         }
-  
+
+        [HttpGet]
+        [Route("temp")]
+        public IHttpActionResult Temp() {
+
+
+
+            var filePath = @"D:\aa.xls";
+            //string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + filePath + ";" + "Extended Properties=Excel 8.0;";
+            string strConn = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'", filePath);
+            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection(strConn);
+            conn.Open();
+            string strExcel = "";
+            System.Data.OleDb.OleDbDataAdapter myCommand = null;
+            System.Data.DataSet ds = null;
+            strExcel = "select * from [Sheet2$]";
+            myCommand = new System.Data.OleDb.OleDbDataAdapter(strExcel, strConn);
+            ds = new System.Data.DataSet();
+            myCommand.Fill(ds, "table1");
+
+            var table = ds.Tables[0];
+            for (var i = 0; i < table.Rows.Count; i++)
+            {
+                var row = table.Rows[i];
+
+                var location = _locationService.GetLocationByName(row[0].ToString());
+
+                var scene = new PanoramaScene();
+                scene.Views = 0;
+                scene.Stars = 0;
+                scene.ProductionDate = Convert.ToDateTime(row[1]);
+                scene.UpdatedOn= Convert.ToDateTime(row[1]);
+                scene.LastViewDate= Convert.ToDateTime(row[1]);           
+                location.DefaultPanoramaSceneId = scene.Id;
+                location.PanoramaScenes.Add(scene);
+                _locationService.UpdatePanoramaLocation(location);
+
+                //_sceneService.InsertPanoramaScene(scene);
+
+
+                break;
+            }
+
+                return Ok("导入成功");
+        }
+
+
+
     }
 }

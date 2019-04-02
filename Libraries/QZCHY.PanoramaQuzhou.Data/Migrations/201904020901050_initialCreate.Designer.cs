@@ -7,13 +7,13 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class initialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903260142057_InitialCreate"; }
+            get { return "201904020901050_initialCreate"; }
         }
         
         string IMigrationMetadata.Source

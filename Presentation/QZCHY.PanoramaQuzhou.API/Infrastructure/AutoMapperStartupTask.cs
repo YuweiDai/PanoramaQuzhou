@@ -37,10 +37,10 @@ namespace QZCHY.PanoramaQuzhou.Web.Api.Infrastructure
                 config.CreateMap<PanoramaScene, PanoramaSceneListItemModel>()
                   .ForMember(dest => dest.ProductionDate, mo => mo.MapFrom(src => src.ProductionDate.ToString("yyyy-MM-dd")));
                 config.CreateMap<PanoramaScene, PanoramaScenePreviewModel>()
-                  .ForMember(dest => dest.Name, mo => mo.MapFrom(src => src.Location.Name))
-                  .ForMember(dest => dest.ImgPath, mo => mo.MapFrom( src => src.Location.Name))
-                  .ForMember(dest => dest.Lng, mo => mo.MapFrom(src => src.Location.Lng))
-                  .ForMember(dest => dest.Lat, mo => mo.MapFrom(src => src.Location.Lat))
+                  .ForMember(dest => dest.Name, mo => mo.MapFrom(src => src.PanoramaLocation.Name))
+                  .ForMember(dest => dest.ImgPath, mo => mo.MapFrom( src => src.PanoramaLocation.Name))
+                  .ForMember(dest => dest.Lng, mo => mo.MapFrom(src => src.PanoramaLocation.Lng))
+                  .ForMember(dest => dest.Lat, mo => mo.MapFrom(src => src.PanoramaLocation.Lat))
                   .ForMember(dest => dest.ProductionDate, mo => mo.MapFrom(src => src.ProductionDate.ToString("yyyy-MM-dd")));
 
             });

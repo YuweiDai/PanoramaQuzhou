@@ -5,7 +5,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<QZCHY.PanoramaQuzhou.Data.PanoramaQuzhuoObjectContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<QZCHY.PanoramaQuzhou.Data.PanoramaQuzhouObjectContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace QZCHY.PanoramaQuzhou.Data.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(QZCHY.PanoramaQuzhou.Data.PanoramaQuzhuoObjectContext context)
+        protected override void Seed(QZCHY.PanoramaQuzhou.Data.PanoramaQuzhouObjectContext context)
         {
             //  This method will be called after migrating to the latest version.
 

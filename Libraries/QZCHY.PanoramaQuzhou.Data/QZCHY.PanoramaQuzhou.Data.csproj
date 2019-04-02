@@ -63,12 +63,12 @@
     <Compile Include="Mapping\Messages\MessageTemplateMap.cs" />
     <Compile Include="Mapping\Panoramas\BannerMap.cs" />
     <Compile Include="Mapping\Panoramas\HotspotMap.cs" />
-    <Compile Include="Migrations\201903260142057_InitialCreate.cs" />
-    <Compile Include="Migrations\201903260142057_InitialCreate.Designer.cs">
-      <DependentUpon>201903260142057_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201904020901050_initialCreate.cs" />
+    <Compile Include="Migrations\201904020901050_initialCreate.Designer.cs">
+      <DependentUpon>201904020901050_initialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="PanoramaQuzhuoObjectContext.cs" />
+    <Compile Include="PanoramaQuzhouObjectContext.cs" />
     <Compile Include="DataReaderExtensions.cs" />
     <Compile Include="DbContextExtensions.cs" />
     <Compile Include="EfRepository.cs" />
@@ -99,8 +99,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903260142057_InitialCreate.resx">
-      <DependentUpon>201903260142057_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904020901050_initialCreate.resx">
+      <DependentUpon>201904020901050_initialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

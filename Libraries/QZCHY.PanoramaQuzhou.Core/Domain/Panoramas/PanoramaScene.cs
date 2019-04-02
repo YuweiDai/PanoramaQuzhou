@@ -45,7 +45,7 @@ namespace QZCHY.PanoramaQuzhou.Core.Domain.Panoramas
         public DateTime LastViewDate { get; set; }
 
 
-        public virtual PanoramaLocation Location { get; set; }
+        public virtual PanoramaLocation PanoramaLocation { get; set; }
 
         /// <summary>
         /// Scene标签，不包括Location的标签，标签直接;号隔开

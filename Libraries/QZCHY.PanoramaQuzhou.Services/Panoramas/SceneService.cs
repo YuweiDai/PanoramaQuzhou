@@ -34,7 +34,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
         public void InsertPanoramaScene(PanoramaScene sencen)
         {
-            if (sencen == null) throw new ArgumentNullException("location");
+            if (sencen == null) throw new ArgumentNullException("sencen");
             else
             {
                 _sceneRepository.Insert(sencen);
@@ -42,13 +42,13 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
             }
         }
 
-        public void UpdatePanoramaScene(PanoramaScene location)
+        public void UpdatePanoramaScene(PanoramaScene scene)
         {
-            if (location == null) throw new ArgumentNullException("location");
+            if (scene == null) throw new ArgumentNullException("scene");
             else
             {
-                _sceneRepository.Update(location);
-                _eventPublisher.EntityUpdated(location);
+                _sceneRepository.Update(scene);
+                _eventPublisher.EntityUpdated(scene);
             }
         }
 

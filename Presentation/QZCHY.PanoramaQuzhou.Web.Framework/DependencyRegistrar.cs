@@ -65,7 +65,7 @@ namespace QZCHY.PanoramaQuzhou.Web.Framework
 
             //data layer 
             builder.RegisterType<SqlServerDataProvider>().As<IDataProvider>().InstancePerLifetimeScope();
-            builder.Register<IDbContext>(c => new PanoramaQuzhuoObjectContext()).AsSelf().InstancePerLifetimeScope();//.InstancePerLifetimeScope();
+            builder.Register<IDbContext>(c => new PanoramaQuzhouObjectContext()).AsSelf().InstancePerLifetimeScope();//.InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
 
             //plugins

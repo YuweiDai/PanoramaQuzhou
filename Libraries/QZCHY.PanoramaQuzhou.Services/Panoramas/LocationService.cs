@@ -48,5 +48,24 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
                 _eventPublisher.EntityInserted(panoramaLocation);
             }
         }
+
+        public PanoramaLocation GetLocationByName(string name)
+        {
+            var query = from pl in _locationRepository.TableNoTracking
+                        where !pl.Deleted && pl.Name==name
+                        select pl;
+
+            return query.FirstOrDefault();
+        }
+
+        public void UpdatePanoramaLocation(PanoramaLocation panoramaLocation)
+        {
+            if (panoramaLocation == null) throw new ArgumentNullException("panoramaLocation");
+            else
+            {
+                _locationRepository.Update(panoramaLocation);
+                _eventPublisher.EntityUpdated(panoramaLocation);
+            }
+        }
     }
 }

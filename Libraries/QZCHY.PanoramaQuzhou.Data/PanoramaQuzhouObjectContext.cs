@@ -14,11 +14,11 @@ namespace QZCHY.PanoramaQuzhou.Data
     /// <summary>
     /// Object context
     /// </summary>
-    public class PanoramaQuzhuoObjectContext : DbContext, IDbContext
+    public class PanoramaQuzhouObjectContext : DbContext, IDbContext
     {
         #region Ctor
 
-        public PanoramaQuzhuoObjectContext() : base("PanoramaQuzhuoObjectContext")
+        public PanoramaQuzhouObjectContext() : base("PanoramaQuzhouObjectContext")
         {
             //≥ı ºªØ
             this.Database.Initialize(false);

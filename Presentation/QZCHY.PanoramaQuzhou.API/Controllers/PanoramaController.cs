@@ -36,8 +36,8 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             _sceneService.UpdatePanoramaScene(scene);
 
             var response = scene.ToModel();
-            response.Name = scene.Location.Name+ response.ProductionDate;
-            response.Title = scene.Location.Name;
+            response.Name = scene.PanoramaLocation.Name+ response.ProductionDate;
+            response.Title = scene.PanoramaLocation.Name;
             response.hotspots = scene.Hotspots.Select(h =>
             {
                 var hmodel = h.ToModel();
@@ -78,7 +78,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             var hotPanoramas = _sceneService.GetHotPanoramaScenes(15).ToList().Select(ps =>
             {
                 var psm = ps.ToListItemModel();
-                psm.Name = ps.Location.Name;
+                psm.Name = ps.PanoramaLocation.Name;
                 return psm;
             });
 
@@ -95,7 +95,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             {
 
                 var psm = ps.ToListItemModel();
-                psm.Name = ps.Location.Name;
+                psm.Name = ps.PanoramaLocation.Name;
                 return psm;
             });
 
@@ -112,7 +112,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             hotspot = hotspotModel.ToEntity();
             hotspot.PanoramaScene = scence;
 
-            _hotspotService.InsertHotspot(hotspot);
+            //_hotspotService.InsertHotspot(hotspot);
 
             return Ok();
         }
