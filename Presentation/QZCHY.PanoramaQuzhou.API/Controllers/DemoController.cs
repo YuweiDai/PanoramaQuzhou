@@ -120,20 +120,19 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
                 var location = _locationService.GetLocationByName(row[0].ToString());
 
+                if (location == null) continue;
+
                 var scene = new PanoramaScene();
                 scene.Views = 0;
                 scene.Stars = 0;
                 scene.ProductionDate = Convert.ToDateTime(row[1]);
-                scene.UpdatedOn= Convert.ToDateTime(row[1]);
-                scene.LastViewDate= Convert.ToDateTime(row[1]);           
+                scene.LastViewDate = DateTime.Now;
+                scene.PanoramaLocation = location;
+                _sceneService.InsertPanoramaScene(scene);
+
                 location.DefaultPanoramaSceneId = scene.Id;
-                location.PanoramaScenes.Add(scene);
                 _locationService.UpdatePanoramaLocation(location);
-
-                //_sceneService.InsertPanoramaScene(scene);
-
-
-                break;
+                 
             }
 
                 return Ok("导入成功");

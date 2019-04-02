@@ -51,7 +51,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
         public PanoramaLocation GetLocationByName(string name)
         {
-            var query = from pl in _locationRepository.TableNoTracking
+            var query = from pl in _locationRepository.Table
                         where !pl.Deleted && pl.Name==name
                         select pl;
 

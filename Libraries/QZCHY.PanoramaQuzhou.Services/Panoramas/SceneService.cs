@@ -32,13 +32,13 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
             return query.FirstOrDefault();
         }
 
-        public void InsertPanoramaScene(PanoramaScene sencen)
+        public void InsertPanoramaScene(PanoramaScene sence)
         {
-            if (sencen == null) throw new ArgumentNullException("sencen");
+            if (sence == null) throw new ArgumentNullException("sence");
             else
             {
-                _sceneRepository.Insert(sencen);
-                _eventPublisher.EntityInserted(sencen);
+                _sceneRepository.Insert(sence);
+                _eventPublisher.EntityInserted(sence);
             }
         }
 
