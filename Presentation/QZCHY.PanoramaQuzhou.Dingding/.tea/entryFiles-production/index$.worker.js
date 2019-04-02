@@ -138,8 +138,9 @@ require('./config$');
 require('./importScripts$');
 function success() {
 require('../..//app');
-require('../../pages/map/map');
+require('../../pages/index/index');
 require('../../pages/home/home');
+require('../../pages/map/map');
 require('../../pages/discovery/discovery');
 require('../../pages/projects/projects');
 require('../../pages/panorama/panorama');

@@ -14,4 +14,7 @@ Page({
     });
  
   },
+  onShareAppMessage() {
+   // 返回自定义分享信息
+  },  
 });

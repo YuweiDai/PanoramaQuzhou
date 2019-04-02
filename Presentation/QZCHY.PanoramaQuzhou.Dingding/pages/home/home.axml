@@ -11,46 +11,32 @@
       </view>
     </view>
   </view>
-
-
-<view class="pano_header">
-  <view class="pano_title">{{currentPano.name}}</view>  
-  <!-- <view class="tags">
-    <block a:for="{{currentPano.tags}}" a:key="*this">
-      <view class="tag">
-        <view class="tagTxt">{{item}}</view>
-        <view class="tagBg"></view>
+  <view class="pano_header">
+    <view class="pano_title">
+      <view class="titleTxt">  {{currentPano.name}}
       </view>
-    </block>  
-  </view>   -->
-</view>
-
-  <view class="playBtn" onTap="navToPano"></view>
-
+      <view class="titleBg">
+      </view>
+    </view>
+    <!-- <view class="tags"><block a:for="{{currentPano.tags}}" a:key="*this"><view class="tag"><view class="tagTxt">{{item}}</view><view class="tagBg"></view></view></block></view>   -->
+  </view>
+  <view class="playBtn" onTap="navToPano">
+  </view>
   <view class="logo">
     <image src="../../resources/images/logo.png" mode="aspectFit" />
-    <view class="produce">{{currentPano.produce}}</view>
-    <view class="date">{{currentPano.productionDate}} 拍摄</view>
+    <view class="produce">{{currentPano.produce}}
+    </view>
+    <view class="date">{{currentPano.productionDate}} 拍摄
+    </view>
   </view>
-
- 
   <view class="tools">
-    <!-- <view class="btn">
-      <view class="icon star"></view>
-      <text>73</text>
-    </view> -->
+    <!-- <view class="btn"><view class="icon star"></view><text>73</text></view> -->
     <view class="btn" onTap="toMap">
-      <view class="icon location"></view>
-      <text>位置</text>
+      <view class="icon location">
+      </view>
+      <text>位置
+      </text>
     </view>
-    <!-- <view class="btn">
-      <view class="icon comments"></view>
-      <text>评论</text>
-    </view>
-    <view class="btn">
-      <view class="icon share"></view>
-      <text>分享</text>
-    </view>             -->
+    <!-- <view class="btn"><view class="icon comments"></view><text>评论</text></view><view class="btn"><view class="icon share"></view><text>分享</text></view>             -->
   </view>
-  
 </view>

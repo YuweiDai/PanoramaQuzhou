@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/map/map",
+    "pages/index/index",
     "pages/home/home",
+    "pages/map/map",
     "pages/discovery/discovery",
     "pages/projects/projects",
     "pages/panorama/panorama",
@@ -29,7 +30,7 @@
       },
       {
         "pagePath": "pages/map/map",
-        "name": "周边",
+        "name": "地图",
         "icon": "resources/images/icons/nav.png",
         "activeIcon": "resources/images/icons/nav_selected.png"
       }

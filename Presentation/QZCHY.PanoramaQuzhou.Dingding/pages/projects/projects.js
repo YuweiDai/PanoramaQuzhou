@@ -2,15 +2,12 @@ var app = getApp();
 
 Page({
   data: {
-    projects: [
-
-    ]
-
+    projects: []
   },
 
-  navTo:function(event){
+  navTo: function (event) {
     dd.navigateTo({
-      url:'project_pano_locations/project_pano_locations?pid='+event.currentTarget.dataset.pid
+      url: 'project_pano_locations/project_pano_locations?pid=' + event.currentTarget.dataset.pid
     });
   },
 
@@ -19,28 +16,19 @@ Page({
   onLoad() {
     var that = this;
     //获取projects
-    dd.httpRequest({
-      url: app.globalData.apiBaseUrl + "projects",
-      method: 'GET',
-      dataType: 'json',
-      success: function (res) {
-
-        console.log(res);
-
-        var p = res.data;
-        p.forEach(function (item) {
-          item.logoUrl = app.globalData.resourceUrl + "Minapp/projects/" + item.logoUrl;
-        });
-        that.setData({
-          projects: p
-        });
-      },
-      fail: function (res) {
-        console.log(res);
-        dd.alert({ content: '加载projects发生错误' });
-      },
-      complete: function (res) {
-      }
+    app.requestGet(app.globalData.apiBaseUrl + "projects", null, true).then(function (res) {
+      console.log(res);
+      var p = res.data;
+      p.forEach(function (item) {
+        item.logoUrl = app.globalData.resourceUrl + "Minapp/projects/" + item.logoUrl;
+      });
+      that.setData({
+        projects: p
+      });
+    }, function () {
+      console.log(res);
+      dd.alert({ content: '加载projects发生错误' });
     });
+
   },
 });

@@ -1,0 +1,7 @@
+<view class="page">
+  <image src="../../resources/images/start.jpg" mode="scaleToFill" />
+  <view class="beginBtn" onTap="entry">开启全景衢州{{tips}}
+    <text class="iconfont icon-jinru">
+    </text>
+  </view>
+</view>

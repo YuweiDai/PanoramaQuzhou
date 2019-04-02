@@ -34,7 +34,7 @@
       <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" onTap="swichNav">最新拍摄            
       </view>
     </view>
-    <swiper current="{{currentTab}}" class="swiper-box" onChange="swiperChange">
+    <swiper current="{{currentTab}}" interval="5000" class="swiper-box" onChange="swiperChange">
       <swiper-item>
         <view class="hotPanoramas">
           <block a:for="{{hotPanoramas}}">

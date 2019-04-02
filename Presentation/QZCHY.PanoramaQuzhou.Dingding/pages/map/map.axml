@@ -1,3 +1,3 @@
-<web-view id="web-view-2" src="http://abcde.vaiwan.com/map.html" onMessage="test"></web-view>
+<web-view id="webMapView" src="{{mapUrl}}" onMessage="postMsg"></web-view>
 
-
+<!-- http://220.191.238.125/qzqj/map.html http://abcde.vaiwan.com/map4.html-->
