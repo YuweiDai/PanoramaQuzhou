@@ -1,4 +1,4 @@
-﻿<krpano version="1.19" title="衢州全景地图" tileserver="http://220.191.238.125:8070/assets/">
+﻿<krpano version="1.19" title="全景衢州" tileserver="http://220.191.238.125:8070/assets/">
   <!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
   <skin_settings maps="true"
 	               maps_type="google"
@@ -53,9 +53,8 @@
 
 
   <!-- startup action - load the first scene -->
-  <include  url ="plugins/auto_thumbs.xml"/>
-  <include  url ="plugins/tooltip.xml"/>
-
+  <include  url ="http://220.191.238.125:8070/plugins/auto_thumbs.xml"/>
+  <include  url ="http://220.191.238.125:8070/plugins/tooltip.xml"/>
 
   <action name="skin_setup_littleplanetintro">
     copy(lp_scene, xml.scene);
@@ -75,7 +74,7 @@
     lookat(calc(lp_hlookat - 180), 90, 150, 1, 0, 0);
     set(lp_running,true);
     set(events[lp_events].onloadcomplete,
-    delayedcall(1.5,
+    delayedcall(1.0,
     if(lp_scene === xml.scene,
     set(control.usercontrol, off);
     copy(view.limitview, lp_limitview);
@@ -97,7 +96,6 @@
 
   </action>
   
-  
   <action name="set_hotspot_visible">
     for(set(i,0),i LT hotspot.count,inc(i),
     if(%1 == false,
@@ -114,152 +112,28 @@
   </action>
 
   <events name="littleplanetintro_control" keep="true"
-		onnewpano="
-		stoptween(view.hlookat|view.vlookat|view.fov|view.distortion);
-                skin_setup_littleplanetintro()
-		)"
- 
-		/>
-   
+		onnewpano="stoptween(view.hlookat|view.vlookat|view.fov|view.distortion);
+                skin_setup_littleplanetintro())"
+   />
 
-  <!-- include VR support -->
-  <include url="plugins/webvr.xml" />
+  <autorotate enabled="false"  waittime="1.5"   accel="10.0"  speed="20.0"  horizon="0.0"  tofov="off"  />
 
-  <!-- overwrite some settings from the webvr.xml for the skin integration -->
-  <plugin name="WebVR" keep="true" devices="html5"
-	        multireslock.desktop="true"
-	        multireslock.mobile.or.tablet="false"
-	        mobilevr_fake_support="true"
-	        onavailable="removelayer(webvr_enterbutton); skin_arrange_buttons(); webvr_onavailable();"
-	        onentervr="skin_showloading(false); webvr_onentervr(); webvr_setup();"
-	        onexitvr="webvr_onexitvr(); webvr_setup();"
-	        />
-
-  <!-- webvr button style (adjust to match default skin style) -->
-  <style name="webvr_button_style"
-	       border="false"
-	       shadow="0.01" shadowrange="9.0" shadowcolor="0xFFFFFF" shadowalpha="0.5"
-	       />
-
-  <!-- show a 'rotate the device' info when the mobile device is in portrait mode in VR mode -->
-  <layer name="webvr_rotate_to_landscape_request" keep="true" vr="true" devices="mobile"
-	       url="rotate_device.png" scale="0.5"
-	       align="top" edge="center" y="28%"
-	       autoalpha="true" alpha="0.0"
-	       enabled="false"
-	       />
-
-  <events name="webvr_events" keep="true" devices="html5"
-	        onresize.mobile="webvr_act_as_gyro_in_portrait_mode();"
-	        onviewchange=""
-	        />
-
-  <action name="webvr_setup">
-    if(webvr.isenabled,
-    set(display.hotspotrenderer, webgl);
-    copy(loadscene_flags_backup, skin_settings.loadscene_flags);
-    set(skin_settings.loadscene_flags, MERGE|KEEPVIEW|KEEPMOVING|NOPREVIEW);
-    webvr_act_as_gyro_in_portrait_mode(true);
-    if(scene.count GT 1,
-    set(hotspot[webvr_prev_scene].visible, true);
-    set(hotspot[webvr_next_scene].visible, true);
-    set(events[webvr_events].onviewchange, webvr_menu_following());
-    );
-    ,
-    set(display.hotspotrenderer, auto);
-    if(loadscene_flags_backup !== null, copy(skin_settings.loadscene_flags, loadscene_flags_backup));
-    tween(layer[webvr_rotate_to_landscape_request].alpha, 0.0, 0.0);
-    set(hotspot[webvr_prev_scene].visible, false);
-    set(hotspot[webvr_next_scene].visible, false);
-    set(events[webvr_events].onviewchange, null);
-    );
-  </action>
-
-  <action name="webvr_act_as_gyro_in_portrait_mode">
-    if(device.mobile AND webvr.isenabled,
-    div(aspect, stagewidth, stageheight);
-    if(aspect != lastaspect OR '%1' == 'true',
-    copy(lastaspect, aspect);
-    if(stagewidth GT stageheight,
-    <!-- landscape mode - use stereo rendering and a direct/fast gyro sensor mode -->
-    set(display.stereo, true);
-    set(webvr.mobilevr_sensor_mode, 3);
-    webvr.update();
-    tween(layer[webvr_rotate_to_landscape_request].alpha, 0.0, 0.0);
-    ,
-    <!-- portrait mode - use normal rendering and a smoother/slower gyro sensor mode -->
-    set(display.stereo, false);
-    set(webvr.mobilevr_sensor_mode, 1);
-    webvr.update();
-    tween(layer[webvr_rotate_to_landscape_request].alpha, 1.0);
-    delayedcall(3.0, tween(layer[webvr_rotate_to_landscape_request].alpha, 0.0, 1.0); );
-    );
-    );
-    ,
-    set(lastaspect, 0);
-    );
-  </action>
-
-  <!-- VR scene switching hotspots -->
-  <style name="webvr_menu_style" depth="800" scale="0.5" distorted="true" ath="0" atv="45" alpha="0.5" />
-  <hotspot name="webvr_prev_scene" keep="true" style="skin_base|webvr_menu_style" crop="0|64|64|64"  ox="-64" onover="tween(scale,0.6);" onout="tween(scale,0.5);" vr_timeout="750" onclick="skin_nextscene_loop(-1);" visible="false" devices="html5.and.webgl" />
-  <hotspot name="webvr_next_scene" keep="true" style="skin_base|webvr_menu_style" crop="64|64|64|64" ox="+64" onover="tween(scale,0.6);" onout="tween(scale,0.5);" vr_timeout="750" onclick="skin_nextscene_loop(+1);" visible="false" devices="html5.and.webgl" />
-
-  <!-- floating/following VR hotspots -->
-  <action name="webvr_menu_following" type="Javascript" devices="html5">
-    <![CDATA[
-		var hs1 = krpano.get("hotspot[webvr_prev_scene]");
-		var hs2 = krpano.get("hotspot[webvr_next_scene]");
-		if(!hs1.hovering && !hs2.hovering)
-		{
-			var f = 0.01;	// follow speed factor
-			var h = krpano.view.hlookat;
-			var v = krpano.view.vlookat;
-			var hsh = hs1.ath;
-			var hsv = hs1.atv;
-			h   = (h  -(h|0))   + (((h|0)  +360180)%360) - 180.0;
-			v   = (v  -(v|0))   + (((v|0)  +360180)%360) - 180.0;
-			hsh = (hsh-(hsh|0)) + (((hsh|0)+360180)%360) - 180.0;
-			var dh = h - hsh;
-			dh += (dh > 180) ? -360 : (dh < -180) ? 360 : 0
-			hsh += dh*f;
-			var a = Math.abs(v - hsv) / 90.0;
-			a = 1.0 * Math.max(1.0 - 2.0*Math.sqrt(a), 0);
-			v = v + 55.0 - v*1.5;
-			hsv = hsv*(1.0 - f) + v*f;
-			hs1.ath = hs2.ath = hsh;
-			hs1.atv = hs2.atv = hsv;
-			hs1.alpha = hs2.alpha = a;
-		}
-	]]>
-  </action>
-  <!-- VR support -->
-
-  <!-- skin styles -->
-
-  <!-- skin_base - the base skin image -->
-  <style name="skin_base" url="skin/vtourskin.png" />
-
-  <!-- skin_glow - button glowing (if additional ondown,onup,onout,over events are needed, this style provides ondown2,onup2,onover2,onout2 events) -->
-  <style name="skin_glow"
-	       ondown="copy(skin_lockglow,name); skin_buttonglow(get(name)); if(ondown2, ondown2() );"
-	       onover="if(skin_lockglow === null, copy(skin_lockglow,name); skin_buttonglow(get(name),0.3) ); if(onover2, onover2() );"
-	       onout="if(skin_lockglow === name AND !pressed, skin_buttonglow(null);delete(skin_lockglow); ); if(onout2, onout2() );"
-	       onup="if(onup2, onup2()); delayedcall(0, if(hovering AND enabled, skin_buttonglow(get(name),0.3); , skin_buttonglow(null);delete(skin_lockglow); ); );"
-	       />
-
-  <!-- skin_hotspotstyle - style for the hotspots -->
-  <style name="skin_hotspotstyle" url="vtourskin_hotspot.png" scale="0.5" edge="top" distorted="true"
-	       tooltip=""
-	       onclick="if(linkedscene, set(enabled,false); skin_hidetooltips(); tween(depth|alpha|oy|rx, 4000|0.0|-50|-60, 0.5, default, loadscene(get(linkedscene),null,get(skin_settings.loadscene_flags),get(skin_settings.loadscene_blend)); skin_updatescroll(); ); );"
-	       onover="tween(scale,0.55);"
-	       onout="tween(scale,0.5);"
-	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
-	       />
-
-
-  <!-- gyro plugin -->
-  <plugin name="skin_gyro" keep="true" url="" html5_url="%SWFPATH%/plugins/gyro2.js" devices="html5" enabled="false" onavailable="skin_arrange_buttons();" />
+  <!-- 陀螺仪 -->
+  <plugin name="gyro" devices="html5" keep="true"
+        url="plugins/gyro2.js"
+        enabled="true"
+        camroll="true"
+        friction="0.0"
+        touch_mode="full"
+        sensor_mode="1"
+        softstart="0.5"
+        autocalibration="true"
+        onavailable=""
+        onunavailable=""
+        onenable=""
+        ondisable=""
+			/>
+  
 
   <action name="skin_arrange_buttons">
 
@@ -301,8 +175,6 @@
     );
   </action>
   
-  
-
 
   <action name="startup" autorun="onstart">
     if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
@@ -315,8 +187,13 @@
     <!--skin_setup_littleplanetintro();-->
     );
 
-  </action>
 
+    for(set(i,0), i LT scene.count, inc(i),
+    inc(thumb_cnt);
+    txtadd(thumbtitlname,'skin_thumb_title',get(i)); addlayer(get(thumbtitlname)); copy(layer[get(thumbtitlname)].parent, thumbtitlbackename); set(layer[get(thumbtitlname)].url, "http://220.191.238.125:8070/plugins/textfield.swf"); set(layer[get(thumbtitlname)].align, "center"); set(layer[get(thumbtitlname)].keep, true); copy(layer[get(thumbtitlname)].html, scene[get(i)].title); set(layer[get(thumbtitlname)].zorder, 51); set(layer[get(thumbtitlname)].visible, "true"); set(layer[get(thumbtitlname)].autoheight, "true"); set(layer[get(thumbtitlname)].background, "false"); set(layer[get(thumbtitlname)].border, "false"); set(layer[get(thumbtitlname)].enabled, "true"); set(layer[get(thumbtitlname)].css,"text-align:center; color:#ffffff; font-family:Arial; font-weight:bold; font-size:19px; "); set(layer[get(thumbtitlname)].textshadow, 2);
+);
+
+  </action>
 
 
   <action name="do_crop_animation">
@@ -510,35 +387,35 @@
 
   </scene>
 
-  <scene name="衢州农商城20180323" title="衢州农商城20180323" onstart="" thumburl="%$tileserver%panos/衢州农商城20180323.tiles/thumb.jpg" lat="28.97975078" lng="118.8007364" heading="" >
+  <scene name="衢州农商城20190322" title="衢州农商城20190322" onstart="" thumburl="%$tileserver%panos/衢州农商城20190322.tiles/thumb.jpg" lat="28.97975078" lng="118.8007364" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/衢州农商城20180323.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢州农商城20190322.tiles/preview.jpg" />
 
     <image>
-      <cube url="%$tileserver%panos/衢州农商城20180323.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/衢州农商城20190322.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
-  <scene name="衢州农商城20180323_gq" title="衢州农商城高清" onstart="" thumburl="%$tileserver%panos/衢州农商城20180323_gq.tiles/thumb.jpg" lat="28.97975078" lng="118.8007364" heading="0.0">
+  <scene name="衢州农商城20190322_gq" title="衢州农商城高清" onstart="" thumburl="%$tileserver%panos/衢州农商城20190322_gq.tiles/thumb.jpg" lat="28.97975078" lng="118.8007364" heading="0.0">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/衢州农商城20180323_gq.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢州农商城20190322_gq.tiles/preview.jpg" />
 
     <image type="CUBE" prealign="0|0.0|0" multires="true" tilesize="512">
       <level tiledimagewidth="7424" tiledimageheight="7424">
-        <cube url="%$tileserver%panos/衢州农商城20180323_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/衢州农商城20190322_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="3712" tiledimageheight="3712">
-        <cube url="%$tileserver%panos/衢州农商城20180323_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/衢州农商城20190322_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1792" tiledimageheight="1792">
-        <cube url="%$tileserver%panos/衢州农商城20180323_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/衢州农商城20190322_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1024" tiledimageheight="1024">
-        <cube url="%$tileserver%panos/衢州农商城20180323_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/衢州农商城20190322_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
   </scene>
@@ -842,35 +719,35 @@
     </image>
 
   </scene>
-  <scene name="丰收水库20190401" title="丰收水库20190401" onstart="" thumburl="%$tileserver%panos/丰收水库20190401.tiles/thumb.jpg" lat="28.95268951" lng="118.8010483" heading="" >
+  <scene name="蓬里村北20190401" title="蓬里村北20190401" onstart="" thumburl="%$tileserver%panos/蓬里村北20190401.tiles/thumb.jpg" lat="28.95268951" lng="118.8010483" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/丰收水库20190401.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/蓬里村北20190401.tiles/preview.jpg" />
 
     <image>
-      <cube url="%$tileserver%panos/丰收水库20190401.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/蓬里村北20190401.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
-  <scene name="丰收水库20190401_gq" title="丰收水库高清" onstart="" thumburl="%$tileserver%panos/丰收水库20190401_gq.tiles/thumb.jpg" lat="28.95268951" lng="118.8010483" heading="0.0">
+  <scene name="蓬里村北20190401_gq" title="蓬里村北高清" onstart="" thumburl="%$tileserver%panos/蓬里村北20190401_gq.tiles/thumb.jpg" lat="28.95268951" lng="118.8010483" heading="0.0">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/丰收水库20190401_gq.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/蓬里村北20190401_gq.tiles/preview.jpg" />
 
     <image type="CUBE" prealign="0|0.0|0" multires="true" tilesize="512">
       <level tiledimagewidth="7424" tiledimageheight="7424">
-        <cube url="%$tileserver%panos/丰收水库20190401_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/蓬里村北20190401_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="3712" tiledimageheight="3712">
-        <cube url="%$tileserver%panos/丰收水库20190401_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/蓬里村北20190401_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1792" tiledimageheight="1792">
-        <cube url="%$tileserver%panos/丰收水库20190401_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/蓬里村北20190401_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1024" tiledimageheight="1024">
-        <cube url="%$tileserver%panos/丰收水库20190401_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/蓬里村北20190401_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
 
@@ -941,35 +818,35 @@
     </image>
 
   </scene>
-  <scene name="姜家山片区安置房20190401" title="姜家山片区安置房20190401" onstart="" thumburl="%$tileserver%panos/姜家山片区安置房20190401.tiles/thumb.jpg" lat="28.9708214338621" lng="118.811098131474" heading="" >
+  <scene name="高铁新城拆迁安置房20190401" title="高铁新城拆迁安置房20190401" onstart="" thumburl="%$tileserver%panos/高铁新城拆迁安置房20190401.tiles/thumb.jpg" lat="28.9708214338621" lng="118.811098131474" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/姜家山片区安置房20190401.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/高铁新城拆迁安置房20190401.tiles/preview.jpg" />
 
     <image>
-      <cube url="%$tileserver%panos/姜家山片区安置房20190401.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/高铁新城拆迁安置房20190401.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
-  <scene name="姜家山片区安置房20190401_gq" title="姜家山片区安置房高清" onstart="" thumburl="%$tileserver%panos/姜家山片区安置房20190401_gq.tiles/thumb.jpg" lat="28.9708214338621" lng="118.811098131474" heading="0.0">
+  <scene name="高铁新城拆迁安置房20190401_gq" title="高铁新城拆迁安置房高清" onstart="" thumburl="%$tileserver%panos/高铁新城拆迁安置房20190401_gq.tiles/thumb.jpg" lat="28.9708214338621" lng="118.811098131474" heading="0.0">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/姜家山片区安置房20190401_gq.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/高铁新城拆迁安置房20190401_gq.tiles/preview.jpg" />
 
     <image type="CUBE" prealign="0|0.0|0" multires="true" tilesize="512">
       <level tiledimagewidth="7424" tiledimageheight="7424">
-        <cube url="%$tileserver%panos/姜家山片区安置房20190401_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/高铁新城拆迁安置房20190401_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="3712" tiledimageheight="3712">
-        <cube url="%$tileserver%panos/姜家山片区安置房20190401_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/高铁新城拆迁安置房20190401_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1792" tiledimageheight="1792">
-        <cube url="%$tileserver%panos/姜家山片区安置房20190401_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/高铁新城拆迁安置房20190401_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1024" tiledimageheight="1024">
-        <cube url="%$tileserver%panos/姜家山片区安置房20190401_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/高铁新城拆迁安置房20190401_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
 
@@ -1007,35 +884,35 @@
     </image>
 
   </scene>
-  <scene name="上黄塘水库20190401" title="上黄塘水库20190401" onstart="" thumburl="%$tileserver%panos/上黄塘水库20190401.tiles/thumb.jpg" lat="28.94366907" lng="118.8011522" heading="" >
+  <scene name="衢州市传化公路港20190401" title="衢州市传化公路港20190401" onstart="" thumburl="%$tileserver%panos/衢州市传化公路港20190401.tiles/thumb.jpg" lat="28.94366907" lng="118.8011522" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/上黄塘水库20190401.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢州市传化公路港20190401.tiles/preview.jpg" />
 
     <image>
-      <cube url="%$tileserver%panos/上黄塘水库20190401.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/衢州市传化公路港20190401.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
-  <scene name="上黄塘水库20190401_gq" title="上黄塘水库高清" onstart="" thumburl="%$tileserver%panos/上黄塘水库20190401_gq.tiles/thumb.jpg" lat="28.94366907" lng="118.8011522" heading="0.0">
+  <scene name="衢州市传化公路港20190401_gq" title="衢州市传化公路港高清" onstart="" thumburl="%$tileserver%panos/衢州市传化公路港20190401_gq.tiles/thumb.jpg" lat="28.94366907" lng="118.8011522" heading="0.0">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/上黄塘水库20190401_gq.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢州市传化公路港20190401_gq.tiles/preview.jpg" />
 
     <image type="CUBE" prealign="0|0.0|0" multires="true" tilesize="512">
       <level tiledimagewidth="7424" tiledimageheight="7424">
-        <cube url="%$tileserver%panos/上黄塘水库20190401_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/衢州市传化公路港20190401_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="3712" tiledimageheight="3712">
-        <cube url="%$tileserver%panos/上黄塘水库20190401_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/衢州市传化公路港20190401_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1792" tiledimageheight="1792">
-        <cube url="%$tileserver%panos/上黄塘水库20190401_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/衢州市传化公路港20190401_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1024" tiledimageheight="1024">
-        <cube url="%$tileserver%panos/上黄塘水库20190401_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/衢州市传化公路港20190401_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
 
