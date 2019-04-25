@@ -28,7 +28,6 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
                         where v.Id == id
                         select v;
       
-
             return query.FirstOrDefault();
         }
 
@@ -97,8 +96,10 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
             var query = from ps in _sceneRepository.TableNoTracking
                         where !ps.Deleted
                         select ps;
-
+            
             return query;
         }
+        
+
     }
 }

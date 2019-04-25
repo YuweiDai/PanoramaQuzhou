@@ -129,6 +129,16 @@
             }
 
 
+            var size = 15;
+
+            try {
+                var rpx = 750 / document.body.clientWidth;
+                size = size * rpx;
+            } catch (error) { 
+            }
+
+
+
             //加载全景点
             $.ajax({
                 type: "GET",
@@ -141,8 +151,8 @@
                         el.className = 'marker';
                         el.style.backgroundImage = 'url(./assets/location.png)';
                         el.style.backgroundSize = "cover";
-                        el.style.width = '20px';
-                        el.style.height = '20px';
+                        el.style.width = size + 'px';
+                        el.style.height = size + 'px';
                         el.style.cursor = "pointer";
 
                         // create the popup
@@ -152,7 +162,7 @@
                             navBtn.style.cursor = "pointer";
                             navBtn.addEventListener('click', function () {
                                 dd.navigateTo({
-                                    url: '../panorama/panorama?sid=' + item.defaultPanoramaSceneId
+                                    url: '../panorama/panorama?sid=' + item.defaultPanoramaSceneId + "&sname=" + item.name
                                 })
                             });
                         }

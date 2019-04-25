@@ -63,6 +63,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TopSdk">
+      <HintPath>C:\Users\Dai\Desktop\TopSdk.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounts\AccountUserExtensions.cs" />
@@ -74,6 +77,8 @@
     <Compile Include="Accounts\IAccountUserService.cs" />
     <Compile Include="Accounts\RewardPointsSettings.cs" />
     <Compile Include="Authentication\IAuthenticationService.cs" />
+    <Compile Include="DDTalk\DDTalkService.cs" />
+    <Compile Include="DDTalk\IDDTalkService.cs" />
     <Compile Include="Authentication\IRefreshTokenService.cs" />
     <Compile Include="Authentication\RefreshTokenService.cs" />
     <Compile Include="Authentication\TokenAuthenticationService.cs" />

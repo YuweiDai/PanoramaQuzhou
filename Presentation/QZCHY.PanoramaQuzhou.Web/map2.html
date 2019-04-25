@@ -33,6 +33,7 @@
     <script>
         $(document).ready(function () {
 
+
             var query = window.location.search;
 
             var currentLng = 0;  //定位的位置
@@ -64,10 +65,6 @@
                 }
             });
 
-            // dd.alert({
-            //     title:currentLat,
-            //     content:currentLng
-            // })
 
             var baseUrl = "http://220.191.238.125:8070/";
             var markers = [];
@@ -141,8 +138,8 @@
                         el.className = 'marker';
                         el.style.backgroundImage = 'url(./assets/location.png)';
                         el.style.backgroundSize = "cover";
-                        el.style.width = '20px';
-                        el.style.height = '20px';
+                        el.style.width = size + 'px';
+                        el.style.height = size + 'px';
                         el.style.cursor = "pointer";
 
                         // create the popup

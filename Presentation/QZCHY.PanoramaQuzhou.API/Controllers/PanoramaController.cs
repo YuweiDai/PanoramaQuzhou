@@ -11,7 +11,7 @@ using System.Web.Http;
 namespace QZCHY.PanoramaQuzhou.API.Controllers
 {
     [RoutePrefix("Panoramas")]
-    public class PanoramaController: ApiController
+    public class PanoramaController : ApiController
     {
 
         private readonly ISceneService _sceneService;
@@ -27,7 +27,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public IHttpActionResult  GetSceneById(int id=0)
+        public IHttpActionResult GetSceneById(int id = 0)
         {
 
             var scene = _sceneService.GetPnoramaSceneById(id);
@@ -36,7 +36,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             _sceneService.UpdatePanoramaScene(scene);
 
             var response = scene.ToModel();
-            response.Name = scene.PanoramaLocation.Name+ response.ProductionDate;
+            response.Name = scene.PanoramaLocation.Name + response.ProductionDate;
             response.Title = scene.PanoramaLocation.Name;
             response.hotspots = scene.Hotspots.Select(h =>
             {
@@ -50,8 +50,8 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
         [HttpPut]
         [Route("addStars/{id}")]
-        public IHttpActionResult AddSceneStars(int id) {
-
+        public IHttpActionResult AddSceneStars(int id)
+        {
             var scene = _sceneService.GetPnoramaSceneById(id);
 
             scene.Stars++;
@@ -79,11 +79,11 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             {
                 var psm = ps.ToListItemModel();
                 psm.Name = ps.PanoramaLocation.Name;
+                psm.LogoUrl = ps.PanoramaLocation.Name + ps.ProductionDate.ToString("yyyyMMdd") + ".tiles/logo.jpg";
                 return psm;
             });
 
             return Ok(hotPanoramas);
-
         }
 
         [HttpGet]
@@ -96,6 +96,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
                 var psm = ps.ToListItemModel();
                 psm.Name = ps.PanoramaLocation.Name;
+                psm.LogoUrl = ps.PanoramaLocation.Name + ps.ProductionDate.ToString("yyyyMMdd") + ".tiles/logo.jpg";
                 return psm;
             });
 
@@ -105,7 +106,8 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
         [HttpPost]
         [Route("addhotspot")]
-        public IHttpActionResult AddHotSpot(HotspotModel hotspotModel) {
+        public IHttpActionResult AddHotSpot(HotspotModel hotspotModel)
+        {
 
             var scence = _sceneService.GetPnoramaSceneById(hotspotModel.Scence_Id);
             var hotspot = new Hotspot();

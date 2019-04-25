@@ -1,20 +1,35 @@
+var app = getApp();
 Page({
   data: {
-    targetUrl:"http://220.191.238.125/qzqj?id="
+    sceneId:0,
+    sceneName: "",
+    targetUrl: ""
   },
   onLoad(query) {
 
-    var sceneId=query.sid;
-    var newUrl=this.data.targetUrl+sceneId;
-
-    console.log(newUrl)
+    var sceneId = query.sid;
+    var sceneName = query.sname;
+    var newUrl = app.globalData.webUrl + "/index.html?id=" + sceneId;
+    console.log(sceneId);
+    console.log(sceneName);
 
     this.setData({
-      targetUrl:newUrl
+      sceneId:sceneId,
+      targetUrl: newUrl,
+      sceneName: sceneName
     });
- 
   },
   onShareAppMessage() {
-   // 返回自定义分享信息
-  },  
+
+    var title = this.data.sceneName;
+    var desc = "立即查看" + title + "全景";
+    var path = "pages/panorama/panorama?sid=" + this.data.sceneId + "&sname=" + this.data.sceneName;
+
+    console.log(path);
+    return {
+      title: title,
+      desc: desc,
+      path: path
+    };
+  }
 });

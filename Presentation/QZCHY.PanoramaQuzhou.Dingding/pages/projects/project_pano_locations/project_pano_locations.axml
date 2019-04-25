@@ -14,7 +14,7 @@
       <view class="pano_locations"  a:if="{{project.panoramaLocations.length>0}}">
         <block a:for="{{project.panoramaLocations}}">
 
-        <view class="pano_location" data-sid="{{item.defaultPanoramaSceneId}}" onTap="navToPanorama">
+        <view class="pano_location" data-sid="{{item.defaultPanoramaSceneId}}" data-sname="{{item.name}}" onTap="navToPanorama">
           <image src="{{item.logoUrl}}" mode="scaleToFill" />
           <view class="bg"></view>
           <view class="title">{{item.name}}</view>

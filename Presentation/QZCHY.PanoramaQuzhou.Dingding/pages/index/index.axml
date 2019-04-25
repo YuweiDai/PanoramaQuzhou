@@ -1,7 +1,12 @@
 <view class="page">
   <image src="../../resources/images/start.jpg" mode="scaleToFill" />
   <view class="beginBtn" onTap="entry">开启全景衢州{{tips}}
-    <text class="iconfont icon-jinru">
-    </text>
+    <!-- <text class="iconfont icon-jinru">
+    </text> -->
+  </view>
+
+  <view class="copyright">
+    <view>衢州市自然资源和规划局</view>
+    <view>衢州市测绘院（衢州市地理信息中心）</view>    
   </view>
 </view>

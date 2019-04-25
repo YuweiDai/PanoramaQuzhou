@@ -80,9 +80,9 @@
   height: 2400px;
 }
 #cube.animate {
-  -webkit-animation: roll 120s linear infinite;
-  -moz-animation: roll 120s linear infinite;
-  animation: roll 120s linear infinite;
+  -webkit-animation: roll 100s linear infinite;
+  -moz-animation: roll 100s linear infinite;
+  animation: roll 100s linear infinite;
 }
 #cube image {
   position: absolute;

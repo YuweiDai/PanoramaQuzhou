@@ -36,6 +36,13 @@ namespace QZCHY.PanoramaQuzhou.Services.Accounts
         AccountUser GetAccountUserByGuid(Guid customerGuid);
 
         /// <summary>
+        /// 通过钉钉唯一id获取用户
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        AccountUser GetAccountUserByDDUserId(string userId);
+
+        /// <summary>
         /// Get customer by system role
         /// </summary>
         /// <param name="systemName">System name</param>
@@ -75,6 +82,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Accounts
         /// <param name="accountUserName"></param>
         /// <returns>true表示唯一</returns>
         bool NameUniqueCheck(string accountUserName,int accountUserId=0);
+        
 
         //#region AccountUser roles
 

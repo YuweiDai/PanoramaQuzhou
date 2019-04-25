@@ -25,6 +25,7 @@ using System.Reflection;
 using System.Web;
 using Autofac.Integration.WebApi;
 using QZCHY.PanoramaQuzhou.Services.Panoramas;
+using QZCHY.PanoramaQuzhou.Services.DDTalk;
 
 namespace QZCHY.PanoramaQuzhou.Web.Framework
 {
@@ -144,6 +145,10 @@ namespace QZCHY.PanoramaQuzhou.Web.Framework
 
             builder.RegisterType<RefreshTokenService>().As<IRefreshTokenService>().InstancePerLifetimeScope();
             builder.RegisterType<AccountUserRegistrationService>().As<IAccountUserRegistrationService>().InstancePerLifetimeScope();
+
+
+            builder.RegisterType<DDTalkService>().As<IDDTalkService>().InstancePerLifetimeScope();
+
             //builder.RegisterType<CustomerReportService>().As<ICustomerReportService>().InstancePerLifetimeScope();
 
             //pass MemoryCacheManager as cacheManager (cache settings between requests)

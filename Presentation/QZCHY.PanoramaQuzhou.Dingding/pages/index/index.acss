@@ -1,14 +1,19 @@
-image{
+.page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+image {
   width: 100vw;
   height: 100vh;
 }
 
-.beginBtn
-{
-  box-sizing:border-box;
+.beginBtn {
+  box-sizing: border-box;
   position: absolute;
   left: 30rpx;
-  bottom: 30rpx;
+  bottom: 80rpx;
   border-radius: 10rpx;
   background-color: #3296FA;
   color: white;
@@ -18,7 +23,18 @@ image{
   opacity: 0.9;
 }
 
-.beginBtn > .iconfont
-{
+.beginBtn>.iconfont {
   margin-left: 10rpx;
+}
+
+.copyright {
+  font-size: 28rpx;
+  font-weight: bolder;
+  color: white;
+  position: absolute;
+  left: 30rpx;
+  bottom: 10rpx;
+  width: 690rpx;
+  text-align: center;
+  letter-spacing:5rpx;
 }

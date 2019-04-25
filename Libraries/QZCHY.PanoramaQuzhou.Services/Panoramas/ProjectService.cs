@@ -29,6 +29,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
             query = query.OrderBy(p => p.Order).Take(5);
 
+
             return query;
         }
 

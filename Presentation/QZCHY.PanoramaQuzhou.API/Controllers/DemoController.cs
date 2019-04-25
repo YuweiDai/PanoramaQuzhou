@@ -99,6 +99,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
         public IHttpActionResult Temp() {
 
 
+            return Ok("导入成功");
 
             var filePath = @"D:\aa.xls";
             //string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + filePath + ";" + "Extended Properties=Excel 8.0;";
@@ -135,7 +136,6 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
                  
             }
 
-                return Ok("导入成功");
         }
 
 
