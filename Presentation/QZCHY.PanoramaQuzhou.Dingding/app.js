@@ -44,7 +44,7 @@ App({
 
       console.log("promise");
       dd.getLocation({
-        success(res) {
+        success(res){
           console.log("sucess--res");
           console.log(res.longitude);
           console.log(res.latitude);
@@ -84,7 +84,7 @@ App({
         url: url,
         method: 'Get',
         data: data,
-        dataType: 'json',
+        dataType:'json',
         success: function (res) {
           resolve(res);
         },
@@ -97,11 +97,14 @@ App({
           }
         }
       });
-
     });
   },
+
+
   globalData: {
-    systemInfo: {},
+    systemInfo: {
+      
+    },
     rpx: 0.5,
     apiBaseUrl: "http://qzschy.vaiwan.com/api/",
     //apiBaseUrl: "http://220.191.238.125:8070/api/",

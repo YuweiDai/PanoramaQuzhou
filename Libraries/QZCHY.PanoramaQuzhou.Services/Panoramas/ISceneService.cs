@@ -9,7 +9,6 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 {
    public interface ISceneService
     {      
-
         void InsertPanoramaScene(PanoramaScene scene);
 
         void UpdatePanoramaScene(PanoramaScene scene);
@@ -25,5 +24,7 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
         IQueryable<PanoramaScene> GetAllPanoramaScenes();
 
 
+        IEnumerable<PanoramaScene> GetAllPanoramaScenesOrderByDistance(double lat,double lng,int pageSize=15,int index=0);
+        
     }
 }

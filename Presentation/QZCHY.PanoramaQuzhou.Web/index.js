@@ -1,9 +1,4 @@
-﻿//引入钉钉接口
-//if (navigator.userAgent.toLowerCase().indexOf('dingtalk') > -1) {
-//    document.writeln('<script src="https://appx/web-view.min.js"' + '>' + '<' + '/' + 'script>');
-//}
-
-var k; var temp1, temp2, temp;
+﻿var k; var temp1, temp2, temp,temp4;
 var temp3 = 1;
 var hotspotData = {};
 var hotspotstring = "";
@@ -16,7 +11,8 @@ var sceneName = "";
     }
 })(jQuery);
 var id = $.getUrlParam('id');
- 
+if (id == undefined) id = 34;
+
 var allowDemoRun = false;
 var div = document.getElementById("pano");
 
@@ -24,7 +20,7 @@ var krpanoReady = function (krpano) {
     k = krpano;
 }
 
-embedpano({ swf: "tour.swf", xml: "tour.xml", target: "pano", html5: "auto", mobilescale: 1.0, passQueryParameters: true, onready: krpanoReady });
+embedpano({ swf: "tour.swf", xml: "tours/"+id+".xml", target: "pano", html5: "auto", mobilescale: 1.0, passQueryParameters: true, onready: krpanoReady });
 
 var mybody = document.getElementsByTagName('body')[0];
 var h = document.documentElement.clientHeight / 2;
@@ -37,9 +33,9 @@ $(".gq_bq").css("top", (h - 50) + "px");
 //加载全景
 var addPanor = function () {
   
-    if (id == undefined) id=7;
+    
     $.ajax({
-        url: "http://220.191.238.125/qzqj/api/Panoramas/" + id,
+        url: "http://220.191.238.125:8070/api/Panoramas/" + id,
         type: "get",
         success: function (response) {
             sceneName = response.name;
@@ -73,12 +69,24 @@ var addPanor = function () {
 addPanor();
 
 
+
+
+
+
 //高清标清切换
 $("#div_gq").on('touchstart', function (event) {
     event.stopPropagation();
     if (sceneName.indexOf("_gq") == -1) {
         sceneName = sceneName + "_gq";
+        var fov = k.get("view.fov");
+        var hlookat = k.get("view.hlookat");
+        var vlookat = k.get("view.vlookat");
+      
+
         k.call("loadscene('" + sceneName + "')");
+        k.call("set('view.fov',150);");
+        k.call("set('view.hlookat',-10);");
+        k.call("set('view.vlookat',120);");
     }
     else {
         return;
@@ -107,19 +115,32 @@ var addList = function () {
 
 //VR切换按钮
 var play_vr = function () {
-    k.call("WebVR.enterVR();");
+
+    if (temp4 != 1) {
+        $("#tly2").css("display", "block");
+        $("#tly").css("display", "none");
+        k.set("plugin[gyro].enabled",true);
+        temp4 = 1;
+    }
+    else {
+        $("#tly").css("display", "block");
+        $("#tly2").css("display", "none");
+        k.set("plugin[gyro].enabled", false);
+        temp4 = 2;
+    }
+    //k.call("WebVR.enterVR();");
 }
 
 //控制自动旋转
 var play_xz = function () {
     if (temp != 1) {
         $("#xz2").css("display", "block");
-        $("xz").css("display", "none");
+        $("#xz").css("display", "none");
         k.set("autorotate.enabled", true);
         temp = 1;
     }
     else {
-        $("xz").css("display", "block");
+        $("#xz").css("display", "block");
         $("#xz2").css("display", "none");
         k.set("autorotate.enabled", false);
         temp = 2;
@@ -155,16 +176,23 @@ var play_gq_bq = function () {
     }
 }
 
-//var toMap = function () {
+var toMap = function () {
 
-//    var lng = k.get("scene[" + sceneName + "].lng");
-//    var lat = k.get("scene[" + sceneName + "].lat");
+    var lng = k.get("scene[" + sceneName + "].lng");
+    var lat = k.get("scene[" + sceneName + "].lat");
 
-//    dd.navigateTo({
-//        url: "../map/map?level=16&centerLng=" + lng + "&centerLat=" + lat
-//    })
+    try {
+        dd.navigateTo({
+            url: "../map/map?level=16&centerLng=" + lng + "&centerLat=" + lat
+        })
+    }
+    catch (err) {
+        console, log(err);
+    }
 
-//}
+   
+
+}
 
 
 //添加标注按钮
@@ -223,7 +251,7 @@ $("#submitBtn").on('click', function () {
     k.call("set(hotspot[kkk].atv," + hotspotData.atv + ");");
    
     $.ajax({
-        url: "http://220.191.238.125/qzqj/api/Panoramas/addhotspot",
+        url: "http://220.191.238.125:8070/api/Panoramas/addhotspot",
         data: hotspotData,
         type: "post",
         success: function (response) {
@@ -251,7 +279,7 @@ $("#addstar").on('click', function (event) {
     if (temp3 == 2) return;
   
     $.ajax({
-        url: "http://220.191.238.125/qzqj/api/Panoramas/addStars/" + id,
+        url: "http://220.191.238.125:8070/api/Panoramas/addStars/" + id,
         type: "put",
         success: function (response) {
 

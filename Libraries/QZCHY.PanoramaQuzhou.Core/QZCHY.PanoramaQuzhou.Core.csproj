@@ -139,6 +139,7 @@
     <Compile Include="Domain\Security\PermissionRecord.cs" />
     <Compile Include="Domain\Security\SecuritySettings.cs" />
     <Compile Include="Domain\Tasks\ScheduleTask.cs" />
+    <Compile Include="GeographyHelper.cs" />
     <Compile Include="PanoramaQuzhouException.cs" />
     <Compile Include="PanoramaQuzhouVersion.cs" />
     <Compile Include="Data\BaseDataProviderManager.cs" />

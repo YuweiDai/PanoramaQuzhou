@@ -16,7 +16,12 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="js/jquery.js"></script>
-
+    <script>
+        //引入钉钉接口
+        if (navigator.userAgent.toLowerCase().indexOf('dingtalk') > -1) {
+            document.writeln('<script src="https://appx/web-view.min.js"' + '>' + '<' + '/' + 'script>');
+        }
+    </script>
 
 </head>
 <body>
@@ -47,7 +52,7 @@
 
                 <div onclick="play_qp()"><em style="display: block;"><img id="" src="assets/qp.png" style="width: 30px;" /></em></div>
                 <div onclick="play_xz()"><em style="display: block;"><img id="xz" src="assets/unxz.png" style="width: 30px;margin-top:10px" /><img id="xz2" src="assets/xz.png" style="width: 30px;display:none;margin-top:10px" /></em></div>
-                <div onclick="play_vr()"><em style="display: block;"><img id="" src="assets/vr.png" style="width: 30px;margin-top:10px" /></em></div>
+                <div onclick="play_vr()"><em style="display: block;"><img id="tly" src="assets/tly.png" style="width: 30px;margin-top:10px" /><img id="tly2" src="assets/tly2.png" style="width: 30px;display:none;margin-top:10px" /></em></div>
                 <div onclick="play_gq_bq()"><em style="display: block;"><img id="" src="assets/gq_bq.png" style="width: 30px;margin-top:10px" /></em></div>
             </div>
 
@@ -55,27 +60,27 @@
             <!--下侧菜单栏-->
             <div class="Theme1_right_22mVy8 block-horizontal-layout block-justify-end" style="position:absolute;bottom:2%;z-index:10">
 
-                <div class="Button_button_box_IEKNKj" id="addstar" style="position: absolute;margin-top: -35px;">
+                <!--<div class="Button_button_box_IEKNKj" id="addstar" style="position: absolute;margin-top: -35px;">
                     <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
                         <em style="display: block;"><img id="dz1" src="img/dz1.png" style="width: 38px;" /><img id="dz2" src="img/dz2.png" style="width: 38px;display:none" /></em><p id="starnum"></p>
 
                     </div>
-                </div>
+                </div>-->
 
-                <div class="Button_button_box_IEKNKj" id="hotspot" style="position: absolute;margin-left: 40px;margin-top: -35px;">
+                <div class="Button_button_box_IEKNKj" id="hotspot" style="position: absolute;margin-top: -35px;">
                     <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
                         <em style="display: block;"><img id="sys1" src="img/sys1.png" style="width: 38px;" /><img id="sys2" src="img/sys2.png" style="width: 38px;display:none" /></em><p>说一说</p>
 
                     </div>
                 </div>
 
-                <div class="Button_button_box_IEKNKj" style="position: absolute;margin-left: 80px;margin-top: -35px;" onclick="toMap()">
+                <div class="Button_button_box_IEKNKj" style="position: absolute;margin-left: 40px;margin-top: -35px;" onclick="toMap()">
                     <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
                         <em style="display: block;"><img src="img/marker.png" style="width: 38px;" /></em><p>地图模块</p>
                     </div>
                 </div>
 
-                <div class="Button_button_box_IEKNKj" style="position: absolute;margin-left: 120px;margin-top: -35px;" onclick="addList()">
+                <div class="Button_button_box_IEKNKj" style="position: absolute;margin-left: 80px;margin-top: -35px;" onclick="addList()">
                     <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
                         <em style="display: block;"><img src="img/piclist.png" style="width: 39px;" /></em><p>场景选择</p>
                     </div>
