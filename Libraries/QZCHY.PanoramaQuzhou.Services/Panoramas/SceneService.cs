@@ -1,4 +1,5 @@
-﻿using QZCHY.PanoramaQuzhou.Core.Data;
+﻿using QZCHY.PanoramaQuzhou.Core;
+using QZCHY.PanoramaQuzhou.Core.Data;
 using QZCHY.PanoramaQuzhou.Core.Domain.Panoramas;
 using QZCHY.PanoramaQuzhou.Services.Events;
 using System;
@@ -100,5 +101,35 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
 
             return query;
         }
+        /// <summary>
+        /// 将全景图按照由近及远排序
+        /// </summary>
+        /// <param name="lat">定位位置的纬度</param>
+        /// <param name="lng">定位位置的经度</param>
+        /// <returns></returns>
+        public IEnumerable<PanoramaScene> GetAllPanoramaScenesOrderByDistance(double lat, double lng, int pageSize = 15, int index = 0)
+        {
+            var query = from ps in _sceneRepository.TableNoTracking
+                        where !ps.Deleted
+                        select ps;
+
+            var panoramaScenes = query.ToList();
+
+            //foreach (var ps in panoramaScenes)
+            //{
+            //}
+
+
+            var result = panoramaScenes.OrderBy(ps => GeographyHelper.GetDistance(lat, lng, ps.PanoramaLocation.Lat, ps.PanoramaLocation.Lng))
+                            .Skip(index * pageSize).Take(pageSize);
+
+            return panoramaScenes;
+        }
+       
+
+      
+
+
+
     }
 }

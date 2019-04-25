@@ -9,8 +9,6 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
     public class PanoramaLocationController : ApiController
     {
         private readonly ILocationService _locationService;
-
-
         public PanoramaLocationController(ILocationService locationService)
         {
             this._locationService = locationService;
@@ -23,8 +21,6 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             var locations = _locationService.GetAllLocations().ToList().Select(pl=> {
                 return pl.ToGeoModel();
             });
-
-
             return Ok(locations);
         }
 

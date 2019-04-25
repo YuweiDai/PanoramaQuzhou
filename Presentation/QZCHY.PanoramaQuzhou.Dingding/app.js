@@ -6,9 +6,11 @@ App({
     // E应用初始化
     var that = this;
 
-    this.globalData.systemInfo = dd.getSystemInfoSync();
-    this.globalData.rpx = 750 / this.globalData.systemInfo.windowWidth;
-    console.log(this.globalData.rpx);
+    that.globalData.systemInfo = dd.getSystemInfoSync();
+    that.globalData.rpx = 750 / that.globalData.systemInfo.windowWidth;
+    console.log(that.globalData.rpx);
+    console.log(that.globalData.systemInfo.windowWidth);
+    console.log(that.globalData.systemInfo.windowHeight);
   },
   onShow(options) {
     // E应用显示
@@ -16,7 +18,7 @@ App({
     //获取位置
     this.setLocation();
     // then(function () {
-    //   // var url = "https://restapi.amap.com/v3/assistant/coordinate/convert?locations=" +
+      //   // var url = "https://restapi.a.com/v3/assistant/coordinate/convert?locations=" +
     //   //   that.globalData.location.lng + "," + that.globalData.location.lat +
     //   //   "&coordsys=gps&key="
     //   //   + that.globalData.GDToken;
@@ -47,7 +49,7 @@ App({
 
       console.log("promise");
       dd.getLocation({
-        success(res) {
+        success(res){
           console.log("sucess--res");
           console.log(res.longitude);
           console.log(res.latitude);
@@ -87,7 +89,7 @@ App({
         url: url,
         method: 'Get',
         data: data,
-        dataType: 'json',
+        dataType:'json',
         success: function (res) {
           resolve(res);
         },
@@ -100,13 +102,16 @@ App({
           }
         }
       });
-
     });
   },
+
+
   globalData: {
-    systemInfo: {},
+    systemInfo: {
+      
+    },
     rpx: 0.5,
-    apiBaseUrl: "http://220.191.238.125:8070/api/",
+    apiBaseUrl: "http://qzgis.vaiwan.com/api/",
     resourceUrl: "http://220.191.238.125:8070/assets/",
     webUrl: "http://220.191.238.125:8070/",
     location: {
