@@ -39,6 +39,8 @@ namespace QZCHY.PanoramaQuzhou.API.Models.Panoramas
         public double Lat { get; set; }
 
         public int Stars { get; set; }
+
+        public int LocationId { get; set; }
     }
 
     public class PanoramaSceneListItemModel : BaseQMEntityModel

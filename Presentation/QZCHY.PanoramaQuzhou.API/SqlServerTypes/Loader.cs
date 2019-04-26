@@ -12,6 +12,7 @@ namespace SqlServerTypes
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr LoadLibrary(string libname);
 
+
         /// <summary>
         /// Loads the required native assemblies for the current architecture (x86 or x64)
         /// </summary>

@@ -1,54 +1,38 @@
-<!-->
-<view class="page">
-</view><-->
+
 <swiper vertical="{{vertical}}" current="{{current}}" circular="{{circular}}" onChange="handleChange">
   <block a:for="{{panoramas}}">
-    <swiper-item>
-      <view class="swiper-item bc_{{item}}">
-      </view>
-      <!-- <view id="pano_viewer" class="icon-eye-open">
-        <view id="cube_box">
-          <view id="cube" class="animate" style="background:{{item.imgs.front}}">
-            <image class="front" src="{{item.imgs.front}}" />
-            <image class="left" src="{{item.imgs.left}}" />
-            <image class="right" src="{{item.imgs.right}}" />
-            <image class="back" src="{{item.imgs.back}}" />
-            <image class="top" src="{{item.imgs.up}}" />
-            <image class="bottom" src="{{item.imgs.down}}" />
-          </view>
-        </view>
+    <swiper-item class="swiper-item">
+      <!-- <view class="swiper-item bc_{{item}}">
       </view> -->
+      <!-- <view id="pano_viewer" class="icon-eye-open"><view id="cube_box"><view id="cube" class="animate" style="background:{{item.imgs.front}}"><image class="front" src="{{item.imgs.front}}" /><image class="left" src="{{item.imgs.left}}" /><image class="right" src="{{item.imgs.right}}" /><image class="back" src="{{item.imgs.back}}" /><image class="top" src="{{item.imgs.up}}" /><image class="bottom" src="{{item.imgs.down}}" /></view></view></view> -->
       <view id="image" class="image" style="height:100vh">
         <image class="front" src="{{item.imgs.front}}" mode="scaleToFill" style="width:100%;height:100%"/>
       </view>
       <view class="pano_header">
         <view class="pano_title">
-          <view class="titleTxt">{{item.name}}                
+          <view class="titleTxt">{{item.name}}                          
           </view>
           <view class="titleBg">
           </view>
         </view>
-        <!-- <view class="tags"><block a:for="{{currentPano.tags}}" a:key="*this"><view class="tag"><view class="tagTxt">{{item}}</view><view class="tagBg"></view></view></block></view>   -->
       </view>
       <view class="playBtn" data-id="{{item.id}}" onTap="navToPano">
       </view>
       <view class="logo">
         <image src="../../resources/images/logo.png" mode="aspectFit" />
-        <view class="produce">{{currentPano.produce}}            
+        <view class="produce">{{currentPano.produce}}                    
         </view>
-        <view class="date">{{currentPano.productionDate}} 拍摄            
+        <view class="date">{{currentPano.productionDate}} 拍摄                    
         </view>
       </view>
       <view class="tools">
-        <!-- <view class="btn"><view class="icon star"></view><text>73</text></view> -->
         <view class="btn" onTap="toMap">
           <view class="icon location">
           </view>
-          <text>位置         
+          <text>位置                 
           </text>
         </view>
-        <!-- <view class="btn"><view class="icon comments"></view><text>评论</text></view><view class="btn"><view class="icon share"></view><text>分享</text></view>             -->
       </view>
-    </swiper-item>
-  </block>
+  </swiper-item>
+    </block>
 </swiper>

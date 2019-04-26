@@ -58,7 +58,6 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
         public IHttpActionResult AddSceneStars(int id)
         {
             var scene = _sceneService.GetPnoramaSceneById(id);
-
             scene.Stars++;
             _sceneService.UpdatePanoramaScene(scene);
 
@@ -135,9 +134,11 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             var coord = _sceneService.GetAllPanoramaScenesOrderByDistance(lat, lng,pageSize,index);
             var scenes = coord.ToList().Select(ps =>
             {
+
                 var previewModel = ps.ToPreviewModel();
                 previewModel.Produce = "衢州市地理信息中心";
                 previewModel.ImgPath += ps.ProductionDate.ToString("yyyyMMdd") + ".tiles";
+                previewModel.LocationId = ps.PanoramaLocation.Id;
                 //previewModel.Lng = ps.PanoramaLocation.Lng;
                 //previewModel.Lat = ps.PanoramaLocation.Lat;
                 return previewModel;
