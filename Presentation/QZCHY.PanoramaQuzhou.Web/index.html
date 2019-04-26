@@ -1,18 +1,38 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>衢州全景地图</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-	<meta http-equiv="x-ua-compatible" content="IE=edge" />
-	<style>
-		@-ms-viewport { width:device-width; }
-		@media only screen and (min-device-width:800px) { html { overflow:hidden; } }
-		html { height:100%; }
-		body { height:100%; overflow:hidden; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#FFFFFF; background-color:#000000; }
-	</style>
+    <title>衢州全景地图</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <style>
+        @-ms-viewport {
+            width: device-width;
+        }
+
+        @media only screen and (min-device-width:800px) {
+            html {
+                overflow: hidden;
+            }
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #FFFFFF;
+            background-color: #000000;
+        }
+    </style>
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="js/jquery.js"></script>
@@ -26,7 +46,7 @@
 </head>
 <body>
 
-<script src="tour.js"></script>
+    <script src="tour.js"></script>
 
 
     <div id="pano" style="width:100%;height:100%;">
@@ -67,6 +87,9 @@
                     </div>
                 </div>-->
 
+     
+
+
                 <div class="Button_button_box_IEKNKj" id="hotspot" style="position: absolute;margin-top: -35px;">
                     <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
                         <em style="display: block;"><img id="sys1" src="img/sys1.png" style="width: 38px;" /><img id="sys2" src="img/sys2.png" style="width: 38px;display:none" /></em><p>说一说</p>
@@ -86,10 +109,17 @@
                     </div>
                 </div>
 
+                <div class="Button_button_box_IEKNKj" id="compare" style="position: absolute;margin-top: -35px;margin-left:120px;display:block">
+                    <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
+                        <em style="display: block;"><img id="dz1" src="img/db.png" style="width: 38px;" /></em><p>全景对比</p>
 
-            </div>         
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-       
+
         <!--发表说说模块-->
         <div id="textsys" class="SpeakModal_modal_3hilMN" style="width: 330px;position :absolute;z-index :20;bottom :10%;background-color :black;opacity: 0.8;left: 20px;height :30%;display:none">
             <div class="SpeakModal_header_1AZW7t" style="margin-left: 20px;margin-top: 15px;">
@@ -104,17 +134,18 @@
 
 
         <div class="gq_bq" style="position: absolute; z-index: 20;overflow: visible;opacity: 1;background: none rgba(0, 0, 0, 0.5);cursor: default;border-color: rgb(0, 0, 0);border-width: 0px;border-radius: 10px;width: 50%;height: 15%;display:none">
-            <div id="div_gq" style="position:absolute;left:10%;width:50%"><img src="assets/gq.png" /><div>高清模式</div></div>
-            <div id="div_bq" style="position:absolute;left:55%;width:50%"><img src="assets/bq.png" /><div>标清模式</div></div>
-          </div>
+            <div id="div_gq" style="position:absolute;left:13%;width:50%"><img src="assets/gq.png" /><div>高清模式</div></div>
+            <div id="div_bq" style="position:absolute;left:56%;width:50%;color:red"><img src="assets/bq.png" /><div>标清模式</div></div>
+        </div>
 
 
 
-	<noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>
+        <noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br /><br />Javascript not activated<br /><br /></div></td></tr></table></noscript>
 
-	<script src="index.js"></script>
+        <script src="index.js"></script>
 
-</div>
+    </div>
+
 
 </body>
 </html>

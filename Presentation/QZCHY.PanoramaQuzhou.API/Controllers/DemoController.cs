@@ -108,7 +108,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             string strExcel = "";
             System.Data.OleDb.OleDbDataAdapter myCommand = null;
             System.Data.DataSet ds = null;
-            strExcel = "select * from [Sheet2$]";
+            strExcel = "select * from [Sheet3$]";
             myCommand = new System.Data.OleDb.OleDbDataAdapter(strExcel, strConn);
             ds = new System.Data.DataSet();
             myCommand.Fill(ds, "table1");

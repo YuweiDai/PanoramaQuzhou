@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>衢州全景地图</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <style>
+        @-ms-viewport {
+            width: device-width;
+        }
+
+        @media only screen and (min-device-width:800px) {
+            html {
+                overflow: hidden;
+            }
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #FFFFFF;
+            background-color: #000000;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/jquery.js"></script>
+    <script>
+        //引入钉钉接口
+        if (navigator.userAgent.toLowerCase().indexOf('dingtalk') > -1) {
+            document.writeln('<script src="https://appx/web-view.min.js"' + '>' + '<' + '/' + 'script>');
+        }
+    </script>
+
+</head>
+<body>
+
+    <script src="tour.js"></script>
+
+
+    <div id="pano" style="width:100%;height:100%;">
+
+        <div style="position:absolute;z-index:10;top:5%;" id="item_title">
+            <a href="#" class="button gray" style="background: rgba(0,0,0,.2);"><span id="title"></span></a>
+        </div>
+
+        <div style="position:absolute;right:1%;bottom:1%;z-index:10;width:120px">
+            <p class="" style="color:white;font-size:12px;position:absolute;margin-top:-20px">衢州市地理信息中心</p>
+            <a href="#" class="button gray medium" id="psrq" style="background: rgba(0,0,0,.5);"></a>
+        </div>
+
+
+        <div class="Theme1_right_22mVy8 block-horizontal-layout block-justify-end" style="position:absolute;bottom:2%;z-index:10">
+
+            <div id="choose" class="Button_button_box_IEKNKj" style="position: absolute;margin-top: -35px;">
+                <div class="Button_button_iUNSEq block-vertical-layout block-align-center">
+                    <em style="display: block;"><img src="img/piclist.png" style="width: 39px;" /></em><p>场景选择</p>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="pano2.js"></script>
+
+    </div>
+
+
+</body>
+</html>

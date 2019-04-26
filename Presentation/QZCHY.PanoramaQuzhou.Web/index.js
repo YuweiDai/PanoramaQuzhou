@@ -1,4 +1,4 @@
-﻿var k; var temp1, temp2, temp,temp4;
+﻿var k,k1; var temp1, temp2, temp,temp4;
 var temp3 = 1;
 var hotspotData = {};
 var hotspotstring = "";
@@ -11,7 +11,7 @@ var sceneName = "";
     }
 })(jQuery);
 var id = $.getUrlParam('id');
-if (id == undefined) id = 34;
+if (id == undefined) id = 57;
 
 var allowDemoRun = false;
 var div = document.getElementById("pano");
@@ -20,7 +20,7 @@ var krpanoReady = function (krpano) {
     k = krpano;
 }
 
-embedpano({ swf: "tour.swf", xml: "tours/"+id+".xml", target: "pano", html5: "auto", mobilescale: 1.0, passQueryParameters: true, onready: krpanoReady });
+embedpano({ swf: "tour.swf", xml: "tours/" + id + "_bq.xml", target: "pano", html5: "auto", mobilescale: 1.0, passQueryParameters: true, onready: krpanoReady });
 
 var mybody = document.getElementsByTagName('body')[0];
 var h = document.documentElement.clientHeight / 2;
@@ -39,10 +39,13 @@ var addPanor = function () {
         type: "get",
         success: function (response) {
             sceneName = response.name;
+            if (response.sceneNum > 1) {
+                $("#compare").css("display", "block");
+            }
+
             $("#starnum").html(response.stars);
             $("#title").html(sceneName.substring(0, sceneName.length - 8));
             $("#psrq").html(sceneName.substring(sceneName.length - 8,sceneName.length-4)+"-"+sceneName.substring(sceneName.length-4,sceneName.length-2)+"-"+sceneName.substring(sceneName.length-2));
-
             k.call("loadscene('" + sceneName + "')");
 
             var w1 = $('#item_title').width() / 2;
@@ -69,24 +72,36 @@ var addPanor = function () {
 addPanor();
 
 
-
-
+//热点中切换场景
+function loadpano(xmlname,sceneName) {
+    if (k) {
+        if (xmlname.indexOf("_gq") != -1) {
+            $("#title").html(sceneName.substring(0, sceneName.length - 11));
+        }
+        else {
+            $("#title").html(sceneName.substring(0, sceneName.length - 8));
+        }
+        id = parseInt(xmlname.slice(0, xmlname.length - 7));
+        //动态切换xml，xmlname为tour.xml传过来的值 
+        k.call("loadpano(" + xmlname + ", null, MERGE, BLEND(0.5));"); 
+        //sceneName为切换后加载的第一个场景
+        k.call("loadscene('" + sceneName + "')"); 
+    } 
+} 
 
 
 //高清标清切换
 $("#div_gq").on('touchstart', function (event) {
     event.stopPropagation();
-    if (sceneName.indexOf("_gq") == -1) {
-        sceneName = sceneName + "_gq";
-        var fov = k.get("view.fov");
-        var hlookat = k.get("view.hlookat");
-        var vlookat = k.get("view.vlookat");
-      
-
-        k.call("loadscene('" + sceneName + "')");
-        k.call("set('view.fov',150);");
-        k.call("set('view.hlookat',-10);");
-        k.call("set('view.vlookat',120);");
+    var a = $("#title").html();
+    var b = $("#psrq").html().replace(/-/g, '');
+    if ($("#div_gq").css("color") != "rgb(255, 0, 0)") {
+        $("#div_gq").css("color", "red");
+        $("#div_bq").css("color", "white");
+         
+        loadpano(id + "_gq.xml", a+ b+ "_gq");
+       // var scene = k.get("scene[get(xml.scene)].name");
+       // k.call("loadscene('" + sceneName + "')");
     }
     else {
         return;
@@ -94,9 +109,12 @@ $("#div_gq").on('touchstart', function (event) {
 });
 $("#div_bq").on('touchstart', function (event) {
     event.stopPropagation();
-    if (sceneName.indexOf("_gq") != -1) {
-        sceneName = sceneName.substring(0, sceneName.length - 3);
-        k.call("loadscene('" + sceneName + "')");
+    var a = $("#title").html();
+    var b = $("#psrq").html().replace(/-/g, '');
+    if ($("#div_bq").css("color") == "rgb(255, 255, 255)") {
+        $("#div_gq").css("color", "white");
+        $("#div_bq").css("color", "red");
+        loadpano(id + "_bq.xml", a+ b);
     }
     else { return; }
 });
@@ -108,7 +126,7 @@ var addList = function () {
 
     //var xml = ' <settings name="auto_thumbs" thumb_size="200" thumb_background_size="250" thumb_spacing="0" left="10" right="10" bottom="10" albums_right="10" onstart=""/>';
     //k.call("loadxml(" + xml + " )");
-
+    k.call("switch(layer[thumbs_background].visible);");
     k.call("switch(layer[auto_thumbs].visible);");
     //   k.call("WebVR.enterVR();");
 };
@@ -291,6 +309,17 @@ $("#addstar").on('click', function (event) {
     })
 
 });
+
+//跳转对比页面
+$("#compare").on('click', function () {
+
+    window.location.href = "http://220.191.238.125:8070/frame.html?id=" + id;
+
+})
+
+
+
+
 
 
 
