@@ -1,7 +1,7 @@
 <!-->
 <view class="page">
 </view><-->
-<swiper vertical="{{vertical}}" current="{{current}}" circular="{{circular}}" onChange="handletouchmove">
+<swiper vertical="{{vertical}}" current="{{current}}" circular="{{circular}}" onChange="handleChange">
   <block a:for="{{panoramas}}">
     <swiper-item>
       <view class="swiper-item bc_{{item}}">
@@ -44,7 +44,7 @@
         <view class="btn" onTap="toMap">
           <view class="icon location">
           </view>
-          <text>位置                
+          <text>位置         
           </text>
         </view>
         <!-- <view class="btn"><view class="icon comments"></view><text>评论</text></view><view class="btn"><view class="icon share"></view><text>分享</text></view>             -->

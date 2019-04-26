@@ -65,7 +65,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="TopSdk">
-      <HintPath>C:\Users\Dai\Desktop\TopSdk.dll</HintPath>
+      <HintPath>C:\Users\sz\Desktop\TopSdk.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

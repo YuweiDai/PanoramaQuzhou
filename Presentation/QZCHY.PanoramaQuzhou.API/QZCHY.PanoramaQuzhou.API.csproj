@@ -184,7 +184,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="TopSdk">
-      <HintPath>C:\Users\Dai\Desktop\TopSdk.dll</HintPath>
+      <HintPath>C:\Users\sz\Desktop\TopSdk.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
