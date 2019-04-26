@@ -1,18 +1,17 @@
 var app = getApp();
 Page({
   data: {
-    sceneId:0,
+    locationId:0,
     sceneName: "",
     targetUrl: ""
   },
   onLoad(query) {
-
-    var sceneId = query.id;
+    var locationId = query.id;
     var sceneName = query.sname;
-    var newUrl = app.globalData.webUrl + "/index.html?id=" + sceneId;
+    var newUrl = app.globalData.webUrl + "/index.html?id=" + locationId;
 
     this.setData({
-      sceneId:sceneId,
+      locationId:locationId,
       targetUrl: newUrl,
       sceneName: sceneName
     });
@@ -21,7 +20,7 @@ Page({
 
     var title = this.data.sceneName;
     var desc = "立即查看" + title + "全景";
-    var path = "pages/panorama/panorama?sid=" + this.data.sceneId + "&sname=" + this.data.sceneName;
+    var path = "pages/panorama/panorama?id=" + this.data.locationId + "&sname=" + this.data.sceneName;
 
     console.log(path);
     return {

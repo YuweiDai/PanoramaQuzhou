@@ -113,25 +113,28 @@ namespace QZCHY.PanoramaQuzhou.Services.Panoramas
                         select ps;
 
             var panoramaScenes = query.ToList();
+            
+            var panoramaScenesOrderedResult = panoramaScenes
+                .OrderBy(ps => GeographyHelper.GetDistance(ps.PanoramaLocation.Lat, ps.PanoramaLocation.Lng, lat, lng))
+                .ThenByDescending(ps => ps.ProductionDate);
 
-            //foreach (var ps in panoramaScenes)
-            //{
-            //    var distance = GeographyHelper.GetDistance(ps.PanoramaLocation.Lat, ps.PanoramaLocation.Lng, lat, lng);
-            //    Console.WriteLine(distance);
-            //}
+            var locationNameList = new List<string>();
+            var resultPanomarScenesFilterResult = new List<PanoramaScene>();
+            foreach (var scene in panoramaScenesOrderedResult)
+            {
+                if (locationNameList.Contains(scene.PanoramaLocation.Name))
+                {
+                    continue;
+                }
+                else
+                {
+                    resultPanomarScenesFilterResult.Add(scene);
+                    locationNameList.Add(scene.PanoramaLocation.Name);
+                }
+            }
 
-
-            var result = panoramaScenes.OrderBy(ps => GeographyHelper.GetDistance(ps.PanoramaLocation.Lat, ps.PanoramaLocation.Lng,lat, lng))
-                            .Skip(index * pageSize).Take(pageSize);
-            panoramaScenes = result.ToList();
-            return panoramaScenes;
-
-        }
-       
-
-      
-
-
-
+            var resultPanomarScenesResult = resultPanomarScenesFilterResult.Skip(index * pageSize).Take(pageSize);      
+            return resultPanomarScenesResult;
+        }     
     }
 }

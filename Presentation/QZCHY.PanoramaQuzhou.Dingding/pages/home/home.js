@@ -57,8 +57,8 @@ Page( {
           item.imgs.down = basePath + "d.jpg";
           item.imgs.left = basePath + "l.jpg";
           item.imgs.right = basePath + "r.jpg";
-          item.navToUrl = '../panorama/panorama?id=' + item.id;
-
+          item.navToUrl = '../panorama/panorama?id=' + item.locationId;
+            console.log( item );
           ps.push( item );
         } );
 
@@ -93,7 +93,7 @@ Page( {
       mapUrl: "../map/map?level=16&centerLng=" +
         currentPano.lng + "&centerLat=" + currentPano.lat
     } )
-
+   
     //加载下一页
     if ( ( parseInt( e.detail.current ) % 15 ) == 13 )
     {
