@@ -16,6 +16,8 @@ namespace QZCHY.PanoramaQuzhou.API.Models.Panoramas
 
         public IList<HotspotModel> hotspots { get; set; }
         public string ProductionDate { get; set; }
+
+        public int SceneNum { get; set; }
     }
 
     /// <summary>

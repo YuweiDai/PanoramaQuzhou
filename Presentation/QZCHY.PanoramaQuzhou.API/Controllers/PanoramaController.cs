@@ -31,6 +31,9 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
         public IHttpActionResult GetSceneById(int id = 0)
         {
 
+            var location = _locationService.GetLocationById(id);
+            var scene1 = location.PanoramaScenes.Last();
+
             var scene = _sceneService.GetPnoramaSceneById(id);
 
             scene.Views++;
@@ -39,6 +42,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             var response = scene.ToModel();
             response.Name = scene.PanoramaLocation.Name + response.ProductionDate;
             response.Title = scene.PanoramaLocation.Name;
+            response.SceneNum = location.PanoramaScenes.Count();
             response.hotspots = scene.Hotspots.Select(h =>
             {
                 var hmodel = h.ToModel();

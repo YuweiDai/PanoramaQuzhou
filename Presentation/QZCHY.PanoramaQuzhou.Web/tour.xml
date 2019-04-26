@@ -54,7 +54,11 @@
 
   <!-- startup action - load the first scene -->
   <include  url ="http://220.191.238.125:8070/plugins/auto_thumbs.xml"/>
-  <include  url ="http://220.191.238.125:8070/plugins/tooltip.xml"/>
+  <!--<include  url ="http://172.27.45.53:8070/plugins/tooltip.xml"/>-->
+
+
+
+
 
   <action name="skin_setup_littleplanetintro">
     copy(lp_scene, xml.scene);
@@ -174,7 +178,7 @@
     );
     );
   </action>
-  
+
 
   <action name="startup" autorun="onstart">
     if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
@@ -188,10 +192,6 @@
     );
 
 
-    for(set(i,0), i LT scene.count, inc(i),
-    inc(thumb_cnt);
-    txtadd(thumbtitlname,'skin_thumb_title',get(i)); addlayer(get(thumbtitlname)); copy(layer[get(thumbtitlname)].parent, thumbtitlbackename); set(layer[get(thumbtitlname)].url, "http://220.191.238.125:8070/plugins/textfield.swf"); set(layer[get(thumbtitlname)].align, "center"); set(layer[get(thumbtitlname)].keep, true); copy(layer[get(thumbtitlname)].html, scene[get(i)].title); set(layer[get(thumbtitlname)].zorder, 51); set(layer[get(thumbtitlname)].visible, "true"); set(layer[get(thumbtitlname)].autoheight, "true"); set(layer[get(thumbtitlname)].background, "false"); set(layer[get(thumbtitlname)].border, "false"); set(layer[get(thumbtitlname)].enabled, "true"); set(layer[get(thumbtitlname)].css,"text-align:center; color:#ffffff; font-family:Arial; font-weight:bold; font-size:19px; "); set(layer[get(thumbtitlname)].textshadow, 2);
-);
 
   </action>
 
@@ -242,45 +242,20 @@
     set(plugin[get(tooltipname)].enabled,false);
 
   </action>
-  
-  <scene name="盈川小区20180515" title="盈川小区20180515" onstart="" thumburl="%$tileserver%panos/盈川小区20180515.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="西区">
 
-    <view hlookat="-110" vlookat="20" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-    <preview url="%$tileserver%panos/盈川小区20180515.tiles/preview.jpg" />
-
-    <image prealign="0|0.0|0">
-      <cube url="%$tileserver%panos/盈川小区20180515.tiles/pano_%s.jpg" />
-    </image>
-
-  </scene>
-  
-  <scene name="盈川小区20180515_gq" title="盈川小区高清" onstart="" thumburl="%$tileserver%panos/盈川小区20180515_gq.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0">
+  <scene name="衢时代20180808" title="衢时代20180808" onstart="" thumburl="%$tileserver%panos/衢时代20180808.tiles/thumb.jpg" lat="29.96651944" lng="118.84005" heading="" >
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/盈川小区20180515_gq.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢时代20180808.tiles/preview.jpg" />
 
-    <image type="CUBE" prealign="0|0.0|0" multires="true" tilesize="512">
-      <level tiledimagewidth="7424" tiledimageheight="7424">
-        <cube url="%$tileserver%panos/盈川小区20180515_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
-      </level>
-      <level tiledimagewidth="3712" tiledimageheight="3712">
-        <cube url="%$tileserver%panos/盈川小区20180515_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
-      </level>
-      <level tiledimagewidth="1792" tiledimageheight="1792">
-        <cube url="%$tileserver%panos/盈川小区20180515_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
-      </level>
-      <level tiledimagewidth="1024" tiledimageheight="1024">
-        <cube url="%$tileserver%panos/盈川小区20180515_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
-      </level>
+    <image>
+      <cube url="%$tileserver%panos/衢时代20180808.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
 
-
-
-  <scene name="盈川小区20180515" title="盈川小区20180515" onstart="" thumburl="%$tileserver%panos/盈川小区20180515.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="西区">
+  <scene name="盈川小区20180515" title="盈川小区20180515" onstart="" thumburl="%$tileserver%panos/盈川小区20180515.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0" >
 
     <view hlookat="-110" vlookat="20" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
@@ -398,17 +373,17 @@
     </image>
 
   </scene>
-  <scene name="衢州农商城20190322_gq" title="衢州农商城高清" onstart="" thumburl="%$tileserver%panos/衢州农商城20190322_gq.tiles/thumb.jpg" lat="28.97975078" lng="118.8007364" heading="0.0">
+  <scene name="衢州农商城20190322_gq" title="DJI_0116 Panorama" onstart="" thumburl="%$tileserver%panos/衢州农商城20190322_gq.tiles/thumb.jpg" lat="28.97974722" lng="118.80072861" heading="0.0">
 
     <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
     <preview url="%$tileserver%panos/衢州农商城20190322_gq.tiles/preview.jpg" />
 
     <image type="CUBE" prealign="0|0.0|0" multires="true" tilesize="512">
-      <level tiledimagewidth="7424" tiledimageheight="7424">
+      <level tiledimagewidth="7296" tiledimageheight="7296">
         <cube url="%$tileserver%panos/衢州农商城20190322_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
       </level>
-      <level tiledimagewidth="3712" tiledimageheight="3712">
+      <level tiledimagewidth="3648" tiledimageheight="3648">
         <cube url="%$tileserver%panos/衢州农商城20190322_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1792" tiledimageheight="1792">
@@ -418,6 +393,7 @@
         <cube url="%$tileserver%panos/衢州农商城20190322_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
+
   </scene>
 
 
@@ -430,6 +406,16 @@
     <image>
       <cube url="%$tileserver%panos/柴家20190322.tiles/pano_%s.jpg" />
     </image>
+
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="165.816" atv="34.544" onclick="js(loadpano('tours/34.xml','大塘头村东20190401'););" />
+    <style name="skin_hotspotstyle" url="skin/vtourskin_hotspot.png" scale="0.5" edge="top" distorted="true"
+          tooltip=""
+          linkedscene=""
+          linkedscene_lookat=""
+          onover="tween(scale,0.55);"
+          onout="tween(scale,0.5);"
+          onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
+	       />
 
   </scene>
   <scene name="柴家20190322_gq" title="柴家高清" onstart="" thumburl="%$tileserver%panos/柴家20190322_gq.tiles/thumb.jpg" lat="28.97984188" lng="118.810995" heading="0.0">
