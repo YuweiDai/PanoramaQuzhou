@@ -11,7 +11,7 @@ using System.Web.Http;
 namespace QZCHY.PanoramaQuzhou.API.Controllers
 {
     [RoutePrefix("Panoramas")]
-    public class PanoramaController: ApiController
+    public class PanoramaController : ApiController
     {
 
         private readonly ISceneService _sceneService;
@@ -25,9 +25,10 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             _hotspotService = hotspotService;
         }
 
+       
         [HttpGet]
         [Route("{id}")]
-        public IHttpActionResult  GetSceneById(int id=0)
+        public IHttpActionResult GetSceneById(int id = 0)
         {
 
             var location = _locationService.GetLocationById(id);
@@ -39,7 +40,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             _sceneService.UpdatePanoramaScene(scene);
 
             var response = scene.ToModel();
-            response.Name = scene.PanoramaLocation.Name+ response.ProductionDate;
+            response.Name = scene.PanoramaLocation.Name + response.ProductionDate;
             response.Title = scene.PanoramaLocation.Name;
             response.SceneNum = location.PanoramaScenes.Count();
             response.hotspots = scene.Hotspots.Select(h =>
@@ -54,8 +55,8 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
         [HttpPut]
         [Route("addStars/{id}")]
-        public IHttpActionResult AddSceneStars(int id) {
-
+        public IHttpActionResult AddSceneStars(int id)
+        {
             var scene = _sceneService.GetPnoramaSceneById(id);
 
             scene.Stars++;
@@ -83,23 +84,23 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             {
                 var psm = ps.ToListItemModel();
                 psm.Name = ps.PanoramaLocation.Name;
+                psm.LogoUrl = ps.PanoramaLocation.Name + ps.ProductionDate.ToString("yyyyMMdd") + ".tiles/logo.jpg";
                 return psm;
             });
 
             return Ok(hotPanoramas);
-
         }
 
         [HttpGet]
         [Route("new")]
         public IHttpActionResult GetNewPanoramas()
         {
-            //默认最多15个
             var newPanoramas = _sceneService.GetNewPanoramaScenes(15).ToList().Select(ps =>
             {
 
                 var psm = ps.ToListItemModel();
                 psm.Name = ps.PanoramaLocation.Name;
+                psm.LogoUrl = ps.PanoramaLocation.Name + ps.ProductionDate.ToString("yyyyMMdd") + ".tiles/logo.jpg";
                 return psm;
             });
 
@@ -121,21 +122,27 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// 把地址传到 GetPreviewList(经度，维度)，然后根据从近到远对全景图进行排序显示。
+        /// </summary>
+        /// <param name="lat">纬度</param>
+        /// <param name="lng">经度</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("previewlist")]
-        public IHttpActionResult GetPreviewList()
+        public IHttpActionResult GetPreviewList(double lat= 28.9721214555,double lng= 118.8898357316,int pageSize=15,int index=0)
         {
-            var scenes = _sceneService.GetAllPanoramaScenes().ToList().Select(ps =>
+            var coord = _sceneService.GetAllPanoramaScenesOrderByDistance(lat, lng,pageSize,index);
+            var scenes = coord.ToList().Select(ps =>
             {
                 var previewModel = ps.ToPreviewModel();
                 previewModel.Produce = "衢州市地理信息中心";
                 previewModel.ImgPath += ps.ProductionDate.ToString("yyyyMMdd") + ".tiles";
+                //previewModel.Lng = ps.PanoramaLocation.Lng;
+                //previewModel.Lat = ps.PanoramaLocation.Lat;
                 return previewModel;
             });
-
             return Ok(scenes);
         }
-
-
     }
 }

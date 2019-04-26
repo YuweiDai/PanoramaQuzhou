@@ -9,30 +9,27 @@ App({
     this.globalData.systemInfo = dd.getSystemInfoSync();
     this.globalData.rpx = 750 / this.globalData.systemInfo.windowWidth;
     console.log(this.globalData.rpx);
+
+    dd.getAuthCode({
+      success: function (res) {
+        that.requestGet(that.globalData.apiBaseUrl + "Accounts/SignIn?authCode=" + res.authCode, {}, false)
+          .then(function (response) { 
+            console.log(response)
+          }, function (response) { 
+            console.log(response)
+          });
+      },
+      fail: function (err) {
+      }
+    });
+
+
   },
   onShow(options) {
     // E应用显示
 
     //获取位置
     this.setLocation();
-    // then(function () {
-    //   // var url = "https://restapi.amap.com/v3/assistant/coordinate/convert?locations=" +
-    //   //   that.globalData.location.lng + "," + that.globalData.location.lat +
-    //   //   "&coordsys=gps&key="
-    //   //   + that.globalData.GDToken;
-    //   // that.requestGet(url).then(function (res) {
-    //   //   if (res.data.info == "ok") {
-    //   //     var coors = res.data.locations.split(',');
-    //   //     that.globalData.location.lng = coors[0];
-    //   //     that.globalData.location.lat = coors[1];
-    //   //     console.log("second");
-    //   //     console.log(that.globalData.location.lng + "," + that.globalData.location.lat)
-    //   //   }
-    //   //   console.log(res);
-    //   // }, function () { });
-    // }, function () {
-    // }
-    // );    
   },
   onHide() {
     // E应用隐藏
@@ -47,7 +44,7 @@ App({
 
       console.log("promise");
       dd.getLocation({
-        success(res) {
+        success(res){
           console.log("sucess--res");
           console.log(res.longitude);
           console.log(res.latitude);
@@ -60,13 +57,13 @@ App({
 
           console.log("gd to gps");
           console.log(gpsLngLat);
-          that.globalData.location.initial=true;
+          that.globalData.location.initial = true;
           that.globalData.location.lng = gpsLngLat[0];
           that.globalData.location.lat = gpsLngLat[1];
           resolve(res);
         },
         fail() {
-          that.globalData.location.initial=false;
+          that.globalData.location.initial = false;
           console.log("fail");
           reject(res);
         }
@@ -87,7 +84,7 @@ App({
         url: url,
         method: 'Get',
         data: data,
-        dataType: 'json',
+        dataType:'json',
         success: function (res) {
           resolve(res);
         },
@@ -100,17 +97,21 @@ App({
           }
         }
       });
-
     });
   },
+
+
   globalData: {
-    systemInfo: {},
+    systemInfo: {
+      
+    },
     rpx: 0.5,
-    apiBaseUrl: "http://220.191.238.125:8070/api/",
+    apiBaseUrl: "http://qzschy.vaiwan.com/api/",
+    //apiBaseUrl: "http://220.191.238.125:8070/api/",
     resourceUrl: "http://220.191.238.125:8070/assets/",
     webUrl: "http://220.191.238.125:8070/",
     location: {
-      initial:false,
+      initial: false,
       lng: 118.8898357316,
       lat: 28.9721214555
     }

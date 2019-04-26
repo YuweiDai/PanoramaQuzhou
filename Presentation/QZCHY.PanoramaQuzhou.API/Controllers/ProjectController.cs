@@ -13,11 +13,13 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
     {
         private readonly IProjectService _projectService;
         private readonly ILocationService _locationService;
+        private readonly ISceneService _sceneService;
 
-        public ProjectController (IProjectService projectService, ILocationService locationService)
+        public ProjectController (IProjectService projectService, ILocationService locationService, ISceneService sceneService)
         {
             this._projectService = projectService;
             this._locationService = locationService;
+            this._sceneService = sceneService;
         }
 
 
@@ -52,6 +54,13 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             {
                 var projectModel = project.ToModel();
 
+               foreach(var pl in projectModel.PanoramaLocations)
+                {
+                    var panoramaScene = _sceneService.GetPnoramaSceneById(pl.DefaultPanoramaSceneId);
+                    if (panoramaScene != null)
+                        pl.LogoUrl = pl.Name + panoramaScene.ProductionDate.ToString("yyyyMMdd") + ".tiles/logo.jpg";                     
+                }
+
                 return Ok(projectModel);
             }
         }
@@ -67,7 +76,11 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             {
 
                 var panoLocations =project.PanoramaLocations.ToList().Select(p => {
-                    return p.ToSimpleModel();
+                    var pl = p.ToSimpleModel();
+
+                  
+
+                    return pl;
                 });
 
                 return Ok(panoLocations);

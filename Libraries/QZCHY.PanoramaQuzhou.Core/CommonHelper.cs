@@ -19,6 +19,8 @@ namespace QZCHY.PanoramaQuzhou.Core
     /// </summary>
     public partial class CommonHelper
     {
+
+
         /// <summary>
         /// Ensures the subscriber email or throw.
         /// </summary>

@@ -166,6 +166,16 @@ namespace QZCHY.PanoramaQuzhou.Services.Accounts
             return accountUser;
         }
 
+        public AccountUser GetAccountUserByDDUserId(string userId)
+        {
+            var query = from d in _accountUserRepository.Table                 
+                        where d.DDUserId == userId && !d.Deleted
+                        select d;
+
+            var accountUser = query.FirstOrDefault();
+            return accountUser;
+        }
+
         public AccountUser GetAccountUserBySystemName(string systemName)
         {
             if (string.IsNullOrWhiteSpace(systemName))

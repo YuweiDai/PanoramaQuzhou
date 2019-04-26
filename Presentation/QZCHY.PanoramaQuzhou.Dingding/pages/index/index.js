@@ -1,14 +1,15 @@
+var interval=null;
 Page({
   data: {
-    tips: "(3秒)"
+    tips: "(5秒)"
   },
   onLoad() { },
 
   onShow() {
     // 页面显示
     var that = this;
-    var count = 3;
-    that.interval = setInterval(function () {
+    var count = 5;
+    interval = setInterval(function () {
       if (count == 0) {
         that.setData({
           tips: ""
@@ -26,13 +27,16 @@ Page({
       }
     }, 1000);
   },
-
+  onShareAppMessage() {
+    return {
+      title: "全景衢州",
+      desc: "唱响三城记，打好保障战，护航大花园",
+      path: "pages/index/index"
+    };
+  },
   entry: function () {
-
-    if (this.interval != undefined && this.interval != null) clearInterval(this.interval);
-
-
-    dd.reLaunch({
+ clearInterval(interval);
+    dd.redirectTo({
       url: '../home/home'
     })
   }

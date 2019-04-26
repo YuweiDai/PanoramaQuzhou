@@ -35,12 +35,12 @@
 }
 
 
-#pano_viewer {  
+/* #pano_viewer {  
   background-size: cover;
   position: relative;   
-  height: 100vh;
+  height: 700vh;
   overflow: hidden;
-} 
+}  */
 
 #cube_box {
   position: absolute;
@@ -80,9 +80,9 @@
   height: 2400px;
 }
 #cube.animate {
-  -webkit-animation: roll 120s linear infinite;
-  -moz-animation: roll 120s linear infinite;
-  animation: roll 120s linear infinite;
+  -webkit-animation: roll 100s linear infinite;
+  -moz-animation: roll 100s linear infinite;
+  animation: roll 100s linear infinite;
 }
 #cube image {
   position: absolute;
@@ -90,19 +90,19 @@
   background-color: rgba(238, 238, 238, 0.7);
   top: 600px;
   left: 600px;
-  width: 1200px;
+  width: 1000px;
   height: 1200px;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
-#cube .front {
+/* #cube .front {
   -moz-transform: translate3d(0, 0, -600px);
   -ms-transform: translate3d(0, 0, -600px);
   -webkit-transform: translate3d(0, 0, -600px);
   transform: translate3d(0, 0, -600px);
-}
+} */
 #cube image.left {
   -moz-transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, -600px);
   -ms-transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, -600px);

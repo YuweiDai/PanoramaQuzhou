@@ -28,7 +28,6 @@ Page({
     });
 
 
-
     //获取projects
     app.requestGet(app.globalData.apiBaseUrl + "projects/top", null, false).then(function (res) {
       var p = res.data;
@@ -52,9 +51,9 @@ Page({
           var size = app.globalData.rpx * 335;
           item.logoUrl = "http://iph.href.lu/" + size + "x" + size + "?text=暂无图片";
         }
-        else item.logoUrl = app.globalData.resourceUrl + "Minapp/pano/" + item.logoUrl;
+        else item.logoUrl = app.globalData.resourceUrl + "panos/" + item.logoUrl;
 
-        item.navToUrl = '../panorama/panorama?sid=' + item.id;
+        item.navToUrl = '../panorama/panorama?sid=' + item.id+"&sname="+item.name;
       });
 
       console.log(panoramas);
@@ -71,13 +70,12 @@ Page({
       var panoramas = res.data;
       panoramas.forEach(function (item) {
         if (item.logoUrl == undefined || item.logoUrl == null || item.logoUrl == "") {
-
           var size = app.globalData.rpx * 335;
           item.logoUrl = "http://iph.href.lu/" + size + "x" + size + "?text=暂无图片";
         }
-        else item.logoUrl = app.globalData.resourceUrl + "Minapp/pano/" + item.logoUrl;
+        else item.logoUrl = app.globalData.resourceUrl + "panos/" + item.logoUrl;
 
-        item.navToUrl = '../panorama/panorama?sid=' + item.id;
+        item.navToUrl = '../panorama/panorama?sid=' + item.id+"&sname="+item.name;
       });
 
       console.log(panoramas);
@@ -93,11 +91,11 @@ Page({
 
 
   onShareAppMessage() {
-    // return {
-    //   title: 'E应用示例',
-    //   desc: 'E应用官方示例Demo，展示已支持的接口能力及组件。',
-    //   path: 'page/component/component-pages/view/view?param=123'
-    // };
+    return {
+      title: '全景衢州',
+      desc: '带你发现不一样的衢州',
+      path: 'pages/discovery/discovery'
+    };
   },
 
 

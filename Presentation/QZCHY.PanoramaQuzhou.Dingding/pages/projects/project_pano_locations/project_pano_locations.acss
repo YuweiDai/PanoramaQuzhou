@@ -55,7 +55,7 @@
 
 .location_section .pano_locations .pano_location
 {
-  width: 335rpx;
+  width: 750rpx;
   height: 335rpx;
   position: relative;
   margin-bottom: 20rpx;
@@ -63,8 +63,7 @@
 
 .location_section .pano_locations .pano_location:nth-child(odd)
 {
-
-  margin-right: 20rpx;
+  /* margin-right: 20rpx; */
 }
 
 .location_section .pano_locations .pano_location image

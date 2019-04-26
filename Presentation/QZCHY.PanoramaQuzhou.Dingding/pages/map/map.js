@@ -18,8 +18,6 @@ Page({
       queryStr += "&level=" + query.level + "&centerLat=" + query.centerLat + "&centerLng=" + query.centerLng;
     }
 
-
-
     var url = app.globalData.webUrl + "map.html" + queryStr
     that.setData({
       mapUrl: url,
@@ -30,7 +28,11 @@ Page({
   onReady() {
   },
   onShareAppMessage() {
-   // 返回自定义分享信息
+    return {
+      title: "全景衢州",
+      desc: "唱响三城记，打好保障战，护航大花园",
+      path: "pages/index/index"
+    };
   },
   postMsg(e) {
     dd.alert({
