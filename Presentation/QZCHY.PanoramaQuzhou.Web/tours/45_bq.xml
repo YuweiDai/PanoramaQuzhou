@@ -54,7 +54,11 @@
 
   <!-- startup action - load the first scene -->
   <include  url ="http://220.191.238.125:8070/plugins/auto_thumbs.xml"/>
-  <include  url ="http://220.191.238.125:8070/plugins/tooltip.xml"/>
+  <!--<include  url ="http://172.27.45.53:8070/plugins/tooltip.xml"/>-->
+
+
+
+
 
   <action name="skin_setup_littleplanetintro">
     copy(lp_scene, xml.scene);
@@ -95,7 +99,7 @@
     );
 
   </action>
-  
+
   <action name="set_hotspot_visible">
     for(set(i,0),i LT hotspot.count,inc(i),
     if(%1 == false,
@@ -120,8 +124,8 @@
 
   <!-- 陀螺仪 -->
   <plugin name="gyro" devices="html5" keep="true"
-        url="plugins/gyro2.js"
-        enabled="true"
+        url="http://220.191.238.125:8070/plugins/gyro2.js"
+        enabled="false"
         camroll="true"
         friction="0.0"
         touch_mode="full"
@@ -133,7 +137,7 @@
         onenable=""
         ondisable=""
 			/>
-  
+
 
   <action name="skin_arrange_buttons">
 
@@ -174,7 +178,7 @@
     );
     );
   </action>
-  
+
 
   <action name="startup" autorun="onstart">
     if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
@@ -188,10 +192,6 @@
     );
 
 
-    for(set(i,0), i LT scene.count, inc(i),
-    inc(thumb_cnt);
-    txtadd(thumbtitlname,'skin_thumb_title',get(i)); addlayer(get(thumbtitlname)); copy(layer[get(thumbtitlname)].parent, thumbtitlbackename); set(layer[get(thumbtitlname)].url, "http://220.191.238.125:8070/plugins/textfield.swf"); set(layer[get(thumbtitlname)].align, "center"); set(layer[get(thumbtitlname)].keep, true); copy(layer[get(thumbtitlname)].html, scene[get(i)].title); set(layer[get(thumbtitlname)].zorder, 51); set(layer[get(thumbtitlname)].visible, "true"); set(layer[get(thumbtitlname)].autoheight, "true"); set(layer[get(thumbtitlname)].background, "false"); set(layer[get(thumbtitlname)].border, "false"); set(layer[get(thumbtitlname)].enabled, "true"); set(layer[get(thumbtitlname)].css,"text-align:center; color:#ffffff; font-family:Arial; font-weight:bold; font-size:19px; "); set(layer[get(thumbtitlname)].textshadow, 2);
-);
 
   </action>
 
@@ -242,40 +242,56 @@
     set(plugin[get(tooltipname)].enabled,false);
 
   </action>
-  
-  <scene name="盈川小区20180515" title="盈川小区20180515" onstart="" thumburl="%$tileserver%panos/盈川小区20180515.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="西区">
 
-    <view hlookat="-110" vlookat="20" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+  <style name="skin_hotspotstyle" url="http://220.191.238.125:8070/skin/vtourskin_hotspot.png" scale="0.5" edge="top" distorted="false" zoom="false"
+        tooltip=""
+        linkedscene=""
+        linkedscene_lookat=""
+        onover="tween(scale,0.55);"
+        onout="tween(scale,0.5);"
+        onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
+	       />
 
-    <preview url="%$tileserver%panos/盈川小区20180515.tiles/preview.jpg" />
+  <action name="add_all_the_time_tooltip">
+    txtadd(tooltipname, 'tooltip_', get(name));
+    addplugin(get(tooltipname)); txtadd(plugin[get(tooltipname)].parent, 'hotspot[',get(name),']');
+    set(plugin[get(tooltipname)].url,'%SWFPATH%/plugins/textfield.swf');
+    set(plugin[get(tooltipname)].align,top); set(plugin[get(tooltipname)].edge,bottom);
+    set(plugin[get(tooltipname)].x,0); set(plugin[get(tooltipname)].y,0);
+    set(plugin[get(tooltipname)].width,200); set(plugin[get(tooltipname)].autoheight,true);
+    set(plugin[get(tooltipname)].background,false); set(plugin[get(tooltipname)].border,false);
+    set(plugin[get(tooltipname)].css,'text-align:center; color:#FFFFFF; font-family:Arial; font-weight:bold; font-size:16px;');
+    set(plugin[get(tooltipname)].textshadow,1); set(plugin[get(tooltipname)].textshadowrange,6.0); set(plugin[get(tooltipname)].textshadowangle,90);
+    copy(plugin[get(tooltipname)].html,hotspot[get(name)].tooltip);
+    set(plugin[get(tooltipname)].enabled,false);
+  </action>
+
+  <scene name="压潮村东20180709" title="压潮村东" onstart="" thumburl="%$tileserver%panos/压潮村东20180709.tiles/thumb.jpg" lat="28.9649487240053" lng="118.848505106992" heading="" >
+
+    <view hlookat="-667.865" vlookat="15.147" fovtype="MFOV" fov="81.392" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+    <preview url="%$tileserver%panos/压潮村东20180709.tiles/preview.jpg" />
+
+    <image>
+      <cube url="%$tileserver%panos/压潮村东20180709.tiles/pano_%s.jpg" />
+    </image>
+
+  </scene>
+
+
+  <scene name="压潮村东20190425" title="压潮村东2" onstart="" thumburl="%$tileserver%panos/压潮村东20190425.tiles/thumb.jpg" lat="28.95132444" lng="118.82694583" heading="0.0">
+
+    <view hlookat="-667.865" vlookat="15.147" fovtype="MFOV" fov="81.392" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    
+    <preview url="%$tileserver%panos/压潮村东20190425.tiles/preview.jpg" />
 
     <image prealign="0|0.0|0">
-      <cube url="%$tileserver%panos/盈川小区20180515.tiles/pano_%s.jpg" />
+      <cube url="%$tileserver%panos/压潮村东20190425.tiles/pano_%s.jpg" />
     </image>
 
   </scene>
-  
-  <scene name="盈川小区20180515_gq" title="盈川小区高清" onstart="" thumburl="%$tileserver%panos/盈川小区20180515_gq.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0">
 
-    <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/盈川小区20180515_gq.tiles/preview.jpg" />
-
-    <image type="CUBE" prealign="0|0.0|0" multires="true" tilesize="512">
-      <level tiledimagewidth="7424" tiledimageheight="7424">
-        <cube url="%$tileserver%panos/盈川小区20180515_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
-      </level>
-      <level tiledimagewidth="3712" tiledimageheight="3712">
-        <cube url="%$tileserver%panos/盈川小区20180515_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
-      </level>
-      <level tiledimagewidth="1792" tiledimageheight="1792">
-        <cube url="%$tileserver%panos/盈川小区20180515_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
-      </level>
-      <level tiledimagewidth="1024" tiledimageheight="1024">
-        <cube url="%$tileserver%panos/盈川小区20180515_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
-      </level>
-    </image>
-
-  </scene>
 
 </krpano>
+

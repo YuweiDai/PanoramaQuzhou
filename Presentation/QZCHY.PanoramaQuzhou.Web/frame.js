@@ -7,6 +7,8 @@
 })(jQuery);
 
 var id = $.getUrlParam('id');
+var name1 = decodeURI($.getUrlParam("name1"), "utf-8");
+var name2 = decodeURI($.getUrlParam("name2"), "utf-8");
 
 $(window).bind('orientationchange', function (e) {
 

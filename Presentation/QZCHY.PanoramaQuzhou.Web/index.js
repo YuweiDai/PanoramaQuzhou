@@ -3,6 +3,7 @@ var temp3 = 1;
 var hotspotData = {};
 var hotspotstring = "";
 var sceneName = "";
+var sceneName1 = "";
 (function ($) {
     $.getUrlParam = function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");//构造一个含有目标参数的正则表达式对象
@@ -38,11 +39,16 @@ var addPanor = function () {
         url: "http://220.191.238.125:8070/api/Panoramas/" + id,
         type: "get",
         success: function (response) {
-            sceneName = response.name;
-            if (response.sceneNum > 1) {
+        
+            if (response.length > 1) {
                 $("#compare").css("display", "block");
+                sceneName1 = response[0].name;
+                response = response[1];
             }
-
+            else {
+                response = response[0];
+            }
+            sceneName = response.name;
             $("#starnum").html(response.stars);
             $("#title").html(sceneName.substring(0, sceneName.length - 8));
             $("#psrq").html(sceneName.substring(sceneName.length - 8,sceneName.length-4)+"-"+sceneName.substring(sceneName.length-4,sceneName.length-2)+"-"+sceneName.substring(sceneName.length-2));
@@ -313,7 +319,7 @@ $("#addstar").on('click', function (event) {
 //跳转对比页面
 $("#compare").on('click', function () {
 
-    window.location.href = "http://220.191.238.125:8070/frame.html?id=" + id;
+    window.location.href = "http://220.191.238.125:8070/frame.html?id=" + id + "&name1=" + encodeURI(encodeURI(sceneName)) + "&name2=" + encodeURI(encodeURI(sceneName1));
 
 })
 

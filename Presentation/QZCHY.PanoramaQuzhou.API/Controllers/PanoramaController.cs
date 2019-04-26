@@ -30,27 +30,58 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
         [Route("{id}")]
         public IHttpActionResult GetSceneById(int id = 0)
         {
-
+            var responseList = new List<PanoramaSceneModel>();
             var location = _locationService.GetLocationById(id);
-            var scene1 = location.PanoramaScenes.Last();
 
-            var scene = _sceneService.GetPnoramaSceneById(id);
-
-            scene.Views++;
-            _sceneService.UpdatePanoramaScene(scene);
-
-            var response = scene.ToModel();
-            response.Name = scene.PanoramaLocation.Name + response.ProductionDate;
-            response.Title = scene.PanoramaLocation.Name;
-            response.SceneNum = location.PanoramaScenes.Count();
-            response.hotspots = scene.Hotspots.Select(h =>
+            if (location.PanoramaScenes.Count() > 1)
             {
-                var hmodel = h.ToModel();
-                return hmodel;
+                var scene1 = location.PanoramaScenes.First();
+                var scene2 = location.PanoramaScenes.Last();
+                var response1 = scene1.ToModel();
+                response1.Name = scene1.PanoramaLocation.Name + response1.ProductionDate;
+                response1.Title = scene1.PanoramaLocation.Name;
+                response1.hotspots = scene1.Hotspots.Select(h =>
+                {
+                    var hmodel = h.ToModel();
+                    return hmodel;
 
-            }).ToList();
+                }).ToList();
+                var response2 = scene2.ToModel();
+                response2.Name = scene2.PanoramaLocation.Name + response2.ProductionDate;
+                response2.Title = scene2.PanoramaLocation.Name;
+                response2.hotspots = scene2.Hotspots.Select(h =>
+                {
+                    var hmodel = h.ToModel();
+                    return hmodel;
 
-            return Ok(response);
+                }).ToList();
+                responseList.Add(response1);
+                responseList.Add(response2);
+            }
+            else {
+                var scene1 = location.PanoramaScenes.First();
+                var response1 = scene1.ToModel();
+                response1.Name = scene1.PanoramaLocation.Name + response1.ProductionDate;
+                response1.Title = scene1.PanoramaLocation.Name;
+                response1.hotspots = scene1.Hotspots.Select(h =>
+                {
+                    var hmodel = h.ToModel();
+                    return hmodel;
+
+                }).ToList();
+                responseList.Add(response1);
+            }
+            
+         
+
+           // var scene = _sceneService.GetPnoramaSceneById(id);
+
+            //scene.Views++;
+            //_sceneService.UpdatePanoramaScene(scene);
+
+           
+
+            return Ok(responseList);
         }
 
         [HttpPut]
