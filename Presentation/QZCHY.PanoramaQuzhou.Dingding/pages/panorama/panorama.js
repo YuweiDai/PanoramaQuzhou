@@ -9,7 +9,7 @@ Page({
     var locationId = query.id;
     var sceneName = query.sname;
     var newUrl = app.globalData.webUrl + "/index.html?id=" + locationId;
-
+    console.log(query);
     this.setData({
       locationId:locationId,
       targetUrl: newUrl,

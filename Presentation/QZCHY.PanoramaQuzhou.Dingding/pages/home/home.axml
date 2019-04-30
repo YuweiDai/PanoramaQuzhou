@@ -1,6 +1,6 @@
 
 <swiper vertical="{{vertical}}" current="{{current}}" circular="{{circular}}" onChange="handleChange">
-  <block a:for="{{panoramas}}">
+  <block a:for="{{panoramas}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
     <swiper-item class="swiper-item">
       <!-- <view class="swiper-item bc_{{item}}">
       </view> -->

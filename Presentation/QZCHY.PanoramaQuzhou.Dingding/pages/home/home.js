@@ -58,28 +58,15 @@ Page( {
           item.imgs.left = basePath + "l.jpg";
           item.imgs.right = basePath + "r.jpg";
           item.navToUrl = '../panorama/panorama?id=' + item.locationId;
-            console.log( item );
           ps.push( item );
         } );
-
         console.log( ps );
-
-        var currentPanoIndex = that.data.current;
         that.setData( {
           panoramas: ps,
           screenHeight: app.globalData.systemInfo.windowHeight,
           cubeBoxSize: app.globalData.systemInfo.windowHeight * 4,
         } );
-
-
-        var currentPanoIndex = that.data.current;
-        var currentPano = that.data.panoramas[ currentPanoIndex ];
-
-        that.setData( {
-          currentPano: currentPano,
-          mapUrl: "../map/map?level=16&centerLng=" +
-            currentPano.lng + "&centerLat=" + currentPano.lat
-        } );
+        
       } );
 
   },
@@ -93,7 +80,6 @@ Page( {
       mapUrl: "../map/map?level=16&centerLng=" +
         currentPano.lng + "&centerLat=" + currentPano.lat
     } )
-   
     //加载下一页
     if ( ( parseInt( e.detail.current ) % 15 ) == 13 )
     {
@@ -110,10 +96,8 @@ Page( {
   navToPano: function ( event )
   {
     var that = this;
-    console.log( that.data.currentPano.navToUrl );
     dd.navigateTo( {
       url: that.data.currentPano.navToUrl
-      //event.currentTarget.dataset.id
     } )
   },
 
