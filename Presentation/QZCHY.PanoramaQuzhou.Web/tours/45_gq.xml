@@ -289,15 +289,13 @@
         <cube url="%$tileserver%panos/压潮村东20180709_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-139.695" atv="12.936" onclick="js(loadpano('33_gq.xml','中心医院20190326_gq'););" tooltip="中心医院" onloaded="add_all_the_time_tooltip();" />/>
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="66.722" atv="3.291" onclick="js(loadpano('51_gq.xml','压潮村西20180709_gq'););" tooltip="压潮村西" onloaded="add_all_the_time_tooltip();" />/>
 
   </scene>
+  
+  
+    <scene name="压潮村东20190425_gq" title="压潮村东2" onstart="" thumburl="%$tileserver%panos/压潮村东20190425_gq.tiles/thumb.jpg" lat="28.95132944" lng="118.82694639" heading="0.0">
 
-
-  <scene name="压潮村东20190425_gq" title="压潮村东高清" onstart="" thumburl="%$tileserver%panos/压潮村东20190425_gq.tiles/thumb.jpg" lat="28.9649487240053" lng="118.848505106992" heading="" >
-
-    <view hlookat="43.967" vlookat="44.212" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <view hlookat="-667.865" vlookat="15.147" fovtype="MFOV" fov="81.392" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
     <preview url="%$tileserver%panos/压潮村东20190425_gq.tiles/preview.jpg" />
 
@@ -315,9 +313,6 @@
         <cube url="%$tileserver%panos/压潮村东20190425_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-139.695" atv="12.936" onclick="js(loadpano('33_gq.xml','中心医院20190326_gq'););" tooltip="中心医院" onloaded="add_all_the_time_tooltip();" />/>
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="66.722" atv="3.291" onclick="js(loadpano('51_gq.xml','压潮村西20180709_gq'););" tooltip="压潮村西" onloaded="add_all_the_time_tooltip();" />/>
-
 
   </scene>
   

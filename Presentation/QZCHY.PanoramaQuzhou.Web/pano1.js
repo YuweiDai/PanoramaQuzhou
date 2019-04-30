@@ -2,14 +2,13 @@
 var temp3 = 1;
 var hotspotData = {};
 var hotspotstring = "";
-var sceneName = "";
+
 var hlookat, vlookat, fov;
 
 var panoItems = window.location.search.substr(1).split(';');
 
 var id = window.parent.id;
-
-if (id == undefined) id = 57;
+var sceneName = window.parent.name1;
 
 var allowDemoRun = false;
 
@@ -28,37 +27,13 @@ $(".gq_bq").css("left", (w - 100) + "px");
 $(".gq_bq").css("top", (h - 50) + "px");
 //加载全景
 var addPanor = function () {
-  
-    
-    $.ajax({
-        url: "http://220.191.238.125:8070/api/Panoramas/" + id,
-        type: "get",
-        success: function (response) {
-            sceneName = response.name;
-            $("#starnum").html(response.stars);
-            $("#title").html(sceneName.substring(0, sceneName.length - 8));
-            $("#psrq").html(sceneName.substring(sceneName.length - 8,sceneName.length-4)+"-"+sceneName.substring(sceneName.length-4,sceneName.length-2)+"-"+sceneName.substring(sceneName.length-2));
-            k.call("loadscene('" + sceneName + "')");
 
-            var w1 = $('#item_title').width() / 2;
-            $("#item_title").css("left", (w - w1) + "px");
+    k.call("loadscene('" + sceneName + "')");
+    $("#title").html(sceneName.substring(0, sceneName.length - 8));
+    $("#psrq").html(sceneName.substring(sceneName.length - 8, sceneName.length - 4) + "-" + sceneName.substring(sceneName.length - 4, sceneName.length - 2) + "-" + sceneName.substring(sceneName.length - 2));
+    var w1 = $('#item_title').width() / 2;
+    $("#item_title").css("left", (w - w1) + "px");
 
-            $.each(response.hotspots, function (i,data) {
-
-                var spotname = "spot" + i;
-                k.call("addhotspot("+spotname+");");
-                k.call("set(hotspot[" + spotname + "].url,assets/06.png);");
-
-                k.call("set(hotspot[" + spotname + "].onloaded,do_crop_animation(64,64, 50));");
-                k.call("set(hotspot[" + spotname + "].tooltip," + data.title + ");");
-                k.call("set(hotspot[" + spotname + "].zoom,false);");
-                k.call("set(hotspot[" + spotname + "].ath," + data.ath + ");");
-                k.call("set(hotspot[" + spotname + "].atv," + data.atv + ");");
-            })       
-
-        }
-
-    })
 }
 //加载全景调用
 
@@ -74,23 +49,6 @@ else {
     addPanor();
 }
 
-
-
-//热点中切换场景
-function loadpano(xmlname,sceneName) {
-    if (k) {
-        if (xmlname.indexOf("_gq") != -1) {
-            $("#title").html(sceneName.substring(0, sceneName.length - 11));
-        }
-        else {
-            $("#title").html(sceneName.substring(0, sceneName.length - 8));
-        }
-        //动态切换xml，xmlname为tour.xml传过来的值 
-        k.call("loadpano(" + xmlname + ", null, MERGE, BLEND(0.5));"); 
-        //sceneName为切换后加载的第一个场景
-        k.call("loadscene('" + sceneName + "')"); 
-    } 
-} 
 
 //场景选择
 $("#choose").on('touchstart', function (event) {
