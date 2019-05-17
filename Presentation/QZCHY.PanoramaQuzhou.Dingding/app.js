@@ -106,10 +106,10 @@ App({
       
     },
     rpx: 0.5,
-    apiBaseUrl: "http://qzgis.vaiwan.com/api/",
-    //apiBaseUrl: "http://220.191.238.125:8070/api/",
-    resourceUrl: "http://220.191.238.125:8070/assets/",
-    webUrl: "http://220.191.238.125:8070/",
+    //apiBaseUrl: "http://qzgis.vaiwan.com/api/",
+    apiBaseUrl: "https://www.qzgis.cn/api/",
+    resourceUrl: "https://www.qzgis.cn/assets/",
+    webUrl: "https://www.qzgis.cn/",
     location: {
       initial: false,
       lng: 118.8898357316,

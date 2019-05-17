@@ -73,8 +73,8 @@ Page( {
   handleChange: function ( e )
   {
     var that = this;
-    var currentPanoIndex = e.detail.current;
-    var currentPano = that.data.panoramas[ currentPanoIndex ];
+    var currentPanoIndex=e.detail.current;
+    var currentPano = that.data.panoramas[currentPanoIndex];
     this.setData( {
       currentPano: currentPano,
       mapUrl: "../map/map?level=16&centerLng=" +

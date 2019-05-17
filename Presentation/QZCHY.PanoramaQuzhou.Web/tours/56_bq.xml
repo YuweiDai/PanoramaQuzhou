@@ -266,33 +266,18 @@
     set(plugin[get(tooltipname)].enabled,false);
   </action>
 
-  <scene name="后姜村20190401_gq" title="后姜村高清" onstart="" thumburl="%$tileserver%panos/后姜村20190401_gq.tiles/thumb.jpg" lat="28.97993219" lng="118.8212537" heading="0.0">
+  <scene name="衢州职业技术学院20190428" title="衢州职业技术学院20190428" onstart="" thumburl="%$tileserver%panos/衢州职业技术学院20190428.tiles/thumb.jpg" lat="28.98038333" lng="118.86250444" heading="" >
 
-    <view hlookat="-205.128" vlookat="47.564" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+    <view hlookat="365.665" vlookat="34.941" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/后姜村20190401_gq.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/衢州职业技术学院20190428.tiles/preview.jpg" />
 
-    <image type="CUBE" prealign="0|0.0|0" multires="true" tilesize="512">
-      <level tiledimagewidth="7296" tiledimageheight="7296">
-        <cube url="%$tileserver%panos/后姜村20190401_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
-      </level>
-      <level tiledimagewidth="3648" tiledimageheight="3648">
-        <cube url="%$tileserver%panos/后姜村20190401_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
-      </level>
-      <level tiledimagewidth="1792" tiledimageheight="1792">
-        <cube url="%$tileserver%panos/后姜村20190401_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
-      </level>
-      <level tiledimagewidth="1024" tiledimageheight="1024">
-        <cube url="%$tileserver%panos/后姜村20190401_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
-      </level>
+    <image>
+      <cube url="%$tileserver%panos/衢州职业技术学院20190428.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-98.380" atv="5.866" tooltip="衢州西高速出口"  onclick="js(loadpano('17_gq.xml','衢州西高速出口20180820_gq'););" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="21.589" atv="2.247" tooltip="姜家山村"  onclick="js(loadpano('21_gq.xml','姜家山村20190401_gq'););" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="104.316" atv="8.722" tooltip="柴家" onclick="js(loadpano('23_gq.xml','柴家20190322_gq'););" onloaded="add_all_the_time_tooltip();" />
-
+    
   </scene>
-  
+
+
 </krpano>
 
-
-  

@@ -275,9 +275,9 @@
     <image>
       <cube url="%$tileserver%panos/后姜村20190401.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-93.737" atv="31.346" tooltip="衢州西高速出口"  onclick="js(loadpano('17_bq.xml','衢州西高速出口20180820'););" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="14.041" atv="35.087" tooltip="姜家山村"  onclick="js(loadpano('21_bq.xml','姜家山村20190401'););" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="107.703" atv="22.608" tooltip="柴家" onclick="js(loadpano('23_bq.xml','柴家20190322'););" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="-98.380" atv="5.866" tooltip="衢州西高速出口"  onclick="js(loadpano('17_bq.xml','衢州西高速出口20180820'););" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="21.589" atv="2.247" tooltip="姜家山村"  onclick="js(loadpano('21_bq.xml','姜家山村20190401'););" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot3" style="skin_hotspotstyle" ath="104.316" atv="8.722" tooltip="柴家" onclick="js(loadpano('23_bq.xml','柴家20190322'););" onloaded="add_all_the_time_tooltip();" />
 
   </scene>
 

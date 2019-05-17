@@ -280,7 +280,7 @@
     <hotspot name="spot2" style="skin_hotspotstyle" ath="-81.949" atv="3.785" onclick="js(loadpano('11_bq.xml','恒大御景半岛20190409'););" tooltip="恒大御景半岛"  onloaded="add_all_the_time_tooltip();" />
     <hotspot name="spot3" style="skin_hotspotstyle" ath="-31.995" atv="6.088" onclick="js(loadpano('9_bq.xml','新湖玫瑰园20190409'););" tooltip="新湖玫瑰园"  onloaded="add_all_the_time_tooltip();" />
     <hotspot name="spot4" style="skin_hotspotstyle" ath="3.697" atv="3.513" onclick="js(loadpano('10_bq.xml','衢时代20180808'););" tooltip="衢时代"  onloaded="add_all_the_time_tooltip();" />
-
+    <hotspot name="spot5" style="skin_hotspotstyle" ath="152.843" atv="10.135" onclick="js(loadpano('2_bq.xml','西区大草原20190428'););" tooltip="西区大草原"  onloaded="add_all_the_time_tooltip();" />
   </scene>
 
 </krpano>
