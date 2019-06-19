@@ -2,7 +2,7 @@
   
   <settings name="auto_thumbs"
     thumb_size="120"
-    thumb_background_size="312"
+    thumb_background_size="156"
     thumb_spacing="0"
     left="0"   
     right="10" 
@@ -13,14 +13,14 @@
   <events name="auto_thumbs" keep="true" 
     onresize="resize_auto_thumbs(); if(settings[auto_thumbs].onresize, settings[auto_thumbs].onresize());"
     onnewscene="update_active_thumb();"
-    onxmlcomplete="ifnot(thumbs_intitialized, create_auto_thumbs(); set(thumbs_intitialized, true););"
+    onxmlcomplete="create_auto_thumbs();"
     onmousedown="hide_container(get(layer[albums].current_container)); fadein_children(albums_scrollarea); set(layer[new_thumbs].visible, false); set(layer[albums].current_container, null);"
   />
   
   <layer name="thumbs_background" scalechildren="true" scale="1" type="container" align="leftbottom" x="0" y="100" width="100%" height="80" maskchildren="false" bgcolor="0x000000" bgalpha="0.5" keep="true" state="closed" vr="false" visible="false"/>
   <layer name="auto_thumbs" type="container" keep="true" preload="true" scalechildren="true" scale="1" align="leftbottom" x="0" y="0" width="100%" height="320" maskchildren="false" bgcolor="0x000000" bgalpha="0.0" parent="thumbs_background">
 
-    <layer name="albums" scalechildren="true" scale="1" type="container" align="leftbottom" x="0" y="0" width="100%" height="320" maskchildren="false"  bgcolor="0x000000" bgalpha="0.0"
+    <layer name="albums" scalechildren="true" scale="1" type="container" align="leftbottom" x="0" y="0" width="100%" height="160" maskchildren="false"  bgcolor="0x000000" bgalpha="0.0"
       onout="delayedcall(disable_thumbs, .25, set(layer[new_thumbs].visible, false));">
       <layer name="albums_left_shadow" style="scroll_shadow" align="left" ox="-100%" rotate="180"/>
       <layer name="albums_right_shadow" style="scroll_shadow" align="right" />
