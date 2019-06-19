@@ -65,11 +65,11 @@ Page({
 
   navToPanorama: function (event) {
     console.log(event);
-    var sid = event.currentTarget.dataset.sid;
+    var id = event.currentTarget.dataset.id;
     var sname=event.currentTarget.dataset.sname;
 
     dd.navigateTo({
-      url: '../../panorama/panorama?sid=' + sid+"&sname="+sname
+      url: '../../panorama/panorama?id=' + id+"&sname="+sname
     });
   }
 });

@@ -55,7 +55,7 @@ namespace QZCHY.PanoramaQuzhou.Services.DDTalk
 
             IDingTalkClient client = new DefaultDingTalkClient("https://oapi.dingtalk.com/user/get");
             OapiUserGetRequest request = new OapiUserGetRequest();
-            if (string.IsNullOrEmpty(userId)) return new OapiUserGetResponse { ErrCode = "400" };
+            if (string.IsNullOrEmpty(userId)) return new OapiUserGetResponse { ErrCode = "400" ,ErrMsg="get user id error"};
             else
             {
                 request.Userid = userId;

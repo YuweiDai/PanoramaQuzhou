@@ -6,7 +6,8 @@
     "pages/discovery/discovery",
     "pages/projects/projects",
     "pages/panorama/panorama",
-    "pages/projects/project_pano_locations/project_pano_locations"
+    "pages/projects/project_pano_locations/project_pano_locations",
+    "pages/introduction/introduction"
   ],
   "window": {
     "defaultTitle": "全景衢州"

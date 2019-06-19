@@ -58,7 +58,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
                 {
                     var panoramaScene = _sceneService.GetPnoramaSceneById(pl.DefaultPanoramaSceneId);
                     if (panoramaScene != null)
-                        pl.LogoUrl = pl.Name + panoramaScene.ProductionDate.ToString("yyyyMMdd") + ".tiles/logo.jpg";                     
+                        pl.LogoUrl = pl.Name + panoramaScene.ProductionDate.ToString("yyyyMMdd") + ".tiles/pano_f.jpg";                     
                 }
 
                 return Ok(projectModel);

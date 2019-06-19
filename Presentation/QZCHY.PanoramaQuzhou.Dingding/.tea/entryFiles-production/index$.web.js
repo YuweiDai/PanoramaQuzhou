@@ -7,3 +7,4 @@ require('../../pages/discovery/discovery');
 require('../../pages/projects/projects');
 require('../../pages/panorama/panorama');
 require('../../pages/projects/project_pano_locations/project_pano_locations');
+require('../../pages/introduction/introduction');

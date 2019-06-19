@@ -53,7 +53,7 @@ Page({
         }
         else item.logoUrl = app.globalData.resourceUrl + "panos/" + item.logoUrl;
 
-        item.navToUrl = '../panorama/panorama?sid=' + item.id+"&sname="+item.name;
+        item.navToUrl = '../panorama/panorama?id=' + item.locationId+"&sname="+item.name;
       });
 
       console.log(panoramas);
@@ -75,7 +75,7 @@ Page({
         }
         else item.logoUrl = app.globalData.resourceUrl + "panos/" + item.logoUrl;
 
-        item.navToUrl = '../panorama/panorama?sid=' + item.id+"&sname="+item.name;
+        item.navToUrl = '../panorama/panorama?id=' + item.locationId+"&sname="+item.name;
       });
 
       console.log(panoramas);

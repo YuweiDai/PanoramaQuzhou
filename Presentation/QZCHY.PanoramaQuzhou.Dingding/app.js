@@ -3,6 +3,11 @@ import util from './utils/utils.js';
 
 App({
   onLaunch(options) {
+
+console.log(this.globalData.initial);
+if(!this.globalData.initial) this.globalData.initial=true;
+console.log("------");
+console.log(this.globalData.initial);
     // E应用初始化
     var that = this;
 
@@ -13,17 +18,18 @@ App({
     dd.getAuthCode({
       success: function (res) {
         that.requestGet(that.globalData.apiBaseUrl + "Accounts/SignIn?authCode=" + res.authCode, {}, false)
-          .then(function (response) { 
+          .then(function (response) {
+            if (response.data != undefined && response.data != null && response.data != "") {
+              if (response.data.indexOf("first") >= 0) that.globalData.first = true;
+            }
             console.log(response)
-          }, function (response) { 
+          }, function (response) {
             console.log(response)
           });
       },
       fail: function (err) {
       }
     });
-
-
   },
   onShow(options) {
     // E应用显示
@@ -44,7 +50,7 @@ App({
 
       console.log("promise");
       dd.getLocation({
-        success(res){
+        success(res) {
           console.log("sucess--res");
           console.log(res.longitude);
           console.log(res.latitude);
@@ -84,7 +90,7 @@ App({
         url: url,
         method: 'Get',
         data: data,
-        dataType:'json',
+        dataType: 'json',
         success: function (res) {
           resolve(res);
         },
@@ -102,18 +108,18 @@ App({
 
 
   globalData: {
-    systemInfo: {
-      
-    },
+    initial:false,
+    systemInfo: {},
+    first: false,
     rpx: 0.5,
-    apiBaseUrl: "http://qzgis.vaiwan.com/api/",
-    //apiBaseUrl: "http://220.191.238.125:8070/api/",
-    resourceUrl: "http://220.191.238.125:8070/assets/",
-    webUrl: "http://220.191.238.125:8070/",
+    // apiBaseUrl: "http://qzgis.vaiwan.com/api/",
+    apiBaseUrl: "https://www.qzgis.cn/api/",
+    resourceUrl: "https://www.qzgis.cn/assets/",
+    webUrl: "https://www.qzgis.cn/",
     location: {
       initial: false,
-      lng: 118.8898357316,
-      lat: 28.9721214555
+      lng: 118.8546289036,
+      lat: 28.9732601540,
     }
   }
 });
