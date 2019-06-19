@@ -29,7 +29,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
             var dingdingUserInfo = _ddTalkService.GetUserInfo(authCode);
             if (dingdingUserInfo.IsError) return BadRequest("Get UserInfo Error ,because " + dingdingUserInfo.ErrMsg);
-
+            var firstVisited = false;
             var account = _accountUserService.GetAccountUserByDDUserId(dingdingUserInfo.Userid);
             if (account != null)
             {
@@ -40,6 +40,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             }
             else
             {
+                firstVisited = true;
                 account = new AccountUser
                 {
                     Active = true,
@@ -52,8 +53,9 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
                 _accountUserService.InsertAccountUser(account);
             }
 
-
-            return Ok("UserInfo is logged");
+            var msg = "UserInfo is logged";
+            if (firstVisited) msg = "UserInfo is first logged";
+            return Ok(msg);
         }
 
     }

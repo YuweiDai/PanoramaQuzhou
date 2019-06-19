@@ -1,9 +1,13 @@
-var interval=null;
+var interval = null;
+var app = getApp();
+
 Page({
   data: {
     tips: "(5秒)"
   },
-  onLoad() { },
+  onLoad() {
+    console.log("index page");
+  },
 
   onShow() {
     // 页面显示
@@ -35,9 +39,13 @@ Page({
     };
   },
   entry: function () {
- clearInterval(interval);
-    dd.redirectTo({
-      url: '../home/home'
-    })
+    clearInterval(interval);
+    dd.reLaunch({
+      url: '../home/home?showIntro='+app.globalData.first
+    });
+
+    // dd.switchTab({
+    //   url: '../home/home'
+    // })
   }
 });

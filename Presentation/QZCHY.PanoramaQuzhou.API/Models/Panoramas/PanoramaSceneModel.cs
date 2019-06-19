@@ -38,6 +38,8 @@ namespace QZCHY.PanoramaQuzhou.API.Models.Panoramas
 
         public double Lat { get; set; }
 
+        public double Dist { get; set; }
+
         public int Stars { get; set; }
 
         public int LocationId { get; set; }
@@ -50,5 +52,7 @@ namespace QZCHY.PanoramaQuzhou.API.Models.Panoramas
 
         public string LogoUrl { get; set; }
         public string ProductionDate { get; set; }
+
+        public int LocationId { get; set; }
     }
 }

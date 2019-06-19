@@ -1,4 +1,5 @@
 ﻿using QZCHY.PanoramaQuzhou.API.Models.Panoramas;
+using QZCHY.PanoramaQuzhou.Core;
 using QZCHY.PanoramaQuzhou.Core.Domain.Panoramas;
 using QZCHY.PanoramaQuzhou.Services.Panoramas;
 using QZCHY.PanoramaQuzhou.Web.Api.Extensions;
@@ -25,61 +26,52 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             _hotspotService = hotspotService;
         }
 
-       
+
         [HttpGet]
         [Route("{id}")]
         public IHttpActionResult GetSceneById(int id = 0)
         {
             var responseList = new List<PanoramaSceneModel>();
             var location = _locationService.GetLocationById(id);
+            if (location == null) return NotFound();
 
-            if (location.PanoramaScenes.Count() > 1)
+            var defaultScene = _sceneService.GetPnoramaSceneById(location.DefaultPanoramaSceneId);
+
+            if (defaultScene != null)
             {
-                var scene1 = location.PanoramaScenes.First();
-                var scene2 = location.PanoramaScenes.Last();
-                var response1 = scene1.ToModel();
-                response1.Name = scene1.PanoramaLocation.Name + response1.ProductionDate;
-                response1.Title = scene1.PanoramaLocation.Name;
-                response1.hotspots = scene1.Hotspots.Select(h =>
+                defaultScene.Views++;
+                _sceneService.UpdatePanoramaScene(defaultScene);
+
+                var response1 = defaultScene.ToModel();
+                response1.Name = defaultScene.PanoramaLocation.Name + response1.ProductionDate;
+                response1.Title = defaultScene.PanoramaLocation.Name;
+                response1.hotspots = defaultScene.Hotspots.Select(h =>
                 {
                     var hmodel = h.ToModel();
                     return hmodel;
 
                 }).ToList();
-                var response2 = scene2.ToModel();
-                response2.Name = scene2.PanoramaLocation.Name + response2.ProductionDate;
-                response2.Title = scene2.PanoramaLocation.Name;
-                response2.hotspots = scene2.Hotspots.Select(h =>
-                {
-                    var hmodel = h.ToModel();
-                    return hmodel;
 
-                }).ToList();
                 responseList.Add(response1);
-                responseList.Add(response2);
-            }
-            else {
-                var scene1 = location.PanoramaScenes.First();
-                var response1 = scene1.ToModel();
-                response1.Name = scene1.PanoramaLocation.Name + response1.ProductionDate;
-                response1.Title = scene1.PanoramaLocation.Name;
-                response1.hotspots = scene1.Hotspots.Select(h =>
+
+                if (location.PanoramaScenes.Count() > 1)
                 {
-                    var hmodel = h.ToModel();
-                    return hmodel;
 
-                }).ToList();
-                responseList.Add(response1);
+                    var scene2 = location.PanoramaScenes.Last();
+
+                    var response2 = scene2.ToModel();
+                    response2.Name = scene2.PanoramaLocation.Name + response2.ProductionDate;
+                    response2.Title = scene2.PanoramaLocation.Name;
+                    response2.hotspots = scene2.Hotspots.Select(h =>
+                    {
+                        var hmodel = h.ToModel();
+                        return hmodel;
+
+                    }).ToList();
+                    responseList.Add(response2);
+                }
+
             }
-            
-         
-
-           // var scene = _sceneService.GetPnoramaSceneById(id);
-
-            //scene.Views++;
-            //_sceneService.UpdatePanoramaScene(scene);
-
-           
 
             return Ok(responseList);
         }
@@ -114,7 +106,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             {
                 var psm = ps.ToListItemModel();
                 psm.Name = ps.PanoramaLocation.Name;
-                psm.LogoUrl = ps.PanoramaLocation.Name + ps.ProductionDate.ToString("yyyyMMdd") + ".tiles/logo.jpg";
+                psm.LogoUrl = ps.PanoramaLocation.Name + ps.ProductionDate.ToString("yyyyMMdd") + ".tiles/pano_f.jpg";
                 return psm;
             });
 
@@ -130,7 +122,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
                 var psm = ps.ToListItemModel();
                 psm.Name = ps.PanoramaLocation.Name;
-                psm.LogoUrl = ps.PanoramaLocation.Name + ps.ProductionDate.ToString("yyyyMMdd") + ".tiles/logo.jpg";
+                psm.LogoUrl = ps.PanoramaLocation.Name + ps.ProductionDate.ToString("yyyyMMdd") + ".tiles/pano_f.jpg";
                 return psm;
             });
 
@@ -140,7 +132,8 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
         [HttpPost]
         [Route("addhotspot")]
-        public IHttpActionResult AddHotSpot(HotspotModel hotspotModel) {
+        public IHttpActionResult AddHotSpot(HotspotModel hotspotModel)
+        {
 
             var scence = _sceneService.GetPnoramaSceneById(hotspotModel.Scence_Id);
             var hotspot = new Hotspot();
@@ -160,9 +153,9 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("previewlist")]
-        public IHttpActionResult GetPreviewList(double lat= 28.9721214555,double lng= 118.8898357316,int pageSize=15,int index=0)
+        public IHttpActionResult GetPreviewList(double lat = 28.9721214555, double lng = 118.8898357316, int pageSize = 15, int index = 0)
         {
-            var coord = _sceneService.GetAllPanoramaScenesOrderByDistance(lat, lng,pageSize,index);
+            var coord = _sceneService.GetAllPanoramaScenesOrderByDistance(lat, lng, pageSize, index);
             var scenes = coord.ToList().Select(ps =>
             {
 
@@ -170,8 +163,10 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
                 previewModel.Produce = "衢州市地理信息中心";
                 previewModel.ImgPath += ps.ProductionDate.ToString("yyyyMMdd") + ".tiles";
                 previewModel.LocationId = ps.PanoramaLocation.Id;
-                //previewModel.Lng = ps.PanoramaLocation.Lng;
-                //previewModel.Lat = ps.PanoramaLocation.Lat;
+                previewModel.Lng = ps.PanoramaLocation.Lng;
+                previewModel.Lat = ps.PanoramaLocation.Lat;
+                previewModel.Dist = Math.Floor(GeographyHelper.GetDistance(ps.PanoramaLocation.Lat, ps.PanoramaLocation.Lng, lat, lng));
+                if (previewModel.Dist > 5000) previewModel.Dist = 5000;
                 return previewModel;
             });
             return Ok(scenes);
