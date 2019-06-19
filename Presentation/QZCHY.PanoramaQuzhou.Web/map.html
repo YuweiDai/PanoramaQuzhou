@@ -69,7 +69,7 @@
             //     content:currentLng
             // })
 
-            var baseUrl = "http://220.191.238.125:8070/";
+            var baseUrl = "https://www.qzgis.cn/";
             var markers = [];
             try {
                 dd.showLoading({
@@ -90,11 +90,12 @@
                 container: 'map',
                 minZoom: 7,
                 maxZoom: 19,
-                style: 'http://map.zjditu.cn/vtiles/styles/tdt/streets.json',
+                style: 'https://www.qzgis.cn/streets.json',
                 zoom: level,
                 center: [centerLng, centerLat],
                 renderWorldCopies: false,
-                localIdeographFontFamily: "'黑体','san-serif'"
+                localIdeographFontFamily: "'黑体','san-serif'",
+	 
             });
 
             map.userLocation = {
