@@ -280,8 +280,7 @@
         <cube url="%$tileserver%panos/中心医院20190326_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="77.487" atv="3.380" onclick="js(loadpano('38_gq.xml','压潮村20190326_gq'););" tooltip="压潮村" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="-68.957" onclick="js(loadpano('38_gq.xml','湖柘陇20180709_gq'););" tooltip="湖柘陇" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="77.487" atv="3.380" onclick="js(loadpano('77_gq.xml','压潮村20190326_gq'););" tooltip="压潮村" onloaded="add_all_the_time_tooltip();" />
 
   </scene>
 

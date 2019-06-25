@@ -1,4 +1,4 @@
-﻿<krpano version="1.19" title="全景衢州" tileserver="http://220.191.238.125:8070/assets/">
+﻿<krpano version="1.19" title="全景衢州" tileserver="https://www.qzgis.cn/assets/">
   <!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
   <skin_settings maps="true"
 	               maps_type="google"
@@ -53,7 +53,7 @@
 
 
   <!-- startup action - load the first scene -->
-  <include  url ="http://220.191.238.125:8070/plugins/auto_thumbs.xml"/>
+  <include  url ="https://www.qzgis.cn/plugins/auto_thumbs.xml"/>
   <!--<include  url ="http://172.27.45.53:8070/plugins/tooltip.xml"/>-->
 
 

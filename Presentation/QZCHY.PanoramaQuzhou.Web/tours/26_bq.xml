@@ -275,10 +275,10 @@
     <image>
       <cube url="%$tileserver%panos/六一水库20190326.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="14.128" atv="7.690" onclick="js(loadpano('37_bq.xml','高铁西站20190326'););" tooltip="高铁西站" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="175.628" atv="7.639" onclick="js(loadpano('32_bq.xml','衢州农商城20190326'););" tooltip="衢州农商城" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="-88.537" atv="3.737" onclick="js(loadpano('23_bq.xml','高铁新城拆迁安置房20190401'););" tooltip="高铁新城拆迁安置房" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot4" style="skin_hotspotstyle" ath="154.394" atv="7.936" onclick="js(loadpano('46_bq.xml','衢州农商城西20180612'););" tooltip="衢州农商城西" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="14.128" atv="7.690" onclick="js(loadpano('67_bq.xml','高铁西站20190326'););" tooltip="高铁西站" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="175.628" atv="7.639" onclick="js(loadpano('72_bq.xml','衢州农商城20190326'););" tooltip="衢州农商城" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot3" style="skin_hotspotstyle" ath="-88.537" atv="3.737" onclick="js(loadpano('66_bq.xml','高铁新城拆迁安置房20190401'););" tooltip="高铁新城拆迁安置房" onloaded="add_all_the_time_tooltip();" />
+
   </scene>
 
 

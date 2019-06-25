@@ -286,7 +286,7 @@
         <cube url="%$tileserver%panos/衢州东高速出口20180820_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-140.847" atv="13.549" onclick="js(loadpano('47_gq.xml','金百汇广场20180806_gq'););" tooltip="金百汇广场" onloaded="add_all_the_time_tooltip();" />
+
   </scene>
 
 </krpano>

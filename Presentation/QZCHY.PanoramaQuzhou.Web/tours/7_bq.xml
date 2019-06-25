@@ -265,16 +265,20 @@
     copy(plugin[get(tooltipname)].html,hotspot[get(name)].tooltip);
     set(plugin[get(tooltipname)].enabled,false);
   </action>
-  <scene name="盈川小区20180515" title="盈川小区20180515" onstart="" thumburl="%$tileserver%panos/盈川小区20180515.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="" >
 
-    <view hlookat="-167.420" vlookat="38.382" fovtype="MFOV" fov="140.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+  <scene name="盈川小区20180515" title="盈川小区20180515" onstart="" thumburl="%$tileserver%panos/盈川小区20180515.tiles/thumb.jpg" lat="28.98798333" lng="118.84598500" heading="0.0"  album="西区">
+
+    <view hlookat="-179.803" vlookat="26.371" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
     <preview url="%$tileserver%panos/盈川小区20180515.tiles/preview.jpg" />
 
-    <image>
+    <image prealign="0|0.0|0">
       <cube url="%$tileserver%panos/盈川小区20180515.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-174.011" atv="14.428" onclick="js(loadpano('52_bq.xml','盈川小区2期20180717'););" tooltip="盈川小区2期" onloaded="add_all_the_time_tooltip();" />
+
+
   </scene>
 
+
 </krpano>
+

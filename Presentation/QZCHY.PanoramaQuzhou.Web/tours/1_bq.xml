@@ -275,10 +275,8 @@
     <image>
       <cube url="%$tileserver%panos/市民公园20190322.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="27.422" atv="26.246" onclick="js(loadpano('31_bq.xml','两中心20190322'););" tooltip="两中心" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="-131.003" atv="10.203" onclick="js(loadpano('42_bq.xml','鹿鸣半岛20190409'););" tooltip="鹿鸣半岛" onloaded="add_all_the_time_tooltip();"/>
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="142.257" atv="9.713" onclick="js(loadpano('30_bq.xml','信安湖20181220'););" tooltip="信安湖" onloaded="add_all_the_time_tooltip();"/>
-    <hotspot name="spot4" style="skin_hotspotstyle" ath="-162.532" atv="12.841" onclick="js(loadpano('2_bq.xml','西区大草原20190428'););" tooltip="西区大草原" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="27.422" atv="26.246" onclick="js(loadpano('68_bq.xml','两中心20190322'););" tooltip="两中心" onloaded="add_all_the_time_tooltip();" />
+
   </scene>
 
 

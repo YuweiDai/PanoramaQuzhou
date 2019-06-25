@@ -275,9 +275,9 @@
     <image>
       <cube url="%$tileserver%panos/压潮村20190326.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-130.159" atv="3.060" onclick="js(loadpano('33_bq.xml','中心医院20190326'););" tooltip="中心医院" onloaded="add_all_the_time_tooltip();"/>
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="-22.855" atv="0.982" onclick="js(loadpano('19_bq.xml','叶家大桥20190401'););" tooltip="叶家大桥" onloaded="add_all_the_time_tooltip();"/>
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="137.218" atv="1.593" onclick="js(loadpano('36_bq.xml','体育小镇20190326'););" tooltip="体育小镇" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="-130.159" atv="3.060" onclick="js(loadpano('79_bq.xml','中心医院20190326'););" tooltip="中心医院" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="-22.855" atv="0.982" onclick="js(loadpano('65_bq.xml','叶家大桥20190401'););" tooltip="叶家大桥" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot3" style="skin_hotspotstyle" ath="137.218" atv="1.593" onclick="js(loadpano('75_bq.xml','体育小镇20190326'););" tooltip="体育小镇" onloaded="add_all_the_time_tooltip();"/>
 
   </scene>
 

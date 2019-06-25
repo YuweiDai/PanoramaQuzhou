@@ -275,10 +275,10 @@
     <image>
       <cube url="%$tileserver%panos/高铁新城拆迁安置房20190401.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="176.812" atv="4.070" onclick="js(loadpano('23_bq.xml','柴家20190322'););" tooltip="柴家" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="-90.398" atv="0.294" onclick="js(loadpano('21_bq.xml','姜家山村20190401'););" tooltip="姜家山村" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="82.105" atv="6.405" onclick="js(loadpano('26_bq.xml','六一水库20190326'););" tooltip="六一水库" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot4" style="skin_hotspotstyle" ath="-7.701" atv="5.522" onclick="js(loadpano('24_bq.xml','沃华山庄20190401'););" tooltip="沃华山庄" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="176.812" atv="4.070" onclick="js(loadpano('66_bq.xml','柴家20190322'););" tooltip="柴家" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="-90.398" atv="0.294" onclick="js(loadpano('60_bq.xml','姜家山村20190401'););" tooltip="姜家山村" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot3" style="skin_hotspotstyle" ath="82.105" atv="6.405" onclick="js(loadpano('69_bq.xml','六一水库20190326'););" tooltip="六一水库" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot4" style="skin_hotspotstyle" ath="-7.701" atv="5.522" onclick="js(loadpano('64_bq.xml','沃华山庄20190401'););" tooltip="沃华山庄" onloaded="add_all_the_time_tooltip();" />
 
   </scene>
 

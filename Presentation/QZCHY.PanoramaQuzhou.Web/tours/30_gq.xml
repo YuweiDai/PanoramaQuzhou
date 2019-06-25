@@ -284,7 +284,7 @@
         <cube url="%$tileserver%panos/信安湖20181220_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="80.713" atv="8.643" onclick="js(loadpano('1_gq.xml','市民公园20190322_gq'););" tooltip="市民公园" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="80.713" atv="8.643" onclick="js(loadpano('74_gq.xml','市民公园20190322_gq'););" tooltip="市民公园" onloaded="add_all_the_time_tooltip();" />
 
   </scene>
 </krpano>

@@ -286,8 +286,8 @@
         <cube url="%$tileserver%panos/衢州市传化公路港20190401_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-89.737" atv="0.286" onclick="js(loadpano('25_gq.xml','前徐村20190401_gq'););" tooltip="前徐村" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="-174.483" atv="5.573" onclick="js(loadpano('27_gq.xml','蓬里村北20190401_gq'););" tooltip="蓬里村北" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="-89.737" atv="0.286" onclick="js(loadpano('62_gq.xml','前徐村20190401_gq'););" tooltip="前徐村" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="-174.483" atv="5.573" onclick="js(loadpano('58_gq.xml','蓬里村北20190401_gq'););" tooltip="蓬里村北" onloaded="add_all_the_time_tooltip();" />
 
   </scene>
   

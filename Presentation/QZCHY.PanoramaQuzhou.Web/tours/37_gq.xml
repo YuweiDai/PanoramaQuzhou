@@ -286,9 +286,9 @@
         <cube url="%$tileserver%panos/高铁西站20190326_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="154.761" atv="6.577" onclick="js(loadpano('26_gq.xml','六一水库20190326_gq'););" tooltip="六一水库" onloaded="add_all_the_time_tooltip();"/>
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="-21.774" atv="1.979" onclick="js(loadpano('27_gq.xml','蓬里村北20190401_gq'););" tooltip="蓬里村北" onloaded="add_all_the_time_tooltip();"/>
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="-101.679" atv="0.411" onclick="js(loadpano('24_gq.xml','沃华山庄20190401_gq'););" tooltip="沃华山庄" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="154.761" atv="6.577" onclick="js(loadpano('69_gq.xml','六一水库20190326_gq'););" tooltip="六一水库" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="-21.774" atv="1.979" onclick="js(loadpano('58_gq.xml','蓬里村北20190401_gq'););" tooltip="蓬里村北" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot3" style="skin_hotspotstyle" ath="-101.679" atv="0.411" onclick="js(loadpano('64_gq.xml','沃华山庄20190401_gq'););" tooltip="沃华山庄" onloaded="add_all_the_time_tooltip();"/>
 
   </scene>
 

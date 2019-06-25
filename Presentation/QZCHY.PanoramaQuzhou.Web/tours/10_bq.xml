@@ -275,7 +275,7 @@
     <image>
       <cube url="%$tileserver%panos/衢时代20180808.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="54.047" atv="4.083" onclick="js(loadpano('42_bq.xml','鹿鸣半岛20190409'););" tooltip="鹿鸣半岛" onloaded="add_all_the_time_tooltip();"/>
+
 
   </scene>
 

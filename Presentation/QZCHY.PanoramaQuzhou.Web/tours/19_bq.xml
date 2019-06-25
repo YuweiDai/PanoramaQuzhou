@@ -276,8 +276,8 @@
     <image>
       <cube url="%$tileserver%panos/叶家大桥20190401.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-149.433" atv="2.385" onclick="js(loadpano('38_bq.xml','压潮村20190326'););" tooltip="压潮村" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="106.744" atv="3.432" onclick="js(loadpano('25_bq.xml','前徐村20190401'););" tooltip="前徐村" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="-149.433" atv="2.385" onclick="js(loadpano('77_bq.xml','压潮村20190326'););" tooltip="压潮村" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="106.744" atv="3.432" onclick="js(loadpano('62_bq.xml','前徐村20190401'););" tooltip="前徐村" onloaded="add_all_the_time_tooltip();" />
 
   </scene>
 

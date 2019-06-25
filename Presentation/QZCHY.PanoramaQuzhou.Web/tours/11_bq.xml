@@ -280,10 +280,11 @@
      <cube url="%$tileserver%panos/恒大御景半岛20190409.tiles/pano_%s.jpg" />
     
    </image>
+		
+   <hotspot name="spot1" style="skin_hotspotstyle" ath="-96.404" atv="2.401" onclick="js(loadpano('91_bq.xml','严家淤半岛20190409'););" tooltip="严家淤半岛" onloaded="add_all_the_time_tooltip();" />
+		
+   <hotspot name="spot2" style="skin_hotspotstyle" ath="166.502" atv="2.995" onclick="js(loadpano('90_bq.xml','新湖玫瑰园20190409'););" tooltip="新湖玫瑰园" onloaded="add_all_the_time_tooltip();" />
 
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-116.567" atv="3.011" onclick="js(loadpano('3_bq.xml','严家淤半岛20190409'););" tooltip="严家淤半岛" onloaded="add_all_the_time_tooltip();" />
-	  <hotspot name="spot2" style="skin_hotspotstyle" ath="166.502" atv="2.995" onclick="js(loadpano('9_bq.xml','新湖玫瑰园20190409'););" tooltip="新湖玫瑰园" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="50.627" atv="9.950"  onclick="js(loadpano('49_bq.xml','湖柘陇20180709'););" tooltip="湖柘陇" onloaded="add_all_the_time_tooltip();" />
   
   </scene>
 

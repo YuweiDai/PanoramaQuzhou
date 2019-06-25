@@ -285,9 +285,9 @@
         <cube url="%$tileserver%panos/蓬里村北20190401_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="31.476" atv="1.029" onclick="js(loadpano('28_gq.xml','衢州市传化公路港20190401_gq'););" tooltip="衢州市传化公路港" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="-157.225" atv="2.454" onclick="js(loadpano('37_gq.xml','高铁西站20190326_gq'););" tooltip="高铁西站" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="-83.420" atv="2.698" onclick="js(loadpano('22_gq.xml','大塘头村东20190401_gq'););" tooltip="大塘头村东" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="31.476" atv="1.029" onclick="js(loadpano('63_gq.xml','衢州市传化公路港20190401_gq'););" tooltip="衢州市传化公路港" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="-157.225" atv="2.454" onclick="js(loadpano('67_gq.xml','高铁西站20190326_gq'););" tooltip="高铁西站" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot3" style="skin_hotspotstyle" ath="-83.420" atv="2.698" onclick="js(loadpano('57_gq.xml','大塘头村东20190401_gq'););" tooltip="大塘头村东" onloaded="add_all_the_time_tooltip();" />
 
   </scene>
   

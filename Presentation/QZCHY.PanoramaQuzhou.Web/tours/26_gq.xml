@@ -266,30 +266,30 @@
     set(plugin[get(tooltipname)].enabled,false);
   </action>
 
-  <scene name="六一水库20190326_gq" title="六一水库高清" onstart="" thumburl="%$tileserver%panos/六一水库20190326_gq.tiles/thumb.jpg" lat="28.97073037" lng="118.8008404" heading="0.0">
+  <scene name="六一水库20190322_gq" title="六一水库高清" onstart="" thumburl="%$tileserver%panos/六一水库20190322_gq.tiles/thumb.jpg" lat="28.97073037" lng="118.8008404" heading="0.0">
 
     <view hlookat="73.419" vlookat="35.045" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-    <preview url="%$tileserver%panos/六一水库20190326_gq.tiles/preview.jpg" />
+    <preview url="%$tileserver%panos/六一水库20190322_gq.tiles/preview.jpg" />
 
     <image type="CUBE" prealign="0|0.0|0" multires="true" tilesize="512">
       <level tiledimagewidth="7296" tiledimageheight="7296">
-        <cube url="%$tileserver%panos/六一水库20190326_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/六一水库20190322_gq.tiles/%s/l4/%v/l4_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="3648" tiledimageheight="3648">
-        <cube url="%$tileserver%panos/六一水库20190326_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/六一水库20190322_gq.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1792" tiledimageheight="1792">
-        <cube url="%$tileserver%panos/六一水库20190326_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/六一水库20190322_gq.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
       </level>
       <level tiledimagewidth="1024" tiledimageheight="1024">
-        <cube url="%$tileserver%panos/六一水库20190326_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+        <cube url="%$tileserver%panos/六一水库20190322_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="14.128" atv="7.690" onclick="js(loadpano('37_gq.xml','高铁西站20190326_gq'););" tooltip="高铁西站" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="175.628" atv="7.639" onclick="js(loadpano('32_gq.xml','衢州农商城20190326_gq'););" tooltip="衢州农商城" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="-88.537" atv="3.737" onclick="js(loadpano('23_gq.xml','高铁新城拆迁安置房20190401_gq'););" tooltip="高铁新城拆迁安置房" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot4" style="skin_hotspotstyle" ath="154.394" atv="7.936" onclick="js(loadpano('46_gq.xml','衢州农商城西20180612_gq'););" tooltip="衢州农商城西" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="14.128" atv="7.690" onclick="js(loadpano('67_gq.xml','高铁西站20190326_gq'););" tooltip="高铁西站" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="175.628" atv="7.639" onclick="js(loadpano('72_gq.xml','衢州农商城20190326_gq'););" tooltip="衢州农商城" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot3" style="skin_hotspotstyle" ath="-88.537" atv="3.737" onclick="js(loadpano('66_gq.xml','高铁新城拆迁安置房20190401_gq'););" tooltip="高铁新城拆迁安置房" onloaded="add_all_the_time_tooltip();" />
+
   </scene>
 
 

@@ -275,9 +275,9 @@
     <image>
       <cube url="%$tileserver%panos/衢州农商城20190326.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-163.274" atv="10.017" onclick="js(loadpano('23_bq.xml','柴家20190322'););" tooltip="柴家"  onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="20.269" atv="0.005" onclick="js(loadpano('26_bq.xml','六一水库20190326'););" tooltip="六一水库"  onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="-36.080" atv="8.028" onclick="js(loadpano('46_bq.xml','衢州农商城西20180612'););" tooltip="衢州农商城西"  onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="-163.274" atv="10.017" onclick="js(loadpano('66_bq.xml','柴家20190322'););" tooltip="柴家"  onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="20.269" atv="0.005" onclick="js(loadpano('69_bq.xml','六一水库20190326'););" tooltip="六一水库"  onloaded="add_all_the_time_tooltip();" />
+
   </scene>
 
 </krpano>

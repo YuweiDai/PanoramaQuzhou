@@ -269,7 +269,7 @@
 
     
 
-  <scene name="石凉亭村东南20190408_gq" title="石凉亭村东南高清" onstart="" thumburl="%$tileserver%panos/石凉亭村东南20190408_gq.tiles/thumb.jpg" lat="28.9170541790739" lng="118.852725909631" heading="" >
+  <scene name="石凉亭村东南20190408_gq" title="石凉亭村东南高清" onstart="" thumburl="%$tileserver%panos/石凉亭村东南20190408_gq.tiles/thumb.jpg" lat="28.9649487240053" lng="118.848505106992" heading="" >
 
     <view hlookat="-667.865" vlookat="15.147" fovtype="MFOV" fov="81.392" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
     <preview url="%$tileserver%panos/石凉亭村东南20190408_gq.tiles/preview.jpg" />

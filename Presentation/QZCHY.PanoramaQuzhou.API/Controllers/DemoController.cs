@@ -99,9 +99,9 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
         public IHttpActionResult Temp() {
 
 
-            return Ok("导入成功");
+           // return Ok("导入成功");
 
-            var filePath = @"D:\aa.xls";
+            var filePath = @"D:\aaa.xls";
             //string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + filePath + ";" + "Extended Properties=Excel 8.0;";
             string strConn = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'", filePath);
             System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection(strConn);
@@ -109,7 +109,7 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
             string strExcel = "";
             System.Data.OleDb.OleDbDataAdapter myCommand = null;
             System.Data.DataSet ds = null;
-            strExcel = "select * from [Sheet3$]";
+            strExcel = "select * from [Sheet1$]";
             myCommand = new System.Data.OleDb.OleDbDataAdapter(strExcel, strConn);
             ds = new System.Data.DataSet();
             myCommand.Fill(ds, "table1");
@@ -135,7 +135,41 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
                 _locationService.UpdatePanoramaLocation(location);
                  
             }
+            return Ok("更新完成");
 
+        }
+
+        [HttpGet]
+        [Route("temp1")]
+        public IHttpActionResult AddLocations() {
+
+            var filePath = @"D:\aa.xls";
+            //string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + filePath + ";" + "Extended Properties=Excel 8.0;";
+            string strConn = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'", filePath);
+            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection(strConn);
+            conn.Open();
+            string strExcel = "";
+            System.Data.OleDb.OleDbDataAdapter myCommand = null;
+            System.Data.DataSet ds = null;
+            strExcel = "select * from [Sheet4$]";
+            myCommand = new System.Data.OleDb.OleDbDataAdapter(strExcel, strConn);
+            ds = new System.Data.DataSet();
+            myCommand.Fill(ds, "table1");
+
+            var table = ds.Tables[0];
+            for (var i = 0; i < table.Rows.Count; i++)
+            {
+                var row = table.Rows[i];
+                var location = new PanoramaLocation();
+                location.Name = row[0].ToString();
+                location.Lat = Convert.ToDouble(row[1]);
+                location.Lng = Convert.ToDouble(row[2]);
+
+                _locationService.InsertPanoramaLocation(location);
+            }
+
+
+            return Ok("更新完成");
         }
 
 

@@ -288,7 +288,7 @@
         <cube url="%$tileserver%panos/严家淤半岛20190409_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="170.635" atv="4.244" onclick="js(loadpano('11_gq.xml','恒大御景半岛20190409_gq'););" tooltip="恒大御景半岛" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="170.635" atv="4.244" onclick="js(loadpano('87_gq.xml','恒大御景半岛20190409_gq'););" tooltip="恒大御景半岛" onloaded="add_all_the_time_tooltip();"/>
 
   </scene>
 

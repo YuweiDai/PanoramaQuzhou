@@ -290,9 +290,9 @@
         <cube url="%$tileserver%panos/新湖玫瑰园20190409_gq.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
       </level>
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="-166.323" atv="5.319" onclick="js(loadpano('10_gq.xml','衢时代20180808_gq'););" tooltip="衢时代" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="-22.361" atv="1.985" onclick="js(loadpano('11_gq.xml','恒大御景半岛20190409_gq'););" tooltip="恒大御景半岛" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="54.047" atv="4.083" onclick="js(loadpano('42_gq.xml','鹿鸣半岛20190409_gq'););" tooltip="鹿鸣半岛" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="-166.323" atv="5.319" onclick="js(loadpano('70_gq.xml','衢时代20180808_gq'););" tooltip="衢时代" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="-22.361" atv="1.985" onclick="js(loadpano('87_gq.xml','恒大御景半岛20190409_gq'););" tooltip="恒大御景半岛" onloaded="add_all_the_time_tooltip();" />
+
   </scene>
 
 </krpano>

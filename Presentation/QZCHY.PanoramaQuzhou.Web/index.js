@@ -12,7 +12,7 @@ var sceneName1 = "";
     }
 })(jQuery);
 var id = $.getUrlParam('id');
-if (id == undefined) id = 57;
+if (id == undefined) id = 1;
 
 var allowDemoRun = false;
 var div = document.getElementById("pano");
@@ -33,14 +33,14 @@ $(".gq_bq").css("top", (h - 50) + "px");
 //$(".RightBtnContainer_container_2TnlAa").css("top", (h - rh) + "px");
 //加载全景
 var addPanor = function () {
-  
+ 
     
     $.ajax({
         url: "https://www.qzgis.cn/api/Panoramas/" + id,
         type: "get",
         success: function (response) {
         
-            if (response.length > 1) {
+            if (response.length > 1) { 
                 $("#compare").css("display", "block");
                 sceneName1 = response[0].name;
                 response = response[1];
@@ -79,20 +79,31 @@ addPanor();
 
 
 //热点中切换场景
-function loadpano(xmlname,sceneName) {
-    if (k) {
-        if (xmlname.indexOf("_gq") != -1) {
-            $("#title").html(sceneName.substring(0, sceneName.length - 11));
-        }
-        else {
-            $("#title").html(sceneName.substring(0, sceneName.length - 8));
-        }
-        id = parseInt(xmlname.slice(0, xmlname.length - 7));
-        //动态切换xml，xmlname为tour.xml传过来的值 
-        k.call("loadpano(" + xmlname + ", null, MERGE, BLEND(0.5));"); 
-        //sceneName为切换后加载的第一个场景
-        k.call("loadscene('" + sceneName + "')"); 
-    } 
+function loadpano(xmlname, sceneName) {
+
+    id = parseInt(xmlname.slice(0, xmlname.length - 7));
+   // k.call("loadxml(" + xmlname + " )");
+    k.call("loadpano(" + xmlname + ", null);");
+    addPanor();
+
+    //if (k) {
+    //    if (xmlname.indexOf("_gq") != -1) {
+    //        $("#title").html(sceneName.substring(0, sceneName.length - 11));
+    //        $("#psrq").html(sceneName.substring(sceneName.length - 11, sceneName.length - 7) + "-" + sceneName.substring(sceneName.length - 7, sceneName.length - 5) + "-" + sceneName.substring(sceneName.length - 5, sceneName.length - 3));
+    //    }
+    //    else {
+    //        $("#title").html(sceneName.substring(0, sceneName.length - 8));
+    //        $("#psrq").html(sceneName.substring(sceneName.length - 8, sceneName.length - 4) + "-" + sceneName.substring(sceneName.length - 4, sceneName.length - 2) + "-" + sceneName.substring(sceneName.length - 2));
+    //    }
+       
+    //    //动态切换xml，xmlname为tour.xml传过来的值 
+    //    k.call("loadpano(" + xmlname + ", null, MERGE, BLEND(0.5));"); 
+    //    //sceneName为切换后加载的第一个场景
+    //    k.call("loadscene('" + sceneName + "')");
+
+    //    var w1 = $('#item_title').width() / 2;
+    //    $("#item_title").css("left", (w - w1) + "px");
+    //} 
 } 
 
 

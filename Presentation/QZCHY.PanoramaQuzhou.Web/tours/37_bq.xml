@@ -275,9 +275,9 @@
     <image>
       <cube url="%$tileserver%panos/高铁西站20190326.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="154.761" atv="6.577" onclick="js(loadpano('26_bq.xml','六一水库20190326'););" tooltip="六一水库" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="-21.774" atv="1.979" onclick="js(loadpano('27_bq.xml','蓬里村北20190401'););" tooltip="蓬里村北" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot3" style="skin_hotspotstyle" ath="-101.679" atv="0.411" onclick="js(loadpano('24_bq.xml','沃华山庄20190401'););" tooltip="沃华山庄" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="154.761" atv="6.577" onclick="js(loadpano('69_bq.xml','六一水库20190326'););" tooltip="六一水库" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot2" style="skin_hotspotstyle" ath="-21.774" atv="1.979" onclick="js(loadpano('58_bq.xml','蓬里村北20190401'););" tooltip="蓬里村北" onloaded="add_all_the_time_tooltip();" />
+    <hotspot name="spot3" style="skin_hotspotstyle" ath="-101.679" atv="0.411" onclick="js(loadpano('64_bq.xml','沃华山庄20190401'););" tooltip="沃华山庄" onloaded="add_all_the_time_tooltip();" />
 
   </scene>
 

@@ -275,8 +275,7 @@
     <image>
       <cube url="%$tileserver%panos/衢州西高速出口20180820.tiles/pano_%s.jpg" />
     </image>
-    <hotspot name="spot1" style="skin_hotspotstyle" ath="134.419" atv="8.049" onclick="js(loadpano('20_bq.xml','后姜村20190401'););" tooltip="后姜村" onloaded="add_all_the_time_tooltip();" />
-    <hotspot name="spot2" style="skin_hotspotstyle" ath="59.169" atv="5.545" onclick="js(loadpano('47_bq.xml','金百汇广场20180806'););" tooltip="金百汇广场" onloaded="add_all_the_time_tooltip();"/>
+    <hotspot name="spot1" style="skin_hotspotstyle" ath="140.158" atv="24.604" onclick="js(loadpano('59_bq.xml','后姜村20190401'););" tooltip="后姜村" onloaded="add_all_the_time_tooltip();" />
   </scene>
   
 
