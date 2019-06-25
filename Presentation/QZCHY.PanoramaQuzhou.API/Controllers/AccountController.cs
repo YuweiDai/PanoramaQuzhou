@@ -29,20 +29,21 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
 
             var dingdingUserInfo = _ddTalkService.GetUserInfo(authCode);
             if (dingdingUserInfo.IsError) return BadRequest("Get UserInfo Error ,because " + dingdingUserInfo.ErrMsg);
-            var firstVisited = false;
+
             var account = _accountUserService.GetAccountUserByDDUserId(dingdingUserInfo.Userid);
             if (account != null)
             {
                 account.LastActivityDate = DateTime.Now;
                 account.LastLoginDate = DateTime.Now;
                 account.LastIpAddress = _webHelper.GetCurrentIpAddress();
+                account.FirstTime = false;
                 _accountUserService.UpdateAccountUser(account);
             }
             else
             {
-                firstVisited = true;
                 account = new AccountUser
                 {
+                    FirstTime = true,
                     Active = true,
                     DDUserId = dingdingUserInfo.Userid,
                     NickName = dingdingUserInfo.Name,
@@ -53,10 +54,17 @@ namespace QZCHY.PanoramaQuzhou.API.Controllers
                 _accountUserService.InsertAccountUser(account);
             }
 
-            var msg = "UserInfo is logged";
-            if (firstVisited) msg = "UserInfo is first logged";
-            return Ok(msg);
+            return Ok("Guid:" + account.AccountUserGuid);
         }
 
+        [HttpGet]
+        [Route("{guid}")]
+        public IHttpActionResult CheckFirstUser(string guid)
+        {
+            var account = _accountUserService.GetAccountUserByGuid(new Guid(guid));
+
+            if (account == null || account.FirstTime) return Ok("true");
+            else return Ok("false");
+        }
     }
 }

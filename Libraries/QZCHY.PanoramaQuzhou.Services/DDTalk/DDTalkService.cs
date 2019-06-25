@@ -7,8 +7,12 @@ namespace QZCHY.PanoramaQuzhou.Services.DDTalk
 {
     public class DDTalkService : IDDTalkService
     {
-        private const string appkey = "dingtphwwjh8iitdhnba";
-        private const string appsecret = "3GL0snAqDpc-grzjHdlXAMg87lIoA98y5SlVhrcjwE96TcGdHlrequK-ALdVLnjU";
+       private const string appkey = "dingyxmp0asrxgyqmymz";
+        private const string appsecret = "9P3-DvVhEIiIpAXj6qS32L3EPJ1AIbPAA9KdhTI04E19pCqVMpiUIMmx3vAheyA9";
+
+        //private const string appkey = "dingtphwwjh8iitdhnba";
+//        private const string appsecret = "3GL0snAqDpc-grzjHdlXAMg87lIoA98y5SlVhrcjwE96TcGdHlrequK-ALdVLnjU";
+
         private DateTime access_token_expiredTime = DateTime.Now;
         public string access_Token = "";
 

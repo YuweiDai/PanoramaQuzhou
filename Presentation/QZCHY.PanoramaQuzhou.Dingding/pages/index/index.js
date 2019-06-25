@@ -41,7 +41,7 @@ Page({
   entry: function () {
     clearInterval(interval);
     dd.reLaunch({
-      url: '../home/home?showIntro='+app.globalData.first
+      url: '../home/home?showIntro=' + app.globalData.first
     });
 
     // dd.switchTab({
