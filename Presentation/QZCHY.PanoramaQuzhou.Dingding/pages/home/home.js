@@ -31,22 +31,39 @@ Page({
   onLoad(query) {
     var that = this;
     that.loadScenes(0);
-    console.log("first " + app.globalData.first);
-    console.log("query ");
-    console.log(query);
-    if (app.globalData.first) {
-      dd.confirm({
-        title: '温馨提示',
-        content: '欢迎使用全景衢州，是否查看系统使用说明？',
-        success: (result) => {
-          console.log(result);
-          if (result.confirm)
-            dd.navigateTo({
-              url: "../introduction/introduction"
+
+    dd.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+        var guid = res.data.guid;
+        app.requestGet(app.globalData.apiBaseUrl + 'Accounts/' + guid, null, false).then(function (response) {
+          console.log(response);
+          if (response.data == "true") {
+            dd.confirm({
+              title: '温馨提示',
+              content: '欢迎使用全景衢州，是否查看教程？',
+              confirmButtonText: '马上去看',
+              cancelButtonText: '暂不需要',
+              success: (result) => {
+                if (result.confirm) {
+                  dd.navigateTo({
+                    url: '../introduction/introduction'
+                  })
+                }
+              },
             });
-        },
-      });
-    }
+          }
+
+        }, function () {
+
+        });
+
+      },
+      fail: function (res) {
+      }
+    });
+
+
   },
   loadScenes: function (i) {
     lat = app.globalData.location.lat;
@@ -80,10 +97,20 @@ Page({
           ps.push(item);
         });
         console.log(ps);
+
+
+        var currentPano = panoramas[0];
+        console.log(currentPano);
+
+        if (currentPano == null) return;
+
         that.setData({
           panoramas: ps,
           screenHeight: app.globalData.systemInfo.windowHeight,
           cubeBoxSize: app.globalData.systemInfo.windowHeight * 4,
+          currentPano: currentPano,
+          mapUrl: "../map/map?level=16&centerLng=" +
+            currentPano.lng + "&centerLat=" + currentPano.lat
         });
 
       });
@@ -107,7 +134,11 @@ Page({
 
   },
   onShareAppMessage() {
-    // 返回自定义分享信息
+    return {
+      title: "全景衢州",
+      desc: "唱响三城记，打好保障战，护航大花园",
+      path: "pages/index/index"
+    };
   },
   navToPano: function (event) {
     var that = this;
@@ -115,11 +146,7 @@ Page({
       url: that.data.currentPano.navToUrl
     })
   },
-  navToIntroduce: function (event) {
-    dd.navigateTo({
-      url: "../introduction/introduction"
-    });
-  },
+
   toMap: function () {
     var that = this;
     app.setLocation().then(function () {

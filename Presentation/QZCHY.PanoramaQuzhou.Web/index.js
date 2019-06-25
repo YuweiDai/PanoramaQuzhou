@@ -36,7 +36,7 @@ var addPanor = function () {
   
     
     $.ajax({
-        url: "http://220.191.238.125:8070/api/Panoramas/" + id,
+        url: "https://www.qzgis.cn/api/Panoramas/" + id,
         type: "get",
         success: function (response) {
         
@@ -275,7 +275,7 @@ $("#submitBtn").on('click', function () {
     k.call("set(hotspot[kkk].atv," + hotspotData.atv + ");");
    
     $.ajax({
-        url: "http://220.191.238.125:8070/api/Panoramas/addhotspot",
+        url: "https://www.qzgis.cn/api/Panoramas/addhotspot",
         data: hotspotData,
         type: "post",
         success: function (response) {
@@ -303,7 +303,7 @@ $("#addstar").on('click', function (event) {
     if (temp3 == 2) return;
   
     $.ajax({
-        url: "http://220.191.238.125:8070/api/Panoramas/addStars/" + id,
+        url: "https://www.qzgis.cn/api/Panoramas/addStars/" + id,
         type: "put",
         success: function (response) {
 
@@ -319,7 +319,7 @@ $("#addstar").on('click', function (event) {
 //跳转对比页面
 $("#compare").on('click', function () {
 
-    window.location.href = "http://220.191.238.125:8070/frame.html?id=" + id + "&name1=" + encodeURI(encodeURI(sceneName)) + "&name2=" + encodeURI(encodeURI(sceneName1));
+    window.location.href = "https://www.qzgis.cn/frame.html?id=" + id + "&name1=" + encodeURI(encodeURI(sceneName)) + "&name2=" + encodeURI(encodeURI(sceneName1));
 
 })
 

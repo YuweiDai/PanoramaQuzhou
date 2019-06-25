@@ -39,5 +39,4 @@
     </swiper-item>
   </block>
 </swiper>
-<view class="helpBtn" onTap="navToIntroduce">
-</view>
+ 

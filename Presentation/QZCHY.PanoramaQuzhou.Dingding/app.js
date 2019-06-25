@@ -4,10 +4,10 @@ import util from './utils/utils.js';
 App({
   onLaunch(options) {
 
-console.log(this.globalData.initial);
-if(!this.globalData.initial) this.globalData.initial=true;
-console.log("------");
-console.log(this.globalData.initial);
+    console.log(this.globalData.initial);
+    if (!this.globalData.initial) this.globalData.initial = true;
+    console.log("------");
+    console.log(this.globalData.initial);
     // E应用初始化
     var that = this;
 
@@ -20,9 +20,17 @@ console.log(this.globalData.initial);
         that.requestGet(that.globalData.apiBaseUrl + "Accounts/SignIn?authCode=" + res.authCode, {}, false)
           .then(function (response) {
             if (response.data != undefined && response.data != null && response.data != "") {
-              if (response.data.indexOf("first") >= 0) that.globalData.first = true;
+              if (response.data.indexOf("Guid:") >= 0) {
+                var guid = response.data.replace("Guid:", "");
+                console.log("guid:" + guid);
+                dd.setStorage({
+                  key: 'userInfo',
+                  data: {
+                    guid: guid
+                  }
+                });
+              }
             }
-            console.log(response)
           }, function (response) {
             console.log(response)
           });
@@ -108,11 +116,11 @@ console.log(this.globalData.initial);
 
 
   globalData: {
-    initial:false,
+    initial: false,
     systemInfo: {},
-    first: false,
+    guid: "",
     rpx: 0.5,
-    // apiBaseUrl: "http://qzgis.vaiwan.com/api/",
+    //apiBaseUrl: "http://qzschy.vaiwan.com/api/",
     apiBaseUrl: "https://www.qzgis.cn/api/",
     resourceUrl: "https://www.qzgis.cn/assets/",
     webUrl: "https://www.qzgis.cn/",
