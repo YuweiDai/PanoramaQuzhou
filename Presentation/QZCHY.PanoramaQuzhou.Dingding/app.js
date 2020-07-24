@@ -11,11 +11,11 @@ App({
     // E应用初始化
     var that = this;
 
-    this.globalData.systemInfo = dd.getSystemInfoSync();
+    this.globalData.systemInfo = my.getSystemInfoSync();
     this.globalData.rpx = 750 / this.globalData.systemInfo.windowWidth;
     console.log(this.globalData.rpx);
 
-    dd.getAuthCode({
+    my.getAuthCode({
       success: function (res) {
         that.requestGet(that.globalData.apiBaseUrl + "Accounts/SignIn?authCode=" + res.authCode, {}, false)
           .then(function (response) {
@@ -23,7 +23,7 @@ App({
               if (response.data.indexOf("Guid:") >= 0) {
                 var guid = response.data.replace("Guid:", "");
                 console.log("guid:" + guid);
-                dd.setStorage({
+                my.setStorage({
                   key: 'userInfo',
                   data: {
                     guid: guid
@@ -57,7 +57,7 @@ App({
     return new Promise(function (resolve, reject) {
 
       console.log("promise");
-      dd.getLocation({
+      my.getLocation({
         success(res) {
           console.log("sucess--res");
           console.log(res.longitude);
@@ -76,9 +76,10 @@ App({
           that.globalData.location.lat = gpsLngLat[1];
           resolve(res);
         },
-        fail() {
+        fail(res) {
           that.globalData.location.initial = false;
           console.log("fail");
+          console.log(res)
           reject(res);
         }
       })
@@ -89,12 +90,12 @@ App({
     var that = this;
     return new Promise(function (resolve, reject) {
       if (showLoading) {
-        dd.showLoading({
+        my.showLoading({
           content: '请求中...'
         });
       }
 
-      dd.httpRequest({
+      my.httpRequest({
         url: url,
         method: 'Get',
         data: data,
@@ -107,7 +108,7 @@ App({
         },
         complete: function (res) {
           if (showLoading) {
-            dd.hideLoading();
+            my.hideLoading();
           }
         }
       });

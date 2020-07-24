@@ -1,4 +1,4 @@
-﻿var k,k1; var temp1, temp2, temp,temp4;
+﻿var k, k1; var temp1, temp2, temp, temp4;
 var temp3 = 1;
 var hotspotData = {};
 var hotspotstring = "";
@@ -26,21 +26,21 @@ embedpano({ swf: "tour.swf", xml: "tours/" + id + "_bq.xml", target: "pano", htm
 var mybody = document.getElementsByTagName('body')[0];
 var h = document.documentElement.clientHeight / 2;
 //var rh = $(".RightBtnContainer_container_2TnlAa").outerHeight();
-var w = document.documentElement.clientWidth/2;
+var w = document.documentElement.clientWidth / 2;
 
 $(".gq_bq").css("left", (w - 100) + "px");
 $(".gq_bq").css("top", (h - 50) + "px");
 //$(".RightBtnContainer_container_2TnlAa").css("top", (h - rh) + "px");
 //加载全景
 var addPanor = function () {
- 
-    
+
+
     $.ajax({
         url: "https://www.qzgis.cn/api/Panoramas/" + id,
         type: "get",
         success: function (response) {
-        
-            if (response.length > 1) { 
+
+            if (response.length > 1) {
                 $("#compare").css("display", "block");
                 sceneName1 = response[0].name;
                 response = response[1];
@@ -51,16 +51,16 @@ var addPanor = function () {
             sceneName = response.name;
             $("#starnum").html(response.stars);
             $("#title").html(sceneName.substring(0, sceneName.length - 8));
-            $("#psrq").html(sceneName.substring(sceneName.length - 8,sceneName.length-4)+"-"+sceneName.substring(sceneName.length-4,sceneName.length-2)+"-"+sceneName.substring(sceneName.length-2));
+            $("#psrq").html(sceneName.substring(sceneName.length - 8, sceneName.length - 4) + "-" + sceneName.substring(sceneName.length - 4, sceneName.length - 2) + "-" + sceneName.substring(sceneName.length - 2));
             k.call("loadscene('" + sceneName + "')");
 
             var w1 = $('#item_title').width() / 2;
             $("#item_title").css("left", (w - w1) + "px");
 
-            $.each(response.hotspots, function (i,data) {
+            $.each(response.hotspots, function (i, data) {
 
                 var spotname = "spot" + i;
-                k.call("addhotspot("+spotname+");");
+                k.call("addhotspot(" + spotname + ");");
                 k.call("set(hotspot[" + spotname + "].url,assets/06.png);");
 
                 k.call("set(hotspot[" + spotname + "].onloaded,do_crop_animation(64,64, 50));");
@@ -68,7 +68,7 @@ var addPanor = function () {
                 k.call("set(hotspot[" + spotname + "].zoom,false);");
                 k.call("set(hotspot[" + spotname + "].ath," + data.ath + ");");
                 k.call("set(hotspot[" + spotname + "].atv," + data.atv + ");");
-            })       
+            })
 
         }
 
@@ -82,7 +82,7 @@ addPanor();
 function loadpano(xmlname, sceneName) {
 
     id = parseInt(xmlname.slice(0, xmlname.length - 7));
-   // k.call("loadxml(" + xmlname + " )");
+    // k.call("loadxml(" + xmlname + " )");
     k.call("loadpano(" + xmlname + ", null);");
     addPanor();
 
@@ -95,7 +95,7 @@ function loadpano(xmlname, sceneName) {
     //        $("#title").html(sceneName.substring(0, sceneName.length - 8));
     //        $("#psrq").html(sceneName.substring(sceneName.length - 8, sceneName.length - 4) + "-" + sceneName.substring(sceneName.length - 4, sceneName.length - 2) + "-" + sceneName.substring(sceneName.length - 2));
     //    }
-       
+
     //    //动态切换xml，xmlname为tour.xml传过来的值 
     //    k.call("loadpano(" + xmlname + ", null, MERGE, BLEND(0.5));"); 
     //    //sceneName为切换后加载的第一个场景
@@ -104,7 +104,7 @@ function loadpano(xmlname, sceneName) {
     //    var w1 = $('#item_title').width() / 2;
     //    $("#item_title").css("left", (w - w1) + "px");
     //} 
-} 
+}
 
 
 //高清标清切换
@@ -115,10 +115,10 @@ $("#div_gq").on('touchstart', function (event) {
     if ($("#div_gq").css("color") != "rgb(255, 0, 0)") {
         $("#div_gq").css("color", "red");
         $("#div_bq").css("color", "white");
-         
-        loadpano(id + "_gq.xml", a+ b+ "_gq");
-       // var scene = k.get("scene[get(xml.scene)].name");
-       // k.call("loadscene('" + sceneName + "')");
+
+        loadpano(id + "_gq.xml", a + b + "_gq");
+        // var scene = k.get("scene[get(xml.scene)].name");
+        // k.call("loadscene('" + sceneName + "')");
     }
     else {
         return;
@@ -131,7 +131,7 @@ $("#div_bq").on('touchstart', function (event) {
     if ($("#div_bq").css("color") == "rgb(255, 255, 255)") {
         $("#div_gq").css("color", "white");
         $("#div_bq").css("color", "red");
-        loadpano(id + "_bq.xml", a+ b);
+        loadpano(id + "_bq.xml", a + b);
     }
     else { return; }
 });
@@ -154,7 +154,7 @@ var play_vr = function () {
     if (temp4 != 1) {
         $("#tly2").css("display", "block");
         $("#tly").css("display", "none");
-        k.set("plugin[gyro].enabled",true);
+        k.set("plugin[gyro].enabled", true);
         temp4 = 1;
     }
     else {
@@ -225,7 +225,7 @@ var toMap = function () {
         console.log(err);
     }
 
-   
+
 
 }
 
@@ -274,7 +274,7 @@ $(".SpeakModal_modal_3hilMN").on('touchstart', function (event) {
 
 //提交说一说
 $("#submitBtn").on('click', function () {
-    
+
     hotspotData.title = $(".SpeakModal_textarea_1j66Du").val();
     k.call("set(hotspot[kk].visible,false);");
     k.call("addhotspot(kkk);");
@@ -284,13 +284,13 @@ $("#submitBtn").on('click', function () {
     k.call("set(hotspot[kkk].tooltip," + hotspotData.title + ");");
     k.call("set(hotspot[kkk].ath," + hotspotData.ath + ");");
     k.call("set(hotspot[kkk].atv," + hotspotData.atv + ");");
-   
+
     $.ajax({
         url: "https://www.qzgis.cn/api/Panoramas/addhotspot",
         data: hotspotData,
         type: "post",
         success: function (response) {
-     
+
             allowDemoRun = false;
             $("#menu").css("display", "block");
         }
@@ -312,7 +312,7 @@ $("#unsubmitBtn").on('click', function () {
 $("#addstar").on('click', function (event) {
     event.stopPropagation();
     if (temp3 == 2) return;
-  
+
     $.ajax({
         url: "https://www.qzgis.cn/api/Panoramas/addStars/" + id,
         type: "put",

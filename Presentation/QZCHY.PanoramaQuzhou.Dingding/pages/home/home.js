@@ -32,21 +32,21 @@ Page({
     var that = this;
     that.loadScenes(0);
 
-    dd.getStorage({
+    my.getStorage({
       key: 'userInfo',
       success: function (res) {
         var guid = res.data.guid;
         app.requestGet(app.globalData.apiBaseUrl + 'Accounts/' + guid, null, false).then(function (response) {
           console.log(response);
           if (response.data == "true") {
-            dd.confirm({
+            my.confirm({
               title: '温馨提示',
               content: '欢迎使用全景衢州，是否查看教程？',
               confirmButtonText: '马上去看',
               cancelButtonText: '暂不需要',
               success: (result) => {
                 if (result.confirm) {
-                  dd.navigateTo({
+                  my.navigateTo({
                     url: '../introduction/introduction'
                   })
                 }
@@ -142,7 +142,7 @@ Page({
   },
   navToPano: function (event) {
     var that = this;
-    dd.navigateTo({
+    my.navigateTo({
       url: that.data.currentPano.navToUrl
     })
   },
@@ -151,7 +151,7 @@ Page({
     var that = this;
     app.setLocation().then(function () {
 
-      dd.switchTab({
+      my.switchTab({
         url: that.data.mapUrl
       })
     }, function () { });

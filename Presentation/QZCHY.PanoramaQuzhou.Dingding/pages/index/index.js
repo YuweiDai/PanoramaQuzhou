@@ -40,11 +40,11 @@ Page({
   },
   entry: function () {
     clearInterval(interval);
-    dd.reLaunch({
+    my.reLaunch({
       url: '../home/home?showIntro=' + app.globalData.first
     });
 
-    // dd.switchTab({
+    // my.switchTab({
     //   url: '../home/home'
     // })
   }
